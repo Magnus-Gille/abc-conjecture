@@ -1,8 +1,9 @@
 # abc-conjecture — a two-AI-agent mathematics experiment
 
-On 2026-07-25, two AI coding agents — **claude** (Anthropic Claude Fable 5,
-via Claude Code) and **codex** (OpenAI Codex, GPT-5-based) — were given a
-shared folder, a prior failed proof attempt, and one instruction:
+On 2026-07-25, two AI coding agents — **claude** (Anthropic Claude Fable 5
+and, for the final PR gate, Opus 5, via Claude Code) and **codex** (OpenAI
+Codex, GPT-5-based) — were given a shared folder, a prior failed proof
+attempt, and one instruction:
 
 > *Prove or disprove the abc conjecture. Coordinate, discuss and work with
 > the second agent until (a) it is proven, (b) it is disproven, or (c) you
@@ -22,7 +23,7 @@ of it.
 2. Along the way the collaboration produced small rigorous results, and the
    strongest one became a real manuscript:
    **“Radicals in iterated quadratic abc-transfers”**
-   ([`paper/main-v2.tex`](paper/main-v2.tex) — the frozen, dual-approved
+   ([`paper/main-v5.tex`](paper/main-v5.tex) — the current reference-audited
    PDF is in `output/pdf/`).
 
 ## The paper (Phase 2)
@@ -53,15 +54,27 @@ statements); every closer ingredient found by two independent literature
 sweeps is credited in the paper, from Oesterlé 1988 and two MathOverflow
 answers to a 2023 M.Sc. thesis and a 2025 Hajdu–Tijdeman theorem.
 
-**Frozen, dual-approved artifacts** (see `output/SHA256SUMS`):
+**Current frozen artifacts** (see `output/SHA256SUMS`):
 
 | Artifact | SHA-256 |
 |---|---|
-| `paper/main-v2.tex` | `a42b5458fa94dad482be1db199d9b0d9d81fa2a6e31e19e752c1c51f6a14b9e0` |
-| `output/pdf/radicals-in-iterated-quadratic-abc-transfers.pdf` | `1a6c0b77f43a5a7e1a2e86c03ef5bd50413351231c2bd6c0e24db1d587eaa53f` |
+| `paper/main-v5.tex` | `a94309b910edb8791ec754fd2da1f013588527d8b50b7efb3080e05c89182c6c` |
+| `output/pdf/radicals-in-iterated-quadratic-abc-transfers.pdf` | `7f76868650d478a08d5633b5e37dd99042a75f0bc66d07a6435ca6460e014ec7` |
 
-**Status:** approved as publication-ready by both agents (mailbox `0053`,
-`0054`), **pending human validation** — see
+**Status:** Phase 2 was approved by both agents, but a later full reference
+audit suspended those exact-hash signatures. Version 3 attempted to close
+every audit item from primary sources or an explicit fallback. At Magnus's
+direction, the final v3 pass is Codex-only (`mailbox/0062-codex.md`); it
+does not claim a renewed Claude countersignature. A later Opus 5 review of
+PR #1 requested changes (`mailbox/0063-claude.md`) because the retained
+unpublished Ohana--Spicer--Stein source lacked the promised stable archive. Version 4
+uses the pre-agreed inline-derivation fallback, displays Stewart's inequality,
+governs every tracked PDF, and corrects the review disclosures. A second
+Opus 5 pass found stale handoff/checklist wording and several adjacent
+consistency issues (`mailbox/0065-claude.md`). Version 5 resolves all of
+them and received final exact-hash Opus 5 approval
+(`mailbox/0067-claude.md`). The manuscript remains
+**pending human validation** — see
 `paper/HUMAN_VALIDATION_CHECKLIST.md`. Target venue: *Mathematika*
 (the LMS AI policy, updated June 2026, expressly permits declared AI use
 with full human responsibility), with an arXiv `math.NT` preprint first.
@@ -115,7 +128,7 @@ includes an exact-versus-modular self-check.
 
 Build the paper (e.g. with [tectonic](https://tectonic-typesetting.github.io)):
 
-    tectonic paper/main-v2.tex
+    tectonic paper/main-v5.tex
 
 ## Repository layout
 

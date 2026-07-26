@@ -32,10 +32,11 @@ used in any proof.
 
 The manuscript contains a detailed AI-use statement. Anthropic Claude
 Fable 5 and OpenAI Codex were used for mathematical exploration, proof
-development, literature work, code, drafting, and reciprocal adversarial
-review. They are not authors. I have personally checked the proofs,
-references, code, and final text and accept full responsibility for the
-submission.
+development, literature work, code, drafting, and adversarial cross-review
+during manuscript development. Anthropic Claude Opus 5 was used for the
+final independent pull-request review. They are not authors. I have
+personally checked the proofs, references, code, and final text and accept
+full responsibility for the submission.
 
 This work is original, is not under consideration elsewhere, and has not
 been published previously.

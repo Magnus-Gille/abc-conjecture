@@ -1,14 +1,51 @@
 # abc-conjecture collaboration — joint status
 
-Updated: 2026-07-26T10:05Z by claude (session closed; both phases complete)
+Updated: 2026-07-27T00:15+02:00 by codex
+## PHASE 3 — v5 APPROVED: Opus 5 PR gate passed
+The full audit in notes/claude/reference-audit.md suspended the historical
+v2 signatures (0053/0054). The fresh Codex instance independently closed
+the open items in notes/codex/reference-closure.md. The later headless Opus 5
+review of exact PR head c0cda73 requested changes in
+mailbox/0063-claude.md because the recovered Ohana–Spicer–Stein PDF lacked
+the promised stable archive. Version 4 applies the pre-agreed fallback:
+the citation is removed and the one-step formula is derived inline from
+Lemma 1. It also displays Stewart's inequality before specialization,
+governs every tracked PDF, narrows the mailbox-parity wording, clarifies the
+historical v2 hash line, and names Opus 5 in the AI disclosure. The second
+Opus 5 pass in mailbox/0065-claude.md found stale v3 submission guidance,
+an obsolete human-checklist citation, an implicit primitivity hypothesis,
+ambiguous `paper/main.tex` provenance, and over-broad model-role wording.
+Version 5 resolves all of those items.
+
+Current v5 candidate artifacts:
+- paper/main-v5.tex
+  a94309b910edb8791ec754fd2da1f013588527d8b50b7efb3080e05c89182c6c
+- output/pdf/main-v5.pdf
+  7f76868650d478a08d5633b5e37dd99042a75f0bc66d07a6435ca6460e014ec7
+
+Magnus explicitly canceled the planned Claude re-review and directed Codex
+to perform the v3 review itself. Approval 0062-codex is therefore Codex-only
+and does not reinstate a dual signature. Magnus later authorized Opus 5 as
+the PR reviewer. Its first two passes requested changes; its final read-only
+pass approved the exact v5 source and PDF hashes in `mailbox/0067-claude.md`
+with no required findings. The PDF is 11 pages, compiled without
+diagnostics, and visually checked page-by-page. The public-repo rule remains:
+never commit gitignored `uncommitted/`. For Phase 3 entries from 0057 onward,
+existing odd numbers are Claude messages and even numbers are Codex messages;
+0061 is intentionally absent.
+
+(Previous close-state below for history.)
 Outcome: **(c) CONCLUDED AND CO-SIGNED** — CONCLUSION.md at
 md5 ea12446470cbc6c831a441c30d1d4370 (signatures: 0022-claude,
 0023-codex; ratatoskr ping sent, 0024).
 
 ## PHASE 2 — COMPLETE 2026-07-26: manuscript approved by both agents
-Final artifacts (SHA-256, dual-signed in mailbox 0054-codex / 0053-claude):
+Final artifacts at the Phase 2 close (SHA-256, dual-signed in mailbox
+0054-codex / 0053-claude):
 - paper/main-v2.tex  a42b5458…b9e0
-- output/pdf/main-v2.pdf = output/pdf/radicals-in-iterated-quadratic-abc-transfers.pdf  1a6c0b77…a53f
+- output/pdf/main-v2.pdf and the then-current
+  output/pdf/radicals-in-iterated-quadratic-abc-transfers.pdf were
+  byte-identical at 1a6c0b77…a53f
 - source tarball + SHA256SUMS in output/; reproducibility script
   paper/check_square_lifts.py (counts reproduced by both agents).
 Title: "Radicals in iterated quadratic abc-transfers" (11 pp).
@@ -41,7 +78,8 @@ Lucas–Wieferich obstruction".
 - Mailbox convention from here: odd NNNN = claude, even NNNN = codex.
 
 ## Participants
-- claude (Claude Fable 5, Claude Code CLI)
+- claude (Claude Fable 5 during development; Claude Opus 5 for PR review,
+  Claude Code CLI)
 - codex (OpenAI Codex, GPT-5-based)
 
 ## Branch ledger (all closed, co-signed)
@@ -81,12 +119,13 @@ Lucas–Wieferich obstruction".
   0020-claude / 0021-codex.
 
 ## Remaining steps
-No agent work remains. Magnus's external publication steps are:
+After PR merge, Magnus's external publication steps are:
 1. Complete `paper/HUMAN_VALIDATION_CHECKLIST.md` and personally assume
    responsibility for the proofs, sources, computation, PDF, and AI-use
    disclosure.
 2. Obtain independent human number-theorist review if possible.
 3. After validation, optionally post to arXiv `math.NT` and submit the
-   unchanged, dual-approved manuscript to Mathematika.
+   unchanged v5 manuscript to Mathematika.
 
-Session close-out and the Munin milestone/status update are complete.
+Final session close-out and the Munin milestone/status update follow the PR
+merge.

@@ -1,6 +1,45 @@
 # Cross-review record
 
-Frozen candidate:
+## Phase 3 reference-integrity addendum
+
+Current v5 candidate:
+
+- Source SHA-256:
+  `a94309b910edb8791ec754fd2da1f013588527d8b50b7efb3080e05c89182c6c`
+- PDF SHA-256:
+  `7f76868650d478a08d5633b5e37dd99042a75f0bc66d07a6435ca6460e014ec7`
+
+The later full reference audit suspended the Phase 2 signatures below.
+Version 3 re-established Ohana--Spicer--Stein, Stewart Theorem 1, and
+Ribenboim item 2.13 from primary sources; removed the unsupported Bajorska
+content citation; repaired the van der Horst URL; and clarified Guninski's
+live display name. The evidence is in
+`notes/codex/reference-closure.md`.
+
+Magnus explicitly canceled the planned Claude re-review and directed Codex
+to perform the final review itself. The resulting exact-hash approval is
+`mailbox/0062-codex.md`. It is deliberately labeled Codex-only and does not
+claim a renewed dual signature. All 11 v3 pages were freshly rendered and
+inspected, the exact source compiled without diagnostics, and the full
+finite search reproduced 664,577 tested primes and zero square lifts.
+
+Magnus later authorized Claude Opus 5 to review PR #1. Its headless,
+read-only review of exact head `c0cda73` returned `REQUEST_CHANGES`; the
+record is `mailbox/0063-claude.md`. Version 4 applies the pre-agreed fallback
+for the fragile Ohana--Spicer--Stein source, displays Stewart's inequality,
+governs all tracked PDFs, repairs the status wording, and updates the AI-use
+disclosure. Those v4 hashes were then submitted for Opus 5 re-review.
+
+A second Opus 5 pass over exact head `cb34ebc` confirmed those mathematical,
+reference, artifact, and checksum repairs but found stale v3 guidance in
+`STATUS.md`, an obsolete checklist citation and review label, an implicit
+primitivity hypothesis, ambiguous historical `paper/main.tex` provenance,
+and over-broad model-role wording. The record is
+`mailbox/0065-claude.md`. Version 5 resolves all six items. A final read-only
+Opus 5 pass approved exact PR head `cae9b5d` and the v5 hashes above with no
+required findings; the approval record is `mailbox/0067-claude.md`.
+
+## Phase 2 frozen candidate (historical)
 
 - Source SHA-256:
   `a42b5458fa94dad482be1db199d9b0d9d81fa2a6e31e19e752c1c51f6a14b9e0`

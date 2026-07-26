@@ -1,0 +1,865 @@
+\documentclass[11pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}
+\usepackage{booktabs}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\rad}{\operatorname{rad}}
+\newcommand{\cosoc}{\operatorname{cosoc}}
+\newcommand{\ord}{\operatorname{ord}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\OK}{\mathcal{O}_K}
+
+\title{Radicals in iterated quadratic \(abc\)-transfers}
+\author{Magnus Gille\\Independent researcher}
+\date{July 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Let \((a_0,b_0,c_0)\) be a primitive positive triple with
+\(a_0+b_0=c_0\), where \(a_0,b_0\) have opposite parity, and iterate the
+classical quadratic transfer
+\[
+ (a,b,a+b)\longmapsto\bigl(4ab,(a-b)^2,(a+b)^2\bigr).
+\]
+Writing \(d_j=a_j-b_j\), \(R_n=\rad(a_nb_nc_n)\), and
+\[
+ W_n=\prod_{j<n}\frac{|d_j|}{\rad(|d_j|)},
+\]
+we prove an exact radical identity.  If
+\(\cos\theta=(b_0-a_0)/c_0\), then
+\[
+ \frac{R_n}{c_n}
+ =\frac{R_0}{c_0}\,
+   \frac{|\sin(2^n\theta)|}
+        {2^n\sin\theta\,W_n}.
+\]
+One explicit Baker--Wüstholz estimate gives
+\[
+ \log(c_n/R_n)=\log W_n+\Theta_{a_0,b_0}(n),
+ \qquad \log c_n=2^n\log c_0.
+\]
+Thus every such orbit eventually consists of \(abc\)-hits, while a fixed
+asymptotic quality gap is equivalent to positive-power growth of \(W_n\).
+The orbit is also a dyadic subfamily of known negative-discriminant
+Lucas \(abc\)-triples.  Our orbit-adapted argument recovers along dyadic
+indices an archimedean limit already implied by general all-index Lucas
+estimates.  For the seed \((1,8,9)\),
+\[
+ |d_j|=\frac12\bigl|V_{2^{j+1}}(2,9)\bigr|.
+\]
+Standard Lucas
+valuation theory turns \(W_n\) into an aggregate of Lucas--Wieferich
+contributions.  A reproducible search found no square prime divisor for
+\(p\leq10^7\) and \(0\leq j\leq50\); the computation is not used in the
+proofs.
+\end{abstract}
+
+\noindent\textit{2020 Mathematics Subject Classification.}
+Primary 11B39; Secondary 11D75, 11J86, 11Y55.
+
+\smallskip
+\noindent\textit{Keywords.}
+\(abc\) conjecture, radical, Lucas sequence, Chebyshev polynomial,
+linear forms in logarithms, Wieferich prime.
+
+\section{Introduction}
+
+For a positive integer \(m\), write
+\(\rad(m)=\prod_{p\mid m}p\).  A primitive triple of positive integers
+\((a,b,c)\) with \(a+b=c\) is called an \(abc\)-hit if
+\(\rad(abc)<c\).  Its quality is
+\[
+ q(a,b,c)=\frac{\log c}{\log\rad(abc)}.
+\]
+The \(abc\) conjecture predicts that, for every \(\varepsilon>0\), only
+finitely many such triples have \(q(a,b,c)>1+\varepsilon\); see
+Granville and Tucker~\cite{GranvilleTucker2002} for an introduction.
+
+The identity
+\[
+ 4ab+(a-b)^2=(a+b)^2                                      \tag{1.1}
+\]
+is a classical polynomial transfer for \(abc\)-triples.  It appears in
+Oesterl\'e's discussion of the \(abc\)--Szpiro connection
+\cite[p.~170]{Oesterle1988} and in the catalogue of Martin and
+Miao~\cite[\S2.4]{MartinMiao2016}; see also
+van der Horst~\cite[\S2.3]{vanderHorst2010}.  Iterating this exact
+transfer to obtain infinitely many hits, together with one-step quality
+control, was described by Holszty\'nski~\cite{Holsztynski2017} and
+Guninski~\cite{Guninski2020}.  Thus neither the transfer nor its
+iteration is new.  For odd \(c\), Ohana, Spicer, and
+Stein~\cite[Prop.~1]{OhanaSpicerStein2013} also record the exact
+one-step formula
+\[
+ \rad\bigl((b-a)^2(4ab)c^2\bigr)
+ =\rad(|b-a|)\rad(abc).
+\]
+Martin and Miao~\cite[\S3.1]{MartinMiao2016} iterate a different
+transfer and obtain one-sided radical and quality bounds.
+Classical families already include
+\((1,9^k-1,9^k)\)~\cite{AlvarezEtAl2023}, so neither the growth law
+\(c_{n+1}=c_n^2\) nor the mere production of infinitely many hits is a
+novelty claim here.
+
+Our purpose is quantitative.  We first prove an exact disjoint
+prime-support factorization along the whole orbit.  It separates the
+radical loss into an archimedean product of Chebyshev values and a
+nonarchimedean product \(W_n\) containing every repeated prime factor.
+The first product telescopes to one sine value.  A single linear-form
+estimate then bounds its logarithm above and below on the linear scale
+\(n\), exponentially smaller than \(\log c_n\).  This gives an exact
+radical identity, effective two-sided control, and a two-way equivalence
+between the asymptotic \(abc\)-quality of the orbit and aggregate
+repeated-prime growth.
+
+These orbits also sit inside a Lucas-sequence construction already
+studied by Bolvardizadeh~\cite[Ch.~2]{Bolvardizadeh2023}.  Her treatment
+of quality assumes positive discriminant, and her list of future
+directions isolates a missing archimedean limit when the discriminant is
+negative~\cite[pp.~63--64]{Bolvardizadeh2023}.  We identify our orbit as
+a constrained dyadic subfamily of that negative-discriminant setting and
+give a direct, seed-specific estimate along dyadic indices.  The later
+general theorem of Hajdu and Tijdeman~\cite[Theorem~2.1 and
+Remark~1]{HajduTijdeman2025} gives non-real Lucas growth estimates for
+all indices, and therefore also implies this limit in greater
+generality.  Our linear-form argument is included because it is shorter
+in the fixed-seed orbit and interfaces directly with the radical
+identity.  Related dyadic Lucas factorizations and square-free kernels
+were studied by Ribenboim~\cite{Ribenboim2002}.
+
+For the illustrative seed \((1,8,9)\), the nonarchimedean terms belong
+to the known sequence
+\[
+ 3^mT_m(1/3)=\frac12V_m(2,9),
+\]
+whose terms and Chebyshev--Lucas description are recorded as OEIS
+A025172~\cite{OEIS-A025172}.  Pairwise coprimality at dyadic indices,
+rank congruences, and the individual Lucas--Wieferich criterion are
+standard consequences of Lucas-sequence
+theory~\cite{Ribenboim2001,Sun2013}.  The orbit identity, its telescoped
+effective estimate, and the resulting aggregate quality equivalence are
+the contribution of this note.  A bounded search of the mathematical
+literature and citation trails through July 26, 2026 found no earlier
+source containing these whole-orbit statements; this is not a claim that
+the search was exhaustive.
+
+The conclusions do not prove or disprove the \(abc\) conjecture.
+
+\section{A general quadratic orbit}
+
+Let
+\[
+ 0<a_0<b_0,\qquad a_0+b_0=c_0,\qquad \gcd(a_0,b_0)=1,
+                                                               \tag{2.1}
+\]
+and suppose that \(a_0,b_0\) have opposite parity.  This ordering loses
+no generality because the transfer is symmetric in \(a_0,b_0\).  Define
+\[
+ (a_{n+1},b_{n+1},c_{n+1})
+   =\bigl(4a_nb_n,(a_n-b_n)^2,c_n^2\bigr),\qquad
+ d_n=a_n-b_n.                                             \tag{2.2}
+\]
+Identity (1.1) gives \(a_n+b_n=c_n\), and
+\[
+ c_n=c_0^{2^n},\qquad d_{n+1}=c_n^2-2d_n^2.               \tag{2.3}
+\]
+
+\begin{lemma}[Prime supports]\label{lem:support}
+Every triple in (2.2) is primitive.  The integers \(d_j\) are odd,
+pairwise coprime, and coprime to \(a_0b_0c_0\).  Consequently, if
+\(R_n=\rad(a_nb_nc_n)\), then
+\[
+ R_n=R_0\prod_{j=0}^{n-1}\rad(|d_j|).                     \tag{2.4}
+\]
+\end{lemma}
+
+\begin{proof}
+Opposite parity is preserved by (2.2), so \(c_n,d_n\) are odd.  At the
+seed,
+\(\gcd(c_0,d_0)=\gcd(a_0+b_0,a_0-b_0)=1\), since this gcd divides
+\(2\gcd(a_0,b_0)\) and both arguments are odd.  If
+\(\gcd(c_n,d_n)=1\), then
+\[
+ \gcd(c_{n+1},d_{n+1})
+ =\gcd(c_n^2,c_n^2-2d_n^2)
+ =\gcd(c_n^2,2d_n^2)=1,
+\]
+because \(c_n\) is odd.  Thus \(\gcd(c_n,d_n)=1\) for every \(n\).
+Any common divisor of \(a_n,b_n\) divides both \(c_n\) and \(d_n\), so
+every triple is primitive.
+
+We first exclude the primes of the seed.  Let \(p\) be an odd prime.
+If \(p\mid c_0\), then \(p\mid c_k\) for every \(k\), whereas
+\(p\nmid d_0\); (2.3) shows inductively that \(p\nmid d_k\).  If
+\(p\mid a_0\), then \(d_0\equiv-c_0\pmod p\), and the congruence
+\(d_k\equiv-c_k\pmod p\) propagates under (2.3).  If \(p\mid b_0\),
+then \(d_0\equiv c_0\pmod p\), after which
+\(d_1\equiv-c_1\pmod p\) and the same invariant propagates.  Thus no
+prime of \(a_0b_0c_0\) divides a \(d_j\).
+
+If \(p\mid d_m\), then \(p\nmid c_m\), and (2.3) gives
+\[
+ d_{m+1}\equiv c_{m+1}\pmod p,\qquad
+ d_{m+2}\equiv-c_{m+2}\pmod p.
+\]
+The latter congruence persists, so \(p\) divides no later \(d_k\).
+This proves pairwise coprimality.
+
+For \(n\geq1\), \(b_n=d_{n-1}^2\), while induction in (2.2) shows that
+the prime support of \(a_n\) is the support of \(a_0b_0\), together
+with the supports of \(d_0,\ldots,d_{n-2}\).  All these supports and
+the support of \(c_0\) are disjoint.  Equation (2.4) follows.
+\end{proof}
+
+Set
+\[
+ x_0=\frac{b_0-a_0}{c_0}=\cos\theta,\qquad
+ 0<\theta<\frac{\pi}{2}.
+\]
+Normalizing (2.3) gives
+\[
+ -\frac{d_n}{c_n}=T_{2^n}(x_0)=\cos(2^n\theta).            \tag{2.5}
+\]
+The complex number
+\[
+ z=e^{i\theta}
+   =\frac{b_0-a_0+2\sqrt{-a_0b_0}}{c_0}                  \tag{2.6}
+\]
+is not a root of unity.  Indeed, if it were, then
+\(z+z^{-1}=2(b_0-a_0)/c_0\) would be a rational algebraic integer.
+Since \(\gcd(c_0,b_0-a_0)=1\) and \(c_0\) is odd and greater than \(1\),
+this is impossible.  In particular, none of the sine or cosine values
+used below vanishes.
+
+Define
+\[
+ t_j=\frac{|d_j|}{c_j}=|\cos(2^j\theta)|,\qquad
+ W_n=\prod_{j=0}^{n-1}\cosoc(|d_j|),\qquad
+ \cosoc(m)=\frac{m}{\rad(m)}.                             \tag{2.7}
+\]
+
+\begin{theorem}[Exact orbit identity]\label{thm:exact}
+For every \(n\geq0\),
+\[
+ \boxed{\quad
+ \frac{R_n}{c_n}
+ =\frac{R_0}{c_0}\,
+   \frac{|\sin(2^n\theta)|}
+        {2^n\sin\theta\,W_n}.
+ \quad}                                                    \tag{2.8}
+\]
+Consequently,
+\[
+ \frac{c_n}{R_n}
+ \geq\frac{2^{n+1}\sqrt{a_0b_0}}{R_0}
+ =\frac{2\sqrt{a_0b_0}}{R_0\log c_0}\log c_n.             \tag{2.9}
+\]
+Thus every orbit satisfying (2.1) eventually consists of \(abc\)-hits.
+If the seed is already a hit, then every member of the orbit is a hit.
+\end{theorem}
+
+\begin{proof}
+Since
+\[
+ \prod_{j<n}c_j=c_0^{2^n-1}=\frac{c_n}{c_0},
+\]
+equations (2.4) and (2.7) first give
+\[
+ \frac{R_n}{c_n}
+ =\frac{R_0}{c_0}\frac{\prod_{j<n}t_j}{W_n}.              \tag{2.10}
+\]
+Iterating \(\sin(2x)=2\sin x\cos x\) gives the exact telescope
+\[
+ \prod_{j=0}^{n-1}|\cos(2^j\theta)|
+ =\frac{|\sin(2^n\theta)|}{2^n\sin\theta},                \tag{2.11}
+\]
+which proves (2.8).  Now use \(W_n\geq1\),
+\(|\sin(2^n\theta)|\leq1\), and
+\(\sin\theta=2\sqrt{a_0b_0}/c_0\) to obtain (2.9).
+If \(R_0<c_0\), (2.10) and \(0<t_j<1\) prove the final assertion.
+\end{proof}
+
+\begin{remark}
+The lower bound (2.9) has order only \(\log c_n\).  Much larger
+unconditional excesses \(c/\rad(abc)\) are known in specially designed
+families.  In particular, Bright~\cite{Bright2024} proves that
+\[
+ c>\rad(abc)\exp\left(
+  \frac{6.563\sqrt{\log c}}{\log\log c}\right)
+\]
+for infinitely many primitive triples; see also
+\cite{GranvilleTucker2002,AlvarezEtAl2023}.  The point of (2.8) is its
+exactness and its validity for every primitive opposite-parity seed.
+\end{remark}
+
+\section{Effective archimedean control and quality}
+
+We record a completely effective estimate for the only oscillating factor
+in (2.8).  Let
+\[
+ C_{\mathrm{BW}}
+ =18\cdot3!\cdot2^3\cdot64^4\log8,\qquad
+ H_0=\max\left\{\frac12\log c_0,\frac{\theta}{2},\frac12\right\},
+\qquad
+ \kappa=C_{\mathrm{BW}}H_0\frac{\pi}{2}.                  \tag{3.1}
+\]
+
+\begin{theorem}[One-shot Baker estimate]\label{thm:baker}
+For \(n\geq2\),
+\[
+ |\sin(2^n\theta)|>\frac{2}{\pi}\,2^{-\kappa(n+1)}.        \tag{3.2}
+\]
+If
+\[
+ F_n=\log\frac{c_n}{R_n}-\log W_n,\qquad
+ C_0=\log\frac{c_0}{R_0}+\log\sin\theta,
+\]
+then the lower bound below holds for every \(n\geq0\), and the upper
+bound holds for \(n\geq2\):
+\[
+ C_0+n\log2
+ \leq F_n
+ <C_0+\log\frac{\pi}{2}+\kappa\log2
+      +(1+\kappa)n\log2.                                  \tag{3.3}
+\]
+In particular,
+\[
+ \log\frac{c_n}{R_n}=\log W_n+\Theta_{a_0,b_0}(n).        \tag{3.4}
+\]
+\end{theorem}
+
+\begin{proof}
+Put \(N=2^n\), choose an integer \(k\) nearest to \(N\theta/\pi\), and
+take the principal logarithms \(\log z=i\theta\) and
+\(\log(-1)=i\pi\).  Then
+\[
+ \Lambda_N=N\log z-k\log(-1)
+           =i(N\theta-k\pi),\qquad |\Lambda_N|\leq\pi/2.  \tag{3.5}
+\]
+The form is nonzero because \(z\) is not a root of unity.  Moreover
+\(|k|\leq N\).
+
+We apply the explicit linear-form estimate of Baker and
+Wüstholz~\cite[Theorem~1]{BakerWustholz1993}.  The field
+\(\QQ(z,-1)=\QQ(\sqrt{-a_0b_0})\) has degree \(D=2\).  The primitive
+minimal polynomial
+\[
+ c_0X^2-2(b_0-a_0)X+c_0
+\]
+has both roots on the unit circle, so \(h(z)=\frac12\log c_0\).
+The modified heights in the theorem may therefore be taken as \(H_0\)
+and \(\pi/2\).  For \(n\geq2\), take the strict coefficient bound
+\(B=2N\geq8\).
+The theorem gives
+\[
+ \log|\Lambda_N|>-\kappa\log(2N).                         \tag{3.6}
+\]
+Since
+\[
+ |\sin(N\theta)|
+ =|\sin(N\theta-k\pi)|
+ \geq\frac{2}{\pi}|\Lambda_N|,
+\]
+equation (3.2) follows.  Finally, taking logarithms in (2.8) gives the
+exact expression
+\[
+ F_n=C_0+n\log2-\log|\sin(2^n\theta)|.                    \tag{3.7}
+\]
+The inequalities \(0<|\sin(2^n\theta)|\leq1\) and (3.2) give (3.3).
+\end{proof}
+
+\begin{corollary}[Quality criterion]\label{cor:quality}
+Put \(q_n=\log c_n/\log R_n\).  Then
+\[
+ q_n\longrightarrow1
+ \quad\Longleftrightarrow\quad
+ \log W_n=o(\log c_n),                                    \tag{3.8}
+\]
+and
+\[
+ \limsup_{n\to\infty}(q_n-1)>0
+ \quad\Longleftrightarrow\quad
+ \limsup_{n\to\infty}\frac{\log W_n}{\log c_n}>0.          \tag{3.9}
+\]
+For every fixed \(\delta>0\), the exact threshold is
+\[
+ q_n\geq1+\delta
+ \quad\Longleftrightarrow\quad
+ \log W_n+F_n\geq
+ \frac{\delta}{1+\delta}\log c_n.                         \tag{3.10}
+\]
+\end{corollary}
+
+\begin{proof}
+By (2.9), \(R_n<c_n\) for all sufficiently large \(n\).  Write
+\(\Delta_n=\log(c_n/R_n)=\log W_n+F_n\).  Since
+\(\log c_n=2^n\log c_0\), Theorem~\ref{thm:baker} gives
+\(F_n=o(\log c_n)\).  Now
+\[
+ q_n-1=\frac{\Delta_n}{\log R_n},
+\]
+which proves (3.8)--(3.9).  Rearranging this identity gives (3.10).
+\end{proof}
+
+\begin{proposition}[General Lucas form]\label{prop:general-lucas}
+For the Lucas \(V\)-sequence with parameters
+\[
+ P=2(b_0-a_0),\qquad Q=c_0^2,
+\]
+which satisfy \(\gcd(P,Q)=1\), one has
+\[
+ d_j=-\frac12V_{2^j}(P,Q).                                \tag{3.11}
+\]
+\end{proposition}
+
+\begin{proof}
+Because \(c_0\) is odd and \(\gcd(c_0,b_0-a_0)=1\), the parameters are
+coprime.
+The two roots of \(X^2-PX+Q\) are
+\(\gamma=b_0-a_0+2\sqrt{-a_0b_0}\) and its conjugate.  Thus
+\[
+ \frac12V_m(P,Q)=c_0^mT_m\left(\frac{b_0-a_0}{c_0}\right).
+\]
+Take \(m=2^j\) and compare with (2.5).
+\end{proof}
+
+\begin{corollary}[Dyadic negative-discriminant triples]
+\label{cor:negative-discriminant}
+Let \(U_m=U_m(P,Q)\) be the companion sequence to the \(V\)-sequence
+above, and put
+\[
+ D=P^2-4Q=-16a_0b_0.
+\]
+For \(m=2^n\),
+\[
+ (a_{n+1},b_{n+1},c_{n+1})
+ =\left(\frac{|D|U_m^2}{4},\frac{V_m^2}{4},Q^m\right).
+                                                               \tag{3.12}
+\]
+Moreover,
+\[
+ \lim_{n\to\infty}
+ \frac{\log|U_{2^n}^2|}{\log Q^{2^n}}=1.                 \tag{3.13}
+\]
+\end{corollary}
+
+\begin{proof}
+The roots in the proof of Proposition~\ref{prop:general-lucas} are
+\(\gamma=c_0e^{i\theta}\) and \(\bar\gamma=c_0e^{-i\theta}\).  Hence
+\[
+ U_m=\frac{c_0^m\sin(m\theta)}{2\sqrt{a_0b_0}}.
+\]
+For \(m=2^n\), equations (2.3) and (2.5) give
+\[
+ a_nb_n=\frac{c_n^2-d_n^2}{4}=a_0b_0U_m^2.
+\]
+Together with \(V_m/2=-d_n\), this proves (3.12).  Also,
+\[
+ \log|U_m^2|
+ =\log Q^m+2\log|\sin(m\theta)|-\log(4a_0b_0).
+\]
+Theorem~\ref{thm:baker} makes the last two terms \(O(n)\), while
+\(\log Q^{2^n}=2^{n+1}\log c_0\), proving (3.13).
+\end{proof}
+
+\begin{remark}
+For \(n\geq1\), both \(U_{2^n}\) and \(V_{2^n}\) are even, so (3.12) is
+the normalized \(1/4\)-case of the Lucas \(abc\)-triples in
+\cite[\S2.2]{Bolvardizadeh2023}.  Bolvardizadeh later singled out the
+limit (3.13) as an obstacle for negative discriminants.  Hajdu and
+Tijdeman's subsequent all-index growth theorem
+\cite[Theorem~2.1]{HajduTijdeman2025} implies that limit for every
+nondegenerate non-real Lucas sequence.  The proof above is retained only
+as a short dyadic derivation which exposes the same sine factor appearing
+in (2.8); no all-index novelty is claimed.  Neither estimate by itself
+proves an unconditional quality limit.
+\end{remark}
+
+\section{The orbit of (1,8,9)}
+
+We now specialize to
+\[
+ (a_0,b_0,c_0)=(1,8,9),\qquad
+ \theta=\arccos(7/9).
+\]
+The first triples are
+\[
+ (1,8,9),\quad(32,49,81),\quad(6272,289,6561).
+\]
+Since \(R_0=6\) and \(\sin\theta=4\sqrt2/9\), (2.8) becomes
+\[
+ \boxed{\quad
+ \frac{R_n}{c_n}
+ =\frac{3\,|\sin(2^n\theta)|}
+        {2^{n+1}\sqrt2\,W_n}.
+ \quad}                                                    \tag{4.1}
+\]
+
+There is a smaller-parameter Lucas description in this case.  Let
+\[
+ A_m=3^mT_m(1/3)=\frac12V_m(2,9).
+\]
+The composition identity for Chebyshev polynomials and
+\(T_2(1/3)=-7/9\) give
+\[
+ |d_j|=|A_{2^{j+1}}|
+      =\frac12\bigl|V_{2^{j+1}}(2,9)\bigr|.                \tag{4.2}
+\]
+As noted in the introduction, this sequence identity is prior art
+\cite{OEIS-A025172}.
+
+\subsection{Exact Lucas--Wieferich contributions}
+
+Let \(U_m=U_m(2,9)\), and put
+\[
+ \alpha=1+2\sqrt{-2},\qquad
+ \beta=1-2\sqrt{-2},\qquad u=\alpha/\beta.
+\]
+Then
+\[
+ U_m=\frac{\alpha^m-\beta^m}{\alpha-\beta},\qquad
+ V_m=\alpha^m+\beta^m.
+\]
+
+\begin{proposition}[Rank and valuation]\label{prop:valuation}
+Suppose that \(p\mid d_j\), put \(m=2^{j+1}\), and let
+\(\chi_p=\left(\frac{-2}{p}\right)\).  Then \(p\nmid6\).  For a prime
+\(\mathfrak p\mid p\), write \(\widetilde u\) for the image of \(u\) in
+\((\OK/\mathfrak p)^\times\).  Then
+\[
+ \ord_{(\OK/\mathfrak p)^\times}(\widetilde u)=2m=2^{j+2}
+ \quad\text{for every prime }\mathfrak p\mid p
+ \text{ in }\QQ(\sqrt{-2}).                               \tag{4.3}
+\]
+Consequently,
+\[
+ 2^{j+2}\mid p-\chi_p.                                    \tag{4.4}
+\]
+Moreover,
+\[
+ v_p(d_j)=v_p\bigl(U_{p-\chi_p}(2,9)\bigr).                \tag{4.5}
+\]
+In particular, \(p^2\mid d_j\) if and only if \(p\) is a
+Lucas--Wieferich prime for \(U(2,9)\).
+\end{proposition}
+
+\begin{proof}
+Lemma~\ref{lem:support} gives \(p\nmid18\), and \(d_j\) is odd, so
+\(p\nmid6\).  The rank statements are standard; we include the short
+argument.
+Modulo \(\mathfrak p\), (4.2) gives \(u^m=-1\).  Since \(m\) is a power
+of \(2\), the order is exactly \(2m\).  If \(p\) splits, this order
+divides \(p-1\); if \(p\) is inert, Frobenius gives
+\(\widetilde u^{\,p}=\widetilde{\,\overline u\,}
+ =\widetilde u^{-1}\), so the order divides
+\(p+1\).  This proves (4.4), equivalently the rank criterion in
+Ribenboim~\cite[\S2.13]{Ribenboim2001}.
+
+Sun's Lucas law of repetition
+\cite[Theorem~3(ii)]{Sun2013} states, under the hypotheses satisfied by
+\((P,Q)=(2,9)\), that an odd prime \(p\mid V_m(P,Q)\) satisfies
+\[
+ v_p(V_m)=v_p(m)+v_p\left(U_{p-(D/p)}(P,Q)\right),
+ \qquad D=P^2-4Q.
+\]
+Here \(D=-32\), \((D/p)=\chi_p\), and \(v_p(m)=0\).  Division by \(2\)
+does not affect the \(p\)-adic valuation, proving (4.5).
+\end{proof}
+
+\begin{remark}
+Sun's theorem and his analogous iterated companions
+\(S_{k+1}=S_k^2-2\) already provide the per-prime valuation analysis
+used in Proposition~\ref{prop:valuation}.  Our new statement is the
+coupling of all such valuations across the \(abc\)-orbit in (4.6), not
+the individual Lucas--Wieferich criterion.
+\end{remark}
+
+Combining Proposition~\ref{prop:valuation} with pairwise coprimality
+gives the exact expansion
+\[
+ \boxed{\quad
+ W_n=\prod_{j=0}^{n-1}\ \prod_{p\mid d_j}
+ p^{\,v_p(U_{p-\chi_p}(2,9))-1}.
+ \quad}                                                    \tag{4.6}
+\]
+Thus (3.8)--(3.9) are precisely statements about the aggregate weight of
+Lucas--Wieferich primes encountered at dyadic ranks.  This is more
+specific than the classical one-directional implications from the
+\(abc\) conjecture to the existence of non-Wieferich primes
+\cite{Silverman1988,RibenboimWalsh1999,Yabuta2007}.
+
+\subsection{What unconditional radical bounds give}
+
+There are unconditional results directly relevant to (4.2).
+Stewart~\cite[Theorem~1]{Stewart1983} proves an effective radical lower
+bound for Lucas and Lehmer sequences.  Applied to the companion sequence
+\(V_m(2,9)\) at \(m=2^k\), it yields, for all sufficiently large \(k\),
+\[
+ \log\rad\bigl(|V_{2^k}(2,9)|\bigr)
+ \gg \frac{k^2}{\log k}.                                  \tag{4.7}
+\]
+Indeed, in Stewart's notation \(q(m)\) is the number of square-free
+divisors of \(m\), \(d(m)\) is the number of positive divisors, and
+\(|2|_2=1/2\).  Thus for \(m=2^k\), one has \(q(m)=2\) and
+\(d(m|m|_2)=1\), so the \(v_m\)-sequence clause of his theorem has
+precisely the order of growth in (4.7).
+For the roots \(\alpha,\beta\) above,
+\((\alpha+\beta)^2=4\), \(\alpha\beta=9\), and
+\(\gcd(4,9)=1\); moreover \(\alpha/\beta\) is not a root of unity
+because \(u+u^{-1}=-14/9\).  These verify the hypotheses of Stewart's
+companion-sequence estimate.
+Since removing the factor \(2\) changes the logarithm of the radical by
+at most \(\log2\), summation in (2.4) gives
+\[
+ \log R_n\gg\frac{n^3}{\log n},\qquad
+ q_n\ll\frac{2^n\log n}{n^3}.                             \tag{4.8}
+\]
+This is far below the exponential-in-\(n\) radical scale required by
+(3.8), but it explains precisely what presently available general
+theorems contribute.  Primitive-divisor results alone address the
+appearance of new primes, whereas here every prime is already confined
+to one dyadic term by Lemma~\ref{lem:support}; their multiplicities are
+the unresolved issue; compare Bilu, Hanrot, and
+Voutier~\cite{BiluHanrotVoutier2001}.
+
+\section{Computation}
+
+The accompanying program \texttt{check\_square\_lifts.py} works entirely
+modulo \(p^2\).  For each prime \(p\), it iterates
+\[
+ (c,d)\longmapsto(c^2,c^2-2d^2)\pmod{p^2},
+ \qquad(c,d)=(9,-7),
+\]
+and reports \(p,j\) exactly when \(d_j\equiv0\pmod{p^2}\).  If
+\(p\mid d_j\) but \(p^2\nmid d_j\), the search for that prime stops:
+Lemma~\ref{lem:support} proves that \(p\) cannot occur later.
+
+\begin{proposition}[Finite verification]\label{prop:computation}
+For every prime \(p\leq10^7\), \(p\neq2,3\), and every
+\(0\leq j\leq50\), the modular recurrence gives \(p^2\nmid d_j\).
+The search tests \(664{,}577\) primes and reports zero square lifts.
+\end{proposition}
+
+This finite verification is not an input to any theorem.  The script
+contains a deterministic exact-versus-modular self-check for small
+indices.  The command used for Proposition~\ref{prop:computation} is
+\begin{center}
+\verb|python3 check_square_lifts.py --prime-limit 10000000 --max-j 50|.
+\end{center}
+The first terms provide short independent checks of the recurrence,
+factorization, and congruence (4.4):
+\[
+\begin{array}{c@{\quad}r@{\quad}l@{\quad}l}
+\toprule
+j&d_j&|d_j|\text{ factored}&p\bmod 2^{j+2}\\
+\midrule
+0&-7&7&-1\\
+1&-17&17&+1\\
+2&5983&31\cdot193&-1,+1\\
+3&-28545857&2753\cdot10369&+1,+1\\
+4&223288285122943&127\cdot19841\cdot88613249&-1,+1,+1\\
+\bottomrule
+\end{array}
+\]
+
+\section*{Code and data availability}
+
+The source package accompanying this article contains
+\texttt{check\_square\_lifts.py}.  It uses only the Python~3 standard
+library and generates the reported counts directly; no external data
+set is used.  The command and all search bounds are stated above.
+
+\section{Conclusion}
+
+The exact identity (2.8) isolates the two possible sources of radical
+loss in every primitive opposite-parity quadratic-transfer orbit.  The
+archimedean source is completely controlled: it contributes only
+\(\Theta(n)\) to \(\log(c_n/R_n)\).  Any fixed asymptotic quality gap
+must therefore come from positive-power accumulation in \(W_n\).
+
+For the seed \((1,8,9)\), formula (4.6) identifies that accumulation
+exactly with weighted Lucas--Wieferich valuations at dyadic ranks.  The
+finite search and the known radical bounds are consistent with
+sub-power growth, but neither decides it.  Proving
+\[
+ \sum_{j<n}\log\frac{|V_{2^{j+1}}(2,9)|/2}
+                         {\rad(|V_{2^{j+1}}(2,9)|/2)}
+ =o(2^n)
+\]
+would prove \(q_n\to1\) for this orbit; positive linear growth on the
+\(2^n\) scale along a subsequence would instead give a fixed quality
+gap.  Both remain open.
+
+\section*{AI-use statement}
+
+Anthropic Claude Fable~5 and OpenAI Codex (GPT-5-based service model),
+using the service versions available on July 26, 2026, were used for
+idea exploration, candidate proofs, literature classification and
+retrieval, coding assistance, drafting, and reciprocal adversarial
+review.  They were used to accelerate exploration and to expose errors
+through independent cross-checking.  Mathematical claims were
+line-checked in separate review passes, bibliographic claims were
+checked against cited sources, and the computation was independently
+reproduced.  The AI systems are not authors.  The named author directed
+the project and accepts responsibility for the originality, validity,
+references, code, and final content.
+
+\begin{thebibliography}{99}
+
+\bibitem{AlvarezEtAl2023}
+E.~Alvarez-Salazar, A.~J.~Barrios, C.~Henaku, and S.~Soller,
+\newblock On \(abc\) triples of the form \((1,c-1,c)\),
+\newblock \emph{Integers} \textbf{23} (2023), Paper A64, 22 pp.
+\newblock \url{https://doi.org/10.5281/zenodo.8283159}.
+
+\bibitem{BakerWustholz1993}
+A.~Baker and G.~W{\"u}stholz,
+\newblock Logarithmic forms and group varieties,
+\newblock \emph{J. Reine Angew. Math.} \textbf{442} (1993), 19--62.
+\newblock \url{https://doi.org/10.1515/crll.1993.442.19}.
+
+\bibitem{BiluHanrotVoutier2001}
+Y.~Bilu, G.~Hanrot, and P.~M.~Voutier,
+\newblock Existence of primitive divisors of Lucas and Lehmer numbers,
+\newblock \emph{J. Reine Angew. Math.} \textbf{539} (2001), 75--122.
+\newblock \url{https://doi.org/10.1515/crll.2001.080}.
+
+\bibitem{Bolvardizadeh2023}
+S.~Bolvardizadeh,
+\newblock \emph{On the quality of the \(ABC\)-solutions},
+\newblock M.Sc. thesis, University of Lethbridge, 2023.
+\newblock \url{https://hdl.handle.net/10133/6591}.
+
+\bibitem{Bright2024}
+C.~Bright,
+\newblock A new lower bound in the \(abc\) conjecture,
+\newblock \emph{Canad. Math. Bull.} \textbf{67} (2024), 369--378.
+\newblock \url{https://doi.org/10.4153/S0008439523000784}.
+
+\bibitem{GranvilleTucker2002}
+A.~Granville and T.~J.~Tucker,
+\newblock It's as easy as \(abc\),
+\newblock \emph{Notices Amer. Math. Soc.} \textbf{49} (2002),
+1224--1231.
+\newblock \url{https://www.ams.org/notices/200210/fea-granville.pdf}.
+
+\bibitem{Guninski2020}
+G.~Guninski (posting as \texttt{joro}),
+\newblock Answer to ``How balanced can \(abc\) triples be?'',
+\newblock MathOverflow, April 2, 2020.
+\newblock \url{https://mathoverflow.net/questions/356295/},
+accessed July 26, 2026.
+
+\bibitem{HajduTijdeman2025}
+L.~Hajdu and R.~Tijdeman,
+\newblock Integers represented by Lucas sequences,
+\newblock \emph{Ramanujan J.} \textbf{66} (2025), Article 74, 27 pp.
+\newblock \url{https://doi.org/10.1007/s11139-025-01041-6}.
+
+\bibitem{Holsztynski2017}
+W{\l}odzimierz Holszty\'nski,
+\newblock Answer to ``\(abc\) streams (sequences of creek stones)'',
+\newblock MathOverflow, March 15, 2017.
+\newblock \url{https://mathoverflow.net/questions/263463/},
+accessed July 26, 2026.
+
+\bibitem{MartinMiao2016}
+G.~Martin and W.~Miao,
+\newblock \(abc\) triples,
+\newblock \emph{Funct. Approx. Comment. Math.} \textbf{55} (2016),
+145--176.
+\newblock \url{https://doi.org/10.7169/facm/2016.55.2.2}.
+
+\bibitem{OEIS-A025172}
+N.~J.~A.~Sloane and The OEIS Foundation,
+\newblock The On-Line Encyclopedia of Integer Sequences, A025172,
+\newblock \url{https://oeis.org/A025172}, accessed July 26, 2026.
+
+\bibitem{Oesterle1988}
+J.~Oesterl\'e,
+\newblock Nouvelles approches du ``th\'eor\`eme'' de Fermat,
+\newblock S\'eminaire Bourbaki, Exp.\ 694,
+\emph{Ast\'erisque} \textbf{161--162} (1988), 165--186.
+\newblock \url{https://www.numdam.org/item/SB_1987-1988__30__165_0/}.
+
+\bibitem{OhanaSpicerStein2013}
+R.~A.~Ohana, S.~Spicer, and W.~Stein,
+\newblock \emph{The \(ABC\) data},
+\newblock unpublished manuscript, October 2013, 13 pp.
+\newblock
+\href{https://cocalc.com/share/download/c1f4c5685b89bae0dfa24156574398b8c8172a3a/briefing/brief.pdf}
+{Online manuscript}, accessed July 26, 2026.
+
+\bibitem{Ribenboim2001}
+P.~Ribenboim,
+\newblock On square factors of terms of binary recurring sequences and
+the \(ABC\) conjecture,
+\newblock \emph{Publ. Math. Debrecen} \textbf{59} (2001), 459--469.
+\newblock \url{https://doi.org/10.5486/PMD.2001.2559}.
+\newblock Full text:
+\url{https://publi.math.unideb.hu/paper/752/download/10_5486_PMD_2001_2559.pdf}.
+
+\bibitem{Ribenboim2002}
+P.~Ribenboim,
+\newblock The square-free kernel of \(x^{2^n}-a^{2^n}\),
+\newblock \emph{Acta Arith.} \textbf{101} (2002), 189--197.
+\newblock \url{https://doi.org/10.4064/aa101-2-9}.
+
+\bibitem{RibenboimWalsh1999}
+P.~Ribenboim and P.~G.~Walsh,
+\newblock The \(ABC\) conjecture and the powerful part of terms in binary
+recurring sequences,
+\newblock \emph{J. Number Theory} \textbf{74} (1999), 134--147.
+\newblock \url{https://doi.org/10.1006/jnth.1998.2315}.
+
+\bibitem{Silverman1988}
+J.~H.~Silverman,
+\newblock Wieferich's criterion and the \(abc\)-conjecture,
+\newblock \emph{J. Number Theory} \textbf{30} (1988), 226--237.
+\newblock \url{https://doi.org/10.1016/0022-314X(88)90019-4}.
+
+\bibitem{Stewart1983}
+C.~L.~Stewart,
+\newblock On divisors of Fermat, Fibonacci, Lucas and Lehmer numbers, III,
+\newblock \emph{J. London Math. Soc.} (2) \textbf{28} (1983), 211--217.
+\newblock \url{https://doi.org/10.1112/jlms/s2-28.2.211}.
+\newblock Author-hosted scan:
+\url{https://uwaterloo.ca/pure-mathematics/sites/default/files/uploads/documents/j-london-math-soc-1983.pdf}.
+
+\bibitem{Sun2013}
+Z.-H.~Sun,
+\newblock Congruences concerning Lucas' law of repetition,
+\newblock arXiv:1312.3511 [math.NT], 2013.
+\newblock \url{https://arxiv.org/abs/1312.3511}.
+
+\bibitem{vanderHorst2010}
+J.~P.~van der Horst,
+\newblock \emph{Finding \(ABC\)-triples using elliptic curves},
+\newblock M.Sc. thesis, Universiteit Leiden, 2010.
+\newblock
+\url{https://math.leidenuniv.nl/scripties/vanderHorstMaster.pdf}.
+
+\bibitem{Yabuta2007}
+M.~Yabuta,
+\newblock The \(ABC\)-conjecture and the powerful numbers in Lucas
+sequences,
+\newblock \emph{Fibonacci Quart.} \textbf{45} (2007), 362--365.
+\newblock \url{https://doi.org/10.1080/00150517.2007.12428206}.
+
+\end{thebibliography}
+
+\end{document}
