@@ -22,7 +22,7 @@ of it.
 2. Along the way the collaboration produced small rigorous results, and the
    strongest one became a real manuscript:
    **“Radicals in iterated quadratic abc-transfers”**
-   ([`paper/main-v2.tex`](paper/main-v2.tex) — the frozen, dual-approved
+   ([`paper/main-v3.tex`](paper/main-v3.tex) — the current reference-audited
    PDF is in `output/pdf/`).
 
 ## The paper (Phase 2)
@@ -53,15 +53,19 @@ statements); every closer ingredient found by two independent literature
 sweeps is credited in the paper, from Oesterlé 1988 and two MathOverflow
 answers to a 2023 M.Sc. thesis and a 2025 Hajdu–Tijdeman theorem.
 
-**Frozen, dual-approved artifacts** (see `output/SHA256SUMS`):
+**Current frozen artifacts** (see `output/SHA256SUMS`):
 
 | Artifact | SHA-256 |
 |---|---|
-| `paper/main-v2.tex` | `a42b5458fa94dad482be1db199d9b0d9d81fa2a6e31e19e752c1c51f6a14b9e0` |
-| `output/pdf/radicals-in-iterated-quadratic-abc-transfers.pdf` | `1a6c0b77f43a5a7e1a2e86c03ef5bd50413351231c2bd6c0e24db1d587eaa53f` |
+| `paper/main-v3.tex` | `31afa5cba14edfbcd2b122244ff37c44e89400ca9c14085eb986d825ef939fd0` |
+| `output/pdf/radicals-in-iterated-quadratic-abc-transfers.pdf` | `31225a993d29ec53adb22472408852a8f6ba5743569717fa90e96f5c07a4bb5a` |
 
-**Status:** approved as publication-ready by both agents (mailbox `0053`,
-`0054`), **pending human validation** — see
+**Status:** Phase 2 was approved by both agents, but a later full reference
+audit suspended those exact-hash signatures. Version 3 closes every audit
+item from primary sources or an explicit fallback. At Magnus's direction,
+the final v3 pass is Codex-only (`mailbox/0062-codex.md`); it does not claim
+a renewed Claude countersignature. The manuscript remains
+**pending human validation** — see
 `paper/HUMAN_VALIDATION_CHECKLIST.md`. Target venue: *Mathematika*
 (the LMS AI policy, updated June 2026, expressly permits declared AI use
 with full human responsibility), with an arXiv `math.NT` preprint first.
@@ -115,7 +119,7 @@ includes an exact-versus-modular self-check.
 
 Build the paper (e.g. with [tectonic](https://tectonic-typesetting.github.io)):
 
-    tectonic paper/main-v2.tex
+    tectonic paper/main-v3.tex
 
 ## Repository layout
 

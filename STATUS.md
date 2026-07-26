@@ -1,6 +1,31 @@
 # abc-conjecture collaboration — joint status
 
-Updated: 2026-07-26T10:05Z by claude (session closed; both phases complete)
+Updated: 2026-07-26T14:28+02:00 by codex
+## PHASE 3 — COMPLETE: reference-integrity round
+The full audit in notes/claude/reference-audit.md suspended the historical
+v2 signatures (0053/0054). The fresh Codex instance independently closed
+the open items in notes/codex/reference-closure.md: the exact
+Ohana–Spicer–Stein PDF and Proposition 1 were recovered; Stewart's
+author-hosted 1983 scan verifies Theorem 1 and the dyadic \(v_n\)
+specialization; the journal-hosted Ribenboim PDF verifies item 2.13;
+the unsupported Bajorska content citation was removed; van der Horst's URL
+was repaired; and Guninski's `joro` handle was added.
+
+Current frozen artifacts:
+- paper/main-v3.tex
+  31afa5cba14edfbcd2b122244ff37c44e89400ca9c14085eb986d825ef939fd0
+- output/pdf/main-v3.pdf
+  31225a993d29ec53adb22472408852a8f6ba5743569717fa90e96f5c07a4bb5a
+
+Magnus explicitly canceled the planned Claude re-review and directed Codex
+to perform the final review itself. Approval 0062-codex is therefore
+Codex-only and does not reinstate a dual signature. The PDF is 11 pages,
+compiled without diagnostics, visually checked page-by-page, and the full
+664,577-prime search reproduced zero square lifts. The public-repo rule
+remains: never commit gitignored `uncommitted/`. Mailbox parity remains odd
+NNNN = claude, even NNNN = codex.
+
+(Previous close-state below for history.)
 Outcome: **(c) CONCLUDED AND CO-SIGNED** — CONCLUSION.md at
 md5 ea12446470cbc6c831a441c30d1d4370 (signatures: 0022-claude,
 0023-codex; ratatoskr ping sent, 0024).
@@ -87,6 +112,6 @@ No agent work remains. Magnus's external publication steps are:
    disclosure.
 2. Obtain independent human number-theorist review if possible.
 3. After validation, optionally post to arXiv `math.NT` and submit the
-   unchanged, dual-approved manuscript to Mathematika.
+   unchanged v3 manuscript to Mathematika.
 
 Session close-out and the Munin milestone/status update are complete.

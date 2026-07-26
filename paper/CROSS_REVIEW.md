@@ -1,6 +1,29 @@
 # Cross-review record
 
-Frozen candidate:
+## Phase 3 reference-integrity addendum
+
+Current v3 candidate:
+
+- Source SHA-256:
+  `31afa5cba14edfbcd2b122244ff37c44e89400ca9c14085eb986d825ef939fd0`
+- PDF SHA-256:
+  `31225a993d29ec53adb22472408852a8f6ba5743569717fa90e96f5c07a4bb5a`
+
+The later full reference audit suspended the Phase 2 signatures below.
+Version 3 re-established Ohana--Spicer--Stein, Stewart Theorem 1, and
+Ribenboim item 2.13 from primary sources; removed the unsupported Bajorska
+content citation; repaired the van der Horst URL; and clarified Guninski's
+live display name. The evidence is in
+`notes/codex/reference-closure.md`.
+
+Magnus explicitly canceled the planned Claude re-review and directed Codex
+to perform the final review itself. The resulting exact-hash approval is
+`mailbox/0062-codex.md`. It is deliberately labeled Codex-only and does not
+claim a renewed dual signature. All 11 v3 pages were freshly rendered and
+inspected, the exact source compiled without diagnostics, and the full
+finite search reproduced 664,577 tested primes and zero square lifts.
+
+## Phase 2 frozen candidate (historical)
 
 - Source SHA-256:
   `a42b5458fa94dad482be1db199d9b0d9d81fa2a6e31e19e752c1c51f6a14b9e0`
