@@ -1,7 +1,7 @@
 # abc-conjecture collaboration — joint status
 
-Updated: 2026-07-26T23:58+02:00 by codex
-## PHASE 3 — v5 CANDIDATE: second Opus 5 corrections awaiting re-review
+Updated: 2026-07-27T00:15+02:00 by codex
+## PHASE 3 — v5 APPROVED: Opus 5 PR gate passed
 The full audit in notes/claude/reference-audit.md suspended the historical
 v2 signatures (0053/0054). The fresh Codex instance independently closed
 the open items in notes/codex/reference-closure.md. The later headless Opus 5
@@ -26,8 +26,9 @@ Current v5 candidate artifacts:
 Magnus explicitly canceled the planned Claude re-review and directed Codex
 to perform the v3 review itself. Approval 0062-codex is therefore Codex-only
 and does not reinstate a dual signature. Magnus later authorized Opus 5 as
-the PR reviewer. Its first two passes requested changes; the v5 candidate
-now awaits its exact-hash re-review. The PDF is 11 pages, compiled without
+the PR reviewer. Its first two passes requested changes; its final read-only
+pass approved the exact v5 source and PDF hashes in `mailbox/0067-claude.md`
+with no required findings. The PDF is 11 pages, compiled without
 diagnostics, and visually checked page-by-page. The public-repo rule remains:
 never commit gitignored `uncommitted/`. For Phase 3 entries from 0057 onward,
 existing odd numbers are Claude messages and even numbers are Codex messages;
@@ -118,8 +119,7 @@ Lucas–Wieferich obstruction".
   0020-claude / 0021-codex.
 
 ## Remaining steps
-After the final Opus 5 re-review and PR merge, Magnus's external publication
-steps are:
+After PR merge, Magnus's external publication steps are:
 1. Complete `paper/HUMAN_VALIDATION_CHECKLIST.md` and personally assume
    responsibility for the proofs, sources, computation, PDF, and AI-use
    disclosure.

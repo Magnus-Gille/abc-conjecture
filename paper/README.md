@@ -65,7 +65,8 @@ The v3 approval is Codex-only at Magnus's explicit direction; see
 `../mailbox/0062-codex.md`. Opus 5 subsequently requested changes on PR #1
 in `../mailbox/0063-claude.md`, and a second pass requested the consistency
 fixes recorded in `../mailbox/0065-claude.md`. Version 5 resolves both rounds
-and awaits an exact-hash Opus 5 re-review. The historical Phase 2 dual
+and received final exact-hash Opus 5 approval in
+`../mailbox/0067-claude.md`. The historical Phase 2 dual
 approvals are preserved in the mailbox but are not signatures on the v5
 hashes.
 

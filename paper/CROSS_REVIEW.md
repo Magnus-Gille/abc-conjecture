@@ -35,8 +35,9 @@ reference, artifact, and checksum repairs but found stale v3 guidance in
 `STATUS.md`, an obsolete checklist citation and review label, an implicit
 primitivity hypothesis, ambiguous historical `paper/main.tex` provenance,
 and over-broad model-role wording. The record is
-`mailbox/0065-claude.md`. Version 5 resolves all six items; the v5 hashes
-above await the final exact-head Opus 5 re-review.
+`mailbox/0065-claude.md`. Version 5 resolves all six items. A final read-only
+Opus 5 pass approved exact PR head `cae9b5d` and the v5 hashes above with no
+required findings; the approval record is `mailbox/0067-claude.md`.
 
 ## Phase 2 frozen candidate (historical)
 

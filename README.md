@@ -72,7 +72,8 @@ uses the pre-agreed inline-derivation fallback, displays Stewart's inequality,
 governs every tracked PDF, and corrects the review disclosures. A second
 Opus 5 pass found stale handoff/checklist wording and several adjacent
 consistency issues (`mailbox/0065-claude.md`). Version 5 resolves all of
-them and is pending the final exact-hash Opus 5 re-review. The manuscript remains
+them and received final exact-hash Opus 5 approval
+(`mailbox/0067-claude.md`). The manuscript remains
 **pending human validation** — see
 `paper/HUMAN_VALIDATION_CHECKLIST.md`. Target venue: *Mathematika*
 (the LMS AI policy, updated June 2026, expressly permits declared AI use
