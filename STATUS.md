@@ -1,29 +1,33 @@
 # abc-conjecture collaboration — joint status
 
-Updated: 2026-07-26T14:28+02:00 by codex
-## PHASE 3 — COMPLETE: reference-integrity round
+Updated: 2026-07-26T23:32+02:00 by codex
+## PHASE 3 — v4 CANDIDATE: Opus 5 corrections awaiting re-review
 The full audit in notes/claude/reference-audit.md suspended the historical
 v2 signatures (0053/0054). The fresh Codex instance independently closed
-the open items in notes/codex/reference-closure.md: the exact
-Ohana–Spicer–Stein PDF and Proposition 1 were recovered; Stewart's
-author-hosted 1983 scan verifies Theorem 1 and the dyadic \(v_n\)
-specialization; the journal-hosted Ribenboim PDF verifies item 2.13;
-the unsupported Bajorska content citation was removed; van der Horst's URL
-was repaired; and Guninski's `joro` handle was added.
+the open items in notes/codex/reference-closure.md. The later headless Opus 5
+review of exact PR head c0cda73 requested changes in
+mailbox/0063-claude.md because the recovered Ohana–Spicer–Stein PDF lacked
+the promised stable archive. Version 4 applies the pre-agreed fallback:
+the citation is removed and the one-step formula is derived inline from
+Lemma 1. It also displays Stewart's inequality before specialization,
+governs every tracked PDF, narrows the mailbox-parity wording, clarifies the
+historical v2 hash line, and names Opus 5 in the AI disclosure.
 
-Current frozen artifacts:
-- paper/main-v3.tex
-  31afa5cba14edfbcd2b122244ff37c44e89400ca9c14085eb986d825ef939fd0
-- output/pdf/main-v3.pdf
-  31225a993d29ec53adb22472408852a8f6ba5743569717fa90e96f5c07a4bb5a
+Current v4 candidate artifacts:
+- paper/main-v4.tex
+  57bf95dd2b4616ae1474e88f82efb2d02dacee97a7ad1de3e925ede92ff37841
+- output/pdf/main-v4.pdf
+  68a84ba00859b293b7be9a364d892d462bc3d2dff0b005ad1e61faa8220cec7e
 
 Magnus explicitly canceled the planned Claude re-review and directed Codex
-to perform the final review itself. Approval 0062-codex is therefore
-Codex-only and does not reinstate a dual signature. The PDF is 11 pages,
-compiled without diagnostics, visually checked page-by-page, and the full
-664,577-prime search reproduced zero square lifts. The public-repo rule
-remains: never commit gitignored `uncommitted/`. Mailbox parity remains odd
-NNNN = claude, even NNNN = codex.
+to perform the v3 review itself. Approval 0062-codex is therefore Codex-only
+and does not reinstate a dual signature. Magnus later authorized Opus 5 as
+the PR reviewer. Its first pass requested changes; the v4 candidate now
+awaits its exact-hash re-review. The PDF is 11 pages, compiled without
+diagnostics, and visually checked page-by-page. The public-repo rule remains:
+never commit gitignored `uncommitted/`. For Phase 3 entries from 0057 onward,
+existing odd numbers are Claude messages and even numbers are Codex messages;
+0061 is intentionally absent.
 
 (Previous close-state below for history.)
 Outcome: **(c) CONCLUDED AND CO-SIGNED** — CONCLUSION.md at
@@ -31,9 +35,12 @@ md5 ea12446470cbc6c831a441c30d1d4370 (signatures: 0022-claude,
 0023-codex; ratatoskr ping sent, 0024).
 
 ## PHASE 2 — COMPLETE 2026-07-26: manuscript approved by both agents
-Final artifacts (SHA-256, dual-signed in mailbox 0054-codex / 0053-claude):
+Final artifacts at the Phase 2 close (SHA-256, dual-signed in mailbox
+0054-codex / 0053-claude):
 - paper/main-v2.tex  a42b5458…b9e0
-- output/pdf/main-v2.pdf = output/pdf/radicals-in-iterated-quadratic-abc-transfers.pdf  1a6c0b77…a53f
+- output/pdf/main-v2.pdf and the then-current
+  output/pdf/radicals-in-iterated-quadratic-abc-transfers.pdf were
+  byte-identical at 1a6c0b77…a53f
 - source tarball + SHA256SUMS in output/; reproducibility script
   paper/check_square_lifts.py (counts reproduced by both agents).
 Title: "Radicals in iterated quadratic abc-transfers" (11 pp).
@@ -66,7 +73,8 @@ Lucas–Wieferich obstruction".
 - Mailbox convention from here: odd NNNN = claude, even NNNN = codex.
 
 ## Participants
-- claude (Claude Fable 5, Claude Code CLI)
+- claude (Claude Fable 5 during development; Claude Opus 5 for PR review,
+  Claude Code CLI)
 - codex (OpenAI Codex, GPT-5-based)
 
 ## Branch ledger (all closed, co-signed)

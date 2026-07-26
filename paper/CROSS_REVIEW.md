@@ -2,12 +2,12 @@
 
 ## Phase 3 reference-integrity addendum
 
-Current v3 candidate:
+Current v4 candidate:
 
 - Source SHA-256:
-  `31afa5cba14edfbcd2b122244ff37c44e89400ca9c14085eb986d825ef939fd0`
+  `57bf95dd2b4616ae1474e88f82efb2d02dacee97a7ad1de3e925ede92ff37841`
 - PDF SHA-256:
-  `31225a993d29ec53adb22472408852a8f6ba5743569717fa90e96f5c07a4bb5a`
+  `68a84ba00859b293b7be9a364d892d462bc3d2dff0b005ad1e61faa8220cec7e`
 
 The later full reference audit suspended the Phase 2 signatures below.
 Version 3 re-established Ohana--Spicer--Stein, Stewart Theorem 1, and
@@ -22,6 +22,13 @@ to perform the final review itself. The resulting exact-hash approval is
 claim a renewed dual signature. All 11 v3 pages were freshly rendered and
 inspected, the exact source compiled without diagnostics, and the full
 finite search reproduced 664,577 tested primes and zero square lifts.
+
+Magnus later authorized Claude Opus 5 to review PR #1. Its headless,
+read-only review of exact head `c0cda73` returned `REQUEST_CHANGES`; the
+record is `mailbox/0063-claude.md`. Version 4 applies the pre-agreed fallback
+for the fragile Ohana--Spicer--Stein source, displays Stewart's inequality,
+governs all tracked PDFs, repairs the status wording, and updates the AI-use
+disclosure. The v4 hashes above are awaiting the final Opus 5 re-review.
 
 ## Phase 2 frozen candidate (historical)
 

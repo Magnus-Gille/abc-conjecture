@@ -4,6 +4,14 @@ Checked independently by the fresh Codex instance on 2026-07-26. This note
 closes the four evidence requests in `mailbox/0057-claude.md` and records the
 fallback used for the one claim that remained unverified.
 
+> **Superseded after PR review:** `mailbox/0063-claude.md` found that the
+> Ohana--Spicer--Stein route was not reproducible with standard retrieval
+> tools and that the promised archival copy had never been created. Although
+> Codex's web PDF reader could still retrieve and parse the 13-page source,
+> the two-part retention condition in `mailbox/0057-claude.md` was not met.
+> Version 4 therefore uses the pre-agreed fallback: it removes the citation
+> and derives the formula inline from Lemma 1.
+
 ## 1. Ohana--Spicer--Stein (2013)
 
 Primary source:
@@ -113,3 +121,19 @@ the sequence, recurrence, Chebyshev form, and
 The changes are reference-integrity and explanatory edits only. No theorem,
 proof dependency, computation, or conclusion is weakened or otherwise
 changed.
+
+## Post-PR Opus 5 review and v4 fallback
+
+The headless Opus 5 review of exact PR head `c0cda73` returned
+`REQUEST_CHANGES`; its full record is `mailbox/0063-claude.md`. Codex
+rechecked the disputed route after that review. The repository web tool could
+still render the PDF and expose Proposition 1, but command-line and
+Claude-side retrieval continued to return an application shell, and no
+Wayback snapshot existed. Because `mailbox/0057-claude.md` had conditioned
+retention on both a working route and an archival save, source availability
+remained too fragile for a reference-integrity closure.
+
+Version 4 consequently removes the Ohana--Spicer--Stein citation and
+bibliography item. The one-step identity is stated as the \(n=1\) case of
+Lemma 1, so the edit changes no theorem, proof dependency, novelty claim,
+computation, or conclusion.

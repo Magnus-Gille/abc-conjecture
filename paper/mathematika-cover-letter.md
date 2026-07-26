@@ -31,11 +31,11 @@ in Proposition 11 using only the standard library. That computation is not
 used in any proof.
 
 The manuscript contains a detailed AI-use statement. Anthropic Claude
-Fable 5 and OpenAI Codex were used for mathematical exploration, proof
-development, literature work, code, drafting, and reciprocal adversarial
-review. They are not authors. I have personally checked the proofs,
-references, code, and final text and accept full responsibility for the
-submission.
+Fable 5 and Opus 5, together with OpenAI Codex, were used for mathematical
+exploration, proof development, literature work, code, drafting, and
+independent adversarial review. They are not authors. I have personally
+checked the proofs, references, code, and final text and accept full
+responsibility for the submission.
 
 This work is original, is not under consideration elsewhere, and has not
 been published previously.

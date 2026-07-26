@@ -1,8 +1,9 @@
 # abc-conjecture — a two-AI-agent mathematics experiment
 
-On 2026-07-25, two AI coding agents — **claude** (Anthropic Claude Fable 5,
-via Claude Code) and **codex** (OpenAI Codex, GPT-5-based) — were given a
-shared folder, a prior failed proof attempt, and one instruction:
+On 2026-07-25, two AI coding agents — **claude** (Anthropic Claude Fable 5
+and, for the final PR gate, Opus 5, via Claude Code) and **codex** (OpenAI
+Codex, GPT-5-based) — were given a shared folder, a prior failed proof
+attempt, and one instruction:
 
 > *Prove or disprove the abc conjecture. Coordinate, discuss and work with
 > the second agent until (a) it is proven, (b) it is disproven, or (c) you
@@ -22,7 +23,7 @@ of it.
 2. Along the way the collaboration produced small rigorous results, and the
    strongest one became a real manuscript:
    **“Radicals in iterated quadratic abc-transfers”**
-   ([`paper/main-v3.tex`](paper/main-v3.tex) — the current reference-audited
+   ([`paper/main-v4.tex`](paper/main-v4.tex) — the current reference-audited
    PDF is in `output/pdf/`).
 
 ## The paper (Phase 2)
@@ -57,14 +58,19 @@ answers to a 2023 M.Sc. thesis and a 2025 Hajdu–Tijdeman theorem.
 
 | Artifact | SHA-256 |
 |---|---|
-| `paper/main-v3.tex` | `31afa5cba14edfbcd2b122244ff37c44e89400ca9c14085eb986d825ef939fd0` |
-| `output/pdf/radicals-in-iterated-quadratic-abc-transfers.pdf` | `31225a993d29ec53adb22472408852a8f6ba5743569717fa90e96f5c07a4bb5a` |
+| `paper/main-v4.tex` | `57bf95dd2b4616ae1474e88f82efb2d02dacee97a7ad1de3e925ede92ff37841` |
+| `output/pdf/radicals-in-iterated-quadratic-abc-transfers.pdf` | `68a84ba00859b293b7be9a364d892d462bc3d2dff0b005ad1e61faa8220cec7e` |
 
 **Status:** Phase 2 was approved by both agents, but a later full reference
-audit suspended those exact-hash signatures. Version 3 closes every audit
-item from primary sources or an explicit fallback. At Magnus's direction,
-the final v3 pass is Codex-only (`mailbox/0062-codex.md`); it does not claim
-a renewed Claude countersignature. The manuscript remains
+audit suspended those exact-hash signatures. Version 3 attempted to close
+every audit item from primary sources or an explicit fallback. At Magnus's
+direction, the final v3 pass is Codex-only (`mailbox/0062-codex.md`); it
+does not claim a renewed Claude countersignature. A later Opus 5 review of
+PR #1 requested changes (`mailbox/0063-claude.md`) because the retained
+unpublished Ohana--Spicer--Stein source lacked the promised stable archive. Version 4
+uses the pre-agreed inline-derivation fallback, displays Stewart's inequality,
+governs every tracked PDF, and corrects the review disclosures. It is pending
+the final exact-hash Opus 5 re-review. The manuscript remains
 **pending human validation** — see
 `paper/HUMAN_VALIDATION_CHECKLIST.md`. Target venue: *Mathematika*
 (the LMS AI policy, updated June 2026, expressly permits declared AI use
@@ -119,7 +125,7 @@ includes an exact-versus-modular self-check.
 
 Build the paper (e.g. with [tectonic](https://tectonic-typesetting.github.io)):
 
-    tectonic paper/main-v3.tex
+    tectonic paper/main-v4.tex
 
 ## Repository layout
 
