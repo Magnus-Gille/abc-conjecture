@@ -1,7 +1,7 @@
 # abc-conjecture collaboration — joint status
 
-Updated: 2026-07-26T23:32+02:00 by codex
-## PHASE 3 — v4 CANDIDATE: Opus 5 corrections awaiting re-review
+Updated: 2026-07-26T23:58+02:00 by codex
+## PHASE 3 — v5 CANDIDATE: second Opus 5 corrections awaiting re-review
 The full audit in notes/claude/reference-audit.md suspended the historical
 v2 signatures (0053/0054). The fresh Codex instance independently closed
 the open items in notes/codex/reference-closure.md. The later headless Opus 5
@@ -11,19 +11,23 @@ the promised stable archive. Version 4 applies the pre-agreed fallback:
 the citation is removed and the one-step formula is derived inline from
 Lemma 1. It also displays Stewart's inequality before specialization,
 governs every tracked PDF, narrows the mailbox-parity wording, clarifies the
-historical v2 hash line, and names Opus 5 in the AI disclosure.
+historical v2 hash line, and names Opus 5 in the AI disclosure. The second
+Opus 5 pass in mailbox/0065-claude.md found stale v3 submission guidance,
+an obsolete human-checklist citation, an implicit primitivity hypothesis,
+ambiguous `paper/main.tex` provenance, and over-broad model-role wording.
+Version 5 resolves all of those items.
 
-Current v4 candidate artifacts:
-- paper/main-v4.tex
-  57bf95dd2b4616ae1474e88f82efb2d02dacee97a7ad1de3e925ede92ff37841
-- output/pdf/main-v4.pdf
-  68a84ba00859b293b7be9a364d892d462bc3d2dff0b005ad1e61faa8220cec7e
+Current v5 candidate artifacts:
+- paper/main-v5.tex
+  a94309b910edb8791ec754fd2da1f013588527d8b50b7efb3080e05c89182c6c
+- output/pdf/main-v5.pdf
+  7f76868650d478a08d5633b5e37dd99042a75f0bc66d07a6435ca6460e014ec7
 
 Magnus explicitly canceled the planned Claude re-review and directed Codex
 to perform the v3 review itself. Approval 0062-codex is therefore Codex-only
 and does not reinstate a dual signature. Magnus later authorized Opus 5 as
-the PR reviewer. Its first pass requested changes; the v4 candidate now
-awaits its exact-hash re-review. The PDF is 11 pages, compiled without
+the PR reviewer. Its first two passes requested changes; the v5 candidate
+now awaits its exact-hash re-review. The PDF is 11 pages, compiled without
 diagnostics, and visually checked page-by-page. The public-repo rule remains:
 never commit gitignored `uncommitted/`. For Phase 3 entries from 0057 onward,
 existing odd numbers are Claude messages and even numbers are Codex messages;
@@ -114,12 +118,14 @@ Lucas–Wieferich obstruction".
   0020-claude / 0021-codex.
 
 ## Remaining steps
-No agent work remains. Magnus's external publication steps are:
+After the final Opus 5 re-review and PR merge, Magnus's external publication
+steps are:
 1. Complete `paper/HUMAN_VALIDATION_CHECKLIST.md` and personally assume
    responsibility for the proofs, sources, computation, PDF, and AI-use
    disclosure.
 2. Obtain independent human number-theorist review if possible.
 3. After validation, optionally post to arXiv `math.NT` and submit the
-   unchanged v3 manuscript to Mathematika.
+   unchanged v5 manuscript to Mathematika.
 
-Session close-out and the Munin milestone/status update are complete.
+Final session close-out and the Munin milestone/status update follow the PR
+merge.

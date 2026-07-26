@@ -23,7 +23,7 @@ of it.
 2. Along the way the collaboration produced small rigorous results, and the
    strongest one became a real manuscript:
    **“Radicals in iterated quadratic abc-transfers”**
-   ([`paper/main-v4.tex`](paper/main-v4.tex) — the current reference-audited
+   ([`paper/main-v5.tex`](paper/main-v5.tex) — the current reference-audited
    PDF is in `output/pdf/`).
 
 ## The paper (Phase 2)
@@ -58,8 +58,8 @@ answers to a 2023 M.Sc. thesis and a 2025 Hajdu–Tijdeman theorem.
 
 | Artifact | SHA-256 |
 |---|---|
-| `paper/main-v4.tex` | `57bf95dd2b4616ae1474e88f82efb2d02dacee97a7ad1de3e925ede92ff37841` |
-| `output/pdf/radicals-in-iterated-quadratic-abc-transfers.pdf` | `68a84ba00859b293b7be9a364d892d462bc3d2dff0b005ad1e61faa8220cec7e` |
+| `paper/main-v5.tex` | `a94309b910edb8791ec754fd2da1f013588527d8b50b7efb3080e05c89182c6c` |
+| `output/pdf/radicals-in-iterated-quadratic-abc-transfers.pdf` | `7f76868650d478a08d5633b5e37dd99042a75f0bc66d07a6435ca6460e014ec7` |
 
 **Status:** Phase 2 was approved by both agents, but a later full reference
 audit suspended those exact-hash signatures. Version 3 attempted to close
@@ -69,8 +69,10 @@ does not claim a renewed Claude countersignature. A later Opus 5 review of
 PR #1 requested changes (`mailbox/0063-claude.md`) because the retained
 unpublished Ohana--Spicer--Stein source lacked the promised stable archive. Version 4
 uses the pre-agreed inline-derivation fallback, displays Stewart's inequality,
-governs every tracked PDF, and corrects the review disclosures. It is pending
-the final exact-hash Opus 5 re-review. The manuscript remains
+governs every tracked PDF, and corrects the review disclosures. A second
+Opus 5 pass found stale handoff/checklist wording and several adjacent
+consistency issues (`mailbox/0065-claude.md`). Version 5 resolves all of
+them and is pending the final exact-hash Opus 5 re-review. The manuscript remains
 **pending human validation** — see
 `paper/HUMAN_VALIDATION_CHECKLIST.md`. Target venue: *Mathematika*
 (the LMS AI policy, updated June 2026, expressly permits declared AI use
@@ -125,7 +127,7 @@ includes an exact-versus-modular self-check.
 
 Build the paper (e.g. with [tectonic](https://tectonic-typesetting.github.io)):
 
-    tectonic paper/main-v4.tex
+    tectonic paper/main-v5.tex
 
 ## Repository layout
 

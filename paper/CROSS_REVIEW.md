@@ -2,12 +2,12 @@
 
 ## Phase 3 reference-integrity addendum
 
-Current v4 candidate:
+Current v5 candidate:
 
 - Source SHA-256:
-  `57bf95dd2b4616ae1474e88f82efb2d02dacee97a7ad1de3e925ede92ff37841`
+  `a94309b910edb8791ec754fd2da1f013588527d8b50b7efb3080e05c89182c6c`
 - PDF SHA-256:
-  `68a84ba00859b293b7be9a364d892d462bc3d2dff0b005ad1e61faa8220cec7e`
+  `7f76868650d478a08d5633b5e37dd99042a75f0bc66d07a6435ca6460e014ec7`
 
 The later full reference audit suspended the Phase 2 signatures below.
 Version 3 re-established Ohana--Spicer--Stein, Stewart Theorem 1, and
@@ -28,7 +28,15 @@ read-only review of exact head `c0cda73` returned `REQUEST_CHANGES`; the
 record is `mailbox/0063-claude.md`. Version 4 applies the pre-agreed fallback
 for the fragile Ohana--Spicer--Stein source, displays Stewart's inequality,
 governs all tracked PDFs, repairs the status wording, and updates the AI-use
-disclosure. The v4 hashes above are awaiting the final Opus 5 re-review.
+disclosure. Those v4 hashes were then submitted for Opus 5 re-review.
+
+A second Opus 5 pass over exact head `cb34ebc` confirmed those mathematical,
+reference, artifact, and checksum repairs but found stale v3 guidance in
+`STATUS.md`, an obsolete checklist citation and review label, an implicit
+primitivity hypothesis, ambiguous historical `paper/main.tex` provenance,
+and over-broad model-role wording. The record is
+`mailbox/0065-claude.md`. Version 5 resolves all six items; the v5 hashes
+above await the final exact-head Opus 5 re-review.
 
 ## Phase 2 frozen candidate (historical)
 

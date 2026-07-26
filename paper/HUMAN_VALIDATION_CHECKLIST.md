@@ -1,12 +1,13 @@
 # Human validation required before submission
 
-The reciprocal AI review does not replace the named author's
+The independent AI review does not replace the named author's
 responsibility. Before submitting or posting the manuscript, Magnus should
 personally complete and affirm each item:
 
 - [ ] Read every theorem, proof, remark, and novelty statement.
 - [ ] Check the cited passages in the closest prior sources, especially
-      Ohana--Spicer--Stein, Bolvardizadeh, Hajdu--Tijdeman, Sun, and Stewart.
+      Bolvardizadeh, Hajdu--Tijdeman, Martin--Miao, Ribenboim, Sun, and
+      Stewart.
 - [ ] Run the finite-search command and inspect the program.
 - [ ] Open and inspect all 11 pages of the final PDF.
 - [ ] Confirm that the author name, affiliation, date, and any contact/ORCID
@@ -19,4 +20,3 @@ personally complete and affirm each item:
 
 Only after these checks should the declaration in
 `mathematika-cover-letter.md` be used.
-
