@@ -1,0 +1,540 @@
+\documentclass[11pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}
+\usepackage{booktabs}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\rad}{\operatorname{rad}}
+\newcommand{\ord}{\operatorname{ord}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\OK}{\mathcal{O}_K}
+
+\title{An iterated quadratic \(abc\)-orbit and a Lucas--Wieferich obstruction}
+\author{Magnus Gille\\Independent researcher}
+\date{July 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+The elementary transfer
+\[
+ (a,b,a+b)\longmapsto\bigl(4ab,(a-b)^2,(a+b)^2\bigr)
+\]
+is iterated from \((1,8,9)\).  Writing the resulting triples as
+\((a_n,b_n,c_n)\), we prove the exact radical formula
+\[
+ \frac{\rad(a_nb_nc_n)}{c_n}
+ =\frac{2}{3}\,
+   \frac{\prod_{j<n}|T_{2^j}(7/9)|}
+        {\prod_{j<n}|d_j|/\rad(d_j)},\qquad d_j=a_j-b_j.
+\]
+In particular every member of the orbit is an \(abc\)-hit.  An explicit
+application of the Baker--Wüstholz theorem shows that the logarithm of the
+Chebyshev product is \(O(n^2)\), whereas \(\log c_n=2^n\log 9\).  Thus the
+asymptotic \(abc\)-quality of this orbit is governed, up to \(O(n^2)\), only
+by repeated prime factors of the pairwise coprime integers \(d_j\).
+These integers form the dyadic subsequence
+\[
+ |d_j|=\frac12\bigl|V_{2^{j+1}}(2,9)\bigr|
+\]
+of a Lucas \(V\)-sequence.  A prime divisor has prescribed dyadic order in
+\(\QQ(\sqrt{-2})\), and a square divisor is exactly a Wieferich-type failure
+of order growth.  A reproducible search found no such square divisor for
+primes \(p\leq 10^7\) and indices \(0\leq j\leq50\).  The computation is
+not used in the proofs.
+\end{abstract}
+
+\section{Introduction}
+
+For a positive integer \(m\), let
+\(\rad(m)=\prod_{p\mid m}p\).  A coprime triple of positive integers
+\((a,b,c)\) with \(a+b=c\) is called an \(abc\)-hit when
+\(\rad(abc)<c\), and its quality is
+\[
+ q(a,b,c)=\frac{\log c}{\log\rad(abc)}.
+\]
+The \(abc\) conjecture predicts that, for every \(\varepsilon>0\), only
+finitely many such triples satisfy \(c>\rad(abc)^{1+\varepsilon}\);
+see, for example, Masser's formulation~\cite{Masser1985}.
+
+The identity
+\[
+ 4ab+(a-b)^2=(a+b)^2                                      \tag{1.1}
+\]
+transfers one additive triple to another.  Polynomial transfers of this
+kind have long been used in searches for \(abc\)-triples; see van der
+Horst~\cite[\S2.3]{vanderHorst2010}.  Neither (1.1) nor the linear
+recurrence appearing below is new.  In particular, the sequence
+\(3^mT_m(1/3)=V_m(2,9)/2\) is OEIS A025172~\cite{OEIS-A025172}.
+
+This note analyzes what happens when (1.1) is iterated from the small hit
+\((1,8,9)\).  Its contribution is an exact separation of the radical loss
+into an archimedean Chebyshev factor and a nonarchimedean repeated-prime
+factor.  A quantitative linear-form estimate makes the first factor
+sub-power-sized.  The remaining question is then a radical problem for a
+fixed Lucas sequence at dyadic indices.  We also give an elementary order
+criterion which identifies square factors as number-field
+Lucas--Wieferich phenomena.
+
+The conclusions are deliberately limited.  We prove an infinite family of
+\(abc\)-hits, but no fixed quality gap.  In particular, the results neither
+prove nor disprove the \(abc\) conjecture.
+
+\section{The quadratic orbit}
+
+Set
+\[
+ (a_0,b_0,c_0)=(1,8,9)
+\]
+and, for \(n\geq0\), define
+\[
+ (a_{n+1},b_{n+1},c_{n+1})
+   =\bigl(4a_nb_n,(a_n-b_n)^2,c_n^2\bigr).                 \tag{2.1}
+\]
+Identity (1.1) gives \(a_n+b_n=c_n\) at every index.  Put
+\[
+ d_n=a_n-b_n.
+\]
+Then
+\[
+ c_n=9^{2^n},\qquad
+ d_{n+1}=c_n^2-2d_n^2.                                    \tag{2.2}
+\]
+
+\begin{lemma}\label{lem:coprime}
+Each \(d_n\) is odd and coprime to \(6\), and the integers \(d_n\) are
+pairwise coprime.
+\end{lemma}
+
+\begin{proof}
+The assertions about \(2\) and \(3\) follow from \(d_0=-7\) and (2.2):
+all \(c_n\) are odd and divisible by \(3\), while
+\(d_{n+1}\equiv d_n^2\equiv1\pmod3\).
+
+Suppose that a prime \(p\) divides \(d_m\).  Since \(p\nmid c_m\), (2.2)
+gives
+\[
+ d_{m+1}\equiv c_{m+1}\pmod p,\qquad
+ d_{m+2}\equiv-c_{m+2}\pmod p.
+\]
+If \(d_k\equiv-c_k\pmod p\), then (2.2) gives
+\(d_{k+1}\equiv-c_{k+1}\pmod p\).  Hence \(p\) divides no \(d_k\) with
+\(k>m\).  Interchanging two indices proves pairwise coprimality.
+\end{proof}
+
+\begin{lemma}\label{lem:support}
+Every triple in (2.1) is primitive and
+\[
+ \rad(a_nb_nc_n)=6\prod_{j=0}^{n-1}\rad(|d_j|),            \tag{2.3}
+\]
+where an empty product is \(1\).
+\end{lemma}
+
+\begin{proof}
+For \(n=0\), the prime support of \(a_0b_0\) is \(\{2\}\).  For \(n\geq1\),
+\(b_n=d_{n-1}^2\), while the recurrence for \(a_n\) in (2.1) shows
+inductively that the prime support of \(a_n\) is
+\[
+ \{2\}\cup\bigcup_{j=0}^{n-2}\{p:p\mid d_j\}.
+\]
+Lemma~\ref{lem:coprime} makes these supports disjoint and excludes \(3\).
+The only prime in \(c_n\) is \(3\), which proves both claims.
+\end{proof}
+
+Normalize (2.2) by setting \(x_n=-d_n/c_n\).  Since
+\(T_2(x)=2x^2-1\),
+\[
+ x_{n+1}=T_2(x_n),\qquad x_0=\frac79,
+\]
+and therefore
+\[
+ -\frac{d_n}{c_n}=T_{2^n}\left(\frac79\right).             \tag{2.4}
+\]
+
+\section{The exact radical identity}
+
+Define
+\[
+ t_j=\frac{|d_j|}{c_j}
+     =\left|T_{2^j}\left(\frac79\right)\right|,
+ \qquad
+ Q_n=\prod_{j=0}^{n-1}\frac{|d_j|}{\rad(|d_j|)}.           \tag{3.1}
+\]
+Thus \(Q_n\) records exactly the prime multiplicities beyond the first
+within \(d_0,\ldots,d_{n-1}\).
+
+\begin{theorem}[Exact separation]\label{thm:separation}
+For every \(n\geq0\),
+\[
+ \boxed{\quad
+ \frac{\rad(a_nb_nc_n)}{c_n}
+ =\frac23\,\frac{\prod_{j=0}^{n-1}t_j}{Q_n}.
+ \quad}                                                    \tag{3.2}
+\]
+In particular, \((a_n,b_n,c_n)\) is an \(abc\)-hit for every \(n\).
+\end{theorem}
+
+\begin{proof}
+As \(\prod_{j<n}c_j=9^{2^n-1}=c_n/9\), (3.1) gives
+\[
+ \prod_{j<n}\rad(|d_j|)
+ =\frac{\prod_{j<n}|d_j|}{Q_n}
+ =\frac{c_n}{9}\frac{\prod_{j<n}t_j}{Q_n}.
+\]
+Substitution into (2.3) proves (3.2).  For \(n=0\), its right side is
+\(2/3\).  For \(n>0\), each \(t_j\) lies strictly between \(0\) and \(1\);
+this also follows from the non-root-of-unity argument in the proof of
+Theorem~\ref{thm:baker}.  Since \(Q_n\geq1\), the ratio in (3.2) is
+strictly less than \(1\).
+\end{proof}
+
+\section{The archimedean factor}
+
+The estimate in this section is stated with an explicit, if very large,
+constant so that the dependence on the index is unambiguous.
+
+\begin{theorem}[Archimedean factor]\label{thm:baker}
+Let
+\[
+ C_{\mathrm{BW}}
+ =18\cdot3!\cdot2^3\cdot64^4\log 8,
+ \qquad
+ \kappa=C_{\mathrm{BW}}(\log3)\frac{\pi}{2}.
+\]
+Then, for \(j\geq0\),
+\[
+ t_j>\frac1\pi\,2^{-\kappa(j+1)}.                          \tag{4.1}
+\]
+Consequently,
+\[
+ 0<-\sum_{j=0}^{n-1}\log t_j
+ <n\log\pi+\frac{\kappa\log2}{2}n(n+1).                   \tag{4.2}
+\]
+\end{theorem}
+
+\begin{proof}
+Put
+\[
+ z=\frac{7+4\sqrt{-2}}9=e^{i\theta},
+ \qquad \theta=\arccos(7/9)\in(0,\pi/2).
+\]
+Then \(z+z^{-1}=14/9\).  The number \(z\) is not a root of unity:
+otherwise \(z+z^{-1}\) would be both a rational number and an algebraic
+integer, hence an integer.
+
+For an integer \(N\geq1\), choose an odd integer \(k\) nearest to
+\(2N\theta/\pi\), and use the principal logarithms
+\(\log z=i\theta\) and \(\log(-1)=i\pi\).  The linear form
+\[
+ \Lambda_N=2N\log z-k\log(-1)                              \tag{4.3}
+\]
+is nonzero, satisfies \(|\Lambda_N|\leq\pi\), and has
+\(|k|\leq N+1\leq2N\).
+
+We apply the explicit Baker--Wüstholz estimate
+\cite[Theorem~1]{BakerWustholz1993}.  In its standard notation, the number
+field \(\QQ(z,-1)=\QQ(\sqrt{-2})\) has degree \(D=2\), there are two
+logarithms, and the coefficient bound may be taken as \(B=2N\).  The
+minimal polynomial \(9X^2-14X+9\) has both roots on the unit circle, so
+\[
+ h(z)=\log3,\qquad
+ \max\{h(z),|\log z|/D,1/D\}=\log3.
+\]
+For \(-1\), the corresponding modified height is \(\pi/2\).  The theorem
+therefore gives
+\[
+ \log|\Lambda_N|>
+ -C_{\mathrm{BW}}(\log3)\frac{\pi}{2}\log(2N)
+ =-\kappa\log(2N).                                        \tag{4.4}
+\]
+
+Because \(k\) is odd,
+\[
+ |z^{2N}+1|=|1-e^{\Lambda_N}|.
+\]
+For a purely imaginary \(\Lambda\) with \(|\Lambda|\leq\pi\),
+\(|1-e^\Lambda|\geq2|\Lambda|/\pi\).  Hence (4.4) yields
+\[
+ \frac12|z^{2N}+1|>\frac1\pi(2N)^{-\kappa}.                \tag{4.5}
+\]
+Taking \(N=2^j\) and using
+\[
+ t_j=\frac12|z^{2N}+1|
+\]
+proves (4.1).  Summing its logarithm proves the upper bound in (4.2).
+The lower bound follows from \(0<t_j<1\); equality \(t_j=1\) would make
+\(z\) a root of unity.
+\end{proof}
+
+\begin{corollary}[Quality reduction]\label{cor:quality}
+Let
+\[
+ R_n=\rad(a_nb_nc_n),\quad L_n=\log c_n=2^n\log9,\quad
+ q_n=\frac{\log c_n}{\log R_n}.
+\]
+Then
+\[
+ \log\frac{c_n}{R_n}=\log Q_n+E_n,                         \tag{4.6}
+\]
+where
+\[
+ \log\frac32\leq E_n
+ <\log\frac32+n\log\pi+
+   \frac{\kappa\log2}{2}n(n+1).                            \tag{4.7}
+\]
+In particular,
+\[
+ \log\frac{c_n}{R_n}=\log Q_n+O(n^2),                     \tag{4.8}
+\]
+and
+\[
+ q_n\longrightarrow1
+ \quad\Longleftrightarrow\quad
+ \log Q_n=o(\log c_n).                                     \tag{4.9}
+\]
+More generally,
+\[
+ \limsup_{n\to\infty}(q_n-1)>0
+ \quad\Longleftrightarrow\quad
+ \limsup_{n\to\infty}\frac{\log Q_n}{\log c_n}>0.          \tag{4.10}
+\]
+\end{corollary}
+
+\begin{proof}
+Taking logarithms in (3.2) gives (4.6) with
+\[
+ E_n=\log(3/2)-\sum_{j<n}\log t_j.
+\]
+Theorem~\ref{thm:baker} gives (4.7)--(4.8).  Since \(n^2=o(L_n)\),
+(4.9) follows from
+\[
+ q_n-1=\frac{\log(c_n/R_n)}{\log R_n}.
+\]
+The same identity and (4.8) show that either side of (4.10) is positive
+exactly when the other is.
+\end{proof}
+
+\begin{remark}
+For a fixed \(\delta>0\), the exact inequality
+\[
+ q_n\geq1+\delta
+ \quad\Longleftrightarrow\quad
+ \log Q_n+E_n\geq\frac{\delta}{1+\delta}\log c_n
+\]
+is sometimes a more useful form of the reduction.
+\end{remark}
+
+\section{Lucas sequence and order lifting}
+
+Let \(V_m(P,Q)\) denote the Lucas \(V\)-sequence with
+\[
+ V_0=2,\quad V_1=P,\quad V_m=PV_{m-1}-QV_{m-2}.
+\]
+For \(P=2,Q=9\), put
+\[
+ A_m=\frac12V_m(2,9)=3^mT_m(1/3).
+\]
+Thus \(A_0=A_1=1\) and \(A_m=2A_{m-1}-9A_{m-2}\).  This is the sequence
+OEIS A025172~\cite{OEIS-A025172}.
+
+\begin{proposition}\label{prop:lucas}
+For every \(j\geq0\),
+\[
+ |d_j|=|A_{2^{j+1}}|
+      =\frac12\bigl|V_{2^{j+1}}(2,9)\bigr|.                \tag{5.1}
+\]
+\end{proposition}
+
+\begin{proof}
+The composition rule \(T_r(T_s(x))=T_{rs}(x)\) and
+\(T_2(1/3)=-7/9\) give
+\[
+ A_{2^{j+1}}
+ =9^{2^j}T_{2^j}(-7/9).
+\]
+Comparing with (2.4), and using \(T_m(-x)=(-1)^mT_m(x)\), proves (5.1).
+\end{proof}
+
+The next proposition locates every prime factor in a thin congruence
+class and makes the Wieferich description precise.  Put
+\[
+ K=\QQ(\sqrt{-2}),\qquad
+ \alpha=1+2\sqrt{-2},\quad\beta=1-2\sqrt{-2},\quad
+ u=\alpha/\beta.
+\]
+Then \(V_m(2,9)=\alpha^m+\beta^m\).
+
+\begin{proposition}[Dyadic order]\label{prop:order}
+Let \(p\) be a prime divisor of \(d_j\), put \(m=2^{j+1}\), and let
+\(\mathfrak p\) be a prime of \(\OK\) above \(p\).  Then \(p\nmid6\) and
+\[
+ \ord_{(\OK/\mathfrak p)^\times}(u)=2m=2^{j+2}.            \tag{5.2}
+\]
+Consequently,
+\[
+ \begin{cases}
+ p\equiv 1\pmod{2^{j+2}},&p\text{ splits in }K,\\
+ p\equiv-1\pmod{2^{j+2}},&p\text{ is inert in }K.
+ \end{cases}                                               \tag{5.3}
+\]
+Moreover,
+\[
+ p^2\mid d_j
+ \quad\Longleftrightarrow\quad
+ u^m\equiv-1\pmod{\mathfrak p^2}
+ \text{ for every }\mathfrak p\mid p,                     \tag{5.4}
+\]
+and in that case the order in (5.2) does not acquire the usual factor
+\(p\) on lifting from \(\mathfrak p\) to \(\mathfrak p^2\).
+\end{proposition}
+
+\begin{proof}
+Lemma~\ref{lem:coprime} gives \(p\nmid6\).  Since \(\beta\) has norm \(9\),
+it is invertible modulo \(\mathfrak p\).  From (5.1),
+\(\alpha^m+\beta^m\equiv0\pmod{\mathfrak p}\), and hence
+\(u^m\equiv-1\pmod{\mathfrak p}\).  As \(m\) is a power of \(2\), the
+order of \(u\) is exactly \(2m\).
+
+If \(p\) splits, the residue field has \(p\) elements, so \(2m\mid p-1\).
+If \(p\) is inert, conjugation is the Frobenius on the residue field and
+\(u^{p+1}=u\bar u=1\), so \(2m\mid p+1\).  This proves (5.3).
+
+Because \(p\) is unramified and \(2\beta^m\) is a unit at every
+\(\mathfrak p\mid p\), (5.1) gives (5.4).  The reduction of \(u\) has
+order prime to \(p\); its order modulo \(\mathfrak p^2\) is therefore
+either \(2m\) or \(2mp\).  In the first case \(u^m\) is the unique lift of
+the element \(-1\) of order \(2\), so it is \(-1\) modulo
+\(\mathfrak p^2\).  The converse is immediate.
+\end{proof}
+
+Thus a prime with \(p^2\mid d_j\) is naturally a Lucas--Wieferich prime
+for the algebraic number \(u\), which is a unit away from \(3\).
+Classical primitive-divisor theory for
+Lucas and Lehmer sequences addresses the occurrence of new prime divisors
+rather than their aggregate multiplicities; see, for example,
+Bilu--Hanrot--Voutier~\cite{BiluHanrotVoutier2001}.  In this orbit,
+Lemma~\ref{lem:coprime} already makes every prime divisor new relative to
+all other dyadic terms.  What (4.9)--(4.10) require instead is control of
+the total repeated-prime quotient \(Q_n\).  Related squarefree primitive
+divisor results in arithmetic dynamics are conditional on Vojta's
+conjecture over number fields~\cite{GhiocaNguyenTucker2018}, and in any
+case the existence of one squarefree prime per term would be much weaker
+than the proportional radical estimate needed here.
+
+\section{Computation}
+
+The accompanying program \texttt{check\_square\_lifts.py} works entirely
+modulo \(p^2\).  For each prime \(p\), it starts with
+\((c,d)=(9,-7)\) and iterates
+\[
+ (c,d)\longmapsto(c^2,c^2-2d^2)\pmod{p^2}.
+\]
+It reports \(p,j\) precisely when \(d\equiv0\pmod{p^2}\).  If
+\(d\equiv0\pmod p\) but not modulo \(p^2\), the search for that prime may
+stop, by Lemma~\ref{lem:coprime}.
+
+\begin{proposition}[Finite verification]\label{prop:computation}
+For every prime \(p\leq10^7\), \(p\neq2,3\), and every
+\(0\leq j\leq50\), the modular recurrence gives
+\[
+ p^2\nmid d_j.
+\]
+The search tests \(664{,}577\) primes and reports zero square lifts.
+\end{proposition}
+
+This is a finite computer verification, not an input to any preceding
+theorem.  The script uses a deterministic sieve and integer modular
+arithmetic only.  Its command line is
+\[
+\texttt{python3 check\_square\_lifts.py --prime-limit 10000000 --max-j 50}.
+\]
+For orientation, the first terms factor as follows.
+\[
+\begin{array}{c@{\qquad}r@{\qquad}l}
+\toprule
+j&d_j&|d_j|\text{ factored}\\
+\midrule
+0&-7&7\\
+1&-17&17\\
+2&5983&31\cdot193\\
+3&-28545857&2753\cdot10369\\
+4&223288285122943&127\cdot19841\cdot88613249\\
+\bottomrule
+\end{array}
+\]
+
+\section{Concluding question}
+
+The orbit has an exact dichotomy.  Its quality tends to \(1\) if and only
+if the accumulated repeated-prime quotient of the dyadic Lucas terms is
+sub-power-sized:
+\[
+ \prod_{j<n}\frac{|V_{2^{j+1}}(2,9)|/2}
+                    {\rad(|V_{2^{j+1}}(2,9)|/2)}
+   =c_n^{o(1)}.
+\]
+A fixed quality gap occurs along a subsequence if and only if the same
+product has positive-power growth.  The Baker--Wüstholz estimate rules out
+the archimedean Chebyshev values as a source of such a gap; the remaining
+obstruction is purely the aggregate of Lucas--Wieferich lifts.  We do not
+know how to prove either alternative.
+
+\section*{AI-use statement}
+
+Claude Fable 5 and OpenAI Codex were used extensively to generate candidate
+arguments, conduct literature searches, write and run the computation,
+draft the manuscript, and perform reciprocal adversarial review.  The
+named author directed the work and is responsible for the final content.
+
+\begin{thebibliography}{99}
+
+\bibitem{BakerWustholz1993}
+A.~Baker and G.~Wüstholz,
+\newblock Logarithmic forms and group varieties,
+\newblock \emph{J. Reine Angew. Math.} \textbf{442} (1993), 19--62.
+\newblock \url{https://doi.org/10.1515/crll.1993.442.19}.
+
+\bibitem{BiluHanrotVoutier2001}
+Y.~Bilu, G.~Hanrot, and P.~M.~Voutier,
+\newblock Existence of primitive divisors of Lucas and Lehmer numbers,
+\newblock \emph{J. Reine Angew. Math.} \textbf{539} (2001), 75--122.
+\newblock \url{https://doi.org/10.1515/crll.2001.080}.
+
+\bibitem{GhiocaNguyenTucker2018}
+D.~Ghioca, K.~D.~Nguyen, and T.~J.~Tucker,
+\newblock Squarefree doubly primitive divisors in dynamical sequences,
+\newblock \emph{Math. Proc. Cambridge Philos. Soc.} \textbf{164} (2018),
+551--572.
+\newblock \url{https://doi.org/10.1017/S0305004117000500}.
+
+\bibitem{Masser1985}
+D.~W.~Masser,
+\newblock Open problems,
+\newblock in \emph{Proceedings of the Symposium on Analytic Number Theory},
+W.~W.~L.~Chen, ed., Imperial College, London, 1985, pp.~591--607.
+
+\bibitem{OEIS-A025172}
+N.~J.~A.~Sloane and The OEIS Foundation,
+\newblock The On-Line Encyclopedia of Integer Sequences, A025172,
+\newblock \url{https://oeis.org/A025172}, accessed July 26, 2026.
+
+\bibitem{vanderHorst2010}
+J.~P.~van der Horst,
+\newblock \emph{Finding \(ABC\)-triples using elliptic curves},
+\newblock M.Sc. thesis, Universiteit Leiden, 2010.
+
+\end{thebibliography}
+
+\end{document}
