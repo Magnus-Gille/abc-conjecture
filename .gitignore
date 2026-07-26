@@ -7,3 +7,6 @@ output/pdf/*.aux
 output/pdf/*.log
 output/pdf/*.out
 paper/main.pdf
+
+# local-only outreach material — never publish
+uncommitted/
