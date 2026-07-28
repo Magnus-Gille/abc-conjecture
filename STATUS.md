@@ -1,6 +1,40 @@
 # abc-conjecture collaboration — joint status
 
-Updated: 2026-07-27T00:15+02:00 by codex
+Updated: 2026-07-29T00:08+02:00 by codex
+## PHASE 4 — prime-genealogy proposal audited; specialist review required
+The prime-degree Chebyshev proposal and its supplied Python CLI were imported
+on the isolated branch `codex/prime-genealogy-audit`. Commit `6bf6864`
+preserves the proposal before audit. The audited working package adds an
+explicit universal atom identity, closes four other proof gaps in
+Proposition 11/Lemma 2/Theorem 17, hardens API validation, supplies independent
+tests and a deterministic reproduction harness, and renders a review PDF.
+
+No counterexample or fatal error was found in the central chain through
+Proposition 15, Corollary 16, and Theorem 17. An independent GPT-5.5
+adversarial review found five repairable omissions; a closure pass confirmed
+all five repaired. This is not peer review or priority certification. The
+principal next step is targeted human review by a specialist in Lucas atoms
+and cyclotomic valuations, followed by a broader priority search.
+
+Current audited artifacts:
+- `paper/prime-genealogy-draft.md`
+  ee0c4619b7b2785c58427bb998c0994da5d0c05d2f716534fbad73cbe489317d
+- `paper/chebyshev_abc.py`
+  b6fe57500db0b80670b8b74b7910155e219253e309c2e85847d9900849403554
+- `paper/verification-results-prime-genealogy.json`
+  29c54f4ce6fb51c725a7d503ef8435d0cf60eca75d8cb2cb6022e8cc3b89255e
+- `output/pdf/prime-genealogy-draft.pdf`
+  b4a541571b1372d2d8f1d7a563a59529024b8ceb431c704a88c8b04b44491257
+
+Verification: 11 independent tests pass; the supplied self-test passes; the
+deterministic harness checks 278 orbits with 11,398 exact assertions and 110
+local roots/Hensel lifts; the PDF compiles without diagnostics and was
+visually checked. M5 delegation was attempted twice for a bounded side task,
+but the configured credential/service was unavailable, so no M5 output was
+used.
+
+(Previous Phase 3 state retained below for history.)
+
 ## PHASE 3 — v5 APPROVED: Opus 5 PR gate passed
 The full audit in notes/claude/reference-audit.md suspended the historical
 v2 signatures (0053/0054). The fresh Codex instance independently closed

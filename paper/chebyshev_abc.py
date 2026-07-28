@@ -644,6 +644,12 @@ def branch_value_derivative(
     Branch B:
         F = C_level
     """
+    if not odd_prime(ell):
+        raise ValueError("ell must be an odd prime")
+
+    if level < 0:
+        raise ValueError("level must be nonnegative")
+
     if branch not in ("A", "B"):
         raise ValueError("branch must be A or B")
 
@@ -716,10 +722,19 @@ def local_roots(
     branch: str,
 ) -> list[int]:
     """Enumerate all simple roots modulo p by direct search."""
+    if not odd_prime(ell):
+        raise ValueError("ell must be an odd prime")
+
     if not odd_prime(p) or p == ell:
         raise ValueError(
             "p must be an odd prime different from ell"
         )
+
+    if level < 0:
+        raise ValueError("level must be nonnegative")
+
+    if branch not in ("A", "B"):
+        raise ValueError("branch must be A or B")
 
     roots: list[int] = []
 
@@ -754,6 +769,9 @@ def hensel(
     """
     Lift a simple root modulo p to a root modulo p**exponent.
     """
+    if exponent < 1:
+        raise ValueError("exponent must be positive")
+
     value, derivative = branch_value_derivative(
         ell,
         level,
@@ -896,6 +914,15 @@ def branch_index(
     level: int,
     branch: str,
 ) -> int:
+    if not odd_prime(ell):
+        raise ValueError("ell must be an odd prime")
+
+    if level < 0:
+        raise ValueError("level must be nonnegative")
+
+    if branch not in ("A", "B"):
+        raise ValueError("branch must be A or B")
+
     base = ell ** (level + 1)
     return base if branch == "A" else 2 * base
 
@@ -917,6 +944,9 @@ def program_seed(
       * has the requested exact valuation;
       * has the requested Legendre/splitting sign.
     """
+    if not odd_prime(ell):
+        raise ValueError("ell must be an odd prime")
+
     if len({condition.p for condition in conditions}) != len(
         conditions
     ):
@@ -929,10 +959,25 @@ def program_seed(
     details: list[dict[str, int | str]] = []
 
     for condition in conditions:
+        if not odd_prime(condition.p):
+            raise ValueError("condition p must be an odd prime")
+
         if condition.p == ell:
             raise ValueError(
                 "condition prime must differ from ell"
             )
+
+        if condition.level < 0:
+            raise ValueError("condition level must be nonnegative")
+
+        if condition.branch not in ("A", "B"):
+            raise ValueError("condition branch must be A or B")
+
+        if condition.valuation < 1:
+            raise ValueError("condition valuation must be positive")
+
+        if condition.chi not in (-1, 1):
+            raise ValueError("condition chi must be -1 or 1")
 
         index = branch_index(
             ell,
@@ -1113,6 +1158,8 @@ def program_seed(
                 : condition.level
             ]
         )
+
+        assert (a0 + b0) % condition.p
 
         assert legendre(
             -a0 * b0,

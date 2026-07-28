@@ -1,0 +1,31 @@
+{
+  "passed": true,
+  "orbit_count": 278,
+  "orbit_assertions": 11398,
+  "transfer_primes": [
+    3,
+    5,
+    7,
+    11,
+    13,
+    17,
+    19
+  ],
+  "local_case_count": 12,
+  "local_root_count": 110,
+  "hensel_lift_count": 110,
+  "programmed_example": {
+    "ell": 3,
+    "a0": 304260006,
+    "b0": 39305,
+    "p": 17,
+    "level": 1,
+    "branch": "A",
+    "valuation": 2,
+    "chi": -1
+  },
+  "canonical_orbits": [
+    "cubic",
+    "quintic"
+  ]
+}
