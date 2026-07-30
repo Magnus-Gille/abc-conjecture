@@ -1,0 +1,108 @@
+{
+  "passed": true,
+  "primitive_density": {
+    "ell": 3,
+    "level": 0,
+    "branch": "A",
+    "p": 7,
+    "exponent": 2,
+    "primitive_pairs": 2352,
+    "divisible_pairs": 42,
+    "density": "1/56"
+  },
+  "local_means": [
+    {
+      "ell": 3,
+      "levels": 8,
+      "prime_cutoff": 20000,
+      "local_mean": 0.646585633207,
+      "elementary_bound": 1.730538229731
+    },
+    {
+      "ell": 5,
+      "levels": 8,
+      "prime_cutoff": 20000,
+      "local_mean": 0.233688628157,
+      "elementary_bound": 0.95879362947
+    },
+    {
+      "ell": 7,
+      "levels": 8,
+      "prime_cutoff": 20000,
+      "local_mean": 0.206412476631,
+      "elementary_bound": 0.683477226707
+    },
+    {
+      "ell": 11,
+      "levels": 8,
+      "prime_cutoff": 20000,
+      "local_mean": 0.129571546684,
+      "elementary_bound": 0.44786392191
+    }
+  ],
+  "composite_layers": [
+    {
+      "degree": 6,
+      "seed": [3, 2, 5],
+      "layer_digits": [3, 21],
+      "seed_gcds": [1, 1],
+      "cross_layer_gcd": 1
+    },
+    {
+      "degree": 9,
+      "seed": [9, 2, 11],
+      "layer_digits": [8, 74],
+      "seed_gcds": [1, 1],
+      "cross_layer_gcd": 1
+    },
+    {
+      "degree": 10,
+      "seed": [5, 2, 7],
+      "layer_digits": [7, 75],
+      "seed_gcds": [1, 1],
+      "cross_layer_gcd": 1
+    },
+    {
+      "degree": 12,
+      "seed": [3, 2, 5],
+      "layer_digits": [7, 92],
+      "seed_gcds": [1, 1],
+      "cross_layer_gcd": 1
+    },
+    {
+      "degree": 15,
+      "seed": [15, 4, 19],
+      "layer_digits": [17, 268],
+      "seed_gcds": [1, 1],
+      "cross_layer_gcd": 1
+    },
+    {
+      "degree": 30,
+      "seed": [15, 4, 19],
+      "layer_digits": [36, 1112],
+      "seed_gcds": [1, 1],
+      "cross_layer_gcd": 1
+    }
+  ],
+  "specializations": {
+    "quadratic": [32, 49, 81],
+    "odd_prime_cases": [
+      {
+        "degree": 3,
+        "seed": [3, 2, 5],
+        "transfer": [27, 98, 125]
+      },
+      {
+        "degree": 5,
+        "seed": [5, 2, 7],
+        "transfer": [15125, 1682, 16807]
+      },
+      {
+        "degree": 7,
+        "seed": [7, 2, 9],
+        "transfer": [4379767, 403202, 4782969]
+      }
+    ]
+  },
+  "bad_three_adic_seed_rejected": [15, 15, 2]
+}

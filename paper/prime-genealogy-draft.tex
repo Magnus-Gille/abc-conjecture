@@ -28,10 +28,10 @@ interleaved Lucas atoms and exact radical telescopes}
 \maketitle
 
 \begin{quote}\small
-Working-draft note (2026-07-28): commit \texttt{6bf6864} preserves the proposal
-supplied by Magnus. This version incorporates a Codex proof and software
-audit plus an independent cross-model review. It remains a non-peer-reviewed
-research draft.
+Working-draft note (2026-07-30): commit \texttt{6bf6864} preserves the proposal
+supplied by Magnus. This version incorporates a proof and software audit,
+independent cross-model reviews, and a primary-source overlap correction.
+It remains a non-peer-reviewed research draft.
 \end{quote}
 
 \begin{abstract}
@@ -90,22 +90,30 @@ satisfies
 
 Standard Lucas-atom valuation theory then identifies square divisors of
 \(E_n\) with cyclotomic Wieferich lifts; the orbit identity couples their
-aggregate multiplicity directly to \(abc\)-quality. Conversely, the order
-congruence is locally sufficient: any finite compatible pattern of prime
-birth levels, branches, split/inert signs, and exact positive
-multiplicities can be realized by infinitely many primitive seeds. In
-particular, the seeds \((\ell,2,\ell+2)\) give an explicit orbit for every
-odd prime \(\ell\), and every member from index \(2\) onward is an
-\(abc\)-hit.
+aggregate multiplicity directly to \(abc\)-quality. The local branch
+polynomials are explicit Mobius transforms of known fibotomic polynomials,
+so their finite-field root classification is a reformulation of known
+factorization theory. The orbit-level converse is stronger: any finite
+compatible pattern of prime birth levels, branches, split/inert signs, and
+exact positive multiplicities can be realized by infinitely many primitive
+seeds. The resulting prime-truncated mean of \(\log W_n\) over primitive
+seed boxes has an exact local formula and is bounded uniformly in \(n\);
+passing to the untruncated integer-box mean remains a large-square-divisor
+problem. In particular, the seeds \((\ell,2,\ell+2)\) give an explicit
+orbit for every odd prime \(\ell\), and every member from index \(2\)
+onward is an \(abc\)-hit.
 
 \textbf{Status.} This is a research-development draft, not a peer-reviewed
-manuscript. The polynomial transfer itself is a classical consequence of de
-Moivre's formula. The proposed contribution is the orbit-wide package:
-branchwise prime genealogy in two nested Lucas-atom towers, exact radical
-identity, monotonicity, the coupling of cyclotomic valuations to
-\(abc\)-quality, and simultaneous finite local realization of compatible
-prime genealogies. A bounded literature search found no source containing
-this package of statements; that search is not exhaustive.
+manuscript. The polynomial transfer is a classical consequence of de
+Moivre's formula. The Lucas atoms, their local valuations, and the
+finite-field factorization underlying the root classification are known.
+The proposed contribution is the orbit-wide package: branchwise prime
+genealogy in two nested atom towers, the exact radical identity,
+monotonicity, the coupling of local valuations to \(abc\)-quality, the
+simultaneous finite realization of compatible prime genealogies, and the
+bounded local first moment. A source-level search found no reference
+containing this package; that negative search is bounded and is not a
+priority certificate.
 
 \emph{2020 Mathematics Subject Classification.} Primary 11B39; Secondary 11A05,
 11D75, 11J86, 37P05.
@@ -134,11 +142,15 @@ Polynomial transfers are a standard way to turn one additive triple into
 another. Martin and Miao survey several such identities and a general
 binomial-splitting construction; van der Horst gives a detailed treatment
 of the transfer method and sharp polynomial triples. Homogeneous
-cyclotomic factors of Lucas sequences ("Lucas atoms") and their
-\(p\)-adic valuations are also established theory. Ross, Shen, and Cai
-develop closely related cyclotomic congruences for Lucas sequences. Kym
-recently obtained valuation separation for products of Lucas terms at
-pairwise coprime indices.
+cyclotomic factors of Lucas sequences ("Lucas atoms") were developed
+systematically by Sagan and Tirrell, and their complete \(p\)-adic
+valuation theory is due to Alecci, Miska, Murru, and Romeo. Byer,
+Dvorachek, Eckard, Harrington, Wise, and Wong determine the finite-field
+factorization of the closely related fibotomic polynomials. Bhargava and
+Zieve, Bluher, and Gassert provide adjacent Dickson/Chebyshev finite-field
+structure. Ross, Shen, and Cai develop further cyclotomic congruences for
+Lucas sequences. Kym recently obtained valuation separation for products
+of Lucas terms at pairwise coprime indices.
 
 The purpose here is different: instead of optimizing a single transfer, we
 identify a prime-degree dynamical orbit whose two coordinate branches are
@@ -1409,6 +1421,85 @@ quadratic residue algebras used below. In particular,
 \(\deg\mathcal F_{n,\varepsilon}=d_n\), and
 \(\varphi(m_{n,\varepsilon})=2d_n\) for either branch.
 
+\subsection{Fibotomic bridge and prior-art position}
+
+Let \(\Psi_m(Z)\) be the \(m\)-th fibotomic polynomial in the notation of
+Byer, Dvorachek, Eckard, Harrington, Wise, and Wong. Their
+cyclotomic-fibotomic identity is
+
+\[
+\Psi_m(z)
+=
+\frac{\Phi_m(-w^2)}{w^{\varphi(m)}},
+\qquad
+z=w-w^{-1},
+\qquad
+m\geq3.
+\]
+
+The polynomial \(\Psi_m\) is even for every index used here, so write
+
+\[
+\Psi_m(z)=G_m(z^2).
+\]
+
+Put \(m=m_{n,\varepsilon}\), \(d=d_n\), and
+
+\[
+\nu_A=\ell,
+\qquad
+\nu_B=1.
+\]
+
+Then the branch polynomial is the following fractional-linear transform
+of the fibotomic polynomial:
+
+\[
+\boxed{
+\mathcal F_{n,\varepsilon}(X,1)
+=
+\frac{(-1)^d}{\nu_\varepsilon}
+(X+1)^d
+G_m\left(-\frac4{X+1}\right).
+}
+\tag{15.1}
+\]
+
+Indeed, specialize \(\Omega=1+s\),
+\(\overline\Omega=1-s\), and \(s^2=-X\), and put
+
+\[
+\zeta=\frac{1+s}{1-s}=-w^2.
+\]
+
+If \(z=w-w^{-1}\), elementary rearrangement gives
+
+\[
+X=-1-\frac4{z^2},
+\qquad
+z^2=-\frac4{X+1},
+\qquad
+(1-s)w=-\frac2z.
+\]
+
+Homogenizing the cyclotomic-fibotomic identity now yields
+
+\[
+\Phi_m(1+s,1-s)
+=
+(-1)^d(X+1)^d
+G_m\left(-\frac4{X+1}\right),
+\]
+
+and division by \(\nu_\varepsilon\) gives (15.1). Although written
+rationally, the right side is a polynomial because the left side is.
+
+The complete finite-field factorization theorem for \(\Psi_m\) therefore
+specializes, through (15.1), to the root count and split/inert criterion
+below. The direct proof is retained to record the projective
+parametrization and branch sign used in Theorem 17. Proposition 15 is not
+claimed as a new finite-field factorization theorem.
+
 \subsection{Proposition 15: Local root classification}
 
 Fix \(n\geq0\), a branch \(\varepsilon\in\{A,B\}\), and an odd prime
@@ -1882,15 +1973,215 @@ the selected generation factor has \(p\)-adic valuation exactly \(H\).
 In particular, \(W_{n+1}\) is unbounded as the seed varies, even with
 \(\ell\) and \(n\) fixed.
 
-This does not address Conjecture 21, which fixes one seed and lets \(n\)
+This does not address Conjecture 22, which fixes one seed and lets \(n\)
 tend to infinity. Rather, it shows that no uniform squarefreeness or
 valuation bound can hold across all seeds. More sharply, the necessary
 split/inert congruence and the signed branch conditions are locally
 sufficient at every level, with arbitrary exact multiplicity.
 
+\section{A bounded local mean over primitive seed boxes}
+
+The local classification also gives an exact first moment after the prime
+and valuation ranges are truncated. All sums indexed by \(p\) in this
+section are over primes. The truncation is essential: removing it requires
+uniform control of square divisors at primes growing with the seed box.
+
+For \(H\geq1\), let \(\mathcal S_\ell(H)\) be the admissible seeds with
+
+\[
+1\leq a_0,b_0\leq H.
+\]
+
+Then
+
+\[
+|\mathcal S_\ell(H)|
+\sim
+\kappa_\ell H^2,
+\]
+
+where
+
+\[
+\kappa_\ell
+=
+\frac{2}{3(\ell+1)\zeta(2)}
+\quad(\ell\geq5),
+\qquad
+\kappa_3
+=
+\frac1{9\zeta(2)}.
+\]
+
+For finite \(P,K\), define
+
+\[
+\begin{aligned}
+D_{n,P,K}(a_0,b_0)
+&=
+\sum_{\substack{j<n,\ \varepsilon\in\{A,B\}\\
+                 p\leq P,\ p\ne2,\ell}}
+\log p
+\sum_{h=2}^{K+1}
+1_{
+p^h\mid\mathcal F_{j,\varepsilon}(a_0,b_0)
+}.
+\end{aligned}
+\]
+
+\subsection{Theorem 20: Exact local first moment}
+
+Put \(q_j=\ell^{j+1}\). For fixed \(n,P,K\),
+
+\[
+\boxed{
+\lim_{H\to\infty}
+\frac1{|\mathcal S_\ell(H)|}
+\sum_{(a_0,b_0)\in\mathcal S_\ell(H)}
+D_{n,P,K}(a_0,b_0)
+=
+\sum_{j<n}\varphi(q_j)
+\sum_{\substack{p\leq P,\ p\ne2,\ell\\
+                 q_j\mid p^2-1}}
+\frac{(1-p^{-K})\log p}{p^2-1}.
+}
+\]
+
+Consequently, the iterated limit as first \(H\), then \(K\), then \(P\)
+tends to infinity is
+
+\[
+L_\ell(n)
+=
+\sum_{j<n}\varphi(q_j)
+\sum_{\substack{p\ne2,\ell\\q_j\mid p^2-1}}
+\frac{\log p}{p^2-1}.
+\]
+
+It is bounded independently of \(n\). More explicitly,
+
+\[
+L_\ell(n)
+\leq
+\frac58
+\left[
+\frac{\zeta(2)\log3+B}{\ell-1}
++
+\frac{\zeta(2)\ell\log\ell}{(\ell-1)^2}
+\right],
+\qquad
+B=\sum_{r\geq1}\frac{\log r}{r^2}.
+\]
+
+\paragraph{Proof.}
+
+The asymptotic for \(\mathcal S_\ell(H)\) follows by Mobius inversion
+and local counting. At \(2\), opposite parity has density \(1/2\); at
+\(\ell\), the conditions \(\ell\mid a_0,\ell\nmid b_0\) have density
+\((\ell-1)/\ell^2\); and every other prime contributes its primitive-pair
+factor. Removing the \(2\)- and \(\ell\)-factors from
+\(\zeta(2)^{-1}\) gives the displayed constant. When \(\ell=3\), the
+condition \(v_3(3b_0-a_0)=1\) contributes the additional factor \(2/3\).
+
+Fix an odd \(p\ne\ell\), a level \(j\), and one branch. If \(p\) is
+compatible, Proposition 15 gives
+
+\[
+d_j=\frac{\varphi(q_j)}2
+\]
+
+simple affine roots modulo \(p\), and Corollary 16 lifts each one uniquely
+modulo \(p^h\). Every root permits \(\varphi(p^h)\) unit choices for the
+second coordinate, while the number of primitive pairs modulo \(p^h\) is
+
+\[
+p^{2h}-p^{2h-2}.
+\]
+
+Thus
+
+\[
+\lim_{H\to\infty}
+\Pr_{\mathcal S_\ell(H)}
+\left(
+p^h\mid
+\mathcal F_{j,\varepsilon}(a_0,b_0)
+\right)
+=
+\frac{d_j}{p^{h-1}(p+1)}.
+\]
+
+For an incompatible prime this probability is zero. Summing from
+\(h=2\) to \(K+1\), then over the two branches, proves the first formula.
+No independence assumption is used.
+
+For the uniform bound, every eligible odd prime is of the form
+
+\[
+p=2rq_j+1
+\quad\hbox{or}\quad
+p=2rq_j-1.
+\]
+
+For \(q\geq3\),
+
+\[
+\begin{aligned}
+(2rq+1)^2-1&\geq4r^2q^2,\\
+(2rq-1)^2-1&\geq\frac83r^2q^2,\\
+\log(2rq\pm1)&\leq\log(3rq).
+\end{aligned}
+\]
+
+Therefore
+
+\[
+\sum_{\substack{p\ {\rm odd}\\q\mid p^2-1}}
+\frac{\log p}{p^2-1}
+\leq
+\frac5{8q^2}
+\left(
+\zeta(2)\log(3q)+B
+\right).
+\]
+
+Use \(\varphi(q_j)\leq q_j\) and sum the resulting geometric series.
+\(\square\)
+
+\subsection{Large-square obstruction}
+
+Theorem 20 is an unconditional theorem about an iterated truncated limit,
+or equivalently the associated product of primitive local seed spaces. It
+does not prove
+
+\[
+\lim_{H\to\infty}
+\frac1{|\mathcal S_\ell(H)|}
+\sum_{(a_0,b_0)\in\mathcal S_\ell(H)}
+\log W_n
+=
+L_\ell(n).
+\]
+
+That equality requires a weighted tail estimate for primes \(p>P\) with
+\(p^2\mid E_j\), uniform as \(H\) grows. Fixed-modulus Hensel and CRT
+counts do not control this range. General squarefree-value results for
+multivariable polynomials assume the \(abc\) conjecture, as in Poonen's
+theorem; invoking that result would be circular. Unconditional binary-form
+results also have restrictions: Xiao's extension of Greaves, for example,
+imposes degree bounds that the higher-level branch forms do not satisfy.
+
+The bounded local mean strongly predicts that the full box mean of
+\(\log W_n\), if the large-square tail is negligible, is
+\(O_\ell(1)\), not merely \(O_\ell(n^2)\). This is a typical-seed
+prediction and says nothing by itself about a fixed orbit. Averaging
+\(W_n\) rather than its logarithm is not viable: the geometric local
+valuation tail makes even the one-prime expectation of
+\(p^{(v_p-1)_+}\) diverge.
+
 \section{A canonical family for every odd prime}
 
-\subsection{Corollary 20: Uniform explicit hit orbits}
+\subsection{Corollary 21: Uniform explicit hit orbits}
 
 For every odd prime \(\ell\), the seed
 
@@ -2066,7 +2357,7 @@ and every displayed prime is congruent to
 The exact identity converts the asymptotic problem into one about repeated
 prime factors in a sequence of pairwise coprime cyclotomic values.
 
-\subsection{Conjecture 21: Subpower repeated-prime growth}
+\subsection{Conjecture 22: Subpower repeated-prime growth}
 
 For every admissible seed and odd prime \(\ell\),
 
@@ -2102,21 +2393,41 @@ o(\ell^n),
 
 followed by control of higher valuations.
 
-Another natural problem is to study Conjecture 21 on average over
-admissible seeds, where large-sieve or Chebotarev methods may be more
-accessible than for one fixed orbit.
+Theorem 20 gives the exact bounded local first moment over admissible
+seeds. The remaining average problem is not the small-prime density but
+the large-square tail needed to pass from that local model to the full
+integer-box mean.
 
-The prime-degree restriction is arithmetically meaningful. It makes the
-new Lucas factor a single homogeneous cyclotomic value
+Prime degree remains arithmetically meaningful because it makes the new
+Lucas factor a single homogeneous cyclotomic value
 
 \[
 \Phi_{\ell^{n+1}}(\alpha,\beta),
 \]
 
 and the only systematic overlap between generations is the transfer prime
-\(\ell\), removed in the definition of \(E_n\). Composite degrees lead to
-several cyclotomic layers at each step and require a different
-normalization.
+\(\ell\), removed in the definition of \(E_n\). A companion calculation
+extends the radical telescope to every degree \(d\geq2\): the new factor
+is the product of the atom indices
+
+\[
+\{m:m\mid d^{j+1},\ m\nmid d^j\},
+\]
+
+normalized through the fixed Lucas quotient
+
+\[
+\frac1d
+\left|
+\frac{\mathcal U_{d^{j+1}}}{\mathcal U_{d^j}}
+\right|.
+\]
+
+This recovers the quadratic orbit at \(d=2\), the present construction at
+odd prime \(d\), and a multi-atom layer at composite \(d\). Since
+Chebyshev transfers compose, the degree-\(d\) map itself is not proposed
+as new. Its degree-uniform normalization and radical identity are recorded
+separately so that the single-atom prime genealogy here is not obscured.
 
 \section{Novelty boundary}
 
@@ -2135,12 +2446,22 @@ Polynomial \(abc\)-transfers and sharp polynomial triples are well
 established; representative sources are Martin-Miao and van der Horst.
 
 Prime-power cyclotomic factors and Lucas primitive-divisor phenomena are
-classical. Bilu, Hanrot, and Voutier prove the general primitive-divisor
-theorem for Lucas and Lehmer numbers. Alecci, Miska, Murru, and Romeo give
-a general definition and complete \(p\)-adic valuation theory for Lucas
-atoms; Ross, Shen, and Cai prove further cyclotomic congruences for Lucas
-sequences. The local order, valuation, and congruence statements above are
-specializations, not new local valuation theory.
+classical. Sagan and Tirrell give the foundational Lucas-atom
+factorization. Bilu, Hanrot, and Voutier prove the general
+primitive-divisor theorem for Lucas and Lehmer numbers. Alecci, Miska,
+Murru, and Romeo give a general definition and complete \(p\)-adic
+valuation theory for Lucas atoms; Ross, Shen, and Cai prove further
+cyclotomic congruences for Lucas sequences. The local order, valuation,
+and congruence statements above are specializations, not new local
+valuation theory.
+
+Byer, Dvorachek, Eckard, Harrington, Wise, and Wong determine the complete
+finite-field factorization of fibotomic polynomials. Equation (15.1)
+shows that Proposition 15 is their result after an explicit change of
+variables and homogenization. Bhargava-Zieve, Bluher, and Gassert are
+additional nearby sources on finite-field Dickson and Chebyshev
+factorization and dynamics. Neither Proposition 15 nor Corollary 16 is
+claimed as new local theory.
 
 Ratliff, Rush, and Shah construct pairwise radical-preserving families from
 homogeneous cyclotomic polynomials in a commutative-algebra setting. That is
@@ -2168,7 +2489,7 @@ interleaved nested-index atom towers, the radical telescope, strict
 monotonicity, the if-and-only-if quality criterion, the coupling of
 known local valuations to one global \(abc\)-defect term, and the exact
 simultaneous realization of arbitrary finite compatible prime
-genealogies.
+genealogies, together with the bounded local first moment of that defect.
 \end{quote}
 
 A bounded search through transfer catalogues, Chebyshev arithmetic,
@@ -2181,12 +2502,12 @@ is still required before making an unconditional priority claim.
 ChatGPT Pro was used to generate the initial proposal, including
 mathematical exploration, proof development, symbolic and numerical checks,
 literature retrieval, drafting, and the first version of the verification
-software. OpenAI Codex performed a subsequent proof and software audit,
-expanded the regression tests, and revised the proof exposition. An
-independent GPT-5.5 model then reviewed the core proof chain. The named author
-must independently verify every theorem, proof, reference, novelty statement,
-and computation before circulation or submission. The AI systems are not
-authors.
+software. OpenAI Codex performed subsequent proof, source, and software
+audits, expanded the regression tests, and revised the exposition. Separate
+GPT-5.5 and Claude model passes reviewed the proof chain and the Phase 5
+directions. The named author must independently verify every theorem, proof,
+reference, novelty statement, and computation before circulation or
+submission. The AI systems are not authors.
 
 \section{References}
 
@@ -2195,6 +2516,11 @@ of Lucas atoms and their \(p\)-adic valuations," \emph{Monatshefte fur
 Mathematik} \textbf{207} (2025), 175-196.
 
 \url{https://doi.org/10.1007/s00605-025-02087-w}
+
+M. Bhargava and M. E. Zieve, "Factoring Dickson polynomials over finite
+fields," \emph{Finite Fields and Their Applications} \textbf{5} (1999), 103-111.
+
+\url{https://doi.org/10.1006/ffta.1998.0221}
 
 A. Baker and G. Wustholz, "Logarithmic forms and group varieties,"
 \emph{Journal fur die reine und angewandte Mathematik} \textbf{442} (1993), 19-62.
@@ -2206,6 +2532,29 @@ Lucas and Lehmer numbers," \emph{Journal fur die reine und angewandte
 Mathematik} \textbf{539} (2001), 75-122.
 
 \url{https://doi.org/10.1515/crll.2001.080}
+
+A. W. Bluher, "Permutation properties of Dickson and Chebyshev polynomials
+with connections to number theory," \emph{Finite Fields and Their Applications}
+\textbf{76} (2021), 101899.
+
+\url{https://doi.org/10.1016/j.ffa.2021.101899}
+
+C. Byer, T. Dvorachek, E. Eckard, J. Harrington, L. Wise, and
+T. W. H. Wong,
+"On the properties of fibotomic polynomials,"
+\emph{Advances in Applied Mathematics} \textbf{138} (2022), 102344.
+
+\url{https://doi.org/10.1016/j.aam.2022.102344}
+
+T. A. Gassert, "Chebyshev action on finite fields," \emph{Discrete
+Mathematics} \textbf{315} (2014), 83-94.
+
+\url{https://doi.org/10.1016/j.disc.2013.10.014}
+
+B. Poonen, "Squarefree values of multivariable polynomials," \emph{Duke
+Mathematical Journal} \textbf{118} (2003), 353-373.
+
+\url{https://doi.org/10.1215/S0012-7094-03-11826-8}
 
 T. Ross, Z. Shen, and T. Cai, "Cyclotomic congruences and Lucas sequences,"
 arXiv:2512.03468 [math.NT], 2025.
@@ -2223,13 +2572,23 @@ arXiv:2605.24909 [math.NT], 2026.
 
 \url{https://doi.org/10.48550/arXiv.2605.24909}
 
-G. Martin and W. Miao, "\(abc\) triples," \emph{Functional Approximation
+G. Martin and W. Miao, "\(abc\) triples," \emph{Functiones et Approximatio
 Commentarii Mathematici} \textbf{55} (2016), 145-176.
 
 \url{https://doi.org/10.7169/facm/2016.55.2.2}
+
+B. E. Sagan and J. P. Tirrell, "Lucas atoms," \emph{Advances in Mathematics}
+\textbf{374} (2020), 107387.
+
+\url{https://doi.org/10.1016/j.aim.2020.107387}
 
 J. P. van der Horst, \emph{Finding \(ABC\)-triples using elliptic curves},
 M.Sc. thesis, Universiteit Leiden, 2010.
 
 \url{https://math.leidenuniv.nl/scripties/vanderHorstMaster.pdf}
+
+S. Y. Xiao, "Square-free values of decomposable forms," \emph{Canadian Journal
+of Mathematics} \textbf{70} (2018), 1390-1415.
+
+\url{https://doi.org/10.4153/CJM-2017-060-4}
 \end{document}
