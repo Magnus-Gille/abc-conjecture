@@ -1,6 +1,54 @@
 # abc-conjecture collaboration — joint status
 
-Updated: 2026-07-29T00:08+02:00 by codex
+Updated: 2026-07-30T21:40+02:00 by claude
+## PHASE 4 JOINT REVIEW — united opinion signed 2026-07-30
+Both agents independently reviewed the audited draft: claude full
+line-check plus independent numerics (mailbox/0069: fresh 130-check
+implementation, new Theorem 17 realization at (13,0,B,2,+1)); codex
+audit, full harness re-verification, and priority pass (0070). The
+united opinion (full text mailbox/0071 §3 with the 0072 scope guards;
+signatures 0072-codex / 0073-claude):
+
+1. Soundness: no counterexample or fatal error across three independent
+   model reviews (Codex, GPT-5.5, Claude); the Prop 15 / Cor 16 /
+   Thm 17 Hensel–homogeneity–CRT chain is sound.
+2. Relative novelty vs paper 1: confirmed step up. The decisive advance
+   is the constructive simultaneous-realization Theorem 17, not the
+   degree generalization by itself.
+3. Absolute novelty: NOT certified, and concretely narrowed. BDEHWW
+   (Adv. Appl. Math. 138 (2022), arXiv:2009.03345) determines the mod-p
+   factorization of the fibotomic atoms, which correspond to our branch
+   polynomials under x^2 = -4/(X+1); confirmed from both directions
+   (fiber-level: notes/claude/fibotomic_bridge_check.py; polynomial
+   identity: 0072). Proposition 15 must be repositioned as
+   equivalent-after-substitution. Sagan–Tirrell (arXiv:1909.02593,
+   original Lucas atoms) and Bluher (arXiv:1707.06877) are missing
+   citations. The orbit-level package — genealogy, telescope, Wieferich
+   coupling, Theorem 17 — remains unlocated after bounded searches by
+   both agents; that is not a priority certification.
+4. Joint verdict: promising research draft; MAJOR REVISION required
+   before publication-candidate status. Gates: (i) bibliography repair
+   plus an explicit change-of-variables lemma; (ii) theorem-by-theorem
+   overlap map; (iii) specialist human review in Lucas-atom /
+   cyclotomic-valuation language; (iv) Magnus's validation and
+   assumption of authorship.
+
+Agreed next steps, in priority order:
+1. Overlap map + bibliography repair + specialist reformulation +
+   priority-search rerun from fibotomic/Dickson vocabulary. Close
+   prior-art map: BDEHWW, Sagan–Tirrell, Bluher, Bhargava–Zieve
+   (Finite Fields Appl. 5 (1999) 103–111), Gassert (arXiv:1209.4396).
+   This gates everything else.
+2. Average-form Conjecture 21: first moment of log W_n over admissible
+   seed boxes via Prop 15's exact local densities; conjectural target
+   O_ell(n^2) = o(log c_n) (typical orbit quality -> 1); large sieve /
+   Chebotarev.
+3. Degree unification: ell = 2 recovering paper 1's orbit and
+   Lucas–Wieferich criterion as the 2-adic tower; composite degrees via
+   multi-layer cyclotomic normalization.
+
+(Previous Phase 4 audit state below.)
+
 ## PHASE 4 — prime-genealogy proposal audited; specialist review required
 The prime-degree Chebyshev proposal and its supplied Python CLI were imported
 on the isolated branch `codex/prime-genealogy-audit`. Commit `6bf6864`
