@@ -162,7 +162,8 @@ and
 \]
 
 Multiply each inequality by \(\log p\), sum over the primes with
-\(v=v_p(N)\geq2\), and combine with Proposition 1. \(\square\)
+\(v=v_p(N)\geq2\), and obtain (3)--(4).  Applying those inequalities
+with \(N=E_j\), then using Proposition 1, gives (5)--(6). \(\square\)
 
 There is also the exact layer-cake identity
 
@@ -186,6 +187,37 @@ higher valuations.  For example, for \(N=p^e\), (8)'s analogue is only
 \(\log p\), whereas the defect is \((e-1)\log p\).  Estimate (8) becomes
 sufficient if it is paired with a suitable uniform bound on the excess
 valuations, but no such fixed-orbit bound is presently in hand.
+
+### 3.1 Rank localization
+
+For odd prime degree, Proposition 12 gives
+
+\[
+\ell E_j
+=
+\left|
+\frac{\mathcal U_{\ell^{j+1}}}
+{\mathcal U_{\ell^j}}
+\right|
+=
+\left|\Phi_{\ell^{j+1}}(\alpha,\beta)\right|.
+\]
+
+Every prime \(p\mid E_j\) has rank of apparition exactly
+\(q_j=\ell^{j+1}\) in this descended Lucas sequence.  The denominator is
+a \(p\)-adic unit at the birth level, so
+
+\[
+v_p(E_j)=v_p(\mathcal U_{q_j}).
+\]
+
+The quadratic orbit has the analogous signed-rank description with
+\(q_j=2^{j+2}\).  Thus every term in \(\delta_j\) is a Wieferich excess
+at the prime's own rank.  The Lucas law of repetition creates extra
+valuation only at indices divisible by \(p\); those indices are not in
+the \(d\)-smooth tower because \(p\nmid d\).  This explains
+simultaneously why the prime is born in one layer and why later
+cyclotomic quotients do not accumulate its valuation.
 
 ## 4. What the genealogy and congruence floor actually prove
 
@@ -458,7 +490,73 @@ Equation (18), or equivalently (6) without a split, is the point at which
 an unproved squarefreeness, a growing-range Chebotarev assertion, or an
 \(abc\)-type input is liable to be smuggled in.
 
-## 6. Bounded computation on the three canonical orbits
+## 6. Conditional and literature placement
+
+### 6.1 The full target follows from \(abc\), circularly
+
+Assume the \(abc\) conjecture.  For every \(\varepsilon>0\), its
+application to the \(n\)-th primitive orbit triple gives
+
+\[
+c_n\ll_\varepsilon R_n^{1+\varepsilon}.
+\]
+
+Writing \(\Delta_n=\log(c_n/R_n)\), this implies
+
+\[
+\frac{\Delta_n}{\log c_n}
+\leq
+\frac{\varepsilon}{1+\varepsilon}+o(1).
+\]
+
+Since \(\varepsilon\) is arbitrary,
+
+\[
+\Delta_n=o(\log c_n).
+\]
+
+The exact radical identity and the archimedean estimate give
+
+\[
+\Delta_n=\log W_n+o(\log c_n),
+\]
+
+so (1) follows.  Thus the \(abc\)-conditional powerful-part results of
+Ribenboim--Walsh and Yabuta are consistent with the target, but any use
+of them in an attempted proof of \(abc\) would be circular.
+
+### 6.2 What the checked unconditional literature does and does not do
+
+- Stewart's headline theorem
+  \[
+  P(\Phi_m(\alpha,\beta))
+  >
+  m\exp\left(
+  \frac{\log m}{104\log\log m}
+  \right)
+  \]
+  is a lower bound for one large prime factor.  By itself it does not
+  control the powerful part.  The useful input is instead the internal
+  valuation lemma (12), which yields Proposition 3.
+- Primitive-divisor theorems are weaker than the genealogy already
+  available here: every prime has a unique birth layer.  They do not
+  bound its birth valuation.
+- Known subspace-theorem gcd estimates compare multiplicatively
+  independent sequences.  The powerful part of one cyclotomic value has
+  no known reformulation of that shape.
+- No named conjecture equivalent to (6), and no unconditional theorem
+  covering a fixed polynomial window \(p\leq q_j^{1+\varepsilon}\), was
+  located in the bounded joint source search.
+
+Mersenne squarefreeness is a useful difficulty benchmark, not a
+reduction.  For prime \(r\), a square divisor \(p^2\mid2^r-1\) forces a
+Wieferich congruence at \(p\), just as a square divisor of \(E_j\) forces
+the cyclotomic lift in Proposition 14.  Whether all prime-index
+Mersenne numbers are squarefree remains open.  Our target is weaker
+than eventual squarefreeness, and neither problem is known to imply the
+other.
+
+## 7. Bounded computation on the three canonical orbits
 
 The diagnostic
 
@@ -502,7 +600,7 @@ python3 paper/chebyshev_abc.py square-search \
   --ell 5 --a 5 --b 2 --prime-limit 1000000 --max-level 8
 ```
 
-## 7. Current narrow research questions for the joint pass
+## 8. Current narrow research questions for the joint pass
 
 1. Can Stewart's unconditional window (14) be enlarged to
    \(p\leq q_j^{1+\varepsilon}\), or can any published \(p\)-adic bound
