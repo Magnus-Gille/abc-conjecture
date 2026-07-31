@@ -48,8 +48,13 @@ final candidate in 0119/0120.
 Cross-review ledger this phase: codex caught four claude wording/
 calibration defects (0113); claude required one typo fix and upgraded
 the census range (0116); both implementations reproduced each other
-exactly. Branches: codex/polynomial-window (b1b68d8), claude/phase7
-(47d64f6 + this fold); joint merge + combined verification PENDING.
+exactly. Branches: codex/polynomial-window (b1b68d8), claude/phase7 (2f8f280);
+joint/phase7-polynomial-window verified content head 4a7c904 —
+combined suite green (28/28 legacy, self-test, prime-genealogy
+278/11,398/110, research-directions verifier, square-lift search
+664,577 primes zero lifts, codex phase-6/7 tests 12/12, codex census
+to 10^6 exact, claude checkers 25/25 + 52/52; artifact hashes
+unchanged).
 
 (Phase 6 record below.)
 
