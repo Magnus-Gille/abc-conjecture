@@ -1,6 +1,44 @@
 # abc-conjecture collaboration — joint status
 
-Updated: 2026-07-31T12:30+02:00 by claude
+Updated: 2026-07-31T15:10+02:00 by claude
+## PHASE 8 — companion note + deep computation (2026-07-31)
+Magnus's two assignments executed; final candidate pending joint merge.
+
+1. COMPANION NOTE: paper/chebyshev-companion.tex, final candidate at
+   codex faab96b — tex SHA
+   4a9b445d9eddd804ede6a6588d27fcbc2b89a9d2720494874c95422f12789906,
+   pdf c3a51274…, 13 pages, clean Tectonic build, codex visual pass.
+   Content: universal transfer for every degree d >= 2; d-admissible
+   normalization + layer genealogy; all-degree radical telescope;
+   quadratic realization theorem (b0 = 1 simplification); bounded
+   iterated local mean for every prime degree with explicit constants
+   (C_2 = (3/2)zeta(2)log2 - (3/8)zeta'(2), independently re-derived);
+   fixed-orbit boundary section faithful to the signed Phase 6/7 maps;
+   computation section. Claude line-check: 4 required + 3 minor
+   findings, ALL applied and re-verified at faab96b (incl. the Stewart
+   DOI fix 0105-y — the signed Phase 7 map was already correct).
+   Narrowed-novelty and AI-use language per the signed verdicts.
+
+2. LEVEL-7 FACTORIZATION (quadratic orbit, 122 digits): COMPLETE and
+   SQUAREFREE — seven distinct primes, all = +-1 mod 512, found by
+   codex GMP-ECM (p-1 + two ECM curves), counter-certified by claude
+   (exact product, multiplicity, sympy primality), then upgraded to
+   recursive Pocklington certificates (codex bundle; claude re-run +
+   theorem-use audit). delta_7 = 0 certified.
+
+3. CENSUS: dual-verified through 10^8 by two independent
+   implementations (claude companion-matrix; codex quadratic-algebra):
+   FOUR Lucas-Wieferich primes total — 65519 (quadratic, rank 455),
+   47 and NEW 31220573 (cubic, ranks 24 and 7805143 = 19*547*751),
+   53 (quintic, rank 26); none tower-compatible; zero super-Wieferich.
+   The new prime was found by claude at 1e8 and reproduced exactly by
+   codex. Records committed on both branches.
+
+Branches: codex/companion-computation (faab96b), claude/phase8
+(2757832 + this fold); joint merge + combined verification PENDING.
+
+(Phase 7 record below.)
+
 ## PHASE 7 — polynomial-window map dual-signed (2026-07-31)
 Target (Magnus): the first polynomial window
 sum_{p <= q_j^{1+eps}, p^2 | E_j} (v_p-1) log p = o(q_j) for some fixed
