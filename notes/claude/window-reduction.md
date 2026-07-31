@@ -152,7 +152,13 @@ bound exists in the literature we have checked.
 
 ## 5. Empirical Lucas–Wieferich census (script part C)
 
-For the three canonical pairs, ALL LW primes \(p\le10^5\):
+Extension 2026-07-31: rerun to \(p\le10^6\) (same matrix
+implementation, `census-1e6` record below): NO new LW primes and NO
+super-Wieferich primes for any pair — the table below is complete
+through \(10^6\), independently matching codex's polynomial-algebra
+implementation over the full range.
+
+For the three canonical pairs, ALL LW primes \(p\le10^6\):
 
 | pair | LW primes | rank of each | pure \(d\)-power rank? |
 |---|---|---|---|
