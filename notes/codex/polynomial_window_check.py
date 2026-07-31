@@ -6,7 +6,16 @@ Z[X]/(X^2-PX+Q), rather than the companion-matrix implementation in
 Claude's checker.  If X^n = U_n X - Q U_{n-1}, the X coefficient is U_n.
 """
 
+import argparse
+import json
 from math import isqrt
+
+
+CANONICAL_PAIRS = {
+    "quadratic": (14, 81),
+    "cubic": (-2, 25),
+    "quintic": (-6, 49),
+}
 
 
 def _quadratic_product(left, right, p_parameter, q_parameter, modulus):
@@ -154,3 +163,36 @@ def deep_split_coefficients(exponents, weights, cutoff):
         truncated += min(excess, cutoff) * weight
         tail += max(excess - cutoff, 0) * weight
     return defect, truncated, tail
+
+
+def canonical_census(limit):
+    """Return replayable Wieferich, depth-three, and rank data."""
+    result = {}
+    for name, (p_parameter, q_parameter) in CANONICAL_PAIRS.items():
+        hits = wieferich_hits(p_parameter, q_parameter, limit)
+        result[name] = {
+            "wieferich": hits,
+            "super_wieferich": super_wieferich_hits(
+                p_parameter, q_parameter, limit
+            ),
+            "ranks": {
+                prime: lucas_rank(p_parameter, q_parameter, prime)
+                for prime in hits
+            },
+        }
+    return result
+
+
+def main():
+    parser = argparse.ArgumentParser(
+        description="Census fixed-pair Lucas-Wieferich primes"
+    )
+    parser.add_argument("--limit", type=int, default=100_000)
+    args = parser.parse_args()
+    if args.limit < 2:
+        parser.error("--limit must be at least 2")
+    print(json.dumps(canonical_census(args.limit), indent=2, sort_keys=True))
+
+
+if __name__ == "__main__":
+    main()

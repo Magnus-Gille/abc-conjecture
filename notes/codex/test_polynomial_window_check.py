@@ -8,6 +8,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from polynomial_window_check import (
+    canonical_census,
     deep_split_coefficients,
     lucas_rank,
     lucas_u_mod,
@@ -54,6 +55,12 @@ class LucasArithmeticTests(unittest.TestCase):
         self.assertEqual(super_wieferich_hits(14, 81, 100_000), [])
         self.assertEqual(super_wieferich_hits(-2, 25, 100_000), [])
         self.assertEqual(super_wieferich_hits(-6, 49, 100_000), [])
+
+    def test_canonical_census_combines_hits_depths_and_ranks(self):
+        census = canonical_census(100_000)
+        self.assertEqual(census["quadratic"]["wieferich"], [65_519])
+        self.assertEqual(census["quadratic"]["ranks"], {65_519: 455})
+        self.assertEqual(census["quadratic"]["super_wieferich"], [])
 
 
 class TruncationIdentityTests(unittest.TestCase):
