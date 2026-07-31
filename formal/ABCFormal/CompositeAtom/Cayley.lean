@@ -103,8 +103,9 @@ theorem primitive_index_unique_of_cayleyRho_eq [NeZero (2 : K)]
     exact hk'.unique hl.inv
 
 /-- In a finite field, the exact order of a nonzero primitive root divides
-the multiplicative-group order. This is the split half of the paper's
-compatibility condition. -/
+the multiplicative-group order. Applied with `F = 𝔽_p`, this is the split
+half of the paper's compatibility condition; it does not formalize the
+norm-one subgroup argument. -/
 theorem primitiveRoot_order_dvd_card_sub_one
     {F : Type*} [Field F] [Fintype F]
     {z : F} {k : ℕ} (hk0 : k ≠ 0) (hz : IsPrimitiveRoot z k) :
