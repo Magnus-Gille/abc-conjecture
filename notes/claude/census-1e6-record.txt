@@ -1,0 +1,4 @@
+quadratic LW p<=1e6: [65519] super-W: none
+cubic LW p<=1e6: [47] super-W: none
+quintic LW p<=1e6: [53] super-W: none
+DONE
