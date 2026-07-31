@@ -8,7 +8,9 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from polynomial_window_check import (
+    _primes_up_to,
     canonical_census,
+    census_pair,
     deep_split_coefficients,
     lucas_rank,
     lucas_u_mod,
@@ -61,6 +63,13 @@ class LucasArithmeticTests(unittest.TestCase):
         self.assertEqual(census["quadratic"]["wieferich"], [65_519])
         self.assertEqual(census["quadratic"]["ranks"], {65_519: 455})
         self.assertEqual(census["quadratic"]["super_wieferich"], [])
+
+    def test_single_pass_pair_census_matches_public_helpers(self):
+        primes = _primes_up_to(100_000)
+        result = census_pair(14, 81, primes)
+        self.assertEqual(result["wieferich"], [65_519])
+        self.assertEqual(result["super_wieferich"], [])
+        self.assertEqual(result["ranks"], {65_519: 455})
 
 
 class TruncationIdentityTests(unittest.TestCase):

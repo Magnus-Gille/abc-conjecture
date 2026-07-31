@@ -73,6 +73,27 @@ class CanonicalLayerTests(unittest.TestCase):
         self.assertEqual(report["factorization_method"], "stored-certificate")
         self.assertTrue(report["squarefree"])
 
+    def test_quadratic_level_seven_factorization_certificate(self) -> None:
+        layer = probe.canonical_layers(8, 0, 0)[7]
+        report = probe.analyze_layer(layer, factor_limit=100)
+
+        self.assertTrue(report["factorization_complete"])
+        self.assertEqual(report["factorization_method"], "stored-certificate")
+        self.assertTrue(report["certified_primes_obey_congruence"])
+        self.assertTrue(report["squarefree"])
+        self.assertEqual(
+            [int(component["value"]) for component in report["components"]],
+            [
+                189_439,
+                750_692_351,
+                9_825_841_153,
+                298_196_593_663,
+                991_245_449_894_911,
+                6_726_631_000_961_507_661_177_857,
+                28_434_404_151_626_641_091_139_435_909_034_910_237_447_173_121,
+            ],
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

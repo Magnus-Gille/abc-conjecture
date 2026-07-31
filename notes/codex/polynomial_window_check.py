@@ -121,6 +121,57 @@ def super_wieferich_hits(p_parameter, q_parameter, limit):
     return hits
 
 
+def census_pair(p_parameter, q_parameter, primes):
+    """Return Wieferich, depth-three, and rank data in one prime pass.
+
+    The expensive modulus-``p**3`` calculation is performed only after the
+    modulus-``p**2`` test succeeds.  ``primes`` is supplied by the caller so
+    a multi-pair census can share one sieve.
+    """
+    discriminant = p_parameter * p_parameter - 4 * q_parameter
+    hits = []
+    deep_hits = []
+    for prime in primes:
+        if (
+            prime == 2
+            or q_parameter % prime == 0
+            or discriminant % prime == 0
+        ):
+            continue
+        character = _legendre(discriminant, prime)
+        index = prime - character
+        if (
+            lucas_u_mod(
+                index,
+                p_parameter,
+                q_parameter,
+                prime * prime,
+            )
+            != 0
+        ):
+            continue
+        hits.append(prime)
+        if (
+            lucas_u_mod(
+                index,
+                p_parameter,
+                q_parameter,
+                prime**3,
+            )
+            == 0
+        ):
+            deep_hits.append(prime)
+
+    return {
+        "wieferich": hits,
+        "super_wieferich": deep_hits,
+        "ranks": {
+            prime: lucas_rank(p_parameter, q_parameter, prime)
+            for prime in hits
+        },
+    }
+
+
 def _positive_divisors(number):
     low = []
     high = []
@@ -167,20 +218,11 @@ def deep_split_coefficients(exponents, weights, cutoff):
 
 def canonical_census(limit):
     """Return replayable Wieferich, depth-three, and rank data."""
-    result = {}
-    for name, (p_parameter, q_parameter) in CANONICAL_PAIRS.items():
-        hits = wieferich_hits(p_parameter, q_parameter, limit)
-        result[name] = {
-            "wieferich": hits,
-            "super_wieferich": super_wieferich_hits(
-                p_parameter, q_parameter, limit
-            ),
-            "ranks": {
-                prime: lucas_rank(p_parameter, q_parameter, prime)
-                for prime in hits
-            },
-        }
-    return result
+    primes = _primes_up_to(limit)
+    return {
+        name: census_pair(p_parameter, q_parameter, primes)
+        for name, (p_parameter, q_parameter) in CANONICAL_PAIRS.items()
+    }
 
 
 def main():
