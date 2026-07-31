@@ -6,7 +6,7 @@ Phase: 6
 
 Date: 2026-07-31
 
-Status: elementary reductions proved; fixed-orbit asymptotic target **OPEN**
+Status: exact reductions and a moving-window estimate proved; full target **OPEN**
 
 ## 1. Scope and notation
 
@@ -277,67 +277,184 @@ prime as large as \(\exp(Cd^j/2)\).  At the other extreme, roughly
 produce a full-scale defect.  A proof has to exclude both mechanisms in
 aggregate.
 
-## 5. A useful near-floor split
+## 5. Prime-size splits
+
+### 5.1 An unconditional moving window from Stewart's valuation lemma
+
+The abstract of Stewart's largest-prime-factor theorem is not enough for
+this problem, but a valuation lemma inside its proof is useful.  For the
+fixed Lucas pair \((\alpha,\beta)\), put \(u=\alpha/\beta\).  Stewart
+proves that, outside an effective seed-dependent finite set of primes,
+
+\[
+\operatorname{ord}_{\mathfrak p}(u^m-1)
+<
+p\exp\left(
+-\frac{\log p}{51.9\log\log p}
+\right)
+\log|\alpha|\log m
+\tag{12}
+\]
+
+for every unramified prime ideal \(\mathfrak p\mid p\) and \(m>1\).
+This is Lemma 8 of arXiv:1008.1274; it appears as Lemma 4.3 in the
+published Acta Mathematica version and is reproduced in Yu's 2013
+companion paper.
+
+### Proposition 3: Unconditional near-floor saving
+
+Let
+
+\[
+L_j=\frac{\log q_j}{\log\log q_j}.
+\]
+
+For every fixed
+
+\[
+0<\gamma<\frac{1}{103.8},
+\]
+
+put
+
+\[
+Y_j=q_j\exp(\gamma L_j).
+\tag{13}
+\]
+
+Then
+
+\[
+\boxed{
+\sum_{\substack{p\leq Y_j\\p^2\mid E_j}}
+(v_p(E_j)-1)\log p=o(q_j).
+}
+\tag{14}
+\]
+
+#### Proof
+
+For all large \(j\), Theorem 13 and Proposition 14 of the prime-degree
+paper, and their quadratic counterpart, give
+
+\[
+v_p(E_j)
+\leq
+\operatorname{ord}_{\mathfrak p}(u^{q_j}-1).
+\tag{15}
+\]
+
+All these primes are unramified and outside the fixed exceptional set.
+Fix \(\gamma<a/2\), where \(a=1/51.9\), and choose \(a'\) with
+
+\[
+2\gamma<a'<a.
+\]
+
+Because \(p\geq q_j-1\), for all sufficiently large \(j\),
+
+\[
+\exp\left(
+-a\frac{\log p}{\log\log p}
+\right)
+\leq
+\exp(-a'L_j).
+\]
+
+Equations (12) and (15) therefore imply, uniformly for \(p\leq Y_j\),
+
+\[
+(v_p(E_j)-1)_+\log p
+\ll
+Y_j\exp(-a'L_j)\log q_j\log Y_j.
+\]
+
+There are at most \(2(Y_j/q_j+1)\) candidate integers in the two
+classes \(p\equiv\pm1\pmod {q_j}\).  Summing the last display gives
+
+\[
+\begin{aligned}
+\sum_{\substack{p\leq Y_j\\p^2\mid E_j}}
+(v_p(E_j)-1)\log p
+&\ll
+\left(\frac{Y_j}{q_j}+1\right)
+Y_j\exp(-a'L_j)\log q_j\log Y_j\\
+&=
+q_j\exp\bigl((2\gamma-a'+o(1))L_j\bigr)\\
+&=o(q_j).
+\end{aligned}
+\]
+
+This proves (14). \(\square\)
+
+The window is genuinely growing:
+
+\[
+\frac{Y_j}{q_j}
+=
+\exp\left(
+\gamma\frac{\log q_j}{\log\log q_j}
+\right)
+=
+q_j^{o(1)}.
+\]
+
+It is nevertheless much smaller than \(q_j^{1+\varepsilon}\) for every
+fixed \(\varepsilon>0\).  Thus Proposition 3 is a nontrivial
+unconditional partial result, not a solution of (6).
+
+### 5.2 A wider conditional split
 
 Fix \(0<\eta<1\), put
 
 \[
-Y_j=q_j^{\,2-\eta},
+Z_j=q_j^{\,2-\eta},
 \]
 
 and define
 
 \[
-B_j(Y_j)
+B_j(Z_j)
 =
-\max_{\substack{p\leq Y_j\\p\mid E_j}}
+\max_{\substack{p\leq Z_j\\p\mid E_j}}
 (v_p(E_j)-1)_+,
 \]
 
-with the maximum interpreted as zero if the set is empty.
-
-There are at most
-
-\[
-2\left(\frac{Y_j}{q_j}+1\right)
-\]
-
-positive integers at most \(Y_j\) lying in the two residue classes in
-(9).  It follows that
+with the maximum interpreted as zero if the set is empty.  Counting the
+two residue classes in (9) gives
 
 \[
-\sum_{\substack{p\leq Y_j\\p^2\mid E_j}}
+\sum_{\substack{p\leq Z_j\\p^2\mid E_j}}
 (v_p(E_j)-1)\log p
 \leq
-2B_j(Y_j)
-\left(\frac{Y_j}{q_j}+1\right)\log Y_j.
-\tag{12}
+2B_j(Z_j)
+\left(\frac{Z_j}{q_j}+1\right)\log Z_j.
+\tag{16}
 \]
 
 Hence a uniform estimate
 
 \[
 B_j(q_j^{2-\eta})=q_j^{o(1)}
-\tag{13}
+\tag{17}
 \]
 
-would make the whole near-floor block in (12) equal to \(o(q_j)\).
-This is a conditional reduction, not a claimed bound.  A theorem for
-each fixed \(p\) is not enough for (13), because every prime occurring at
-level \(j\) grows with \(j\).  The dependence on \(p\) in any proposed
-\(p\)-adic logarithm estimate is therefore decisive.
+would make the block in (16) equal to \(o(q_j)\).  This is a
+conditional reduction, not a claimed bound.  Stewart's estimate (12)
+proves (14), but it does not imply (17) over this polynomially wider
+window.
 
-After (13), the remaining estimate would be the genuinely global
+After (17), the remaining estimate would be the genuinely global
 large-square tail
 
 \[
 \sum_{\substack{p>q_j^{2-\eta}\\p^2\mid E_j}}
 (v_p(E_j)-1)\log p=o(q_j).
-\tag{14}
+\tag{18}
 \]
 
-No argument currently available to this agent proves (13) or (14).
-Equation (14), or equivalently (6) without a split, is the point at which
+No argument currently available to this agent proves (17) or (18).
+Equation (18), or equivalently (6) without a split, is the point at which
 an unproved squarefreeness, a growing-range Chebotarev assertion, or an
 \(abc\)-type input is liable to be smuggled in.
 
@@ -369,7 +486,7 @@ modular searches with `paper/chebyshev_abc.py` found no square lift for
 The earlier quadratic search found no square lift for \(p\leq10^7\)
 through level 50.  These are finite diagnostics only.  In particular,
 the unresolved cofactors in the table may conceal repeated prime factors,
-and the absence of small-prime lifts says nothing about (14).
+and the absence of small-prime lifts says nothing about the tail in (18).
 
 Reproduction:
 
@@ -387,12 +504,13 @@ python3 paper/chebyshev_abc.py square-search \
 
 ## 7. Current narrow research questions for the joint pass
 
-1. Does a published \(p\)-adic logarithm bound, with its full dependence
-   on \(p\), imply (13) in any window \(p\leq q_j^{2-\eta}\)?
+1. Can Stewart's unconditional window (14) be enlarged to
+   \(p\leq q_j^{1+\varepsilon}\), or can any published \(p\)-adic bound
+   imply (17) in the wider window \(p\leq q_j^{2-\eta}\)?
 2. Is (6) for a fixed nondegenerate Lucas pair already a named or
    explicitly recorded open problem, and what is its exact
    \(abc\)-conditional status?
-3. Is there any fixed-seed method that controls (14), rather than an
+3. Is there any fixed-seed method that controls (18), rather than an
    average over seed residue classes?  The bounded local mean from Phase
    5 controls the latter model but cannot be transferred pointwise without
    a new uniform-integrability or large-square theorem.
