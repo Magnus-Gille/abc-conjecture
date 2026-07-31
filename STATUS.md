@@ -38,8 +38,11 @@ Cross-review ledger this phase: codex caught two claude defects (the
 false (1/2)log E bound, 0095; the Q1 sublinearity under-claim, 0097);
 claude required two map corrections (quadratic rank wording,
 Ribenboim-Walsh discriminant caveat, 0100), both applied (0101).
-Branches: codex/fixed-orbit (6123eb0), claude/phase6 (02b82fb + this
-fold); joint/phase6-fixed-orbit merge + combined verification pending.
+Branches: codex/fixed-orbit (6123eb0), claude/phase6 (bce68a2);
+joint/phase6-fixed-orbit verified content head aa570e1 — combined
+suite green (28/28 legacy tests, self-test, prime-genealogy verifier
+278/11,398/110, research-directions verifier, codex fixed-orbit 6/6,
+claude fixed-orbit 25/25, map and proof SHA-256 unchanged).
 
 (Phase 5 record below.)
 
