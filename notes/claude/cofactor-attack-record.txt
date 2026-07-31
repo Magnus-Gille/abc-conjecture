@@ -1,0 +1,12 @@
+E7 digits: 122
+known primes divide once each: OK
+cofactor digits: 98
+cofactor: 56536070697207337577943170864114830135531868900762790068048123936021449062339829805776542242181121
+class trial division to 10000000000: found no factors
+remaining cofactor digits: 98
+remaining cofactor is probable prime: False
+elapsed 9s
+TRIAL DONE
+starting sympy ECM (bounded rounds)...
+ECM ended: ValueError('Increase the bounds')
+ALL DONE

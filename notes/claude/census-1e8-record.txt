@@ -1,0 +1,15 @@
+segment to 10000002 done, 80s
+segment to 20000002 done, 143s
+segment to 30000002 done, 201s
+segment to 40000002 done, 260s
+segment to 50000002 done, 313s
+segment to 60000002 done, 368s
+segment to 70000002 done, 419s
+segment to 80000002 done, 469s
+segment to 90000002 done, 518s
+segment to 100000000 done, 577s
+quadratic: LW p<=1e8: [65519]  super-W: none
+cubic: LW p<=1e8: [47, 31220573]  super-W: none
+quintic: LW p<=1e8: [53]  super-W: none
+odd primes scanned: 5761454, elapsed 577s
+CENSUS8 DONE
