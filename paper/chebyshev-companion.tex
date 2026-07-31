@@ -656,7 +656,9 @@ The identity
  \tag{6.12}
 \]
 shows that the coordinate-index and Lucas-index descriptions below are
-equivalent.
+equivalent.  For odd $m$, the compatibility conditions for $A_m$ and
+$A_{2m}$ coincide: if \(m\mid p-\chi\), then
+\(2m\mid p-\chi\) because $p-\chi$ is even.
 
 \begin{theorem}[All-degree bounded iterated local mean]\label{thm:local-mean}
 For every degree $d\ge2$,
@@ -993,6 +995,10 @@ powerful part.
 OpenAI Codex and Anthropic Claude were used during Phases 5--9 for
 mathematical exploration, proof and source audits, independent software
 implementations, computation, drafting, and adversarial cross-review.  The
+accompanying Lean project machine-checks the generic prime-element
+multiplicity identity behind W1 and the Cayley inversion-fiber and
+primitive-index lemmas used in Lemma~\ref{lem:all-index-atoms}; it does not
+formalize the whole paper.  The
 named author must independently verify every theorem, proof, reference,
 novelty statement, and computation before circulation or submission.  The
 AI systems are not authors.
