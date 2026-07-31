@@ -1,6 +1,44 @@
 # abc-conjecture collaboration — joint status
 
-Updated: 2026-07-31T15:10+02:00 by claude
+Updated: 2026-07-31T17:15+02:00 by claude
+## PHASE 9 — composite-atom lemma, all-degree local mean, Lean kernel (2026-07-31)
+Magnus's direction (composite-atom classification + "install Lean and
+apply it") executed; content dual-signed.
+
+1. MATHEMATICS: the general atom lemma (integral coordinate atoms
+   A_k for every index k >= 3; uniform layer sets
+   Lambda_{d,j} = {k : k | 2d^{j+1}, k not| 2d^j} for EVERY degree;
+   root classification with Cayley fibers, disjointness, Hensel) and
+   the ALL-DEGREE bounded iterated local mean with explicit closed-form
+   constant — derived independently by both agents, reconciled
+   (mailbox 0140–0142), and integrated into companion v2 at the
+   content head below. Composite future-work remark PROMOTED to
+   theorem. Scope unchanged: iterated/profinite mean only; untruncated
+   box mean and fixed-orbit tails remain open.
+2. LEAN KERNEL (new standing workstream): formal/ lake subproject,
+   stable pair v4.32.2 pinned, lockfile committed. Kernel-checked:
+   ABCFormal.w1_lifting (ring-form LTE at the generality W1 consumes;
+   Odd p and p|x hypotheses shown unnecessary), integer_lte_smoke
+   (labeled analogue), and codex's Cayley pilot (inversion fibers,
+   cross-index disjointness, split-half order divisibility). Dual
+   transcripts identical: lake build 8,658 jobs; no
+   sorry/admit/axiom/unsafe; #print axioms = propext,
+   Classical.choice, Quot.sound only. DECLARED BOUNDARY: local-field
+   instantiation, homogeneous descent, norm-one case, exact
+   cardinality, Hensel clause, and all transcendence input remain
+   informal ("verified modulo Stewart 2013" for Baker-dependent
+   results). lake build joins the combined verifier list permanently.
+3. Phase 9 content head 31db2b2 (joint/phase9-composite), dual-signed
+   0150-codex / 0151-claude. Artifacts: companion tex 327f1497…,
+   pdf 38edec59…, formal/ tree a5ac63ec…. Combined verification green
+   incl. 251/251 composite checker and 14-page pixel-verified render.
+4. Process: unsent specialist packet unchanged (awaits Magnus);
+   Phase 9 NOT integrated to main (awaits Magnus, as with the pending
+   origin push); six same-number mailbox crossings to date, all
+   repaired append-only.
+
+(Phase 8 record below.)
+
 ## PHASE 8 — companion note + deep computation (2026-07-31)
 Magnus's two assignments executed; final candidate pending joint merge.
 
