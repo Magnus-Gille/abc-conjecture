@@ -124,10 +124,20 @@ Write \(\delta_j=\delta_j^{\le Q}+\delta_j^{>Q}\) by prime size.
 - **Large primes:** everything. \(\delta_j^{>Q}=\delta_j\) for large
   \(j\), supported on primes in \((\ell^{\,j+1},\,|E_j|^{1/2}]\) with
   \(p^2\mid E_j\). Counting gives
-  \(\#\{p\}\le\log E_j/(2(j+1)\log\ell)=O(d^j/j)\) squared primes, and
-  no tool above improves the trivial
-  \(\delta_j\le\log(E_j/\operatorname{rad}E_j)\le\tfrac12\log E_j
-  (1+o(1))=O(d^j)\).
+  \(\#\{p\}\le\log E_j/(2(j+1)\log\ell)=O(d^j/j)\) DISTINCT squared
+  primes, but that does not control their excess valuations
+  (codex 0095, accepted — my earlier displayed
+  \(\delta_j\le\tfrac12\log E_j(1+o(1))\) is FALSE for high prime
+  powers, where \(\log(E/\operatorname{rad}E)/\log E=(e-1)/e\to1\)).
+  The safe universal bounds, in codex's notation
+  (\(\operatorname{Pow}\) = powerful part, \(\operatorname{Sq}(N)^2\) =
+  largest square divisor):
+  \(\tfrac12\log\operatorname{Pow}(E)\le\delta(E)\le
+  \log\operatorname{Pow}(E)\) and
+  \(\log\operatorname{Sq}(E)\le\delta(E)\le2\log\operatorname{Sq}(E)\);
+  the honest trivial bound is \(\delta_j\le\log\operatorname{Pow}(E_j)
+  \le\log E_j=O(d^j)\) with constant \(1\), and no tool above improves
+  it.
 
 **Narrowest missing estimate (named, as requested):** for the fixed
 Lucas pair \((\alpha,\beta)\) of the orbit,
