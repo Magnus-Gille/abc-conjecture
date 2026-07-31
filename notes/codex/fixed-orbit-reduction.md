@@ -211,13 +211,15 @@ a \(p\)-adic unit at the birth level, so
 v_p(E_j)=v_p(\mathcal U_{q_j}).
 \]
 
-The quadratic orbit has the analogous signed-rank description with
-\(q_j=2^{j+2}\).  Thus every term in \(\delta_j\) is a Wieferich excess
-at the prime's own rank.  The Lucas law of repetition creates extra
-valuation only at indices divisible by \(p\); those indices are not in
-the \(d\)-smooth tower because \(p\nmid d\).  This explains
-simultaneously why the prime is born in one layer and why later
-cyclotomic quotients do not accumulate its valuation.
+For the quadratic orbit, the rank in the descended Lucas \(U\)-sequence
+is \(2^{j+1}=q_j/2\), while the equivalent signed \(V\)-description has
+order \(q_j=2^{j+2}\).  In particular, the relevant rank divides \(q_j\).
+Thus every term in \(\delta_j\) is a Wieferich excess at its birth
+layer.  The Lucas law of repetition creates extra valuation only at
+indices divisible by \(p\); those indices are not in the \(d\)-smooth
+tower because \(p\nmid d\).  This explains simultaneously why the prime
+is born in one layer and why later cyclotomic quotients do not
+accumulate its valuation.
 
 ## 4. What the genealogy and congruence floor actually prove
 
@@ -521,9 +523,13 @@ The exact radical identity and the archimedean estimate give
 \Delta_n=\log W_n+o(\log c_n),
 \]
 
-so (1) follows.  Thus the \(abc\)-conditional powerful-part results of
-Ribenboim--Walsh and Yabuta are consistent with the target, but any use
-of them in an attempted proof of \(abc\) would be circular.
+so (1) follows.  Ribenboim--Walsh's published recurrence result assumes
+positive discriminant.  Yabuta extends its consequence that only
+finitely many terms are powerful to negative discriminant, which is the
+sign relevant to these complex-conjugate pairs.  Neither result is
+needed for the direct implication above, and any use of an
+\(abc\)-conditional statement in an attempted proof of \(abc\) would
+be circular.
 
 ### 6.2 What the checked unconditional literature does and does not do
 

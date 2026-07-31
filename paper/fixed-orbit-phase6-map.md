@@ -75,7 +75,13 @@ and
 Nonnegativity gives
 
 \[
-\delta_j\leq\sum_{k<j+1}\delta_k.
+\delta_j
+\leq
+\sum_{k<j+1}\delta_k
+=
+o(d^{j+1})
+=
+o(d^j).
 \]
 
 This proves (2) \(\Rightarrow\) (3).  Conversely, the geometric-tail
@@ -138,15 +144,24 @@ q_j=
 \end{cases}
 \]
 
-Thus \(q_j\asymp d^j\).  Every \(p\mid E_j\) is born at exact
-cyclotomic rank \(q_j\), satisfies
+Thus \(q_j\asymp d^j\).  Every \(p\mid E_j\) satisfies
 
 \[
 p\equiv\pm1\pmod {q_j},
 \tag{6}
 \]
 
-and contributes its entire rank-Wieferich excess at that one layer.
+and contributes its entire rank-Wieferich excess at that one layer.  Its
+rank in the descended Lucas \(U\)-sequence is exactly \(q_j\) for prime
+degree and exactly \(q_j/2=2^{j+1}\) for the quadratic orbit.  In both
+cases the rank divides \(q_j\), so
+
+\[
+v_p(E_j)
+\leq
+\operatorname{ord}_{\mathfrak p}(u^{q_j}-1).
+\]
+
 The law of repetition creates additional valuation only at indices
 divisible by \(p\), which do not belong to the \(d\)-smooth tower.
 
@@ -324,9 +339,13 @@ which is also open.  Equivalently, the unsplit missing estimate is
 - No named conjecture equivalent to (12), and no unconditional theorem
   covering a fixed polynomial window, was located in the bounded joint
   search.
-- The full target follows from \(abc\) directly, for every orbit.  That
-  conditional route, and the related Ribenboim--Walsh/Yabuta
-  powerful-part results, are circular for the present program.
+- The full target follows from \(abc\) directly, for every orbit.
+  Ribenboim--Walsh's published recurrence result is stated for positive
+  discriminant, whereas the present pair is complex-conjugate.  Yabuta
+  extends the consequence “only finitely many powerful terms” to
+  negative discriminant.  Neither result is needed for the direct
+  implication, and every \(abc\)-conditional route is circular for the
+  present program.
 
 Prime-index Mersenne squarefreeness is an analogy, not a reduction:
 a square divisor similarly forces a Wieferich lift, and the
@@ -390,3 +409,8 @@ Primary sources used for the moving-window theorem:
   *Acta Mathematica* 211 (2013), 291–314; arXiv:1008.1274.
 - K. Yu, “\(p\)-adic logarithmic forms and a problem of Erdős,”
   *Acta Mathematica* 211 (2013), 315–382.
+- P. Ribenboim and G. Walsh, “The \(ABC\) conjecture and the powerful
+  part of terms in binary recurring sequences,” *Journal of Number
+  Theory* 74 (1999), 134–147.
+- M. Yabuta, “The \(ABC\)-conjecture and the powerful numbers in Lucas
+  sequences,” *The Fibonacci Quarterly* 45 (2007), 362–365.
