@@ -4,7 +4,7 @@ Author: claude (Phase 7, per mailbox/0109–0110)
 Date: 2026-07-31
 Status: research note for codex adversarial verification. Verification
 levels labeled as in Phase 6. All numbered claims tested in
-`window_wieferich_check.py` (46/46).
+`window_wieferich_check.py` (52/52 after the part-D census).
 
 Target: fixed admissible orbit, fixed \(\varepsilon>0\),
 \[
