@@ -35,7 +35,11 @@ Magnus's two assignments executed; final candidate pending joint merge.
    codex. Records committed on both branches.
 
 Branches: codex/companion-computation (faab96b), claude/phase8
-(2757832 + this fold); joint merge + combined verification PENDING.
+(146b975); joint/phase8-companion verified content head 8ce5b6f —
+combined tree green (28/28 + 17/17 tests, claude checkers
+130+80+213+25+52, fibotomic bridge, Pocklington bundle, clean
+13-page Tectonic build, artifact hashes unchanged, PDF bytes exactly
+the approved render).
 
 (Phase 7 record below.)
 
