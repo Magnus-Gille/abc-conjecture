@@ -77,6 +77,27 @@ The focused regression is
 python3 -m unittest notes/codex/test_fixed_orbit_probe.py
 ```
 
+For proof replay without a probabilistic-primality dependency,
+`notes/codex/quadratic-level7-pocklington.json` contains a recursive
+Pocklington certificate for every displayed factor.  Every node contains
+the complete prime factorization of `n-1` and a witness for each distinct
+prime divisor.  The recursion bottoms out at 2.  The standard-library
+verifier checks exact multiplication and, for every `(n,q,a)` node,
+
+```text
+a^(n-1) = 1 (mod n),
+gcd(a^((n-1)/q) - 1, n) = 1.
+```
+
+Since the certified part is all of `n-1`, Pocklington's theorem proves
+each root prime.  Replay with
+
+```text
+python3 notes/codex/pocklington_certificate.py \
+  notes/codex/quadratic-level7-pocklington.json
+python3 -m unittest notes/codex/test_pocklington_certificate.py
+```
+
 An independent Claude implementation is responsible for the second
 full-product and primality check before this result is described as
 dual-verified in the companion note.

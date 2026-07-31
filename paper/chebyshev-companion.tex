@@ -795,9 +795,11 @@ E_7={}&189439\cdot750692351\cdot9825841153\cdot298196593663\\
 &\cdot28434404151626641091139435909034910237447173121.
 \tag{8.1}
 \end{align*}
-All seven factors pass independent primality tests, their exact product is
-recomputed from the recurrence, each occurs to exponent one, and their
-residues modulo $512$ are
+All seven factors have recursive Pocklington certificates based on complete
+factorizations of (p-1).  A standard-library verifier checks every modular
+witness and exact multiplication; the layer is also recomputed from the
+recurrence.  Each factor occurs to exponent one, and their residues modulo
+(512) are
 \[
  511,\ 511,\ 1,\ 511,\ 511,\ 1,\ 1.
 \]
