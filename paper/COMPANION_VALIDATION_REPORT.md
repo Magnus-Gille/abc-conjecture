@@ -21,19 +21,45 @@ validation and does not authorize circulation or submission.
 
 ## Phase 9 all-degree candidate
 
-- Source candidate: `paper/chebyshev-companion.tex` at Codex commit
-  `a36eac9`
+- Joint content head before this validation-artifact update: `6d7bc01`
+- Source: `paper/chebyshev-companion.tex`
+- Source SHA-256:
+  `327f149740d44f4551cbaf2dc2a8115b755da00be69a4a72cfc12ccf003d5372`
+- PDF: `output/pdf/chebyshev-companion.pdf`
+- Pages: 14
+- PDF SHA-256:
+  `38edec59d62ce9d901e0fd996d21be726e340123272fc2f5c68a247233586f04`
 - Change: arbitrary-index coordinate atoms and the bounded iterated local
   mean for every degree, including composite degrees
-- Temporary build: 14 pages
 - Tectonic build: clean; no warning, overfull/underfull box, undefined
   reference, missing resource, or error
 - Paper tests: 28/28
 - Codex tests: 24/24, including 7/7 independent composite-atom checks
 - Claude independent atom checker: 251/251
 - Prime-genealogy and research-directions verifiers: exit 0
-- Final PDF hash and page-by-page visual inspection: pending the Phase 9
-  Lean pilots and dual candidate review
+- A separate clean temporary build and the canonical build rendered
+  pixel-identically on all 14 pages at 130 dpi. All 14 pages were visually
+  inspected; no clipping, overlap, broken glyph, or margin failure was found.
+- Claude's independent manuscript line-review found no required issue; its
+  one parity clarification was incorporated before the final build.
+
+## Lean proof kernel
+
+- Toolchain: Lean `v4.32.2`; mathlib `v4.32.2`, both exactly pinned in
+  `formal/`
+- Combined `lake build`: successful, 8,658 jobs
+- `sorry` / `admit` / custom `axiom` / `unsafe` escape-hatch scan over all
+  Lean sources: clean
+- `#print axioms` for both W1 theorems and the three principal Cayley/index
+  theorems reports only `propext`, `Classical.choice`, and `Quot.sound`
+- Claude independently rebuilt and repeated the scan and axiom audit with
+  matching output; its statement-fidelity verdict is `CONFIRMED` and
+  `SIGNATURE-READY` in `mailbox/0149-claude.md`
+- Scope boundary: Lean checks the generic prime-element multiplicity lemma,
+  Cayley inversion fibers, primitive-index disjointness, and split
+  finite-field order divisibility. It does not yet check the local-field
+  valuation instantiation, homogeneous atom descent, norm-one case, exact
+  root count, Hensel lifting, or the whole manuscript.
 
 ## Specialist packet
 
