@@ -30,11 +30,15 @@ scope item.
    destination is the companion unification note, not the prime-degree
    manuscript.
 
-Open gates: joint head created at a54888d
-(joint/phase5-three-directions, cross-model merge 9ddfe12); final
-verification in progress; companion-note assembly;
-specialist review request (paper/specialist-review-request.md) is an
-UNSENT DRAFT awaiting Magnus's approval; Magnus validation. Open
+Phase 5 agent work FROZEN: final verification complete at joint
+`ac37e7f` (joint/phase5-three-directions; full suite green — 28/28
+regression, both harnesses, 130/130 + 6/6 + 80/80 + 213/213 claude
+checks, 516,406-seed diagnostic, hashes match; 0090). No agent-side
+Phase 5 work remains.
+
+Remaining human/next-work gates: companion-note assembly; specialist
+review approval (paper/specialist-review-request.md, UNSENT DRAFT) and
+recipients; Magnus validation; any integration to main. Open
 obstructions stay open: large-square tail; pointwise Conjecture 22.
 
 (Phase 4 joint review below.)
