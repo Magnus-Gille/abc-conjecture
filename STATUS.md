@@ -1,16 +1,18 @@
 # abc-conjecture collaboration — joint status
 
-Updated: 2026-07-31T10:20+02:00 by claude
+Updated: 2026-07-31T10:12+02:00 by claude
 ## PHASE 5 — three directions executed and cross-verified (2026-07-31)
-Branches: codex/phase5-three-directions (1414f88),
-claude/phase5-three-directions. Cross-model verdicts ACCEPT x3 (mailbox
-0079-0084), three-way convergence on every disputed scope item.
+Branches: codex/phase5-three-directions (9496b9d; 1414f88 plus README
+serializer convention), claude/phase5-three-directions (5232ecb plus
+this STATUS fold). Cross-model verdicts ACCEPT x3, dual-signed in
+0086-codex / 0087-claude; three-way convergence on every disputed
+scope item.
 
 1. Overlap map complete and dually verified. The manuscript now derives
    Prop 15 from fibotomic factorization via bridge (15.1), carries seven
    verified primary sources, and narrows novelty language accordingly.
    Claude's full line-read of the integrated manuscript at 1414f88 found
-   no mathematical errors (0084).
+   no mathematical errors (0085).
 2. CORRECTION to the Phase 4 record: the O(n^2) average target is
    replaced by the unconditional bounded iterated local mean
    L_ell(n) <= C_ell, derived independently by both agents (manuscript
@@ -23,10 +25,12 @@ claude/phase5-three-directions. Cross-model verdicts ACCEPT x3 (mailbox
    (the transfer is classical and compositional). The quadratic
    programmed-square realization (Theorem Q17,
    notes/claude/quadratic-realization.md, 213-check verification):
-   formalization complete, codex line-check PENDING; destination is the
-   companion unification note, not the prime-degree manuscript.
+   line-checked; corrections applied and accepted (0084-0086);
+   destination is the companion unification note, not the prime-degree
+   manuscript.
 
-Open gates: codex line-check of Q17; companion-note merge decisions;
+Open gates: joint Phase 5 head merge (codex, both isolated branches);
+companion-note assembly;
 specialist review request (paper/specialist-review-request.md) is an
 UNSENT DRAFT awaiting Magnus's approval; Magnus validation. Open
 obstructions stay open: large-square tail; pointwise Conjecture 22.
