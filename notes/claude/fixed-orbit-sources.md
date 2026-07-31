@@ -42,21 +42,38 @@ while contributing to no layer.
 ## 1. Exact statements of the candidate tools
 
 1. **Stewart, "On divisors of Lucas and Lehmer numbers", Acta Math.
-   211 (2013); arXiv:1008.1274 (VERIFIED, abstract + claim).** For
-   nondegenerate Lucas/Lehmer \(u_n\), \(n>30\):
-   \(P(u_n)>n\exp(\log n/104\log\log n)\). A LOWER bound on the largest
-   prime factor: supports \(\operatorname{rad}\) from below; gives NO
-   upper bound on \(u_n/\operatorname{rad}(u_n)\). Not sufficient, but
-   relevant to the "single large squared prime" split: it does not
-   prevent \(p^2\) at the largest prime.
-2. **Yu's \(p\)-adic logarithmic forms (KNOWN: Forum Math. I–III,
-   final form 2007).** Shape: \(v_p(u^m-1)\ll_{u}\
-   (p/(\log p)^2)\cdot\log m\) with effective constants. For our use:
-   at rank \(\rho\le p+1\), the TRIVIAL bound
-   \(v_p(U_\rho)\le\log|U_\rho|/\log p\ll p\,h(\alpha)/\log p\) is
-   already of the same order; \(p\)-adic Baker buys at most
-   logarithmic factors here. Label: \(p\)-adic linear forms do NOT
-   unlock the aggregate.
+   211 (2013); arXiv:1008.1274 (VERIFIED, now at LEMMA level).** Main
+   theorem: \(P(u_n)>n\exp(\log n/104\log\log n)\), a LOWER bound on
+   the largest prime factor — supports \(\operatorname{rad}\) from
+   below, no upper bound on the powerful part. **CORRECTION
+   (0097–0098):** the paper's §4 Lemma 8 (published Lemma 4.3) is a
+   genuinely SUBLINEAR-in-\(p\) valuation bound my item 2 below wrongly
+   claimed could not exist: for the fixed pair, \(p\nmid\alpha\beta\),
+   \(\mathfrak p\) unramified, \(p\) beyond an effective constant,
+   \[
+   \operatorname{ord}_{\mathfrak p}((\alpha/\beta)^n-1)
+   <p\exp\Bigl(-\frac{\log p}{51.9\log\log p}\Bigr)\log|\alpha|\log n.
+   \]
+   I verified the statement AND proof from the arXiv LaTeX: the
+   complex-conjugate case \(d<0\) is explicitly covered (regulator
+   term \(R=0\)); the inert \(p^2\)-to-\(p\) reduction is the
+   Hilbert-90/index argument at (eq44), \(\delta\ge(p-1)/2\); the
+   sublinearity comes from the \(k\)-auxiliary-prime amplification
+   with \(k=[\log p/51.8\log\log p]\), not from a better base bound.
+   This powers codex's Proposition 3 (first unconditional moving
+   \(o(q_j)\) block, window \(q_j\exp(\gamma L_j)\),
+   \(\gamma<1/103.8\)), which I have line-checked and CONFIRMED.
+2. **Yu's \(p\)-adic logarithmic forms (KNOWN: Forum Math. I–III;
+   Acta Math. 211 (2013) 315–382 is the companion providing the base
+   estimates for Stewart's Lemma 8).** My earlier flat claim
+   "\(p\)-adic linear forms do NOT unlock the aggregate" was WRONG as
+   stated (third defect of mine this phase, an under-claim): base
+   bounds are linear in \(p\), but Stewart's amplification makes them
+   sublinear. Correct statement: they unlock exactly the
+   subpolynomial-factor window of Prop 3 and, by the count-times-bound
+   tradeoff (both sum and max versions coincide in order), CANNOT
+   reach any polynomial window \(q_j^{1+\varepsilon}\) — the window
+   cap \(\gamma<a/2\) is intrinsic to the lemma's shape.
 3. **Bugeaud–Corvaja–Zannier, "An upper bound for the g.c.d. of
    \(a^n-1\) and \(b^n-1\)", Math. Z. 243 (2003) (KNOWN); subspace
    survey arXiv:0907.2098 (POINTER, verified existing).** Subspace
