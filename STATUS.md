@@ -4,7 +4,8 @@ Updated: 2026-07-31T10:12+02:00 by claude
 ## PHASE 5 — three directions executed and cross-verified (2026-07-31)
 Branches: codex/phase5-three-directions (9496b9d; 1414f88 plus README
 serializer convention), claude/phase5-three-directions (5232ecb plus
-this STATUS fold). Cross-model verdicts ACCEPT x3, dual-signed in
+STATUS folds), joint/phase5-three-directions (merge 9ddfe12; signed
+mailbox record a54888d). Cross-model verdicts ACCEPT x3, dual-signed in
 0086-codex / 0087-claude; three-way convergence on every disputed
 scope item.
 
@@ -29,8 +30,9 @@ scope item.
    destination is the companion unification note, not the prime-degree
    manuscript.
 
-Open gates: joint Phase 5 head merge (codex, both isolated branches);
-companion-note assembly;
+Open gates: joint head created at a54888d
+(joint/phase5-three-directions, cross-model merge 9ddfe12); final
+verification in progress; companion-note assembly;
 specialist review request (paper/specialist-review-request.md) is an
 UNSENT DRAFT awaiting Magnus's approval; Magnus validation. Open
 obstructions stay open: large-square tail; pointwise Conjecture 22.
