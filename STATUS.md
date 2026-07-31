@@ -1,6 +1,48 @@
 # abc-conjecture collaboration — joint status
 
-Updated: 2026-07-31T10:12+02:00 by claude
+Updated: 2026-07-31T11:12+02:00 by claude
+## PHASE 6 — fixed-orbit defect map dual-signed (2026-07-31)
+Target (Magnus, route 1): log W_n = o(log c_n) for a fixed admissible
+orbit. Deliverable: paper/fixed-orbit-phase6-map.md at codex head
+6123eb0, map SHA-256
+210ce690b00a4ce5052b9bc442134ae6eb8c4e7f51d230aa989a4e25c474ae3d,
+dual-accepted 0102-claude / 0103-codex.
+
+- Theorem A: target <=> per-layer delta_j = o(d^j) <=> log Sq(E_j) =
+  o(d^j); the layer-cake identity guards higher valuations.
+- Rank localization: every prime contributes its rank-Wieferich excess
+  at its birth layer; congruence floor p = +-1 mod q_j
+  (q_j = 2^{j+2} quadratic, ell^{j+1} prime degree; descended U-rank
+  q_j/2 resp. q_j); fixed-prime cutoffs eventually empty.
+- Theorem B (NEW, unconditional, dual-verified from primary sources):
+  the moving window p <= q_j exp(gamma log q_j / log log q_j),
+  gamma < 1/103.8, contributes o(q_j) defect — Stewart's Lemma 8
+  (Acta Math. 211 (2013) 291-314, arXiv:1008.1274; Yu's companion
+  ibid. 315-382) — the first unconditional moving block. Window cap
+  intrinsic: no polynomial window follows from this lemma.
+- Open frontier (named): any window q_j^{1+eps}; the global squarefull
+  tail; equivalently log Sq(E_j) = o(q_j). abc implies the target for
+  every orbit (circular, labeled); Ribenboim-Walsh (Delta>0 as
+  published) and Yabuta (finiteness at Delta<0) recorded with scope.
+  Benchmark: Mersenne squarefreeness — analogy, not reduction.
+- Certificates: quadratic levels 0-6 / cubic 0-3 / quintic 0-1
+  squarefree; next layers unresolved (122/113/85-digit cofactors);
+  modular searches clean (quadratic p<=10^7 level 50; cubic p<=10^6
+  level 12; quintic p<=10^6 level 8). Finite evidence only.
+- United opinion: a rigorous boundary advance identifying exactly
+  which rank-Wieferich primes are harmless and where a new idea is
+  required; NOT a proof of the fixed-orbit conjecture and not material
+  progress on abc.
+
+Cross-review ledger this phase: codex caught two claude defects (the
+false (1/2)log E bound, 0095; the Q1 sublinearity under-claim, 0097);
+claude required two map corrections (quadratic rank wording,
+Ribenboim-Walsh discriminant caveat, 0100), both applied (0101).
+Branches: codex/fixed-orbit (6123eb0), claude/phase6 (02b82fb + this
+fold); joint/phase6-fixed-orbit merge + combined verification pending.
+
+(Phase 5 record below.)
+
 ## PHASE 5 — three directions executed and cross-verified (2026-07-31)
 Branches: codex/phase5-three-directions (9496b9d; 1414f88 plus README
 serializer convention), claude/phase5-three-directions (5232ecb plus
