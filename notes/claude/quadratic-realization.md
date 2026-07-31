@@ -16,6 +16,16 @@ opposite-parity seeds; \(E_n=|b_n-a_n|\) is the level-\(n\) factor and
 G_n=\tfrac12\Phi_{2^{\,n+2}}(\Omega,\overline\Omega)
 =\tfrac12\bigl(\Omega^{2^{\,n+1}}+\overline\Omega^{\,2^{\,n+1}}\bigr).
 \]
+This is a universal polynomial identity in
+\(\mathbb Z[X,Y,r,t]/(r^2-Y,\ t^2+X)\): writing
+\(\Omega^{2^{\,n}}=r_n+t_n\) with the involution \(t\mapsto-t\) fixing
+\(r_n\) and negating \(t_n\), squaring gives
+\(r_{n+1}=r_n^2+t_n^2\) and \(t_{n+1}=2r_nt_n\), so induction through
+the squaring transfer yields \(r_n^2=b_n(X,Y)\),
+\(t_n^2=-a_n(X,Y)\), and hence
+\(\Omega^{2^{\,n+1}}+\overline\Omega^{\,2^{\,n+1}}
+=2r_{n+1}=2(b_n-a_n)=2G_n\); the identity therefore survives every
+specialization, including the finite residue algebras used below.
 
 ## Proposition Q15 (local roots, index \(2^{n+2}\))
 
@@ -111,8 +121,11 @@ exact order \(2^{\,n_i+2}\). For any \(j\ne n_i\), a zero of
 \(p_i\nmid G_j(a_0,b_0)=\pm E_j\) for every \(j\ne n_i\). (For
 \(j>n_i\) this is consistent with, and independently implied by, the
 support route: \(p_i\mid E_{n_i}\Rightarrow p_i\mid
-b_{n_i+1}=E_{n_i}^2\Rightarrow p_i\mid b_j\ (j>n_i)\), and \(E_j\) is
-coprime to \(a_jb_jc_j\).)
+b_{n_i+1}=E_{n_i}^2\), and since \(a_{j+1}=4a_jb_j\) at every step, the
+prime then satisfies \(p_i\mid a_jb_j\) for all \(j>n_i\) — it
+alternates into the \(a\)-coordinate rather than remaining in
+\(b_j\), as codex corrected in 0084 — whence
+\(\gcd(E_j,a_jb_jc_j)=1\) excludes it.)
 
 (3) Seed-prime avoidance and sign. \(a_0\equiv\rho_i\ne0\),
 \(b_0\equiv1\), \(c_0\equiv\rho_i+1\ne0\ (p_i)\) since
