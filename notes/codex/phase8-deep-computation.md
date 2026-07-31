@@ -98,11 +98,12 @@ python3 notes/codex/pocklington_certificate.py \
 python3 -m unittest notes/codex/test_pocklington_certificate.py
 ```
 
-An independent Claude implementation is responsible for the second
-full-product and primality check before this result is described as
-dual-verified in the companion note.
+Claude independently recomputed the full layer, exact product,
+multiplicities, primality, and residues.  Claude also replayed and audited
+the Pocklington bundle.  The complete squarefree factorization is therefore
+dual-verified.
 
-## Lucas-Wieferich census through 10^7
+## Lucas-Wieferich census through 10^8
 
 The independent Codex implementation uses binary exponentiation in
 `Z[X]/(X^2-PX+Q)` and one shared Eratosthenes sieve.  It is algorithmically
@@ -110,23 +111,26 @@ separate from Claude's companion-matrix implementation.  The exact command
 was
 
 ```text
-/usr/bin/time -p python3 notes/codex/polynomial_window_check.py --limit 10000000
+/usr/bin/time -p python3 notes/codex/polynomial_window_check.py --limit 100000000
 ```
 
-It scanned 664,578 odd primes in 48.02 seconds wall time and returned:
+It scanned 5,761,454 odd primes in 349.46 seconds wall time and returned:
 
 | pair | Lucas-Wieferich primes | ranks | super-Wieferich primes |
 |---|---:|---:|---:|
 | quadratic `(14,81)` | `65519` | `455` | none |
-| cubic `(-2,25)` | `47` | `24` | none |
+| cubic `(-2,25)` | `47`, `31220573` | `24`, `7805143` | none |
 | quintic `(-6,49)` | `53` | `26` | none |
 
-Thus no new hit occurs between `10^6` and `10^7`.  Claude's independently
-implemented census returned exactly the same three sets and no
-super-Wieferich prime at the same bound.
+The new cubic hit has discriminant character `+1`, exact depth two, and
+rank `7805143 = 19 * 547 * 751`, which is not divisible by 3.  It can
+therefore never enter the cubic tower.  Claude's independently written
+companion-matrix implementation returned exactly the same four hits and no
+super-Wieferich prime through `10^8`.
 
-The machine-readable output is `notes/codex/census-1e7-record.json`; the
-focused regression is
+The machine-readable outputs preserve both checkpoints in
+`notes/codex/census-1e7-record.json` and
+`notes/codex/census-1e8-record.json`; the focused regression is
 
 ```text
 python3 -m unittest notes/codex/test_polynomial_window_check.py

@@ -1,0 +1,50 @@
+{
+  "algorithm": "binary exponentiation in Z[X]/(X^2-PX+Q), shared Eratosthenes sieve",
+  "command": "/usr/bin/time -p python3 notes/codex/polynomial_window_check.py --limit 100000000",
+  "date": "2026-07-31",
+  "elapsed_seconds": {
+    "system": 3.33,
+    "user": 342.55,
+    "wall": 349.46
+  },
+  "inclusive_limit": 100000000,
+  "odd_primes_scanned": 5761454,
+  "pairs": {
+    "cubic": {
+      "P": -2,
+      "Q": 25,
+      "ranks": {
+        "47": 24,
+        "31220573": 7805143
+      },
+      "super_wieferich": [],
+      "wieferich": [
+        47,
+        31220573
+      ]
+    },
+    "quadratic": {
+      "P": 14,
+      "Q": 81,
+      "ranks": {
+        "65519": 455
+      },
+      "super_wieferich": [],
+      "wieferich": [
+        65519
+      ]
+    },
+    "quintic": {
+      "P": -6,
+      "Q": 49,
+      "ranks": {
+        "53": 26
+      },
+      "super_wieferich": [],
+      "wieferich": [
+        53
+      ]
+    }
+  },
+  "total_primes_including_2": 5761455
+}

@@ -71,6 +71,14 @@ class LucasArithmeticTests(unittest.TestCase):
         self.assertEqual(result["super_wieferich"], [])
         self.assertEqual(result["ranks"], {65_519: 455})
 
+    def test_cubic_hit_between_ten_and_one_hundred_million(self):
+        prime = 31_220_573
+        index = prime - 1  # (-96 | p) = +1
+        self.assertEqual(lucas_u_mod(index, -2, 25, prime**2), 0)
+        self.assertNotEqual(lucas_u_mod(index, -2, 25, prime**3), 0)
+        self.assertEqual(lucas_rank(-2, 25, prime), 7_805_143)
+        self.assertNotEqual(7_805_143 % 3, 0)
+
 
 class TruncationIdentityTests(unittest.TestCase):
     def test_exact_layer_cake_split(self):
