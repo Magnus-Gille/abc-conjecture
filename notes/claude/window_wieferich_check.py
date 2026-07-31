@@ -174,4 +174,23 @@ for name, (P0, Q0) in (("quadratic(1,8,9)", (14, 81)),
         check(f"C {name} p={p} rank not a pure d-power (never a layer prime)",
               x != 1)
 
+# ---------- D. super-Wieferich census and LW depths ----------
+for name, (P0, Q0) in (("quadratic(1,8,9)", (14, 81)),
+                       ("cubic(3,2,5)", (-2, 25)),
+                       ("quintic(5,2,7)", (-6, 49))):
+    D = P0*P0 - 4*Q0
+    deep = [p for p in PRIMES
+            if p != 2 and Q0 % p and D % p
+            and U_mod(p - legendre(D, p), P0, Q0, p**3) == 0]
+    print(f"D {name}: super-Wieferich (v>=3) p <= {X}: "
+          f"{deep if deep else 'none'}")
+    check(f"D {name} no super-Wieferich below {X}", not deep)
+for name, (P0, Q0), p in (("quadratic", (14, 81), 65519),
+                          ("cubic", (-2, 25), 47),
+                          ("quintic", (-6, 49), 53)):
+    D = P0*P0 - 4*Q0
+    m = p - legendre(D, p)
+    depth = v(U_mod(m, P0, Q0, p**5), p)
+    check(f"D {name} LW prime {p} exact depth 2 (got {depth})", depth == 2)
+
 print(f"\n{ok} checks passed, {fail} failed")

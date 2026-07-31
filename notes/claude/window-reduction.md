@@ -82,10 +82,20 @@ two residue classes, hence at most that many primes. Therefore
 \text{(W)}\quad\Longleftarrow\quad
 \max_{\substack{p\le q_j^{1+\varepsilon}\\p^2\mid E_j}}
 v_p(E_j)
-=o\!\left(\frac{q_j^{1-\varepsilon}}{\log^2q_j}\right).
+=o\!\left(\frac{q_j^{1-\varepsilon}}{\log q_j}\right).
 \]
 Proof: \(\sum(v_p-1)\log p\le2(q_j^\varepsilon+1)\cdot
 \max v_p\cdot(1+\varepsilon)\log q_j\). ∎
+[Sharpness per codex 0111: my first draft wrote \(\log^2q_j\) in the
+denominator; the count already carries the only log, so \(\log q_j\) is
+the weakest max-form condition — codex's (14), accepted.]
+SCOPE per codex Theorem 2 (accepted, supersedes part of my framing):
+the truncation decomposition shows every BOUNDED-depth lift — indeed
+every depth up to \(o(q_j^{1-\varepsilon}/\log q_j)\) — is harmless
+with NO hypothesis; so W2's sparsity input is sufficient but stronger
+than necessary, and the true frontier is codex's deep-tail estimate
+\(R_{j,K_j}=o(q_j)\). W1 remains the bridge that identifies deep
+window lifts as super-Wieferich events (Fellini–Murty; codex Cor 4).
 
 Either ingredient suffices; they are logically independent (W2 bounds
 the aggregate allowing deep lifts if rare; W3 forbids deep lifts
