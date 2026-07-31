@@ -59,6 +59,12 @@ python3 verify_prime_genealogy.py
 python3 verify_research_directions.py
 ```
 
+The recorded JSON artifacts are canonical by parsed JSON content, not by
+whitespace or list layout.  The regression tests recompute each result and
+compare the parsed objects; `verify_research_directions.py` deliberately
+prints a conventional expanded `indent=2` rendering, while the checked-in
+artifact keeps short lists compact for readability.
+
 Recheck the independently implemented fibotomic bridge:
 
 ```sh
