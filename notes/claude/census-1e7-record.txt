@@ -1,0 +1,5 @@
+quadratic: LW p<=1e7: [65519]  super-W: none
+cubic: LW p<=1e7: [47]  super-W: none
+quintic: LW p<=1e7: [53]  super-W: none
+odd primes scanned: 664578, elapsed 46s
+CENSUS DONE
