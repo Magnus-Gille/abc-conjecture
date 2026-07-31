@@ -67,12 +67,13 @@ Proof. By W1 the window sum is at most \(S_u(q_j^{1+\varepsilon})\ll
 q_j^{\theta(1+\varepsilon)}=o(q_j)\) when \(\theta(1+\varepsilon)<1\). ∎
 
 This formalizes Magnus's hypothesized ingredient exactly. HEURISTIC
-calibration (labeled, not evidence): Wieferich-type events have
-expected density \(\asymp1/p\), giving
-\(S_u(x)\asymp(\log x)(\log\log x)\), i.e. \(\theta\) arbitrarily
-small and (W) for EVERY \(\varepsilon\) — the hypothesis has enormous
-heuristic room; it is simply unproved for any pair and any
-\(\theta<1\).
+calibration (labeled, not evidence; weight corrected per codex 0113):
+Wieferich-type events have expected density \(\asymp1/p\), giving the
+weighted sum \(S_u(x)\sim c\log x\) (Mertens) while the UNWEIGHTED
+count is \(\sim\log\log x\); deeper lifts add \(O(1)\). Either way
+\(\theta\) is arbitrarily small heuristically and (W) would follow
+for EVERY \(\varepsilon\); the hypothesis is simply unproved for any
+pair and any \(\theta<1\).
 
 ## 3. Proposition W3: max-form reduction (the "no deep lift" ingredient)
 
@@ -100,33 +101,42 @@ window lifts as super-Wieferich events (Fellini–Murty; codex Cor 4).
 Either ingredient suffices; they are logically independent (W2 bounds
 the aggregate allowing deep lifts if rare; W3 forbids deep lifts
 allowing many shallow ones). Phase 6's Theorem B is the \(\varepsilon\to
-o(1)\) limit where Stewart's lemma supplies W3's ingredient; for fixed
-\(\varepsilon>0\) Stewart is weaker than the trivial bound
-(\(p^{1-o(1)}>q_j/\log q_j\) in the window), so a FIXED-POWER-saving
-valuation bound \(v_{\mathfrak p}(u^n-1)\ll p^{1-\kappa}\)
-(\(\kappa>0\) fixed, \(p\) polynomial in \(n\)) would equally suffice.
-No such bound exists in the literature we have checked.
+o(1)\) limit where Stewart's lemma supplies W3's ingredient. Precision
+per codex 0113 (accepted): Stewart's bound is STRONGER than trivial
+near the congruence floor \(p\asymp q_j\) (that is exactly Theorem B)
+and weaker than trivial only toward the upper edge
+\(p\asymp q_j^{1+\varepsilon}\), i.e. as a uniform polynomial-window
+bound. A FIXED-POWER-saving valuation bound
+\(v_{\mathfrak p}(u^n-1)\ll p^{1-\kappa}\) (\(\kappa>0\) fixed,
+\(p\) polynomial in \(n\)) closes the window exactly in the range
+\[
+(1+\varepsilon)(1-\kappa)<1-\varepsilon
+\quad\Longleftrightarrow\quad
+\varepsilon<\frac{\kappa}{2-\kappa},
+\]
+so any fixed \(\kappa>0\) gives some fixed \(\varepsilon>0\). No such
+bound exists in the literature we have checked.
 
 ## 4. Negative audit: why the standard tools do not apply (my lane 2)
 
-1. **GRH.** Two independent blocks. (i) The LW event
-   \(p^2\mid U_{p-\chi}\) is a congruence mod \(\mathfrak p^2\) on a
-   fixed unit, not an L-function event; no Dirichlet/Hecke L-zero
-   statement encodes it. (ii) Even mere prime COUNTING in the window
-   classes is beyond GRH: \(\pi(q^{1+\varepsilon};q,\pm1)\) has GRH
-   main term \(\asymp q^{\varepsilon}/(\varepsilon\log q)\) but error
+1. **GRH.** Two independent blocks (wording per codex 0113). (i) The
+   LW event \(p^2\mid U_{p-\chi}\) is a congruence mod
+   \(\mathfrak p^2\) on a fixed unit and is not encoded by GRH for any
+   FIXED Dirichlet/Hecke family: the modulus and local condition vary
+   with \(p\). (ii) Even mere prime COUNTING in the window classes is
+   beyond GRH: \(\pi(q^{1+\varepsilon};q,\pm1)\) has GRH main term
+   \(\asymp q^{\varepsilon}/(\varepsilon\log q)\) but error
    \(O(q^{(1+\varepsilon)/2}\log^2)\), which dominates for
    \(\varepsilon<1\). Fortunately (W) needs no prime counting — W2/W3
    dodge (ii) — but any approach that does count is dead.
-2. **Effective Chebotarev.** The natural criterion places LW-ness of
-   \(p\) as a Frobenius/splitting condition in a Kummer-type extension
-   \(K(\zeta_p,u^{1/p})\)-scale whose degree and discriminant GROW
-   with \(p\): every Chebotarev application is per-prime, and all
-   effective forms (unconditional Lagarias–Odlyzko, or GRH versions
-   with \(\sqrt x\log(\mathrm{disc})\) errors, disc \(\approx p^{p}\))
-   are vacuous. This is precisely the "growing-range Chebotarev"
-   smuggle your 0092 rule forbids; it is structurally, not
-   technically, blocked.
+2. **Effective Chebotarev.** Sharper than an effectivity failure
+   (codex 0113, accepted): in the natural variable Kummer field
+   \(K(\zeta_p,u^{1/p})\), the very prime \(p\) being tested is
+   RAMIFIED, so it has no Chebotarev Frobenius there at all — the
+   diagonal problem is structurally ill-posed for Chebotarev, not
+   merely ineffective. Any fixed auxiliary field sees only finitely
+   much of the condition. This is the precise content behind the
+   "growing-range Chebotarev" smuggle rule of 0092.
 3. **Large sieve.** Requires a family to average over. Here the pair
    \(u\) is fixed and the LW condition involves a different modulus
    \(p^2\) per prime with no dual family. The Fermat-quotient
@@ -150,14 +160,15 @@ For the three canonical pairs, ALL LW primes \(p\le10^5\):
 | cubic \((-2,25)\) | 47 | 24 | no |
 | quintic \((-6,49)\) | 53 | 26 | no |
 
-One hit per pair below \(10^5\) — the \(\log\log\)-sparse picture. And
-a structural bonus: NONE of the hits has a pure-\(d\)-power rank, so
-none can ever appear in any layer of its orbit's tower. A layer defect
-requires the CONJUNCTION "LW prime" ∧ "rank a pure \(d\)-power" — two
-independently rare conditions — which structurally explains the
-certified squarefreeness of every resolved layer and sharpens the
-heuristic in §2: the orbit-relevant LW count is a sparse subset of an
-already sparse set.
+One hit per pair below \(10^5\) — the \(\log\log\)-sparse picture.
+And an empirical bonus: NONE of the hits has a pure-\(d\)-power rank,
+so none can ever appear in any layer of its orbit's tower. A layer
+defect requires the CONJUNCTION "LW prime" ∧ "rank a pure
+\(d\)-power". HEURISTIC label (per codex 0113): no independence
+theorem between the two conditions is proved; what the data shows is
+that the rank filter EMPIRICALLY sharpens the sparsity heuristic — the
+orbit-relevant LW set is empty in the computed range, consistent with
+(not explanatory of) the certified squarefreeness.
 
 ## 6. Summary for the joint map
 
