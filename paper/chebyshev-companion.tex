@@ -74,9 +74,10 @@ all-degree radical telescope
  W_{d,n}=\prod_{j<n}\frac{E_{d,j}}{\rad(E_{d,j})}.
 \]
 Composite degree bundles several Lucas atoms in one layer; prime degree is
-the single-atom case.  We also complete the simultaneous finite-genealogy
-realization for the quadratic transfer and prove a bounded iterated local
-mean for the logarithmic defect in every prime degree, including $2$.
+the single-atom case.  We classify the coordinate atoms at every index,
+complete the simultaneous finite-genealogy realization for the quadratic
+transfer, and prove a bounded iterated local mean for the logarithmic defect
+in every degree.
 For one fixed orbit we isolate an unconditional growing congruence window
 and show that every fixed valuation depth in a polynomial window is
 harmless; the remaining obstruction is an exceptionally deep
@@ -124,7 +125,8 @@ map.''  It is the following synthesis:
 one normalization valid for every degree; prime-support separation of its
 successive multi-atom layers; an exact radical telescope along the
 resulting additive orbit; constructive control of arbitrary finite square
-patterns in every prime degree; and a bounded local first moment whose
+patterns in every prime degree; an all-index coordinate-atom
+classification; and a bounded local first moment in every degree whose
 remaining integer-box obstruction is stated explicitly.
 \end{quote}
 
@@ -507,148 +509,264 @@ odd-prime result, shows that arbitrarily deep but finitely prescribed
 square behavior is constructible.  It does not produce a fixed seed with
 large defect at infinitely many layers.
 
-\section{A bounded local mean for every prime degree}
+\section{A bounded local mean for every degree}
 
-This section concerns seed averages, not one orbit.  Let $d$ be prime.
-For $d=2$, let \(\Sset_2(H)\) be the primitive opposite-parity pairs in
-\([1,H]^2\).  Its density is
+This section concerns seed averages, not one orbit.  For any $d\ge2$,
+let \(\Sset_d(H)\) be the $d$-admissible seed pairs in \([1,H]^2\).
+The defining conditions occur at the fixed primes dividing $2d$.
+Möbius inversion and the Chinese remainder theorem give
 \[
- \kappa_2=\frac{2}{3\zeta(2)}.
+ |\Sset_d(H)|\sim\kappa_dH^2
+ \qquad(H\longrightarrow\infty)
  \tag{6.1}
 \]
-For an odd prime $d=\ell$, take the admissible seed set of the
-prime-degree manuscript.  Its density is
+for an effective \(\kappa_d>0\).  At $3$, nonemptiness of the
+valuation-one condition follows, for example, from
+\(a\equiv3\), \(b\equiv2\pmod9\); the conditions at the other odd
+prime divisors of $d$ are automatic once they divide $a$.
+
+We first remove the prime-degree restriction from the local root count.
+In the universal algebra
 \[
- \kappa_\ell=
- \begin{cases}
- 1/(9\zeta(2)),&\ell=3,\\
- 2/(3(\ell+1)\zeta(2)),&\ell\ge5.
- \end{cases}
+ \mathcal R=\mathbb Z[X,Y,r,t]/(r^2-Y,\ t^2+X),
+ \qquad
+ \Omega=r+t,\quad\overline\Omega=r-t,
  \tag{6.2}
 \]
+define, for every $k\ge3$,
+\[
+ A_k(X,Y)=\Phi_k(\Omega,\overline\Omega),
+ \tag{6.3}
+\]
+where \(\Phi_k(U,V)\) is the homogeneous cyclotomic polynomial.
+
+\begin{lemma}[All-index coordinate atoms]\label{lem:all-index-atoms}
+The expression in (6.3) belongs to \(\mathbb Z[X,Y]\), is homogeneous
+of degree \(\varphi(k)/2\), and has the following roots.  Let
+\(p\nmid2k\) be prime.  The polynomial \(A_k(X,1)\) has roots over
+\(\mathbb F_p\) precisely when
+\[
+ k\mid p-\chi\qquad\text{for one }\chi\in\{1,-1\}.
+ \tag{6.4}
+\]
+When (6.4) holds, it has exactly \(\varphi(k)/2\) distinct simple
+roots
+\[
+ \rho_\zeta=-\left(\frac{\zeta-1}{\zeta+1}\right)^2,
+ \tag{6.5}
+\]
+where \(\zeta\), modulo \(\zeta\sim\zeta^{-1}\), ranges over the
+elements of exact order $k$ in \(\mathbb F_p^\times\) for \(\chi=1\),
+or in the norm-one subgroup of \(\mathbb F_{p^2}^\times\) for
+\(\chi=-1\).  Every root satisfies
+\[
+ \rho_\zeta\ne0,-1,
+ \qquad
+ \left(\frac{-\rho_\zeta}{p}\right)=\chi.
+ \tag{6.6}
+\]
+For \(p\nmid kk'\), the root sets of distinct indices \(k,k'\ge3\)
+are disjoint.  If \(\widehat\rho_{h+1}\) represents the Hensel lift
+of a root modulo \(p^{h+1}\), then for every $h\ge1$ and every
+$p$-adic unit $u$,
+\[
+ v_p\!\left(A_k(\widehat\rho_{h+1}+up^h,1)\right)=h.
+ \tag{6.7}
+\]
+\end{lemma}
+
+\begin{proof}
+For $k>2$, the polynomial \(\Phi_k(U,V)\) is symmetric of even total
+degree \(\varphi(k)\).  In its integral expression in the elementary
+symmetric functions, homogeneity forces the exponent of
+\(e_1=U+V\) to be even.  Substituting
+\[
+ e_1^2=4Y,\qquad e_2=UV=X+Y
+\]
+proves the integrality and degree assertion.
+
+If (6.4) holds, choose \(\zeta\) of exact order $k$ in the indicated
+cyclic group and put
+\[
+ s=\frac{\zeta-1}{\zeta+1},\qquad \rho=-s^2.
+\]
+In the split case $s$ lies in \(\mathbb F_p\); in the norm-one case
+\(s^p=-s\).  Thus \(\rho\in\mathbb F_p\), and at \(r=1,t=s\) one has
+\(\Omega/\overline\Omega=\zeta\), so (6.3) vanishes.  The map from
+\(\zeta\) to \(\rho\) has exactly the inversion fibers, giving
+\(\varphi(k)/2\) distinct roots and (6.6).
+
+Conversely, a root is neither $0$ nor $-1$: these specializations give
+quotient $1$ or make one of \(\Omega,\overline\Omega\) zero, and the
+corresponding homogeneous cyclotomic value is a unit modulo
+\(p\nmid2k\).  Taking \(s^2=-\rho\) recovers an exact-order-$k$
+Cayley parameter in the split or norm-one group, proving (6.4) and
+exhaustion.  The leading coefficient is also a unit modulo $p$: at
+\(Y=0\) the quotient is $-1$, and any prime divisor of the resulting
+cyclotomic value divides $2k$.  Hence the roots are simple.  A common
+root at two indices would give the same Cayley parameter, up to
+inversion, two different exact orders.  Finally, Hensel's lemma and the
+first nonzero Taylor term modulo \(p^{h+1}\) give (6.7).
+\end{proof}
 
 Put
 \[
- q_j=
- \begin{cases}
- 2^{j+2},&d=2,\\
- d^{j+1},&d\text{ odd},
- \end{cases}
- \qquad
- \nu_d(j)=
- \begin{cases}
- \varphi(q_j)/2=2^j,&d=2,\\
- \varphi(q_j)=d^j(d-1),&d\text{ odd}.
- \end{cases}
- \tag{6.3}
+ \Lambda_{d,j}
+ =\{k:k\mid2d^{j+1},\ k\nmid2d^j\}.
+ \tag{6.8}
 \]
-The factor $1/2$ in the quadratic case comes from inversion in its
-single Cayley tower; the odd-prime count combines two branches.
+Since \(\alpha=\Omega^2\), \(\beta=\overline\Omega^2\), homogeneous
+cyclotomic factorization gives the uniform coordinate decomposition
+\[
+ U_N=\prod_{\substack{k\mid2N\\k>2}}A_k(a,b),
+ \qquad
+ Q_{d,j}=\prod_{k\in\Lambda_{d,j}}A_k(a,b).
+ \tag{6.9}
+\]
+The sets \(\Lambda_{d,j}\) are pairwise disjoint.  In particular,
+\(\Lambda_{2,j}=\{2^{j+2}\}\); for odd $d$ it is the union of the
+odd Lucas indices in \(\mathcal L_{d,j}\) and their doubles.  Division
+by the systematic content $d$ in (3.6) changes neither roots nor
+valuations at the primes \(p\nmid2d\) considered below.
 
 For fixed $n,P,K$, define the bounded defect
 \[
- D_{n,P,K}(a,b)=
+ D_{d,n,P,K}(a,b)=
  \sum_{j<n}\ \sum_{\substack{p\le P\\p\nmid2d}}
  \log p\sum_{h=2}^{K+1}\mathbf 1_{p^h\mid E_{d,j}(a,b)}.
- \tag{6.4}
+ \tag{6.10}
 \]
 
-\begin{theorem}[Bounded iterated local mean]\label{thm:local-mean}
-For every prime degree $d\ge2$,
+For a Lucas index $m\ge2$, put
+\[
+ \lambda(m)=
+ \begin{cases}
+  m,&m\text{ odd},\\
+  2m,&m\text{ even}.
+ \end{cases}
+ \tag{6.11}
+\]
+The identity
+\[
+ \Phi_m(\alpha,\beta)=
+ \begin{cases}
+  A_m(a,b)A_{2m}(a,b),&m\text{ odd},\\
+  A_{2m}(a,b),&m\text{ even}
+ \end{cases}
+ \tag{6.12}
+\]
+shows that the coordinate-index and Lucas-index descriptions below are
+equivalent.  For odd $m$, the compatibility conditions for $A_m$ and
+$A_{2m}$ coincide: if \(m\mid p-\chi\), then
+\(2m\mid p-\chi\) because $p-\chi$ is even.
+
+\begin{theorem}[All-degree bounded iterated local mean]\label{thm:local-mean}
+For every degree $d\ge2$,
 \[
  \lim_{P\to\infty}\lim_{K\to\infty}\lim_{H\to\infty}
  \frac{1}{|\Sset_d(H)|}
- \sum_{(a,b)\in\Sset_d(H)}D_{n,P,K}(a,b)
+ \sum_{(a,b)\in\Sset_d(H)}D_{d,n,P,K}(a,b)
  =L_d(n),
- \tag{6.5}
+ \tag{6.13}
 \]
-where
-\[
- L_d(n)=
- \sum_{j<n}\nu_d(j)
- \sum_{\substack{p\nmid2d\\q_j\mid p-1\ \mathrm{or}\ q_j\mid p+1}}
+where, equivalently,
+\begin{align}
+ L_d(n)
+ &=\sum_{j<n}\sum_{k\in\Lambda_{d,j}}\frac{\varphi(k)}2
+ \sum_{\substack{p\nmid2d\\k\mid p-1\ \mathrm{or}\ k\mid p+1}}
+ \frac{\log p}{p^2-1}
+ \tag{6.14}\\
+ &=\sum_{j<n}\sum_{m\in\mathcal L_{d,j}}\varphi(m)
+ \sum_{\substack{p\nmid2d\\
+ \lambda(m)\mid p-1\ \mathrm{or}\ \lambda(m)\mid p+1}}
  \frac{\log p}{p^2-1}.
- \tag{6.6}
-\]
-There is an effective constant $C_d$, independent of $n$, such that
+ \tag{6.15}
+\end{align}
+There is an explicit constant $C_d$, independent of $n$, such that
 \[
  L_d(n)\le C_d<\infty.
- \tag{6.7}
+ \tag{6.16}
 \]
-For odd prime $d$, one may take
+One may take
 \[
- C_d=\frac58\left[
- \frac{\zeta(2)\log3-\zeta'(2)}{d-1}
- +\frac{\zeta(2)d\log d}{(d-1)^2}
+ C_d=3\sum_{\substack{m\mid d^\infty\\m>1}}
+ \frac{\varphi(m)}{m^2}
+ \left(\zeta(2)\log(4m)-\zeta'(2)\right).
+ \tag{6.17}
+\]
+If
+\[
+ B_d=\prod_{q\mid d}\left(1+\frac1q\right),
+\]
+then the same constant has the closed form
+\[
+ C_d=3\left[
+  \bigl(\zeta(2)\log4-\zeta'(2)\bigr)(B_d-1)
+  +\zeta(2)B_d\sum_{q\mid d}\frac{q\log q}{q^2-1}
  \right].
- \tag{6.8}
+ \tag{6.18}
 \]
-For $d=2$, one may take
-\[
- C_2=\frac32\zeta(2)\log2-\frac38\zeta'(2).
- \tag{6.9}
-\]
-In particular, \(C_d\ll\log d/(d-1)\) along odd prime degrees.
 \end{theorem}
 
 \begin{proof}
-At a compatible prime, the relevant level form has exactly
-\(\nu_d(j)\) simple projective roots.  Each has one lift modulo $p^h$
-and \(\varphi(p^h)\) unit representatives.  Among the
-\(p^{2h}-p^{2h-2}\) primitive pairs modulo $p^h$, this gives
+Fix \(p\nmid2d\).  By Lemma~\ref{lem:all-index-atoms} and (6.9), the
+number of simple projective roots of the $j$th normalized layer is
 \[
- \Pr(p^h\mid E_{d,j})
- =\frac{\nu_d(j)}{p^{h-1}(p+1)}.
- \tag{6.10}
+ N_{d,j}(p)=
+ \sum_{\substack{k\in\Lambda_{d,j}\\
+ k\mid p-1\ \mathrm{or}\ k\mid p+1}}\frac{\varphi(k)}2.
+ \tag{6.19}
 \]
-The conditions at $2$ and $d$ separate by the Chinese remainder
-theorem.  Summing (6.10) for \(2\le h\le K+1\) gives
+The sum is an exact disjoint union, not an independence assertion.  Each
+root has one lift modulo $p^h$ and \(\varphi(p^h)\) unit representatives.
+Among the \(p^{2h}-p^{2h-2}\) primitive pairs modulo $p^h$, this gives
 \[
- \nu_d(j)\frac{1-p^{-K}}{p^2-1}.
+ \Pr_{\Sset_d(H)}(p^h\mid E_{d,j})
+ \longrightarrow
+ \frac{N_{d,j}(p)}{p^{h-1}(p+1)}.
+ \tag{6.20}
 \]
-For fixed cutoffs the box limit is ordinary counting in finitely many
-residue classes, which proves (6.5) before the last two limits.
+The admissibility conditions are at primes dividing $2d$ and separate
+from this count by the Chinese remainder theorem.  Summing (6.20) for
+\(2\le h\le K+1\), followed by the displayed iterated limits, proves
+(6.13)--(6.14); (6.12) gives (6.15).
 
-For odd $q\ge3$, the eligible integers are \(2rq\pm1\), and
+For every $q\ge3$, with the excluded case $p=2$ omitted, enlarging the
+eligible primes to the integers \(aq\pm1\) gives
 \[
- \sum_{q\mid p^2-1}\frac{\log p}{p^2-1}
- \le\frac5{8q^2}
- \left(\zeta(2)\log(3q)-\zeta'(2)\right).
- \tag{6.11}
-\]
-Multiplying by \(\varphi(d^{j+1})\) and summing the two geometric series
-gives (6.8).  When $q=2^{j+2}$, writing eligible integers as
-\(rq\pm1\) gives the elementary majorant
-\[
- \sum_{q\mid p^2-1}\frac{\log p}{p^2-1}
+ \sum_{q\mid p-1\ \mathrm{or}\ q\mid p+1}
+ \frac{\log p}{p^2-1}
  \le\frac3{q^2}
  \left(\zeta(2)\log(2q)-\zeta'(2)\right).
- \tag{6.12}
+ \tag{6.21}
 \]
-Since \(\nu_2(j)=q/4\), summation yields (6.9).
+Indeed the two denominators are bounded below by \(a^2q^2\) and
+\(a^2q^2/2\), respectively, and
+\(\log(aq\pm1)\le\log(2aq)\).  Since
+\(m\le\lambda(m)\le2m\), summing (6.21) over every nontrivial index
+supported on the prime divisors of $d$ proves (6.17).  Finally,
+\[
+ \sum_{m\mid d^\infty}\frac{\varphi(m)}{m^2}=B_d,
+ \qquad
+ \sum_{m\mid d^\infty}\frac{\varphi(m)\log m}{m^2}
+ =B_d\sum_{q\mid d}\frac{q\log q}{q^2-1},
+\]
+which follows from the finite Euler product and its logarithmic
+derivative.  This proves (6.18) and convergence.
 \end{proof}
 
-The theorem deliberately uses the order of limits displayed in (6.5).
+The theorem deliberately uses the order of limits displayed in (6.13).
 Passing from this local model to the untruncated integer-box mean would
 require uniform control of primes growing with the box:
 \[
  \lim_{P\to\infty}\limsup_{H\to\infty}
  \mathbb E_{\Sset_d(H)}
- \left[\log W_{d,n}-D_{n,P,\infty}\right]=0.
- \tag{6.13}
+ \left[\log W_{d,n}-D_{d,n,P,\infty}\right]=0.
+ \tag{6.22}
 \]
 This is a large-square-divisor problem for binary forms.  Fixed-modulus
-Hensel densities do not prove (6.13), and general multivariable results
+Hensel densities do not prove (6.22), and general multivariable results
 that assume $abc$ cannot be used here without circularity.
-
-For composite degrees, (3.4) suggests the convergent majorant
-\[
- \sum_{\substack{m\mid d^\infty\\m>1}}
- \frac{\varphi(m)\log(3m)}{m^2}.
-\]
-A theorem would require a fully checked simultaneous root classification
-for every composite-layer atom.  We leave that extension open rather than
-promote the majorant to a result.
 
 \section{What remains for one fixed orbit}
 
@@ -853,11 +971,11 @@ census output, and regression commands accompany the source repository.
 
 \section{Conclusions}
 
-The all-degree result is structural.  It shows that the quadratic orbit,
+The all-degree results are structural.  They show that the quadratic orbit,
 the odd-prime construction, and every composite block share one normalized
-Lucas-layer mechanism and one radical identity.  The quadratic realization
-and the prime-degree local mean complete two genuine gaps between the first
-two manuscripts.
+Lucas-layer mechanism, one radical identity, and one bounded iterated local
+mean.  The quadratic realization and the all-index atom classification
+complete two genuine gaps between the first two manuscripts.
 
 The fixed-orbit result is more modest.  Congruence and valuation theory
 control a growing \(q_j^{1+o(1)}\) window, and pure counting disposes of
@@ -874,9 +992,13 @@ powerful part.
 
 \section{AI-use statement}
 
-OpenAI Codex and Anthropic Claude were used during Phases 5--8 for
+OpenAI Codex and Anthropic Claude were used during Phases 5--9 for
 mathematical exploration, proof and source audits, independent software
 implementations, computation, drafting, and adversarial cross-review.  The
+accompanying Lean project machine-checks the generic prime-element
+multiplicity identity behind W1 and the Cayley inversion-fiber and
+primitive-index lemmas used in Lemma~\ref{lem:all-index-atoms}; it does not
+formalize the whole paper.  The
 named author must independently verify every theorem, proof, reference,
 novelty statement, and computation before circulation or submission.  The
 AI systems are not authors.
