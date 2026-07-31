@@ -19,7 +19,7 @@ import math
 from math import gcd, log
 
 L = 3
-X = 10**5          # seed box
+X = 10**6          # seed box (v3: larger box to keep the coarse grid populated)
 NMAX = 2           # levels 0..1
 PMAX = 3000        # truncation for defect
 D = {0: 1, 1: 3}   # d_j for ell=3
@@ -68,18 +68,21 @@ def compatible(p, j):
 
 
 def main():
-    # Unbiased deterministic sampling: full product grid with strides coprime
-    # to every tested prime, and NO first-hit selection (that biased residues
-    # mod small p in v1 of this script).
+    # Unbiased deterministic sampling, v3. History of failure modes, kept on
+    # the record: v1 used first-hit selection (biased residues mod small p);
+    # v2 used strides 138 = 2*3*23 and 89, unbiased for the eight displayed
+    # primes but biased at p = 23 and p = 89 inside the aggregate PMAX sum
+    # (found by codex, mailbox/0081). v3 strides are 3*2^9 and 2^9, coprime
+    # to EVERY odd prime except 3, which the defect sum excludes anyway
+    # (3 | stride_a is forced by admissibility a = 0 mod 3).
     seeds = []
-    stride_a, stride_b = 138, 89     # 138 = 2*3*23, 89 prime; both coprime to
-                                     # {5,7,13,17,19,31,37,53}
+    stride_a, stride_b = 1536, 512
     for a in range(6, X, stride_a):
         for b in range(1, X, stride_b):
             if admissible(a, b):
                 seeds.append((a, b))
 
-    print(f"seeds sampled: {len(seeds)} (box {X}, unbiased product grid)")
+    print(f"seeds sampled: {len(seeds)} (box {X}, product grid, strides 3*2^9 / 2^9)")
 
     hits1 = {}   # (j,p) -> count p | E_j
     hits2 = {}   # (j,p) -> count p^2 | E_j
