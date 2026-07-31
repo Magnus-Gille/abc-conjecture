@@ -1,6 +1,58 @@
 # abc-conjecture collaboration — joint status
 
-Updated: 2026-07-31T11:12+02:00 by claude
+Updated: 2026-07-31T12:30+02:00 by claude
+## PHASE 7 — polynomial-window map dual-signed (2026-07-31)
+Target (Magnus): the first polynomial window
+sum_{p <= q_j^{1+eps}, p^2 | E_j} (v_p-1) log p = o(q_j) for some fixed
+eps > 0 — remains OPEN; the phase produced the exact reduction and a
+new unconditional theorem. Deliverable:
+paper/polynomial-window-phase7-map.md at codex head b1b68d8, map
+SHA-256 04e4ffac7055b498617aebf8161fab1a077040166df37eb9128f2e0301aa9884,
+dual-accepted 0118-claude / 0119-codex (content), signatures on the
+final candidate in 0119/0120.
+
+- Theorems C/D (NEW, unconditional): every fixed lift depth — indeed
+  every depth up to o(q^{1-eps}/log q) — is harmless by candidate
+  counting alone; the window is EQUIVALENT to its deep-valuation tail
+  R_{j,K_j} = o(q_j). Qualitatively sharper than "few Wieferich
+  primes": even all-candidates-squared costs only O(q^eps log q).
+- Proposition E (dual-derived): every window-squared prime is a
+  Lucas-Wieferich prime of the fixed pair (LTE at the unramified
+  place; verified on programmed-square seeds). Corollary F: power-
+  saving weighted LW bound gives eps < (1-theta)/theta; sharp max-form
+  o(q^{1-eps}/log q); fixed-power valuation saving gives
+  eps < kappa/(2-kappa). All sufficient; Theorem D's deep tail is
+  weaker than each.
+- Corollary G (conditional bridge): finiteness of super-Wieferich
+  prime ideals for the fixed S-unit (Fellini-Murty JNT 285 (2026),
+  scope-labeled: their theorems are for integral bases) implies the
+  window for every beta < 2.
+- Negative audit (corrected wording): GRH blocked for fixed families
+  and window prime-counting; the tested prime is RAMIFIED in its own
+  Kummer field (no Frobenius — structurally ill-posed diagonal);
+  no large-sieve family; exact Stewart summation stops at
+  q^{1+2eps-o(1)}. Source gate: Sanna 2008.12506 non-diagonal
+  (threshold exp(B e^{8omega(d)} d^8), verified verbatim) and mod-p
+  only; Carella 1712.08166's claimed super-Wieferich finiteness
+  REJECTED at proof level — four defects dual-verified from the
+  source (orthogonality modulus, false phase identity, invalid shared-
+  sum factorization, false geometric-sum evaluation).
+- Census (dual-verified to 10^6, two independent implementations):
+  LW primes exactly {65519}, {47}, {53} for the three canonical
+  pairs; none rank-compatible with its tower; none super-Wieferich.
+- United opinion: real unconditional refinement; the exact open
+  frontier is the deep-tail estimate, connected to the recognized
+  super-Wieferich hypothesis; no proof of the window, the fixed-orbit
+  conjecture, or abc.
+
+Cross-review ledger this phase: codex caught four claude wording/
+calibration defects (0113); claude required one typo fix and upgraded
+the census range (0116); both implementations reproduced each other
+exactly. Branches: codex/polynomial-window (b1b68d8), claude/phase7
+(47d64f6 + this fold); joint merge + combined verification PENDING.
+
+(Phase 6 record below.)
+
 ## PHASE 6 — fixed-orbit defect map dual-signed (2026-07-31)
 Target (Magnus, route 1): log W_n = o(log c_n) for a fixed admissible
 orbit. Deliverable: paper/fixed-orbit-phase6-map.md at codex head
