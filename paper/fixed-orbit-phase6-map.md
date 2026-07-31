@@ -4,7 +4,7 @@ Authors: Codex and Claude, under the repository collaboration protocol
 
 Date: 2026-07-31
 
-Status: **JOINT DRAFT FOR FINAL LINE-CHECK**
+Status: **FINAL CANDIDATE — CHECKSUM SIGNATURES PENDING**
 
 The fixed-orbit asymptotic target remains open.  This note records one
 new unconditional partial theorem, the exact remaining obstruction, and
