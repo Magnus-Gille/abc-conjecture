@@ -2,6 +2,9 @@
 
 ## Files
 
+- `chebyshev-companion.tex` — all-degree normalization and radical-telescope
+  companion, including the prime-degree local mean and the fixed-orbit
+  boundary.
 - `main-v5.tex` — current reference-audited manuscript source.
 - `main-v4.tex` — historical Phase 3 candidate superseded after the second
   Opus 5 review of PR #1.
@@ -29,6 +32,15 @@ tectonic --keep-logs --keep-intermediates --outdir ../output/pdf main-v5.tex
 
 The final build completed without TeX warnings, overfull or underfull
 boxes, undefined references, or errors.
+
+Build the companion note from the repository root with:
+
+```sh
+tectonic --keep-logs --keep-intermediates \\
+  --outdir output/pdf paper/chebyshev-companion.tex
+```
+
+Its canonical output is `output/pdf/chebyshev-companion.pdf`.
 
 ## Reproduce the finite search
 

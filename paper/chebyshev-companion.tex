@@ -1,0 +1,917 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\geometry{margin=1in}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!45!black,
+  urlcolor=blue!55!black,
+  pdftitle={Radical telescopes for Chebyshev transfers of every degree},
+  pdfauthor={Magnus Gille}
+}
+\setlist{nosep,leftmargin=1.5em}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\emergencystretch=2em
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\rad}{\operatorname{rad}}
+\newcommand{\Sq}{\operatorname{Sq}}
+\newcommand{\T}{\mathcal T}
+\newcommand{\Sset}{\mathcal S}
+
+\title{Radical telescopes for Chebyshev transfers of every degree:\\
+normalization, programmed squares, and the fixed-orbit boundary}
+\author{Magnus Gille\\Independent researcher}
+\date{Research draft, July 2026}
+
+\begin{document}
+\maketitle
+
+\begin{quote}\small
+This is a non-peer-reviewed companion research note.  It consolidates
+results developed after the quadratic and prime-degree Chebyshev-orbit
+manuscripts.  The transfer is classical and compositional.  The proposed
+contribution is the degree-uniform arithmetic package described below;
+specialist review of its proofs, sources, and priority remains necessary.
+\end{quote}
+
+\begin{abstract}
+For every integer $d\ge2$, homogenizing $T_d$ gives an integral map
+from a primitive positive triple $a+b=c$ of opposite parity to another
+such triple.  We identify one fixed Lucas sequence behind the whole orbit.
+After a necessary normalization at the primes dividing $d$, the quotient
+between successive indices $d^j$ is a positive integer $E_{d,j}$.  Its
+cyclotomic indices are precisely
+\[
+ \{m:m\mid d^{j+1},\ m\nmid d^j\}.
+\]
+For a natural class of $d$-admissible seeds, the $E_{d,j}$ are
+pairwise coprime and disjoint from the seed.  This yields the exact
+all-degree radical telescope
+\[
+ \frac{\rad(a_nb_nc_n)}{c_n}
+ =\frac{\rad(a_0b_0c_0)}{c_0}
+   \frac{|\sin(d^n\theta)|}
+        {d^n\sin\theta\,W_{d,n}},
+ \qquad
+ W_{d,n}=\prod_{j<n}\frac{E_{d,j}}{\rad(E_{d,j})}.
+\]
+Composite degree bundles several Lucas atoms in one layer; prime degree is
+the single-atom case.  We also complete the simultaneous finite-genealogy
+realization for the quadratic transfer and prove a bounded iterated local
+mean for the logarithmic defect in every prime degree, including $2$.
+For one fixed orbit we isolate an unconditional growing congruence window
+and show that every fixed valuation depth in a polynomial window is
+harmless; the remaining obstruction is an exceptionally deep
+Lucas--Wieferich tail.  A dual implementation checks that the canonical
+quadratic, cubic, and quintic pairs have no new Lucas--Wieferich primes
+between $10^6$ and $10^7$, and a 122-digit quadratic layer is completely
+factored.  These results do not prove the fixed-orbit conjecture or any new
+case of the $abc$ conjecture.
+
+\medskip
+\noindent\textit{2020 Mathematics Subject Classification.}
+Primary 11B39; Secondary 11A05, 11D75, 11J86, 37P05.
+
+\noindent\textit{Keywords.}
+Chebyshev polynomial, Lucas sequence, Lucas atom, radical,
+Wieferich prime, $abc$ conjecture, arithmetic dynamics.
+\end{abstract}
+
+\section{Introduction and novelty boundary}
+
+Write
+\[
+ \rad(N)=\prod_{p\mid N}p.
+\]
+A primitive positive triple $a+b=c$ is an $abc$-hit when
+\(\rad(abc)<c\).  Polynomial identities that transfer one additive triple
+to another are classical; Martin and Miao survey many examples, and van der
+Horst studies the transfer method in detail.  The Chebyshev identity used
+here is a homogenized de Moivre identity, not a new polynomial identity.
+
+Lucas atoms and their valuations have also been developed independently of
+this project.  Sagan and Tirrell introduce the atom formalism, while Alecci,
+Miska, Murru, and Romeo give a general definition and detailed $p$-adic
+valuation results.  The finite-field factorization behind the local root
+counts is equivalent, after a Cayley change of variable, to the fibotomic
+factorization of Byer, Dvorachek, Eckard, Harrington, Wise, and Wong.
+Ratliff, Rush, and Shah give related radical-preserving cyclotomic
+constructions.
+
+The proposed contribution is therefore narrower than ``a new Chebyshev
+map.''  It is the following synthesis:
+
+\begin{quote}\small
+one normalization valid for every degree; prime-support separation of its
+successive multi-atom layers; an exact radical telescope along the
+resulting additive orbit; constructive control of arbitrary finite square
+patterns in every prime degree; and a bounded local first moment whose
+remaining integer-box obstruction is stated explicitly.
+\end{quote}
+
+Prime degree remains special: a new layer is a single cyclotomic atom (or
+two coordinate branches of the same order), whereas composite degree
+groups several atom indices.  Since $T_m\circ T_n=T_{mn}$, the
+composite-degree transfer is itself only a block of lower-degree transfers.
+The grouping and normalization, rather than the map, are the point.
+
+The last sections distinguish finite-seed averages from a single fixed
+orbit.  They sharpen the fixed-orbit obstruction but do not resolve it.
+In particular, nothing here should be read as a proof of $abc$.
+
+\section{The universal integral transfer}
+
+Let $a+b=c$ be primitive and positive, with $a,b$ of opposite parity,
+and put
+\[
+ D=b-a.
+\]
+Both $D$ and $c$ are odd.  Define the homogeneous Chebyshev values
+\[
+ H_r(D,c)=c^rT_r(D/c).
+\]
+They are integral because
+\[
+ H_0=1,\qquad H_1=D,\qquad
+ H_{r+1}=2D H_r-c^2H_{r-1}.
+\]
+
+\begin{theorem}[Universal transfer]\label{thm:transfer}
+For every integer $d\ge2$, set
+\[
+ \T_d(a,b,c)=
+ \left(
+ \frac{c^d-H_d(D,c)}2,
+ \frac{c^d+H_d(D,c)}2,
+ c^d
+ \right).
+ \tag{2.1}
+\]
+Then \(\T_d\) maps primitive positive opposite-parity triples to triples
+of the same kind.  If
+\[
+ x=\frac{b-a}{c},
+\]
+then the new normalized difference is $T_d(x)$.  Moreover
+\[
+ \T_m\circ\T_n=\T_{mn}=\T_n\circ\T_m.
+ \tag{2.2}
+\]
+After $n$ iterations,
+\[
+ c_n=c_0^{d^n},\qquad
+ \frac{b_n-a_n}{c_n}
+ =T_{d^n}\left(\frac{b_0-a_0}{c_0}\right).
+ \tag{2.3}
+\]
+\end{theorem}
+
+\begin{proof}
+Since $H_d(D,c)$ is odd, the two coordinates in (2.1) are integers of
+opposite parity and sum to $c^d$.  The inequality
+$|T_d(x)|\le1$ gives nonnegativity.  Equality would make
+$e^{i\arccos x}$ a root of unity, so $2D/c$ would be a rational
+algebraic integer.  This is impossible because $c>1$, $c$ is odd, and
+$\gcd(D,c)=1$.  Thus both coordinates are positive.
+
+If an odd prime divided both new coordinates, it would divide $c$ and
+$H_d(D,c)$.  But
+\[
+ H_d(D,c)\equiv 2^{d-1}D^d\pmod c,
+\]
+which is a unit modulo every prime divisor of $c$.  The prime $2$
+cannot divide both coordinates because their sum is odd.  This proves
+primitivity.  The difference of the two new coordinates is $H_d(D,c)$,
+which proves the semiconjugacy.  Equations (2.2) and (2.3) follow from
+$T_m\circ T_n=T_{mn}$.
+\end{proof}
+
+For $d=2$, (2.1) is exactly
+\[
+ (a,b,c)\longmapsto(4ab,(b-a)^2,c^2).
+ \tag{2.4}
+\]
+For odd $d$, expanding
+\((\sqrt b+i\sqrt a)^d\) splits the transfer into the familiar two
+coordinate factors.  For even $d$, write instead
+\[
+ (\sqrt b+i\sqrt a)^d=C_d(a,b)+i\sqrt{ab}\,S_d(a,b).
+\]
+Then
+\[
+ \T_d(a,b)=
+ \begin{cases}
+ (aS_d(a,b)^2,\ bC_d(a,b)^2),&d\text{ odd},\\
+ (abS_d(a,b)^2,\ C_d(a,b)^2),&d\text{ even}.
+ \end{cases}
+ \tag{2.5}
+\]
+Thus every degree has a two-coordinate-factor form, although the seed
+prefactor depends on parity.
+
+\section{One Lucas sequence and its normalized layers}
+
+Fix the seed and put
+\[
+ \alpha=D+2\sqrt{-a_0b_0},\qquad
+ \beta =D-2\sqrt{-a_0b_0}.
+\]
+Then
+\[
+ \alpha+\beta=2D,\qquad \alpha\beta=c_0^2,
+ \qquad(\alpha-\beta)^2=-16a_0b_0.
+\]
+The associated Lucas sequence is
+\[
+ U_0=0,\quad U_1=1,\quad
+ U_{r+1}=2D U_r-c_0^2U_{r-1},
+ \qquad
+ U_r=\frac{\alpha^r-\beta^r}{\alpha-\beta}.
+ \tag{3.1}
+\]
+
+\begin{lemma}[Fixed-sequence identity]\label{lem:fixed-sequence}
+For the degree-$d$ orbit,
+\[
+ a_nb_n=a_0b_0\,U_{d^n}^2.
+ \tag{3.2}
+\]
+\end{lemma}
+
+\begin{proof}
+The norm identity
+\(c_0^{2d^n}-(\alpha^{d^n}+\beta^{d^n})^2/4
+=- (\alpha^{d^n}-\beta^{d^n})^2/4\), together with
+\((\alpha-\beta)^2=-16a_0b_0\), gives (3.2).
+\end{proof}
+
+Define
+\[
+ Q_{d,j}=\frac{U_{d^{j+1}}}{U_{d^j}}.
+ \tag{3.3}
+\]
+Homogeneous cyclotomic factorization gives
+\[
+ Q_{d,j}
+ =\prod_{m\in\mathcal L_{d,j}}\Phi_m(\alpha,\beta),
+ \qquad
+ \mathcal L_{d,j}
+ =\{m:m\mid d^{j+1},\ m\nmid d^j\}.
+ \tag{3.4}
+\]
+The sets \(\mathcal L_{d,j}\) are pairwise disjoint.
+
+The quotient (3.3) contains a systematic contribution from every prime
+dividing $d$.  The following seed condition removes it exactly.
+
+\begin{definition}
+A seed is \emph{$d$-admissible} when it is primitive, positive, and of
+opposite parity, and for every odd prime $q\mid d$,
+\[
+ q\mid a_0,\qquad v_q(U_q)=1.
+ \tag{3.5}
+\]
+\end{definition}
+
+For $q\ge5$, the second condition follows automatically from the first.
+At $q=3$ it is necessary: the end terms in the binomial expression for
+\(U_q/q\) can cancel modulo $q$.
+
+\begin{theorem}[Normalized layer genealogy]\label{thm:genealogy}
+Let $d\ge2$ and let the seed be $d$-admissible.  Then
+\[
+ E_{d,j}=\frac{|Q_{d,j}|}{d}
+ \tag{3.6}
+\]
+is a positive integer coprime to $d a_0b_0c_0$.  The integers
+\[
+ E_{d,0},E_{d,1},E_{d,2},\ldots
+\]
+are pairwise coprime.  Consequently every prime outside the seed support
+has at most one birth layer.
+\end{theorem}
+
+\begin{proof}
+For an odd $q\mid d$, the Lucas law of repetition at a discriminant
+prime, under (3.5), gives
+\[
+ v_q(U_r)=v_q(r)\qquad(q\mid r).
+ \tag{3.7}
+\]
+Opposite parity gives the corresponding identity
+\[
+ v_2(U_r)=v_2(r)\qquad(2\mid r).
+ \tag{3.8}
+\]
+These are standard specializations of Lucas-sequence valuation formulas;
+the hypotheses include $q\nmid\alpha\beta$ and nondegeneracy.  Subtracting
+the valuations at $d^{j+1}$ and $d^j$ gives
+\[
+ v_q(Q_{d,j})=v_q(d)\qquad(q\mid d),
+\]
+so (3.6) is integral and coprime to $d$.
+
+If an odd $p\mid a_0b_0$, then
+\(U_r\equiv r\alpha^{r-1}\pmod p\).  This is nonzero when $p\nmid d$,
+and (3.7) removes the exact systematic part when $p\mid d$.  If
+\(p\mid c_0\), one of \(\alpha,\beta\) is zero and the other is a unit
+modulo $p$.  The parity assertion follows from (3.8) when $d$ is even
+and directly from the recurrence at odd indices when $d$ is odd.  Hence
+the normalized layers avoid the seed support.
+
+Now suppose $p\nmid d a_0b_0c_0$ divided two layers.  At a prime above
+$p$, a factor \(\Phi_m(\alpha,\beta)\) with $p\nmid m$ says that
+\(\alpha/\beta\) has exact order $m$; inversion under conjugation does
+not change that order.  The same $p$ cannot therefore occur at indices
+from two disjoint sets \(\mathcal L_{d,j}\).  This proves pairwise
+coprimality.
+\end{proof}
+
+\begin{remark}
+For an odd prime $d=\ell$, a layer is the single prime-power
+cyclotomic index \(\ell^{j+1}\), expressed through two coordinate
+branches.  For $d=2$, (3.6) is \(|b_j-a_j|\).  A composite $d$ bundles
+several atoms in (3.4).  Formula (3.6), not a termwise composite-binomial
+argument, is the stable normalization.
+\end{remark}
+
+\section{The all-degree radical telescope}
+
+Let
+\[
+ R_n=\rad(a_nb_nc_n),\qquad
+ W_{d,n}=\prod_{j<n}\frac{E_{d,j}}{\rad(E_{d,j})}.
+ \tag{4.1}
+\]
+Every prime divisor of $d$ already lies in the seed radical: the odd
+ones divide $a_0$, and opposite parity handles $2$.  Telescoping (3.3)
+and using Theorem~\ref{thm:genealogy} therefore gives
+\[
+ |U_{d^n}|=d^n\prod_{j<n}E_{d,j},\qquad
+ R_n=R_0\prod_{j<n}\rad(E_{d,j}).
+ \tag{4.2}
+\]
+
+Choose \(\theta\in(0,\pi)\) by
+\[
+ \cos\theta=\frac{b_0-a_0}{c_0}.
+\]
+Since \(\alpha=c_0e^{i\theta}\),
+\[
+ U_{d^n}=c_0^{d^n-1}
+ \frac{\sin(d^n\theta)}{\sin\theta}.
+ \tag{4.3}
+\]
+
+\begin{theorem}[All-degree radical telescope]\label{thm:telescope}
+For every $d$-admissible seed and every $n\ge0$,
+\[
+ \boxed{
+ \frac{R_n}{c_n}
+ =\frac{R_0}{c_0}
+  \frac{|\sin(d^n\theta)|}
+       {d^n\sin\theta\,W_{d,n}}.}
+ \tag{4.4}
+\]
+\end{theorem}
+
+\begin{proof}
+Divide the two identities in (4.2), substitute (4.3), and use
+\(c_n=c_0^{d^n}\).
+\end{proof}
+
+For a fixed algebraic seed, a standard linear-form estimate supplies a
+constant \(C=C(a_0,b_0,d)\) such that
+\(\log|\sin(d^n\theta)|\ge-C(n+1)\);
+the elementary upper bound is immediate.  Thus the exponential-scale
+obstruction in (4.4) is precisely the powerful part $W_{d,n}$.  In the
+quadratic and prime-degree cases this yields the familiar equivalence
+\[
+ \log W_{d,n}=o(d^n)
+ \quad\Longleftrightarrow\quad
+ \text{the orbit quality tends to }1.
+ \tag{4.5}
+\]
+A persistent quality gap would require \(\log W_{d,n}\) to have positive
+scale $d^n$.  Equation (4.4) is an exact reduction, not a bound on that
+powerful part.
+
+\section{Programmed squares in prime degree}
+
+The prime-degree manuscript proves that any finite compatible collection
+of birth levels, branches, splitting signs, and exact multiplicities can
+be realized simultaneously for every odd prime degree.  Here we record
+the missing quadratic counterpart.  It is also useful as a source of exact
+test vectors for the fixed-orbit discussion.
+
+For the quadratic transfer (2.4), let
+\[
+ G_n(X,Y)=b_n-a_n
+\]
+be the homogeneous seed-coordinate form and put \(m=2^{n+2}\).
+
+\begin{proposition}[Quadratic local roots]\label{prop:quadratic-roots}
+Let $p$ be odd.  If $m\mid p-\chi$ for
+\(\chi\in\{1,-1\}\), then \(G_n(X,1)\) has exactly $2^n$ distinct
+simple roots in \(\mathbb F_p\).  They are
+\[
+ \rho_\zeta=-\left(\frac{\zeta-1}{\zeta+1}\right)^2,
+ \tag{5.1}
+\]
+where \(\zeta\) has exact order $m$ in \(\mathbb F_p^\times\) when
+\(\chi=1\), or in the norm-one subgroup of \(\mathbb F_{p^2}^\times\)
+when \(\chi=-1\), modulo \(\zeta\sim\zeta^{-1}\).  There are no roots
+when neither divisibility holds.  Every root satisfies
+\[
+ \rho\ne0,-1,\qquad
+ \left(\frac{-\rho}{p}\right)=\chi.
+ \tag{5.2}
+\]
+Each root has a unique Hensel lift, and if \(\widehat\rho\) is its lift
+modulo $p^h$, then for every unit \(\lambda\),
+\[
+ v_p\bigl(G_n(\widehat\rho+\lambda p^h,1)\bigr)=h.
+ \tag{5.3}
+\]
+\end{proposition}
+
+\begin{proof}
+In the quadratic extension generated by square roots of $X$ and $Y$,
+the standard Cayley parameter identifies the roots of $G_n$ with exact
+order-$m$ roots of unity, and inversion has the same seed-coordinate
+image.  The split and norm-one groups have orders $p-1$ and $p+1$,
+respectively.  Degree exhaustion gives \(\varphi(m)/2=2^n\) roots.
+The exceptional values $0,-1$ are not roots, and the derivative does not
+vanish because $p\nmid m$.  Formula (5.2) follows directly from (5.1).
+Hensel's lemma and the first nonzero Taylor term give (5.3).
+\end{proof}
+
+\begin{theorem}[Simultaneous quadratic realization]\label{thm:quadratic-realization}
+Let
+\[
+ \mathcal D=\{(p_i,n_i,h_i,\chi_i):1\le i\le r\}
+\]
+have distinct odd primes, $n_i\ge0$, $h_i\ge1$, and
+\[
+ 2^{n_i+2}\mid p_i-\chi_i.
+\]
+There are infinitely many primitive positive seeds with $a_0$ even and
+$b_0$ odd such that, simultaneously for every $i$,
+\[
+ v_{p_i}(E_{2,n_i})=h_i,
+ \qquad
+ \left(\frac{D_K}{p_i}\right)=\chi_i,
+ \tag{5.4}
+\]
+where \(K=\mathbb Q(\sqrt{-a_0b_0})\), while $p_i$ divides neither the
+seed nor any layer $E_{2,j}$ with $j\ne n_i$.
+\end{theorem}
+
+\begin{proof}
+For each datum choose a root from Proposition~\ref{prop:quadratic-roots}
+and prescribe its Hensel lift with the perturbation in (5.3) modulo
+\(p_i^{h_i+1}\).  Fix $b_0=1$.  The Chinese remainder theorem, together
+with \(a_0\equiv0\pmod2\), supplies infinitely many positive $a_0$ in
+the resulting progression.  These seeds are primitive and have the
+required parity.  Equations (5.2) and (5.3) give the splitting sign and
+exact valuation.  The exclusions \(\rho\ne0,-1\) keep $p_i$ away from
+\(a_0b_0c_0\).  Finally, the Cayley parameter has exact order
+\(2^{n_i+2}\), so it cannot belong to the distinct order class attached to
+another layer.  This proves the last assertion.
+\end{proof}
+
+Theorem~\ref{thm:quadratic-realization}, together with the two-branch
+odd-prime result, shows that arbitrarily deep but finitely prescribed
+square behavior is constructible.  It does not produce a fixed seed with
+large defect at infinitely many layers.
+
+\section{A bounded local mean for every prime degree}
+
+This section concerns seed averages, not one orbit.  Let $d$ be prime.
+For $d=2$, let \(\Sset_2(H)\) be the primitive opposite-parity pairs in
+\([1,H]^2\).  Its density is
+\[
+ \kappa_2=\frac{2}{3\zeta(2)}.
+ \tag{6.1}
+\]
+For an odd prime $d=\ell$, take the admissible seed set of the
+prime-degree manuscript.  Its density is
+\[
+ \kappa_\ell=
+ \begin{cases}
+ 1/(9\zeta(2)),&\ell=3,\\
+ 2/(3(\ell+1)\zeta(2)),&\ell\ge5.
+ \end{cases}
+ \tag{6.2}
+\]
+
+Put
+\[
+ q_j=
+ \begin{cases}
+ 2^{j+2},&d=2,\\
+ d^{j+1},&d\text{ odd},
+ \end{cases}
+ \qquad
+ \nu_d(j)=
+ \begin{cases}
+ \varphi(q_j)/2=2^j,&d=2,\\
+ \varphi(q_j)=d^j(d-1),&d\text{ odd}.
+ \end{cases}
+ \tag{6.3}
+\]
+The factor $1/2$ in the quadratic case comes from inversion in its
+single Cayley tower; the odd-prime count combines two branches.
+
+For fixed $n,P,K$, define the bounded defect
+\[
+ D_{n,P,K}(a,b)=
+ \sum_{j<n}\ \sum_{\substack{p\le P\\p\nmid2d}}
+ \log p\sum_{h=2}^{K+1}\mathbf 1_{p^h\mid E_{d,j}(a,b)}.
+ \tag{6.4}
+\]
+
+\begin{theorem}[Bounded iterated local mean]\label{thm:local-mean}
+For every prime degree $d\ge2$,
+\[
+ \lim_{P\to\infty}\lim_{K\to\infty}\lim_{H\to\infty}
+ \frac{1}{|\Sset_d(H)|}
+ \sum_{(a,b)\in\Sset_d(H)}D_{n,P,K}(a,b)
+ =L_d(n),
+ \tag{6.5}
+\]
+where
+\[
+ L_d(n)=
+ \sum_{j<n}\nu_d(j)
+ \sum_{\substack{p\nmid2d\\q_j\mid p-1\ \mathrm{or}\ q_j\mid p+1}}
+ \frac{\log p}{p^2-1}.
+ \tag{6.6}
+\]
+There is an effective constant $C_d$, independent of $n$, such that
+\[
+ L_d(n)\le C_d<\infty.
+ \tag{6.7}
+\]
+For odd prime $d$, one may take
+\[
+ C_d=\frac58\left[
+ \frac{\zeta(2)\log3-\zeta'(2)}{d-1}
+ +\frac{\zeta(2)d\log d}{(d-1)^2}
+ \right].
+ \tag{6.8}
+\]
+For $d=2$, one may take
+\[
+ C_2=\frac32\zeta(2)\log2-\frac38\zeta'(2).
+ \tag{6.9}
+\]
+In particular, \(C_d\ll\log d/(d-1)\) along odd prime degrees.
+\end{theorem}
+
+\begin{proof}
+At a compatible prime, the relevant level form has exactly
+\(\nu_d(j)\) simple projective roots.  Each has one lift modulo $p^h$
+and \(\varphi(p^h)\) unit representatives.  Among the
+\(p^{2h}-p^{2h-2}\) primitive pairs modulo $p^h$, this gives
+\[
+ \Pr(p^h\mid E_{d,j})
+ =\frac{\nu_d(j)}{p^{h-1}(p+1)}.
+ \tag{6.10}
+\]
+The conditions at $2$ and $d$ separate by the Chinese remainder
+theorem.  Summing (6.10) for \(2\le h\le K+1\) gives
+\[
+ \nu_d(j)\frac{1-p^{-K}}{p^2-1}.
+\]
+For fixed cutoffs the box limit is ordinary counting in finitely many
+residue classes, which proves (6.5) before the last two limits.
+
+For odd $q\ge3$, the eligible integers are \(2rq\pm1\), and
+\[
+ \sum_{q\mid p^2-1}\frac{\log p}{p^2-1}
+ \le\frac5{8q^2}
+ \left(\zeta(2)\log(3q)-\zeta'(2)\right).
+ \tag{6.11}
+\]
+Multiplying by \(\varphi(d^{j+1})\) and summing the two geometric series
+gives (6.8).  When $q=2^{j+2}$, writing eligible integers as
+\(rq\pm1\) gives the elementary majorant
+\[
+ \sum_{q\mid p^2-1}\frac{\log p}{p^2-1}
+ \le\frac3{q^2}
+ \left(\zeta(2)\log(2q)-\zeta'(2)\right).
+ \tag{6.12}
+\]
+Since \(\nu_2(j)=q/4\), summation yields (6.9).
+\end{proof}
+
+The theorem deliberately uses the order of limits displayed in (6.5).
+Passing from this local model to the untruncated integer-box mean would
+require uniform control of primes growing with the box:
+\[
+ \lim_{P\to\infty}\limsup_{H\to\infty}
+ \mathbb E_{\Sset_d(H)}
+ \left[\log W_{d,n}-D_{n,P,\infty}\right]=0.
+ \tag{6.13}
+\]
+This is a large-square-divisor problem for binary forms.  Fixed-modulus
+Hensel densities do not prove (6.13), and general multivariable results
+that assume $abc$ cannot be used here without circularity.
+
+For composite degrees, (3.4) suggests the convergent majorant
+\[
+ \sum_{\substack{m\mid d^\infty\\m>1}}
+ \frac{\varphi(m)\log(3m)}{m^2}.
+\]
+A theorem would require a fully checked simultaneous root classification
+for every composite-layer atom.  We leave that extension open rather than
+promote the majorant to a result.
+
+\section{What remains for one fixed orbit}
+
+Restrict now to the quadratic orbit or one admissible odd-prime-degree
+orbit.  Write $E_j=E_{d,j}$,
+\[
+ \delta_j=\log\frac{E_j}{\rad(E_j)},\qquad
+ q_j=\begin{cases}2^{j+2},&d=2,\\d^{j+1},&d\text{ odd}.
+ \end{cases}
+ \tag{7.1}
+\]
+Every sufficiently large prime $p\mid E_j$ satisfies
+\[
+ p\equiv\pm1\pmod{q_j}.
+ \tag{7.2}
+\]
+
+Let
+\[
+ \Sq(N)=\prod_p p^{\lfloor v_p(N)/2\rfloor}.
+\]
+Nonnegativity and
+\[
+ \log\Sq(E_j)\le\delta_j\le2\log\Sq(E_j)
+\]
+give the exact equivalence
+\[
+ \log W_{d,n}=o(d^n)
+ \Longleftrightarrow
+ \delta_j=o(d^j)
+ \Longleftrightarrow
+ \log\Sq(E_j)=o(d^j).
+ \tag{7.3}
+\]
+Thus the fixed-orbit problem is a subpower bound for the largest square
+dividing one sparse sequence of cyclotomic values.
+
+There is one unconditional growing window.  Stewart's valuation lemma for
+a fixed Lucas pair implies, outside an effective finite set,
+\[
+ \operatorname{ord}_{\mathfrak p}(u^m-1)
+ <p\exp\left(-\frac{\log p}{51.9\log\log p}\right)
+ \log|\alpha|\log m,
+ \tag{7.4}
+\]
+where $u=\alpha/\beta$.
+
+\begin{theorem}[A growing harmless window]\label{thm:stewart-window}
+Put \(L_j=\log q_j/\log\log q_j\).  For every fixed
+\(0<\gamma<1/103.8\),
+\[
+ \sum_{\substack{p\le q_j\exp(\gamma L_j)\\p^2\mid E_j}}
+ (v_p(E_j)-1)\log p=o(q_j).
+ \tag{7.5}
+\]
+\end{theorem}
+
+\begin{proof}
+Choose $a'$ with \(2\gamma<a'<1/51.9\).  Since every candidate prime
+is at least $q_j-1$, (7.4) contributes a factor at most
+\(e^{-a'L_j}\).  There are at most
+\(2(e^{\gamma L_j}+1)\) candidate integers in (7.2).  Multiplying the
+number of candidates, the window endpoint, the valuation bound, and
+\(\log p\) gives
+\[
+ q_j\exp((2\gamma-a'+o(1))L_j)=o(q_j).
+\]
+\end{proof}
+
+This is larger than every fixed multiple of $q_j$, but smaller than
+\(q_j^{1+\varepsilon}\) for each fixed \(\varepsilon>0\).  Inside such a
+polynomial window, the exact remaining obstruction can be stated
+elementarily.  For $Y\ge q_j$, put
+\[
+ D_j(Y)=\sum_{\substack{p\le Y\\p^2\mid E_j}}
+ (v_p(E_j)-1)\log p.
+\]
+For an integer $K\ge1$, split it as
+\[
+ \begin{aligned}
+ T_{j,K}(Y)&=\sum_{\substack{p\le Y\\p^2\mid E_j}}
+ \min\{v_p(E_j)-1,K\}\log p,\\
+ R_{j,K}(Y)&=\sum_{\substack{p\le Y\\p^2\mid E_j}}
+ (v_p(E_j)-1-K)_+\log p.
+ \end{aligned}
+ \tag{7.6}
+\]
+
+\begin{theorem}[Polynomial window equals its deep tail]\label{thm:deep-tail}
+Let \(1\le\beta<2\), \(Y=q_j^\beta\), and
+\[
+ K_j=o\left(\frac{q_j^{2-\beta}}{\log q_j}\right).
+\]
+Then
+\[
+ T_{j,K_j}(Y)=o(q_j),\qquad
+ D_j(Y)=o(q_j)\Longleftrightarrow R_{j,K_j}(Y)=o(q_j).
+ \tag{7.7}
+\]
+\end{theorem}
+
+\begin{proof}
+By (7.2), at most \(2(Y/q_j+1)\) candidate integers occur.  Therefore
+\[
+ T_{j,K_j}(Y)
+ \le2K_j(Y/q_j+1)\log Y=o(q_j).
+\]
+The equivalence follows from the nonnegative exact split (7.6).
+\end{proof}
+
+In particular, squares, cubes, every fixed valuation depth, and depths
+growing almost as quickly as \(q_j^{2-\beta}/\log q_j\) are harmless.
+The problem is not merely to show that Lucas--Wieferich primes are rare;
+it is to rule out an aggregate of extraordinarily deep lifts.
+
+This phrasing is exact.  Away from the seed and ramified primes,
+\(p^2\mid E_j\) forces
+\[
+ v_p\bigl(U_{p-(\Delta/p)}\bigr)=v_p(E_j)\ge2.
+ \tag{7.8}
+\]
+Thus every squared layer prime is Lucas--Wieferich for the fixed pair.
+If its valuation is at least $3$, the corresponding prime ideal is
+super-Wieferich.  Finiteness of those super-Wieferich prime ideals would,
+for example, imply \(D_j(q_j^\beta)=o(q_j)\) for every fixed
+\(\beta<2\); that finiteness is an open hypothesis, not an available
+theorem.
+
+\section{Deeper finite computation}
+
+Finite computation neither proves nor predicts the fixed-orbit
+asymptotic.  It does give exact regression targets for the layer formulas
+and the Lucas--Wieferich bridge.
+
+\subsection{The 122-digit quadratic layer}
+
+For the quadratic seed \((a_0,b_0,c_0)=(1,8,9)\), the level-seven
+normalized layer is the 122-digit integer
+\begin{align*}
+ E_7={}&7899993675270888986790467637030360278248237512403075459722095\\
+      &7868119418164413649973647970771585795292694673449586011206657.
+\end{align*}
+GMP-ECM 7.0.7 split the formerly unresolved 98-digit residual by one
+Pollard $p-1$ step and two ECM discoveries.  Exact division gives
+\begin{align*}
+E_7={}&189439\cdot750692351\cdot9825841153\cdot298196593663\\
+&\cdot991245449894911\cdot6726631000961507661177857\\
+&\cdot28434404151626641091139435909034910237447173121.
+\tag{8.1}
+\end{align*}
+All seven factors pass independent primality tests, their exact product is
+recomputed from the recurrence, each occurs to exponent one, and their
+residues modulo $512$ are
+\[
+ 511,\ 511,\ 1,\ 511,\ 511,\ 1,\ 1.
+\]
+Thus the forced \(p\equiv\pm1\pmod{512}\) condition holds and this layer
+has zero repeated-prime defect.
+
+\subsection{A census beyond one million}
+
+For a Lucas pair \((P,Q)\), the census tests every odd unramified prime
+\(p\le10^7\) for
+\[
+ p^2\mid U_{p-(\Delta/p)}(P,Q)
+\]
+and then tests the hits modulo $p^3$.  Two implementations were used:
+binary exponentiation in \(\mathbb Z[X]/(X^2-PX+Q)\), and an independently
+written companion-matrix algorithm.  Each scanned all 664,578 odd primes
+through \(10^7\), and the outputs agree exactly.
+
+\begin{center}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+orbit pair \((P,Q)\) & Wieferich \(p\) & rank & tower rank? & depth \(\ge3\)?\\
+\midrule
+quadratic \((14,81)\) & 65519 & 455 & no & no\\
+cubic \((-2,25)\) & 47 & 24 & no & no\\
+quintic \((-6,49)\) & 53 & 26 & no & no\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+There are no new hits between \(10^6\) and \(10^7\).  None of the three
+known hits can enter its displayed orbit tower because its rank is not a
+pure power of the orbit degree, and none is super-Wieferich.  This is a
+bounded observation only; no independence or density assertion is being
+made.
+
+The exact inputs, intermediate cofactors, software versions, machine-readable
+census output, and regression commands accompany the source repository.
+
+\section{Conclusions}
+
+The all-degree result is structural.  It shows that the quadratic orbit,
+the odd-prime construction, and every composite block share one normalized
+Lucas-layer mechanism and one radical identity.  The quadratic realization
+and the prime-degree local mean complete two genuine gaps between the first
+two manuscripts.
+
+The fixed-orbit result is more modest.  Congruence and valuation theory
+control a growing \(q_j^{1+o(1)}\) window, and pure counting disposes of
+every bounded or moderately growing lift depth in any fixed polynomial
+window below \(q_j^2\).  What survives is a deep diagonal
+Lucas--Wieferich tail.  Neither the complete level-seven factorization nor
+the census through \(10^7\) changes that logical boundary.
+
+Accordingly, these papers have moved closer to $abc$ in the sense of
+producing an exact reduction and a sharper partial bound, not in the sense
+of proving a new case of the conjecture.  A next theorem would need genuine
+uniform control of deep lifts for one fixed Lucas pair, or a different
+global mechanism for the powerful part.
+
+\section{AI-use statement}
+
+OpenAI Codex and Anthropic Claude were used during Phases 5--8 for
+mathematical exploration, proof and source audits, independent software
+implementations, computation, drafting, and adversarial cross-review.  The
+named author must independently verify every theorem, proof, reference,
+novelty statement, and computation before circulation or submission.  The
+AI systems are not authors.
+
+\section{References}
+
+G. Alecci, P. Miska, N. Murru, and G. Romeo, ``On alternative definition
+of Lucas atoms and their \(p\)-adic valuations,'' \emph{Monatshefte f\"ur
+Mathematik} \textbf{207} (2025), 175--196.
+\url{https://doi.org/10.1007/s00605-025-02087-w}
+
+C. Byer, T. Dvorachek, E. Eckard, J. Harrington, L. Wise, and
+T. W. H. Wong, ``On the properties of fibotomic polynomials,''
+\emph{Advances in Applied Mathematics} \textbf{138} (2022), 102344.
+\url{https://doi.org/10.1016/j.aam.2022.102344}
+
+G. Martin and W. Miao, ``\(abc\) triples,'' \emph{Functiones et
+Approximatio Commentarii Mathematici} \textbf{55} (2016), 145--176.
+\url{https://doi.org/10.7169/facm/2016.55.2.2}
+
+B. Poonen, ``Squarefree values of multivariable polynomials,''
+\emph{Duke Mathematical Journal} \textbf{118} (2003), 353--373.
+\url{https://doi.org/10.1215/S0012-7094-03-11826-8}
+
+L. J. Ratliff, Jr., D. E. Rush, and K. Shah, ``Note on cyclotomic
+polynomials and prime ideals,'' \emph{Communications in Algebra}
+\textbf{32} (2004), 333--343.
+\url{https://doi.org/10.1081/AGB-120027870}
+
+B. E. Sagan and J. P. Tirrell, ``Lucas atoms,'' \emph{Advances in
+Mathematics} \textbf{374} (2020), 107387.
+\url{https://doi.org/10.1016/j.aim.2020.107387}
+
+C. Sanna, ``The \(p\)-adic valuation of Lucas sequences,''
+\emph{The Fibonacci Quarterly} \textbf{54} (2016), 118--124.
+\url{https://www.fq.math.ca/Papers1/54-2/Sanna02242016.pdf}
+
+M. Gille, ``Radicals in iterated quadratic \(abc\)-transfers,'' research
+draft, 2026.
+
+M. Gille, ``Prime genealogy in Chebyshev \(abc\)-orbits: interleaved
+Lucas atoms and exact radical telescopes,'' research draft, 2026.
+
+C. L. Stewart, ``On divisors of Lucas and Lehmer numbers,''
+\emph{Acta Mathematica} \textbf{211} (2013), 291--314.
+\url{https://doi.org/10.1007/s11511-013-0103-2}
+
+J. P. van der Horst, \emph{Finding \(ABC\)-triples using elliptic curves},
+M.Sc. thesis, Universiteit Leiden, 2010.
+\url{https://math.leidenuniv.nl/scripties/vanderHorstMaster.pdf}
+
+\end{document}
