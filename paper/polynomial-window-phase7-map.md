@@ -175,7 +175,7 @@ Equation (13) follows from the nonnegative decomposition (10).
 For \(\beta=1+\varepsilon\), the concrete choice
 
 \[
-K_j=left\lfloor
+K_j=\left\lfloor
 \frac{q^{1-\varepsilon}}{(\log q)^2}
 \right\rfloor
 \tag{14}
@@ -395,6 +395,32 @@ The Phase 5 local-mean theorem similarly averages over seeds at fixed
 layer.  Neither average transfers pointwise to this one fixed orbit
 without a new uniform-integrability theorem.
 
+### Rank-density results do not reach the diagonal
+
+Sanna proves an asymptotic for primes \(p\le x\) for which a prescribed
+admissible odd integer \(d\) divides the rank of appearance in a fixed Lucas
+sequence.  The uniform range in that theorem requires
+
+\[
+x\ge \exp\!\bigl(B e^{8\omega(d)}d^8\bigr).
+\]
+
+Our diagonal choice \(d\asymp q\), \(x=q^{1+\varepsilon}\) lies far outside
+that range.  The theorem also controls a mod-\(p\) rank condition, not the
+mod-\(p^2\) lift or its depth.
+
+### A contrary preprint claim does not survive proof audit
+
+Carella's arXiv preprint `1712.08166v2` claims fixed-base Wieferich
+asymptotics and finiteness of primes with \(p^3\mid v^{p-1}-1\).  Its
+characteristic function uses denominator \(\varphi(p^k)\) to detect equality
+modulo \(p^k\), so it is not well-defined on the residue ring.  The later
+error estimate also factors a shared character sum as a product and uses a
+false geometric-sum evaluation.  Thus its Theorems 1.1--1.3 do not follow
+from the displayed proof and cannot supply the missing super-Wieferich
+input.  The exact audit is recorded in
+`notes/codex/wieferich-source-audit.md`.
+
 ## 6. Finite diagnostics
 
 The programmed-square constructions from Phase 5 give exact test
@@ -405,7 +431,7 @@ vectors for Proposition E:
 
 Two independent implementations then enumerated the fixed-pair
 Lucas--Wieferich condition.  Claude's companion-matrix implementation
-checked through \(10^5\); Codex's independent binary quadratic-algebra
+checked through \(10^6\); Codex's independent binary quadratic-algebra
 implementation checked through \(10^6\).
 
 | orbit pair \((P,Q)\) | Lucas--Wieferich primes \(p\le10^6\) | rank | pure orbit-degree power? | depth \(\ge3\)? |
@@ -414,7 +440,7 @@ implementation checked through \(10^6\).
 | cubic \((-2,25)\) | 47 | 24 | no | no |
 | quintic \((-6,49)\) | 53 | 26 | no | no |
 
-The two implementations agree on the complete range through \(10^5\).
+The two implementations agree on the complete range through \(10^6\).
 None of the three hits can enter its orbit tower because its rank is not
 a pure power of the orbit degree, and none is super-Wieferich.  These
 are finite observations only.  Treating Lucas--Wieferich behavior and
@@ -476,3 +502,7 @@ Primary records used in this phase:
 - J. Bourgain, K. Ford, S. V. Konyagin, and I. E. Shparlinski, “On the
   divisibility of Fermat quotients,” *Michigan Mathematical Journal*
   59 (2010), 313--328, DOI `10.1307/mmj/1281531459`.
+- Carlo Sanna, “On the divisibility of the rank of appearance of a
+  Lucas sequence,” arXiv:`2008.12506`.
+- N. A. Carella, “Results for Wieferich Primes,”
+  arXiv:`1712.08166v2` (rejected after the proof audit above).
