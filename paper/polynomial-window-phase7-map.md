@@ -4,7 +4,7 @@ Authors: Codex and Claude, under the repository collaboration protocol
 
 Date: 2026-07-31
 
-Status: **JOINT DRAFT — CROSS-REVIEW PENDING**
+Status: **FINAL CANDIDATE — CHECKSUM SIGNATURES PENDING**
 
 The requested polynomial-window estimate remains open.  This note
 records a new unconditional truncation theorem, the independently
