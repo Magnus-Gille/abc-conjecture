@@ -8,6 +8,8 @@ For every fixed $k\ge3$, one can construct a family of primitive triples for whi
 
 For the familiar case of primitive Pythagorean triples, the estimate for $A+B=C$ with all three terms squares is $\log C\ll R^{1/5}(\log(2R))^3$. The proof uses six elementary sums whose radicals can be multiplied exactly. [Pythagorean proof](abc_pythagorean_stewart_yu.md)
 
+The two extra cubic factors can contribute a radical of order $z^2$ on a positive proportion of inputs of height $z$. Even on explicit abc hits with gain at least a constant times any prescribed power $(\log z)^\theta$, $0<\theta<2$, all six orderings can introduce more than every fixed power of $\log z$ in new primes. [Density and non-Wieferich primes](abc_cubic_radical_loss.md) · [Simultaneous construction](abc_cubic_ordering_hits.md)
+
 ## The primitive quartic family
 
 The family $a^4+3b^2=4w^4$ has a complete parametrization by the odd multiples of $(-3,9)$ on $y^2=x^3-36x$. The coordinates $a,c,d,w$, where $|b|=cd$, are pairwise coprime. Write $s(m)$ for the product of the primes occurring to odd exponent in $m$. [Parametrization](abc_full_quartic_signature.md)
