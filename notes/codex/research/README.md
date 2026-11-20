@@ -22,6 +22,8 @@ For Mersenne triples, the prime divisors of the index determine a cutoff for the
 
 For \(2^m-1\), a prime of exact order \(m\) occurs to odd exponent at every odd prime power \(m=p^k\) and every twice-prime-power \(m=2p^k\) except \(m=6\). Here \(p\) ranges over all odd primes. [Elementary square-gap proof](abc_mersenne_prime_power_parity.md)
 
+For every integer base \(A\ge2\) and every squarefull index \(m>1\), \(\Phi_m(A)\) is a nonsquare, with arbitrary primes allowed in \(m\). More generally, no prime divisor of \(\varphi(\operatorname{rad}(m))\) divides all prime multiplicities of the value. [Proof and the primitive-order criterion](abc_cyclotomic_squarefull_indices.md)
+
 There is also an explicit construction in the opposite direction. At every $n=4m$ with $m$ odd, Aurifeuillian factorization gives $P^+(2^n-1)\le e^2\,2^{\varphi(m)}$. Taking $m$ to be an odd primorial produces a subexponential upper bound on an infinite sequence. [Integer factorization and size bound](abc_mersenne_constructed_smooth_indices.md)
 
 ## Differences of powers with varying bases
@@ -45,6 +47,8 @@ Fix a finite set of index primes \(S\). Across all coprime bases and all \(S\)-s
 For \(S=\{2,3\}\) the universal odd-valuation assertion holds at exactly the orders outside \(1,2,3,4,6\). The constant in the full-difference lower bound can be taken as \(1/144\). At orders 5 and 10 each assertion fails for infinitely many bases, although at least one of the two orders always works. [Explicit products and the order-3/6 alternative](abc_cyclotomic_odd_primitive_grid.md) · [Quartic descents and the fifth-order examples](abc_cyclotomic_quartic_odd_primitive.md)
 
 For any fixed \(e\ge3\), the all-heights count also holds for the product of primes whose valuations are nonzero modulo \(e\), at every \(S\)-smooth order with \(\varphi(m)\ge4\). The four-branch-point cover cancels the base denominator even when \(e\) does not divide the degree. [Proof and sharp degree threshold](abc_cyclotomic_smooth_order_higher_powers.md)
+
+The only projective cube slopes at order 9 are \(0,-1,\infty\); at order 18 they are \(0,1,\infty\). For \(A>B>0\), every prime \(p>A^2\) consequently occurs at most twice in \(\Phi_9(A,B)\). [Cube classification](abc_cyclotomic_ninth_cube_points.md) · [Arithmetic verifier](abc_cyclotomic_ninth_cube_points.py)
 
 A separate mean bound controls the amount by which prime exponents exceed $\max(1,\varphi(r)/2-1)$ at each exact order $r\le H^{2-\nu}$ for coprime pairs of height at most $H$. [Mean multiplicity and radical bounds](abc_power_row_excess.md)
 

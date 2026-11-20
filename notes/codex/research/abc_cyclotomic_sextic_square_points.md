@@ -149,7 +149,6 @@ of \(T^7-1\). This removes all possible multipliers other than \(1\).
 For \(n=14,18\) the positive form is strictly less than \(A^6\), by
 \(\Phi_{14}=(A^7+B^7)/(A+B)\) and
 \(\Phi_{18}=A^6-A^3B^3+B^6\). A cube \(p^3\) with \(p>A^2\) cannot
-divide either. At \(7,9\), deciding whether the remaining exact prime
-cubes occur requires a separate argument for the cubic covers.
+divide either. At \(9\), the cubic-cover descent excludes every such cube, hence every prime above \(A^2\) occurs at most twice. At \(7\) the prime cube case remains open in this analysis. [Ninth-order cube classification](abc_cyclotomic_ninth_cube_points.md)
 
 A standard-library script checks both cubic equations, the mod-four obstructions, the point counts at the two good primes, and sample substitutions used in the order theorem. [Arithmetic verifier](abc_cyclotomic_ninth_descent_check.py)
