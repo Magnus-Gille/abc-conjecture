@@ -58,6 +58,12 @@ For any fixed \(e\ge3\), the all-heights count also holds for the product of pri
 
 The only projective cube slopes at order 9 are \(0,-1,\infty\); at order 18 they are \(0,1,\infty\). For \(A>B>0\), every prime \(p>A^2\) occurs at most twice in the full differences \(A^9-B^9\) and \(A^{18}-B^{18}\). Excluding three times a cube also forces a prime of multiplicity nonzero modulo three at every order \(2^i3^j,\ j\ge2\). [Cube classification](abc_cyclotomic_ninth_cube_points.md) · [Arithmetic verifier](abc_cyclotomic_ninth_cube_points.py)
 
+For any fixed \(Z\ge3,\eta>0\), unrestricted abc is equivalent to its restriction to an explicit eighteenth-power family where primes \(Z<p<A^\eta\) contribute at least \(c_{\eta,Z}A^{3/2}\) in repeated factors of \(\Phi_{18}(A,B)\) at every sufficiently large base. Each such prime used in the proof occurs at least three times. [Equivalence and exact repeated valuations](abc_cyclotomic_small_repeats_transfer.md) · [Contact interpolation](abc_cyclotomic_ninth_contact_maps.md)
+
+The minimum squarefree part of \(\Phi_9(A,B)\) for \(A>B>0\) is 73, attained at \((2,1)\). At squarefree part 57 only negative slopes occur. A separate obstruction excludes a degree-four rational map ramified only over the six primitive ninth roots. [Squarefree-kernel classification](abc_cyclotomic_ninth_least_positive_kernel.md) · [Degree-four obstruction](abc_cyclotomic_ninth_quartic_branch_obstruction.md)
+
+For a single squared prime \(p>A^2\) at order 9, an exact radical identity separates its contribution from the other factors. At quality \(21/20\) the count on a fixed interior sector improves to \(O(H^{8/7+2\beta}(1+\log H)^C)\) under the stated \(A^\beta\) bound on the auxiliary repeated factors. [Identity and precise hypothesis](abc_ninth_single_square_quality.md)
+
 A separate mean bound controls the amount by which prime exponents exceed $\max(1,\varphi(r)/2-1)$ at each exact order $r\le H^{2-\nu}$ for coprime pairs of height at most $H$. [Mean multiplicity and radical bounds](abc_power_row_excess.md)
 
 ## The primitive quartic family

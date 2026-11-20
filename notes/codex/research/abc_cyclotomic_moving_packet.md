@@ -53,4 +53,9 @@ The height estimates and the exact product now read
 \]
 Choose a fixed \(L\) with \(2/L<\delta\). Since \(\log M\ge L\log\Pi\), (2) proves (1). Varying the local roots gives at least \(d^{|S|}\) distinct primitive pairs for each \(Y\): reduction of \(B/A\) recovers each chosen root.
 
+For the particular pairs in (2), suppose their full power triple does satisfy \(A^n>R^{1+\varepsilon}\). Since \(B/A\in I\), we may choose the construction in a fixed compact subinterval of \(I\); then \(AB(A^n-B^n)\gg_I A^{n+2}\). Its repeated factors outside the prescribed packet must consequently contribute at least \(A^{n\varepsilon/(1+\varepsilon)}\Pi\,Y^{-O_I(1)}\). This gives the cost still outstanding after the prescribed congruences.
+
 The construction is uniform in \(L\). For \(0<\gamma<1\), take \(L=\lceil Y^{1/\gamma-1}\rceil\). Then \(Y\asymp_n(\log A)^\gamma\) and the product is \(A^2\exp(-\Theta_n((\log A)^\gamma))\), since \(\log\Pi\sim Y/d\). Consequently its logarithm divided by \(\log A\) tends to two while all contributing primes tend to infinity and lie in a single interval at that sublogarithmic scale.
+
+
+An exact example at \(n=9\) uses the five primes \(109,127,163,181,199\) in \((100,200]\), with valuations \(8,7,7,7,7\), respectively. The standard-library program constructs the primitive pair, verifies the interval \(1/3<B/A<2/3\), and recomputes each valuation directly from the sextic value. [Reproduce the example](abc_cyclotomic_moving_packet_check.py)

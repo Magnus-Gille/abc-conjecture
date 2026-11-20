@@ -62,7 +62,11 @@ def transition(primes, level):
         assert gap % m == 0
         new_residue = residue + modulus * ((gap//m) * pow(modulus//m, -1, q) % q)
         new_basis = gauss(new_residue, modulus*q)
-        if det(basis[0], new_basis[0]) and det(shortest_max_norm(*basis), shortest_max_norm(*new_basis)):
+        mixed_depths = len(set(depths.values())) > 1
+        euclidean_change = det(basis[0], new_basis[0]) != 0
+        max_norm_change = det(shortest_max_norm(*basis), shortest_max_norm(*new_basis)) != 0
+        if mixed_depths and euclidean_change and max_norm_change:
+            assert all(dot(u, u) < dot(v, v) for u, v in (basis, new_basis))
             return modulus, depths, basis, new_basis[0], q
         residue, modulus, basis = new_residue, modulus*q, new_basis
         depths[q] += 1
@@ -120,7 +124,7 @@ def main():
     assert phi % modulus == 0 and gcd(phi//modulus, packet) == 1
     gain = modulus // packet
     print(f'L={level}, P={packet}, D={modulus}, next determinant={modulus*increment} (q={increment})')
-    print(f'Euclidean-shortest vectors at the switch: {basis[0]}, {next_shortest}')
+    print(f'Reduced basis at D: {basis}\nShortest after the increment: {next_shortest}')
     print(f'{good}/10000 coefficient pairs survive; selected {coeff}, gcd before reduction {g}')
     print(f'A={a}\nB={b}\ndirect depths={actual}\nD/P={gain}')
     print(f'bit lengths of A, D, D/P: {a.bit_length()}, {modulus.bit_length()}, {gain.bit_length()}; '
