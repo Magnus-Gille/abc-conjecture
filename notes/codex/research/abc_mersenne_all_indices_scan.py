@@ -1,6 +1,10 @@
 """Exact census of n with every prime divisor of 2^n-1 at most n^2."""
 
+import argparse
+import json
+from functools import cache
 from math import gcd, isqrt, prod
+from pathlib import Path
 
 
 def odd_prime_sieve(limit):
@@ -74,6 +78,51 @@ def check_small(n, small, rest, whole_is_smooth):
     assert whole_is_smooth == (max(factors) <= n*n)
 
 
+def check_simple_witnesses():
+    """Verify one exact-order prime of depth one per positive row."""
+    path = Path(__file__).with_name('abc_mersenne_simple_prime_certificates.json')
+    data = json.loads(path.read_text())
+
+    @cache
+    def prove_prime(p):
+        if p <= 2**32:
+            assert p == 2 or (p > 2 and p % 2 and
+                              all(p % i for i in range(3, isqrt(p) + 1, 2)))
+            return
+        base, divisors = data['pocklington'][str(p)]
+        assert 1 < base < p and pow(base, p - 1, p) == 1
+        remainder = p - 1
+        for q in divisors:
+            assert 1 < q < p and remainder % q == 0
+            prove_prime(q)
+            while remainder % q == 0:
+                remainder //= q
+            assert gcd(pow(base, (p - 1)//q, p) - 1, p) == 1
+        # Pocklington's theorem applies to the proved part F of p-1.
+        proved_part = (p - 1) // remainder
+        assert proved_part**2 > p
+
+    limit = data['limit']
+    rows = data['witnesses']  # Entry n-2 gives p, or zero for an exhausted row.
+    assert len(rows) == limit - 1
+    flags = odd_prime_sieve(limit*limit)
+    primes = [2] + [q for q in range(3, limit + 1, 2) if flags[q//2]]
+    values = cyclotomic_values(limit)
+    absent = []
+    for n, p in enumerate(rows, 2):
+        if p == 0:
+            _, rest = primitive_row(n, values[n], flags)
+            assert rest == 1
+            absent.append(n)
+            continue
+        prove_prime(p)
+        assert p > n*n and pow(2, n, p) == 1 and pow(2, n, p*p) != 1
+        assert all(pow(2, n//q, p) != 1 for q in primes if n % q == 0)
+    print(f'Certified simple primes > n^2 of exact order n: {len(rows) - len(absent)} '
+          f'of {len(rows)} indices from 2 through {limit}.')
+    print('Exhausted rows:', *absent)
+
+
 def main(limit=10_000):
     flags = odd_prime_sieve(limit*limit)
     values = cyclotomic_values(limit)
@@ -100,4 +149,10 @@ def main(limit=10_000):
 
 
 if __name__ == '__main__':
-    main()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--simple', action='store_true',
+                        help='verify the included simple-prime certificates')
+    if parser.parse_args().simple:
+        check_simple_witnesses()
+    else:
+        main()
