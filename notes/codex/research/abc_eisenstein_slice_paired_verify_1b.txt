@@ -1,0 +1,2 @@
+prime bound, eligible primes, sieve bits 1000000000 12710873 360636573
+index bound, all hits 209 [(209, 191, 2)]

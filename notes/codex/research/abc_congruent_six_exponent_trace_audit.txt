@@ -1,0 +1,12 @@
+Low interval through 27,430 verified with six signed characters and the orders 3,6 at 23,47.
+Direct sweep of both 24k+1 and 24k-1 through one billion leaves 10 primes.
+p=99426071, l=503, ord(G)=42, torus size=504, inverse exponent=383, checked slopes=6
+p=114643751, l=1249, ord(G)=8, torus size=1248, inverse exponent=599, checked slopes=2
+p=131968489, l=719, ord(G)=10, torus size=720, inverse exponent=169, checked slopes=2
+p=345399071, l=769, ord(G)=30, torus size=768, inverse exponent=479, checked slopes=4
+p=381837431, l=349, ord(G)=85, torus size=348, inverse exponent=347, checked slopes=32
+p=424674311, l=457, ord(G)=13, torus size=456, inverse exponent=287, checked slopes=6
+p=487420391, l=313, ord(G)=12, torus size=312, inverse exponent=191, checked slopes=2
+p=597818471, l=443, ord(G)=222, torus size=444, inverse exponent=443, checked slopes=36
+p=632591951, l=457, ord(G)=13, torus size=456, inverse exponent=119, checked slopes=6
+p=885554569, l=367, ord(G)=184, torus size=366, inverse exponent=1, checked slopes=44

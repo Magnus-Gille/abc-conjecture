@@ -1,0 +1,26 @@
+{
+  "limit": 1000000,
+  "window": 10,
+  "counts": {
+    "ranks": 39322,
+    "norm_candidates": 98302,
+    "prime_candidates": 8831,
+    "even_coefficient_prime_candidates": 3196,
+    "exact_orders": 1,
+    "first_squares": 0,
+    "ranks_with_prime": 1
+  },
+  "order_count_per_rank": {
+    "1": 1,
+    "0": 39321
+  },
+  "squares": [],
+  "sample": [
+    [
+      3,
+      37,
+      1
+    ]
+  ],
+  "exact_orders_sha256": "97d9f1d1f4cdff46a51b4551cae0ec0eba285262e5c5b6e8d8cebeb59527d26e"
+}

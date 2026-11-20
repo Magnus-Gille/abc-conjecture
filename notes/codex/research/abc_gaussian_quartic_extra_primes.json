@@ -1,0 +1,145 @@
+{
+  "annulus_max_multiple": 16,
+  "rows": [
+    {
+      "r": 7,
+      "explicit": [
+        [
+          14281,
+          1
+        ],
+        [
+          140449,
+          1
+        ]
+      ],
+      "remaining_cofactor_bits": 1,
+      "extra_nonresidue": null,
+      "lower_odd_primes": 2
+    },
+    {
+      "r": 11,
+      "explicit": [
+        [
+          157142624025079880485453,
+          1
+        ]
+      ],
+      "remaining_cofactor_bits": 1,
+      "extra_nonresidue": null,
+      "lower_odd_primes": 1
+    },
+    {
+      "r": 19,
+      "explicit": [
+        [
+          11899549,
+          1
+        ],
+        [
+          53531209,
+          1
+        ],
+        [
+          15883629577,
+          1
+        ]
+      ],
+      "remaining_cofactor_bits": 148,
+      "extra_nonresidue": 11,
+      "lower_odd_primes": 4
+    },
+    {
+      "r": 31,
+      "explicit": [
+        [
+          38227093,
+          1
+        ],
+        [
+          11032003729,
+          1
+        ],
+        [
+          2488067906131501,
+          1
+        ]
+      ],
+      "remaining_cofactor_bits": 506,
+      "extra_nonresidue": 5,
+      "lower_odd_primes": 4
+    },
+    {
+      "r": 43,
+      "explicit": [
+        [
+          27100321,
+          1
+        ]
+      ],
+      "remaining_cofactor_bits": 1161,
+      "extra_nonresidue": 5,
+      "lower_odd_primes": 2
+    },
+    {
+      "r": 179,
+      "explicit": [
+        [
+          14365392253,
+          1
+        ]
+      ],
+      "remaining_cofactor_bits": 20505,
+      "extra_nonresidue": 17,
+      "lower_odd_primes": 2
+    },
+    {
+      "r": 283,
+      "explicit": [
+        [
+          72682485877,
+          1
+        ]
+      ],
+      "remaining_cofactor_bits": 51227,
+      "extra_nonresidue": 7,
+      "lower_odd_primes": 2
+    },
+    {
+      "r": 503,
+      "explicit": [
+        [
+          93544841521,
+          1
+        ]
+      ],
+      "remaining_cofactor_bits": 162113,
+      "extra_nonresidue": 5,
+      "lower_odd_primes": 2
+    },
+    {
+      "r": 691,
+      "explicit": [
+        [
+          3013597364857,
+          1
+        ]
+      ],
+      "remaining_cofactor_bits": 306003,
+      "extra_nonresidue": 5,
+      "lower_odd_primes": 2
+    },
+    {
+      "r": 827,
+      "explicit": [
+        [
+          6299255963257,
+          1
+        ]
+      ],
+      "remaining_cofactor_bits": 438361,
+      "extra_nonresidue": 7,
+      "lower_odd_primes": 2
+    }
+  ]
+}

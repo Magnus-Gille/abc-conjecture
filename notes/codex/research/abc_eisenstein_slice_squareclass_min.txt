@@ -1,0 +1,9 @@
+bound 2671321 number of prime pairs 218
+auxiliary, order, fewer-than-bound pairs and classes 5 4 (60, 222)
+auxiliary, order, fewer-than-bound pairs and classes 7 4 (28, 104)
+auxiliary, order, fewer-than-bound pairs and classes 23 6 (7, 20)
+auxiliary, order, fewer-than-bound pairs and classes 37 6 (4, 14)
+auxiliary, order, fewer-than-bound pairs and classes 43 11 (3, 10)
+auxiliary, order, fewer-than-bound pairs and classes 47 6 (0, 0)
+equality candidate and necessary CRT classes {(1031, 2591): [(3, 13932), (1293, 13932), (12639, 13932), (13929, 13932)]}
+equality requires n congruent to ±3 modulo 751025916841423597521007417808841718128000

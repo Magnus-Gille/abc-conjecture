@@ -1,0 +1,153 @@
+{
+  "limit": 2671321,
+  "prime_bound": 15995,
+  "all_primes_scanned": 1860,
+  "visiting_primes": 69,
+  "three_smallest": [
+    167,
+    191,
+    263
+  ],
+  "visited": {
+    "orientations": 436,
+    "kernels": 218
+  },
+  "visited_crt": {
+    "orientations": 240,
+    "kernels": 120
+  },
+  "visited_3tun": {
+    "orientations": 44,
+    "kernels": 38
+  },
+  "visited_3tun_real_symbols": {
+    "orientations": 5,
+    "kernels": 5
+  },
+  "full": {
+    "orientations": 4,
+    "kernels": 4
+  },
+  "full_orientations": [
+    {
+      "b": 1471273,
+      "d4": 191,
+      "d5": 7703,
+      "crt": 1,
+      "real": 1,
+      "symbols": 1,
+      "first_local_failure": 5,
+      "delta_3b": 0,
+      "delta_6d4": 0,
+      "delta_3d5": 0
+    },
+    {
+      "b": 1677553,
+      "d4": 191,
+      "d5": 8783,
+      "crt": 1,
+      "real": 1,
+      "symbols": 1,
+      "first_local_failure": 5,
+      "delta_3b": 0,
+      "delta_6d4": 0,
+      "delta_3d5": 0
+    },
+    {
+      "b": 2507257,
+      "d4": 191,
+      "d5": 13127,
+      "crt": 1,
+      "real": 1,
+      "symbols": 1,
+      "first_local_failure": 5,
+      "delta_3b": 0,
+      "delta_6d4": 0,
+      "delta_3d5": 0
+    },
+    {
+      "b": 2671321,
+      "d4": 2591,
+      "d5": 1031,
+      "crt": 1,
+      "real": 1,
+      "symbols": 1,
+      "first_local_failure": 0,
+      "delta_3b": 0,
+      "delta_6d4": 0,
+      "delta_3d5": 0
+    }
+  ],
+  "local_counts_only": {
+    "5": {
+      "orientations": 212,
+      "kernels": 106
+    },
+    "7": {
+      "orientations": 102,
+      "kernels": 51
+    },
+    "11": {
+      "orientations": 24,
+      "kernels": 12
+    },
+    "13": {
+      "orientations": 21,
+      "kernels": 12
+    },
+    "17": {
+      "orientations": 11,
+      "kernels": 7
+    },
+    "19": {
+      "orientations": 7,
+      "kernels": 5
+    },
+    "23": {
+      "orientations": 5,
+      "kernels": 3
+    },
+    "29": {
+      "orientations": 5,
+      "kernels": 3
+    },
+    "31": {
+      "orientations": 3,
+      "kernels": 2
+    },
+    "37": {
+      "orientations": 3,
+      "kernels": 2
+    },
+    "41": {
+      "orientations": 3,
+      "kernels": 2
+    },
+    "43": {
+      "orientations": 3,
+      "kernels": 2
+    },
+    "47": {
+      "orientations": 2,
+      "kernels": 2
+    },
+    "53": {
+      "orientations": 1,
+      "kernels": 1
+    }
+  },
+  "local_only_survivors": [
+    {
+      "b": 2671321,
+      "d4": 2591,
+      "d5": 1031,
+      "crt": 1,
+      "real": 1,
+      "symbols": 1,
+      "first_local_failure": 0,
+      "delta_3b": 0,
+      "delta_6d4": 0,
+      "delta_3d5": 0
+    }
+  ]
+}

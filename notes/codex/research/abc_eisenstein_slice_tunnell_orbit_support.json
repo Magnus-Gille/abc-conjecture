@@ -1,0 +1,77 @@
+{
+  "counts": {
+    "visited_all": {
+      "3b": 2549,
+      "6b": 518,
+      "both": 219,
+      "nontrivial_split": 70,
+      "number": 2848,
+      "three_way": 13,
+      "three_way_real_symbols": 0
+    },
+    "visited_index_divisible_by_3_all": {
+      "3b": 1028,
+      "6b": 312,
+      "both": 118,
+      "nontrivial_split": 19,
+      "number": 1222,
+      "three_way": 6,
+      "three_way_real_symbols": 0
+    },
+    "visited_index_divisible_by_3_primes": {
+      "3b": 1021,
+      "6b": 296,
+      "both": 115,
+      "nontrivial_split": 0,
+      "number": 1202,
+      "three_way": 0,
+      "three_way_real_symbols": 0
+    },
+    "visited_index_prime_to_3_all": {
+      "3b": 1791,
+      "6b": 401,
+      "both": 159,
+      "nontrivial_split": 22,
+      "number": 2033,
+      "three_way": 6,
+      "three_way_real_symbols": 0
+    },
+    "visited_index_prime_to_3_primes": {
+      "3b": 1783,
+      "6b": 384,
+      "both": 157,
+      "nontrivial_split": 0,
+      "number": 2010,
+      "three_way": 0,
+      "three_way_real_symbols": 0
+    },
+    "visited_primes": {
+      "3b": 2531,
+      "6b": 457,
+      "both": 211,
+      "nontrivial_split": 0,
+      "number": 2777,
+      "three_way": 0,
+      "three_way_real_symbols": 0
+    },
+    "visited_reduction_order_prime_to_3_all": {
+      "3b": 273,
+      "6b": 224,
+      "both": 61,
+      "nontrivial_split": 0,
+      "number": 436,
+      "three_way": 0,
+      "three_way_real_symbols": 0
+    },
+    "visited_reduction_order_prime_to_3_primes": {
+      "3b": 273,
+      "6b": 223,
+      "both": 61,
+      "nontrivial_split": 0,
+      "number": 435,
+      "three_way": 0,
+      "three_way_real_symbols": 0
+    }
+  },
+  "limit": 1000000
+}

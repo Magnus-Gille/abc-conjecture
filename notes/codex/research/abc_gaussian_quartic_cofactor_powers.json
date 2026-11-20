@@ -1,0 +1,9 @@
+{
+  "nonunits": 86,
+  "cofactors_5_mod8": 45,
+  "max_square_nonresidue_prime": 43,
+  "successful_powers": [],
+  "prime_exponent_tests": 56092,
+  "exact_root_fallbacks": 0,
+  "witness_digest": "824484721a0e138ab631dacef72094b8e7f6829aeb36e374088a9bca9510d6a7"
+}

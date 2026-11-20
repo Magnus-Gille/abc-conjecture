@@ -1,0 +1,357 @@
+{
+  "all_rows_uncompressed_sha256": "b91cf3fc2df15b8d1ccf2719db9efb55698309b893192edd36e40cf4c7553692",
+  "direct_verification_through_odd_target": 549,
+  "first_passing_b_d4_d5": {
+    "all_squarefree_coprime_6": [
+      [
+        205,
+        41,
+        5
+      ],
+      [
+        221,
+        17,
+        13
+      ],
+      [
+        385,
+        55,
+        7
+      ],
+      [
+        445,
+        89,
+        5
+      ],
+      [
+        455,
+        65,
+        7
+      ],
+      [
+        715,
+        55,
+        13
+      ],
+      [
+        791,
+        113,
+        7
+      ],
+      [
+        799,
+        17,
+        47
+      ],
+      [
+        805,
+        161,
+        5
+      ],
+      [
+        901,
+        17,
+        53
+      ],
+      [
+        943,
+        41,
+        23
+      ],
+      [
+        959,
+        137,
+        7
+      ]
+    ],
+    "local_squarefree": [
+      [
+        1633,
+        71,
+        23
+      ],
+      [
+        3337,
+        71,
+        47
+      ],
+      [
+        4393,
+        23,
+        191
+      ],
+      [
+        11017,
+        23,
+        479
+      ],
+      [
+        13271,
+        23,
+        577
+      ],
+      [
+        17089,
+        23,
+        743
+      ],
+      [
+        19297,
+        23,
+        839
+      ],
+      [
+        22609,
+        23,
+        983
+      ],
+      [
+        35713,
+        503,
+        71
+      ],
+      [
+        36409,
+        23,
+        1583
+      ],
+      [
+        36961,
+        23,
+        1607
+      ],
+      [
+        40967,
+        71,
+        577
+      ]
+    ],
+    "torus_squarefree": [
+      [
+        1633,
+        71,
+        23
+      ],
+      [
+        1679,
+        23,
+        73
+      ],
+      [
+        3337,
+        71,
+        47
+      ],
+      [
+        4393,
+        23,
+        191
+      ],
+      [
+        5183,
+        71,
+        73
+      ],
+      [
+        11017,
+        23,
+        479
+      ],
+      [
+        13271,
+        23,
+        577
+      ],
+      [
+        17089,
+        23,
+        743
+      ],
+      [
+        18527,
+        191,
+        97
+      ],
+      [
+        19297,
+        23,
+        839
+      ],
+      [
+        22609,
+        23,
+        983
+      ],
+      [
+        26207,
+        359,
+        73
+      ]
+    ]
+  },
+  "groups": {
+    "all_primes_gt_3": {
+      "b": 78496,
+      "b_with_some_nontrivial": 0,
+      "b_with_some_real": 0,
+      "b_with_some_real_symbols": 0,
+      "b_with_some_three_way": 0,
+      "b_with_some_three_way_real": 0,
+      "b_with_some_three_way_real_symbols": 0,
+      "both_single_pass": 21564,
+      "global_3b_pass": 40169,
+      "nontrivial_orientations": 0,
+      "real_orientations": 0,
+      "real_symbols_orientations": 0,
+      "single_6b_pass": 40239,
+      "three_way_orientations": 0,
+      "three_way_real_orientations": 0,
+      "three_way_real_symbols_orientations": 0
+    },
+    "all_squarefree_coprime_6": {
+      "b": 303963,
+      "b_with_some_nontrivial": 225466,
+      "b_with_some_real": 225466,
+      "b_with_some_real_symbols": 84801,
+      "b_with_some_three_way": 84956,
+      "b_with_some_three_way_real": 74522,
+      "b_with_some_three_way_real_symbols": 22183,
+      "both_single_pass": 91914,
+      "global_3b_pass": 165892,
+      "nontrivial_orientations": 902120,
+      "real_orientations": 676675,
+      "real_symbols_orientations": 96678,
+      "single_6b_pass": 167347,
+      "three_way_orientations": 164529,
+      "three_way_real_orientations": 129756,
+      "three_way_real_symbols_orientations": 23300
+    },
+    "local_primes": {
+      "b": 14690,
+      "b_with_some_nontrivial": 0,
+      "b_with_some_real": 0,
+      "b_with_some_real_symbols": 0,
+      "b_with_some_three_way": 0,
+      "b_with_some_three_way_real": 0,
+      "b_with_some_three_way_real_symbols": 0,
+      "both_single_pass": 1493,
+      "global_3b_pass": 10274,
+      "nontrivial_orientations": 0,
+      "real_orientations": 0,
+      "real_symbols_orientations": 0,
+      "single_6b_pass": 5909,
+      "three_way_orientations": 0,
+      "three_way_real_orientations": 0,
+      "three_way_real_symbols_orientations": 0
+    },
+    "local_primes_1_mod_24": {
+      "b": 4845,
+      "b_with_some_nontrivial": 0,
+      "b_with_some_real": 0,
+      "b_with_some_real_symbols": 0,
+      "b_with_some_three_way": 0,
+      "b_with_some_three_way_real": 0,
+      "b_with_some_three_way_real_symbols": 0,
+      "both_single_pass": 429,
+      "global_3b_pass": 429,
+      "nontrivial_orientations": 0,
+      "real_orientations": 0,
+      "real_symbols_orientations": 0,
+      "single_6b_pass": 4845,
+      "three_way_orientations": 0,
+      "three_way_real_orientations": 0,
+      "three_way_real_symbols_orientations": 0
+    },
+    "local_squarefree": {
+      "b": 17470,
+      "b_with_some_nontrivial": 2779,
+      "b_with_some_real": 2779,
+      "b_with_some_real_symbols": 2221,
+      "b_with_some_three_way": 1223,
+      "b_with_some_three_way_real": 329,
+      "b_with_some_three_way_real_symbols": 177,
+      "both_single_pass": 2095,
+      "global_3b_pass": 11581,
+      "nontrivial_orientations": 5762,
+      "real_orientations": 4681,
+      "real_symbols_orientations": 2272,
+      "single_6b_pass": 7984,
+      "three_way_orientations": 1457,
+      "three_way_real_orientations": 376,
+      "three_way_real_symbols_orientations": 177
+    },
+    "primes_1_mod_24": {
+      "b": 9732,
+      "b_with_some_nontrivial": 0,
+      "b_with_some_real": 0,
+      "b_with_some_real_symbols": 0,
+      "b_with_some_three_way": 0,
+      "b_with_some_three_way_real": 0,
+      "b_with_some_three_way_real_symbols": 0,
+      "both_single_pass": 877,
+      "global_3b_pass": 877,
+      "nontrivial_orientations": 0,
+      "real_orientations": 0,
+      "real_symbols_orientations": 0,
+      "single_6b_pass": 9732,
+      "three_way_orientations": 0,
+      "three_way_real_orientations": 0,
+      "three_way_real_symbols_orientations": 0
+    },
+    "primes_23_mod_24": {
+      "b": 9845,
+      "b_with_some_nontrivial": 0,
+      "b_with_some_real": 0,
+      "b_with_some_real_symbols": 0,
+      "b_with_some_three_way": 0,
+      "b_with_some_three_way_real": 0,
+      "b_with_some_three_way_real_symbols": 0,
+      "both_single_pass": 1064,
+      "global_3b_pass": 9845,
+      "nontrivial_orientations": 0,
+      "real_orientations": 0,
+      "real_symbols_orientations": 0,
+      "single_6b_pass": 1064,
+      "three_way_orientations": 0,
+      "three_way_real_orientations": 0,
+      "three_way_real_symbols_orientations": 0
+    },
+    "torus_primes": {
+      "b": 19577,
+      "b_with_some_nontrivial": 0,
+      "b_with_some_real": 0,
+      "b_with_some_real_symbols": 0,
+      "b_with_some_three_way": 0,
+      "b_with_some_three_way_real": 0,
+      "b_with_some_three_way_real_symbols": 0,
+      "both_single_pass": 1941,
+      "global_3b_pass": 10722,
+      "nontrivial_orientations": 0,
+      "real_orientations": 0,
+      "real_symbols_orientations": 0,
+      "single_6b_pass": 10796,
+      "three_way_orientations": 0,
+      "three_way_real_orientations": 0,
+      "three_way_real_symbols_orientations": 0
+    },
+    "torus_squarefree": {
+      "b": 24354,
+      "b_with_some_nontrivial": 4776,
+      "b_with_some_real": 4776,
+      "b_with_some_real_symbols": 3191,
+      "b_with_some_three_way": 2683,
+      "b_with_some_three_way_real": 651,
+      "b_with_some_three_way_real_symbols": 333,
+      "both_single_pass": 3058,
+      "global_3b_pass": 13525,
+      "nontrivial_orientations": 10004,
+      "real_orientations": 7523,
+      "real_symbols_orientations": 3540,
+      "single_6b_pass": 13887,
+      "three_way_orientations": 3239,
+      "three_way_real_orientations": 758,
+      "three_way_real_symbols_orientations": 348
+    }
+  },
+  "limit": 1000000
+}

@@ -1,0 +1,2 @@
+local sizes [16, 20, 16] allowed group union 80 surviving slope/point pairs [(None, (1, 1, 1)), (None, (7, 3, 6)), (0, (0, 0, 0)), (0, (12, 15, 12))]
+theta mod17, theta mod289, order(D), -theta*z(20D)/17 mod17: [(3, 207, 4, 11), (4, 157, 10, 13), (10, 214, 4, 7)]

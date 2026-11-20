@@ -1,0 +1,20 @@
+{
+  "rank_bound": 1000,
+  "direct_rational_crosscheck_through": 400,
+  "r_gt_3_with_at_most_497_over_500_log_mass_above_cutoff": [],
+  "ranks": 87,
+  "candidate_representations": 2240207,
+  "prime_candidates": 254696,
+  "first_primes": 43,
+  "ranks_with_small_prime": 34,
+  "squares": [],
+  "smooth_ranks": [
+    3
+  ],
+  "maximum_found_per_rank": 3,
+  "largest_small_prime": [
+    839,
+    213767642113,
+    1
+  ]
+}

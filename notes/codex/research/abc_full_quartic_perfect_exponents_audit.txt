@@ -1,0 +1,3 @@
+Full PARI order enumeration matched all 23883 C++ pairs; final pair (1993633, 31903633); SHA-256 83917e8c564853dd46af78905ee4d0b95696aaa01fa77021522b6a85e884f312
+Independent adjacent-point division ladder matched all 23883 normalized residues modulo the exponent squared; every pair fails the power test.
+Exact rational abscissas verified at all 51 positive odd indices through 101, four moduli.

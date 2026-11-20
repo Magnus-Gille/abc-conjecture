@@ -1,0 +1,3 @@
+p=211, order=106, exact rational x,y valuations=-4,-6, independent p-adic depth=2, order of G+(6,0)=53
+interval [5,10000]: checked 1227, odd 168, twice odd 686, odd prime orders 65, hits [(211, 106, 2)]
+interval [31903497,31904497]: checked 62, odd 9, twice odd 33, odd prime orders 1, hits []

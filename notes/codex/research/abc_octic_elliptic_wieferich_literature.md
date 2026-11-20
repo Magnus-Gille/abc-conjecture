@@ -1,0 +1,31 @@
+# How existing elliptic results bear on first-rank excess
+
+Let \(A=(1,1)\) on \(E:y^2=x^3-8x^2+8x\). Write \(x(nA)=a_n/B_n^2\) in lowest terms. For \(p>7\), let \(r_p\) be the reduction order and \(d_p=v_p(B_{r_p})\). Put
+\[
+ W(r)=\sum_{p>7,\ r_p=r}(d_p-1)\log p .
+\]
+A lower bound \(W(r)\ge\delta r^2\) for infinitely many \(r\), for some fixed positive \(\delta\), suffices for the octic abc counterexample criterion. All primes in the sum simultaneously divide the denominator of the slope at \(N=2r+1\), with exactly the stated first depth. [Whole-radical calculation](abc_octic_whole_radical_tail.md)
+
+## What an upper bound would have to control
+
+Unconditionally,
+\[
+ \log(B_n/\operatorname{rad}B_n)=\sum_{r\mid n}W(r)+O_E(\log(2n)).
+\]
+At good odd \(p\) with \(r_p\mid n\), formal lifting gives \(v_p(B_n)=d_p+v_p(n/r_p)\). All the extra terms have total at most \(\log n\). The finitely many omitted good primes contribute \(O(\log(2n))\) by the same lifting. At 2 the model is integral; \(A\) has nonsingular reduction and \(2A\) has formal parameter of valuation one. Odd multiples stay in the same reduction coset and the even terms have \(v_2(B_n)=v_2(n)\), from the doubling series \(2z+O(z^3)\). Also \(0\le W(r)\le\log B_r\ll_E r^2\) by canonical height.
+
+Thus \(W(r)=o(r^2)\) is equivalent to \(\log(B_n/\operatorname{rad}B_n)=o(n^2)\). For the forward implication, use \(\sum_{r\mid n}r^2\le\zeta(2)n^2\) and absorb the finite initial ranks. Conversely the single term \(W(n)\) is nonnegative and bounded by the denominator defect. More quantitatively, in any sequence with defect at least \(\delta n^2\), some divisor \(r=n/j\) with \(j=O_E(1/\delta)\) contributes \(\gg\delta r^2\) after discarding finitely many indices: the tail \(j>J\) contributes \(O_E(n^2/J)\). This equivalence is for the denominator of \(nA\); other factors in the whole octic triple have additional multipliers.
+
+At a split prime in the CM field, let \(\mathfrak a\) be the annihilator ideal of the reduction of \(A\). Since \(\mathfrak a\mid(r_p)\) and \(p\nmid r_p\), the complementary multiplier has unit differential. The height at a generator of \(\mathfrak a\) therefore gives \(d_p\log p\ll_E\operatorname N\mathfrak a\). A single split prime providing \(\delta r_p^2\) requires
+\[
+ \operatorname N((r_p)/\mathfrak a)\ll_E1/\delta.
+\]
+There are only finitely many possible complementary ideals at a fixed threshold. Also there are \(O_{E,\delta}(1)\) single-prime witnesses at any one rank by the global height bound. In particular, the special witnesses satisfying \(r_p\le C\sqrt{\log p}\) number at most \(O_{E,C}(\sqrt{\log X})\) up to \(X\); this does not decide infinitude.
+
+## Literature and hypotheses
+
+* The strongest directly applicable published conditional estimate is the denominator-radical inequality of Ulf Kühn and J. Steffen Müller. For fixed \(E/\mathbf Q\), writing a rational point as \((a/d^2,b/d^3)\), the inequality bounds \(\max(\tfrac12\log|a|,\log|d|)\) by \((1+\varepsilon)\log\operatorname{rad}d+O_{E,\varepsilon}(1)\). Their paper derives it assuming uniform abc over number fields and applies it to elliptic non-Wieferich primes. Taking the point \(nA\) bounds its total denominator defect by \(\varepsilon O_E(n^2)+O_{E,\varepsilon}(1)\); arbitrarily small \(\varepsilon\) therefore gives \(W(n)=o(n^2)\). On this particular orbit rational abc alone gives the same obstruction by the pole at \(N=2r+1\). Neither implication is unconditional. [Kühn–Müller, *A height inequality for rational points on elliptic curves implied by the abc-conjecture*](https://arxiv.org/abs/1210.6543)
+* Explicit division-polynomial valuations distinguish first entry into the formal group from subsequent multiplications. The latter have the elementary exact lifting law above. This is compatible with arbitrary starting depths subject to the global height bound. Recent local limit formulas also vary the index with \(p\) fixed. Katagiri and Kobayashi treat \(p\ge5\), finite extensions of \(\mathbf Q_p\), and good ordinary or supersingular reduction. These results do not furnish a bound uniform over moving rational primes for the initial depth. [Stange, *Integral points on elliptic curves and explicit valuations of division polynomials*](https://arxiv.org/abs/1108.3051) · [Katagiri–Kobayashi](https://arxiv.org/abs/2609.07024)
+* Binegar, Dominick, Kenney, Rouse and Walsh study elliptic Fermat numbers; Kim and Walsh extend the construction to quotients of denominator terms at successive powers of an integer. Order and coprimality properties distinguish the index where a prime enters. Kim and Walsh prove eventual compositeness for magnified elliptic Fermat sequences. A composite quotient can have only exponent-one primes, or can carry substantial repeated powers; compositeness by itself bounds neither alternative. In particular a prime-power term can be composite. [Binegar et al.](https://arxiv.org/abs/1708.03804) · [Kim–Walsh](https://arxiv.org/abs/1808.03846)
+* Akbary and Yazdani study greatest prime factors of certain elliptic divisibility sequences. Their abstract explicitly attributes the conditional \(n^{2-\varepsilon}\) estimate to the **multiplicative** sequence \(a^n-1\), then says they treat elliptic analogues. Direct access to the full paper was blocked during this check, so no specific elliptic exponent or CM hypothesis from that article is used here. Even a polynomial lower bound for the largest prime supplies only an order-\(\log n\) lower bound on its logarithm and does not establish its initial multiplicity. An exponentially large factor can also have depth one. [Akbary–Yazdani](https://arxiv.org/abs/1505.06500)
+* Counts of non-Wieferich primes, including conditional lower bounds, concern \(d_p=1\). The target mass is supported entirely on \(d_p\ge2\), and a sparse family of unusually large contributions can coexist with many depth-one primes. Similarly, infinitude of ordinary elliptic Wieferich primes, even if assumed, does not prescribe either \(r_p\) or the ratio \((d_p-1)\log p/r_p^2\). I found no unconditional theorem establishing or excluding a positive limsup of this ratio or of \(W(r)/r^2\) for the fixed CM pair. This is a scoped literature assessment, not a claim of a complete search of all papers.

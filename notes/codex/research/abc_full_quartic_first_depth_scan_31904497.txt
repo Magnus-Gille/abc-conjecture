@@ -1,0 +1,21 @@
+hit p=211 r=106
+checkpoint primes=100000 p=1299743 eligible=69254 hits=1
+checkpoint primes=200000 p=2750171 eligible=138580 hits=1
+checkpoint primes=300000 p=4256257 eligible=207824 hits=1
+checkpoint primes=400000 p=5800159 eligible=277180 hits=1
+checkpoint primes=500000 p=7368811 eligible=346291 hits=1
+checkpoint primes=600000 p=8960477 eligible=415565 hits=1
+checkpoint primes=700000 p=10570871 eligible=484881 hits=1
+checkpoint primes=800000 p=12195269 eligible=554121 hits=1
+checkpoint primes=900000 p=13834133 eligible=623343 hits=1
+checkpoint primes=1000000 p=15485917 eligible=692668 hits=1
+checkpoint primes=1100000 p=17144513 eligible=761928 hits=1
+checkpoint primes=1200000 p=18815261 eligible=831233 hits=1
+checkpoint primes=1300000 p=20495869 eligible=900482 hits=1
+checkpoint primes=1400000 p=22182383 eligible=969759 hits=1
+checkpoint primes=1500000 p=23879549 eligible=1039156 hits=1
+checkpoint primes=1600000 p=25582181 eligible=1108365 hits=1
+checkpoint primes=1700000 p=27290339 eligible=1177630 hits=1
+checkpoint primes=1800000 p=29005567 eligible=1246898 hits=1
+checkpoint primes=1900000 p=30723787 eligible=1316065 hits=1
+bound=31904497 good_primes=1968265 odd_order=266475 twice_odd_order=1096986 odd_prime_order=41146 hits=1 order_sum=5872448339955 lift_sum=10505599363215
