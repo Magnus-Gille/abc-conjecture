@@ -28,6 +28,8 @@ For indices with bounded $\omega(n)$, the condition $P^+(A^n-B^n)=o(n^2\log A)$ 
 
 At the fixed index $n=H\to\infty$, all but an $O(1/\log H)$ fraction of coprime pairs $B<A\le H$ have a prime factor of $A^n-B^n$ above $H^2$ of exact order $n$. Counting over all heights at a fixed $n\ge7$, at most $\exp(O_C(n^2/\varphi(n)))$ pairs have even their cyclotomic factor $\Phi_n(A,B)$ supported on primes up to $Cn^2$. [Prime powers averaged over the pairs](abc_variable_seed_prime_mass.md) · [All-heights count](abc_cyclotomic_smooth_seed_count.md)
 
+At the cutoff $n^2$, a complete search over the 489 coprime pairs $1\le B<A\le40$ and all $2\le n\le300$ found 253 smooth cyclotomic factors and 88 smooth full differences. The highest abc quality among the latter was $4\log7/\log210$ at $1+2400=2401$. [Results and disproof criterion](abc_cyclotomic_smooth_seed_count.md) · [Verifier](abc_variable_base_smooth_scan.py)
+
 ## The primitive quartic family
 
 The family $a^4+3b^2=4w^4$ has a complete parametrization by the odd multiples of $(-3,9)$ on $y^2=x^3-36x$. The coordinates $a,c,d,w$, where $|b|=cd$, are pairwise coprime. Write $s(m)$ for the product of the primes occurring to odd exponent in $m$. [Parametrization](abc_full_quartic_signature.md)

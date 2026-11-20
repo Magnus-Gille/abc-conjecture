@@ -46,3 +46,22 @@ For the fixed assignment, \((u,v)\in(\mathcal O_{K,S}^{\times})^2\). Dirichlet's
 ## The quadratic cutoff
 
 For \(X>n\), Brun–Titchmarsh gives \(k\le 2X/(D\log(X/n))\). At \(X=Cn^2\) this yields \(k\log(D+1)=O_C(n^2/D)\) as \(n\to\infty\). Taking logarithms in (1) and using \(D\le n\) proves (2). Finally \(n/D=\prod_{p\mid n}(1-1/p)^{-1}\) is bounded in terms of \(s\) when \(\omega(n)\le s\). More generally, for fixed \(b>1\), the same calculation at \(X=n^b\) yields \(N_n(n^b)\le\exp(O_b(n+n^b/\varphi(n)))\). The sieve input is H. L. Montgomery and R. C. Vaughan, *The large sieve*, Mathematika **20** (1973), 119–134.
+
+## Why smoothness of one factor can suffice for a disproof
+
+Suppose $n\to\infty$, $A\to\infty$, $n/\varphi(n)\le K$ for a fixed $K$, and $P^+(\Phi_n(A,B))\le Cn^2$ for a fixed $C>0$. Write $h=\log A$. The logarithm of the product of the prime powers of exact order $n$ in $A^n-B^n$ is $(1+o(1))\varphi(n)h$ uniformly over the coprime pairs. This follows from the uniform Möbius estimate and the bound on imprimitive factors. Brun–Titchmarsh in the class $1\bmod n$ shows that the log sum of these primes counted once is at most
+$$
+ \frac{2Cn^2\log(Cn^2)}{\varphi(n)\log(Cn)}\ll_{C,K}n=o(\varphi(n)h).
+$$
+Subtracting, the logarithm of $(A^n-B^n)/\operatorname{rad}(A^n-B^n)$ is at least $(1-o(1))\varphi(n)h$. Consequently
+$$
+ \frac{\log\operatorname{rad}(AB(A^n-B^n))}{\log A^n}
+                    \le 1-\frac{\varphi(n)}n+o(1).
+$$
+This gives a fixed-exponent disproof if such a sequence exists. If $\varphi(n)/n\to1$, in particular along prime indices, the quality itself tends to infinity. The argument permits arbitrarily large prime factors in earlier orders. [Uniform cyclotomic mass estimate](abc_variable_seed_prime_mass.md)
+
+## Exact finite search over rational bases
+
+With $1\le B<A\le40$ and $2\le n\le300$ there are 489 coprime pairs and 146,211 triples of parameters. Exactly 253 triples have $P^+(\Phi_n(A,B))\le n^2$. The largest index is $156$ at $(A,B)=(2,1)$. Among $A\ge3$ there are 230 such triples and the maximum index is $48$ at $(3,1)$.
+
+Requiring $P^+(A^n-B^n)\le n^2$ for the whole difference leaves 88 triples on 42 coprime pairs. The largest index is $60$ at $(2,1)$, or $36$ at $(3,2)$ when $A\ge3$. Among these 88 the unique maximum of the abc quality is $4\log7/\log210=1.455673100177\ldots$, from $1+2400=2401=7^4$. It is the only one above $4/3$, as can also be checked by comparing $A^{3n}$ and $\operatorname{rad}(AB(A^n-B^n))^4$ with exact integers. A separate enumeration taking a gcd of every full difference against the product of all primes up to $n^2$ reproduced the 88 cases. [Reproduce the search](abc_variable_base_smooth_scan.py)
