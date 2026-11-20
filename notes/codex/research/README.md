@@ -34,6 +34,8 @@ For the four sextic orders $7,9,14,18$, only two of 304,460 rows at $A\le500$ ha
 
 At $n=7,9$, for every fixed $\varepsilon>0$ the actual exceptions $A^n>\operatorname{rad}(AB(A^n-B^n))^{1+\varepsilon}$ among $B<A\le H$ have count $O(H^{2-c})$ for some $c>0$. At $\varepsilon=1/20$ the exponents are $16/9+o(1)$ and $12/7+o(1)$, respectively. Through $H=500$ the exact exception counts are 21 and 49. [Counting proof and maximum-quality examples](abc_sextic_power_exception_count.md) · [Verifier](abc_sextic_power_quality_scan.py)
 
+At a fixed prime of primitive order $n$, the sharp limsup of $(v_p(A^n-B^n)-1)\log p/\log A$ over positive primitive base pairs is 2. A lattice construction attains the threshold to bounded additive error in the logarithm. Searching for a single prime that guarantees quality above $21/20$ at $n=7,9$ found just two seeds in three ranges reaching $p=2{,}000{,}000$ or $e=300$. [Sharp fixed-prime bound and search ranges](abc_fixed_prime_power_approximation.md) · [Hensel verifier](abc_cyclotomic_hensel_search.py)
+
 ## The primitive quartic family
 
 The family $a^4+3b^2=4w^4$ has a complete parametrization by the odd multiples of $(-3,9)$ on $y^2=x^3-36x$. The coordinates $a,c,d,w$, where $|b|=cd$, are pairwise coprime. Write $s(m)$ for the product of the primes occurring to odd exponent in $m$. [Parametrization](abc_full_quartic_signature.md)
