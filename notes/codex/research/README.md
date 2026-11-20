@@ -16,6 +16,8 @@ For $1+(2^n-1)=2^n$, the factor in the radical loss coming from ordinary lifting
 
 An infinite sequence of prime powers $n$ on which the largest prime divisor of $\Phi_n(2)$ stays below $\alpha\varphi(n)^2$ for one fixed $\alpha<(\log2)/2$ would disprove abc. Through $n=10000$, the smallest observed ratio to $\varphi(n)^2$ is $89/100$, certified at $n=11$. [Proof and finite census](abc_mersenne_quadratic_prime_threshold.md) · [Reproduce the census](abc_mersenne_quadratic_prime_scan.py)
 
+For fixed coprime integers $A>Bge1$, an infinite sequence with bounded $omega(n)$ and $P^+(A^n-B^n)=o(n^2)$ would give abc quality tending to infinity. The bound applies to every rate of decay and counts the divisor orders on both sides of $sqrt X$. [Pointwise estimate](abc_few_index_primes.md)
+
 ## The primitive quartic family
 
 The family $a^4+3b^2=4w^4$ has a complete parametrization by the odd multiples of $(-3,9)$ on $y^2=x^3-36x$. The coordinates $a,c,d,w$, where $|b|=cd$, are pairwise coprime. Write $s(m)$ for the product of the primes occurring to odd exponent in $m$. [Parametrization](abc_full_quartic_signature.md)
