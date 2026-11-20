@@ -38,6 +38,8 @@ At a fixed prime of primitive order $n$, the sharp limsup of $(v_p(A^n-B^n)-1)\l
 
 For every coprime pair, every order of the form $2^i3^j$ with $j\ge2$ and $2^i7^j$ with $j\ge1$ has a prime occurring to odd exponent in the corresponding power difference. The underlying rational square classifications at orders 7, 9, 14 and 18 hold at all heights. [Pointwise theorem and product bounds](abc_cyclotomic_odd_primitive_grid.md) · [Seventh-order descent](abc_cyclotomic_seventh_square_points.md) · [Ninth-order descents](abc_cyclotomic_sextic_square_points.md)
 
+Fix a finite set of index primes \(S\). Across all coprime bases and all \(S\)-smooth orders with \(\varphi(m)\ge6\), only \(O_S(Y(1+\log Y)^{C_S})\) triples have product at most \(Y\) of the exact-order primes outside \(S\) occurring to odd exponent. This gives \(\operatorname{sf}_{S^c}(A^N-B^N)\gg_S N^{\tau(N)/2}\) at every \(S\)-smooth \(N\), uniformly in both bases. [All-heights proof and simultaneous density bound](abc_cyclotomic_smooth_order_parity.md)
+
 A separate mean bound controls the amount by which prime exponents exceed $\max(1,\varphi(r)/2-1)$ at each exact order $r\le H^{2-\nu}$ for coprime pairs of height at most $H$. [Mean multiplicity and radical bounds](abc_power_row_excess.md)
 
 ## The primitive quartic family
