@@ -2,6 +2,10 @@
 
 These notes investigate the rational abc conjecture. A proof would give an upper bound \(C\ll_\varepsilon\operatorname{rad}(ABC)^{1+\varepsilon}\) for every fixed \(\varepsilon>0\) and every primitive positive triple \(A+B=C\). The computations and subfamily results here leave this question open.
 
+## A reduction for general rational abc
+
+For every fixed \(k\ge3\), one can construct a family of primitive triples for which \(\log C\ll_k R^{1/k}(\log(2R))^3\), where \(R=\operatorname{rad}(ABC)\). Proving the abc power bound for any one of these entire families would prove it for every primitive triple. The proof gives a degree-three example with five rational marked points and explains why the logarithmic bound does not transfer back to a proof of abc. [Proof and cubic example](abc_marked_rational_radical_bounds.md) · [Cubic verifier](abc_marked_rational_cubic.py)
+
 ## The primitive quartic family
 
 The family \(a^4+3b^2=4w^4\) has a complete parametrization by the odd multiples of \((-3,9)\) on \(y^2=x^3-36x\). The coordinates \(a,c,d,w\), where \(|b|=cd\), are pairwise coprime. Write \(s(m)\) for the product of the primes occurring to odd exponent in \(m\). [Parametrization](abc_full_quartic_signature.md)
