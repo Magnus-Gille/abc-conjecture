@@ -20,6 +20,8 @@ For almost every exponent $n$, primes below $n^2(\log n)^a$ contribute $o(n)$ to
 
 For Mersenne triples, the prime divisors of the index determine a cutoff for the multiplicative order. Assuming abc, primes above this cutoff that occur just once in $2^n-1$ and have sufficiently high order contribute at least a fixed positive multiple of $n$ in log mass. [Order, prime size and multiplicity](abc_mersenne_coindex_prime_bound.md)
 
+For \(2^m-1\), a prime of exact order \(m\) occurs to odd exponent at every odd prime power \(m=p^k\) and every twice-prime-power \(m=2p^k\) except \(m=6\). Here \(p\) ranges over all odd primes. [Elementary square-gap proof](abc_mersenne_prime_power_parity.md)
+
 There is also an explicit construction in the opposite direction. At every $n=4m$ with $m$ odd, Aurifeuillian factorization gives $P^+(2^n-1)\le e^2\,2^{\varphi(m)}$. Taking $m$ to be an odd primorial produces a subexponential upper bound on an infinite sequence. [Integer factorization and size bound](abc_mersenne_constructed_smooth_indices.md)
 
 ## Differences of powers with varying bases
@@ -39,6 +41,10 @@ At a fixed prime of primitive order $n$, the sharp limsup of $(v_p(A^n-B^n)-1)\l
 For every coprime pair, every order of the form $2^i3^j$ with $j\ge2$ and $2^i7^j$ with $j\ge1$ has a prime occurring to odd exponent in the corresponding power difference. The underlying rational square classifications at orders 7, 9, 14 and 18 hold at all heights. [Pointwise theorem and product bounds](abc_cyclotomic_odd_primitive_grid.md) · [Seventh-order descent](abc_cyclotomic_seventh_square_points.md) · [Ninth-order descents](abc_cyclotomic_sextic_square_points.md)
 
 Fix a finite set of index primes \(S\). Across all coprime bases and all \(S\)-smooth orders with \(\varphi(m)\ge6\), only \(O_S(Y(1+\log Y)^{C_S})\) triples have product at most \(Y\) of the exact-order primes outside \(S\) occurring to odd exponent. This gives \(\operatorname{sf}_{S^c}(A^N-B^N)\gg_S N^{\tau(N)/2}\) at every \(S\)-smooth \(N\), uniformly in both bases. [All-heights proof and simultaneous density bound](abc_cyclotomic_smooth_order_parity.md)
+
+For \(S=\{2,3\}\) the universal odd-valuation assertion holds at exactly the orders outside \(1,2,3,4,6\). The constant in the full-difference lower bound can be taken as \(1/144\). At orders 5 and 10 each assertion fails for infinitely many bases, although at least one of the two orders always works. [Explicit products and the order-3/6 alternative](abc_cyclotomic_odd_primitive_grid.md) · [Quartic descents and the fifth-order examples](abc_cyclotomic_quartic_odd_primitive.md)
+
+For any fixed \(e\ge3\), the all-heights count also holds for the product of primes whose valuations are nonzero modulo \(e\), at every \(S\)-smooth order with \(\varphi(m)\ge4\). The four-branch-point cover cancels the base denominator even when \(e\) does not divide the degree. [Proof and sharp degree threshold](abc_cyclotomic_smooth_order_higher_powers.md)
 
 A separate mean bound controls the amount by which prime exponents exceed $\max(1,\varphi(r)/2-1)$ at each exact order $r\le H^{2-\nu}$ for coprime pairs of height at most $H$. [Mean multiplicity and radical bounds](abc_power_row_excess.md)
 
