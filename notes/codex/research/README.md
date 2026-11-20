@@ -8,6 +8,7 @@ The family \(a^4+3b^2=4w^4\) has a complete parametrization by the odd multiples
 
 | Question | Result and verification |
 |---|---|
+| What can be proved for the height of every triple in this family? | For the full radical \(R=\operatorname{rad}(6awcd)\), one has \(\log(4w^4)\ll R^{4/19}(\log R)^{54/19}\). The proof tracks exactly which primes occur in three related sums, then uses a primitive divisor at each sufficiently large elliptic index. [Proof and numerical example](abc_full_quartic_divisor_sensitive_radical.md) |
 | How often can the squarefree part of \(a|b|w\) be at most \(Y\)? | The count is \(O(Y^{1/8-\eta})\) for some absolute \(\eta>0\), over indices of unrestricted size. [Sieve proof](abc_full_quartic_four_arm_inverse_sieve.md) · [Multiplicity on each coordinate](abc_full_quartic_four_squarefree_parts.md) |
 | Which parts occur through \(10^{19}\)? | Exactly three, at indices 1, 3 and 5. [Values, proof and programs](abc_full_quartic_total_kernel.md) |
 | Can \(w\) be a perfect power? | For every \(2\le k\le10^9\), the only primitive solutions with \(w=z^k\) are \((a,b,z)=(1,\pm1,1)\). [Descent and exponent census](abc_full_quartic_perfect_power_census.md) · [Independent verification](abc_congruent_six_exponent_trace_audit.txt) |

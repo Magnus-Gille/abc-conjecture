@@ -26,7 +26,7 @@ The pair \((\epsilon,\epsilon^{-1})\) is a Lucas pair with product one and nonze
 \[
   R\ge\operatorname{rad}(D(Y_1/2))\prod_{\substack{d\mid n\\d>30}}(d-1).         \tag{2}
 \]
-For large \(n\), at least half the divisors of \(n\) are at least \(\sqrt n\), so \(\log\operatorname{rad}(U_n)\gg\tau(n)\log n\) uniformly. We use this if \(\tau(n)\ge\log n/\log\log n\). Otherwise \(k=\omega(n)\le\log(\tau(n))/\log2\ll\log\log n\). [Bilu, Hanrot and Voutier, *Existence of primitive divisors of Lucas and Lehmer numbers*](https://doi.org/10.1515/crll.2001.033)
+For large \(n\), at least half the divisors of \(n\) are at least \(\sqrt n\), so \(\log\operatorname{rad}(U_n)\gg\tau(n)\log n\) uniformly. We use this if \(\tau(n)\ge\log n/\log\log n\). Otherwise \(k=\omega(n)\le\log(\tau(n))/\log2\ll\log\log n\). [Bilu, Hanrot and Voutier, *Existence of primitive divisors of Lucas and Lehmer numbers*, *J. Reine Angew. Math.* **539** (2001), 75–122](https://zbmath.org/?q=ti%3A%22Existence+of+primitive+divisors+of+Lucas+and+Lehmer+numbers%22)
 
 ## Cyclotomic factors with one or two index primes
 
@@ -118,8 +118,56 @@ This proves (7) for the wider generator range.
 
 Let \(R_K\) be the real quadratic regulator of the maximal order. Its generator with positive first embedding has a totally positive power of exponent at most 32 in \(1+4\mathcal O_K\): first square to ensure total positivity and then use the size at most 16 of the unit group modulo \(4\mathcal O_K\). Every such unit has the prescribed odd and even integral coordinates, including when \(\mathcal O_K=\mathbf Z[(1+\sqrt D)/2]\). Hence \(h\le32R_K\). The real quadratic class-number formula and \(L(1,\chi)\ll\log(2D)\) give \(R_K\ll\sqrt D\log(2D)\). Thus \(\log(2+h)\ll\log(2D)\). As \(\log\log C=\log n+\log h+o(1)\), the range in (1) with \(c_0\) sufficiently small implies \(\log n\asymp\log\log C\) and \(\log(2+h)\le c_4\log n\). This proves (1).
 
+## Extra contributions when the index itself has a large square factor
+
+For fixed \(D\) and every fixed \(\eta>0\), one has the stronger bound
+\[
+ \log\operatorname{rad}(U_n)\gg_\eta
+          \tau(n)\frac{(\log n)^2}{\log\log n}
+ \qquad\text{if}\qquad \log(n/\operatorname{rad}(n))\ge\eta\log n             \tag{8}
+\]
+for sufficiently large \(n\), with the threshold allowed to depend on \(D,\eta\). For any fixed finite prime set \(S\), all sufficiently large \(S\)-smooth indices satisfy the hypothesis with \(\eta=1/2\). Thus for \(n=q^e\), \(q\) fixed, the lower bound in \(\log\operatorname{rad}(U_n)\) is \(\gg_q(\log n)^3/\log\log n\).
+
+For any \(d\mid n,\ d>1\), put \(r=\operatorname{rad}(d)\), \(m=d/r\), and \(u=z^m\). Homogeneous cyclotomic factorization gives
+\[
+ \log(F_d\epsilon^{-\varphi(d)})
+                =\sum_{t\mid r}\mu(r/t)\log(1-u^t).
+\]
+The \(t=1\) term has absolute value at least \(u\), whereas the remaining terms together have absolute value at most \(u^2/((1-u)(1-u^2))<u/4\) as \(u<0.15\). Consequently \(0<|F_d\epsilon^{-\varphi(d)}-1|\le 3z^m\). The size bound \(F_d\le \exp(dh+1)\) also follows. We can apply (5) with \(L=m\), omitting the term \(\log(2+h)\). With \(M=\log n\), the exceptional prime factors \(\ell\mid d\) cost \(o(M)\) in (5), uniformly over \(d\mid n\). Indeed their total \(\sum\log\ell\) is at most \(M\). The primes \(\ell\le\sqrt M\) cost \(O(\sqrt M\log\log(3M))\), and for the remaining primes \(\log(C_2\log\ell)/\log\ell=O(\log\log M/\log M)\).
+
+Choose a divisor \(d\mid n\) uniformly. The mean of \(\log(d/\operatorname{rad}(d))\) is
+\[
+   \sum_{q^e\parallel n}\left(\frac e2-\frac e{e+1}\right)\log q
+       \ge \frac13\log(n/\operatorname{rad}(n)),
+\]
+since \(e/(2(e+1))\ge1/3\) for every \(e\ge2\). The variable lies in \([0,M]\), so under the hypothesis in (8) a proportion at least \(\eta/6\) of all divisors satisfy \(\log m\ge \eta M/6\). For every one of these divisors \(\log d\ge\eta M/6\). For fixed \(h\), inequality (5) has residual error \(O(\log M)+o(M)=o(M)\); the rank lower bound on the remaining primes then yields \(W_d\gg_\eta M^2/\log M\). Summing the disjoint supports proves (8). The same reasoning works when \(h\) varies as long as \(\log\log(3nh)=o(\log n)\).
+
+In two cases the leading coefficient produced by this method can be kept. At a prime index \(q\to\infty\) and fixed \(D\), the singleton in (3) has \(L=q\). Equation (5) then gives
+\[
+       \log\operatorname{rad}(U_q)\ge(1-o_D(1))\frac{(\log q)^2}{\log\log q}.
+\]
+Indeed the coefficient of \(\sum_{\ell\mid F_d}\log(C_2\log\ell)\) in (5) is one. On \(\ell\ge d-1\) the ratio \(\log(C_2\log\ell)/\log\ell\) is at most \((\log\log d+O(1))/(\log d+o(1))\). The exceptional prime \(q\) costs \(O(\log\log q)\).
+
+For fixed \(S,D\) and \(S\)-smooth \(n\to\infty\), the same coefficient gives
+\[
+ \log\operatorname{rad}(U_n)\ge
+   \frac{1-o_{D,S}(1)}{\log\log n}\sum_{d\mid n}(\log d)^2 .
+\]
+Here the exceptional primes lie in \(S\) and cost \(O_S(1)\), while \(\log(d/\operatorname{rad}(d))=\log d+O_S(1)\). For all divisors with \(\log d\ge\sqrt M\), the order-prime bound in the preceding paragraph and (5) give \(W_d\ge(1-o_{D,S}(1))(\log d)^2/\log M\) uniformly. The excluded squared weights sum to at most \(\tau(n)M\), whereas the full sum is at least \(\tau(n)M^2/4\) by Jensen's inequality. More explicitly its value is
+\[
+ \tau(n)\left(\frac{M^2}{4}
+       +\frac1{12}\sum_{q^e\parallel n} e(e+2)(\log q)^2\right),
+\]
+the mean square of a sum of independent exponents chosen uniformly from \(0,\ldots,e\). At \(n=q^e\) for a fixed prime \(q\) this gives coefficient \(1/(3\log q)-o_{D,q}(1)\) on \(M^3/\log M\).
+
 ## Other integral gaps and the distance to abc
 
 The same conclusion holds for fixed gaps \(a=2,4\), with \(C=b+a\), \(D=\operatorname{sf}(b(b+a))\), and \((a,b)=1\). Write \(b(b+a)=Dz_0^2\). The totally positive norm-one element \(\lambda=(2b+a+2z_0\sqrt D)/a>1\) has integral trace \(2+4b/a\), so lies in the maximal order. The finitely many products with \(D=1\) come from a difference of squares equal to \(a\). Otherwise \(\lambda=\eta^n\) for the least totally positive maximal-order norm-one unit \(\eta>1\). Its trace is at least three, hence \(\eta\ge(3+\sqrt5)/2\), sufficient for (3). Write \(\eta-\eta^{-1}=t\sqrt D\) with \(t\) a positive integer. Then \(4z_0=atU_n\); in particular \(\operatorname{rad}(U_n)\le2\operatorname{rad}(z_0)\). Also \(C=a(\lambda+1)^2/(4\lambda)\), and \(\log\eta\le2R_K\). The proof of (7) and the conversion to (1) therefore apply. For a general fixed primitive gap the trace need not be integral; the corresponding points can lie on translates of a unit orbit without the divisibility property used here.
+
+For comparison, a direct application of the same real logarithmic-form theorem already gives a weaker superpolynomial estimate for every fixed gap, without any restriction on the kernel. Put \(M=\log\log C\) and \(W=\log R\). The rational product \((b+a)/b\) differs from one by \(a/b\). Its rational-prime bases divide \(b(b+a)\) and its exponents are \(O(\log C)\). Taking the log of Matveev's bound therefore gives
+\[
+      M\le O_a(\log(3M))+\sum_{p\mid R}\log(C_6\log p).
+\]
+As \(W\to\infty\), the terms \(p\le W/(\log W)^2\) contribute \(o(W\log\log W/\log W)\), by the trivial bound on their count. On the other terms the ratio of \(\log(C_6\log p)\) to \(\log p\) is at most \((1+o(1))\log\log W/\log W\), using monotonicity. Inversion yields \(W\ge(1-o_a(1))M\log M/\log\log M\). The additional rank information on the Pell orbits strengthens this bound to \(W\gg M^2/\log M\) in (1).
 
 For fixed \(D\), the desired abc scale in \(\log R\) is \(nh+o_D(n)\); (7) only reaches a scale quadratic in \(\log n\). The argument bounds the collective prime support of each selected part and leaves open high multiplicities at first occurrence. [Variable-kernel counts and translated orbits](abc_fixed_gap_variable_square_kernel.md) · [Exact first-occurrence obstruction in a direct Pell family](abc_pell_direct_primitive_convolution.md)

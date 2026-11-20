@@ -33,6 +33,16 @@ For any divisor \(m\mid n\), \(D_m\mid D\,\operatorname{rad}(n)\). A good prime 
 \]
 where \(N(Y)\) counts all positive odd indices with total kernel at most \(Y\) and \(\beta<1/8\) is the [inverse-sieve exponent](abc_full_quartic_four_arm_inverse_sieve.md). For the first assertion the admissible divisors include \(\operatorname{sf}(n)j^2\) for every \(j\mid\sqrt{n/\operatorname{sf}(n)}\). The second uses \(e+1\le2(\lfloor e/2\rfloor+1)\). Parities need only be fixed at primes dividing \(n\) that can cause an ordinary lift in some arm at an odd divisor.
 
+In fact twist multiplicity improves the divisor count to \(\tau(n)\ll C^{\omega(D)}=D^{o(1)}\), with an absolute constant. Write \(K\) for the constant in the one-arm bound \(K^{1+\omega(d)}\). For every \(j\mid \sqrt{n/\operatorname{sf}(n)}\), the squarefree part of the same chosen arm at \(\operatorname{sf}(n)j^2\) divides its kernel \(D_F\) at \(n\). Summing over its divisors and choosing the arm with the fewest support primes gives
+\[
+ \tau\bigl(\sqrt{n/\operatorname{sf}(n)}\bigr)
+      \le K(1+K)^{\min_F\omega(D_F)}
+      \le K(1+K)^{\omega(D)/4}.
+\]
+The four-child leaf count gives \(3\omega(n)\le\omega(D)+O(1)\). Thus \(\omega(D)\gg\log\tau(n)-O(1)\), including indices with many distinct repeated prime factors.
+
+There is a common effective support set for every \(n\) with \(D_n\mid A\), for fixed squarefree \(A\). Process all odd primes \(q<\sqrt{A}/2\) in descending order, retaining a prime precisely when all good odd-depth primes of its four coordinate values at \(q\) belong to the primes of \(A\) or to previously retained primes. It suffices to divide out those known primes and 3, then square-test the remainder. If \(q\) actually divides such an \(n\), all these primes are either in \(A\) or are larger prime factors of \(n\), so descending induction never removes \(q\). The retained set itself carries the binary forest, since each retained \(q\) has its predetermined two children in the allowed set. Hence the squarefree product \(Q(A)\) of all retained primes satisfies \(4^{\omega(Q(A))}Q(A)\le A\) and \(\omega(Q(A))\le\omega(A)-1\) when the retained set is nonempty. In particular \(\operatorname{rad}(n)\mid Q(A)\) for every such index. The largest exponent \(v_q(n)\) is at most \(2K(1+K)^{\omega(A)/4}\) by the square-multiplier estimate. The lcm of **all** the indices with \(D_n\mid A\) consequently divides \(Q(A)^{\lceil 2K(1+K)^{\omega(A)/4}\rceil}\). For fixed \(\omega(A)\) this bounds the simultaneous lcm polynomially in \(A\).
+
 The binary bound \(\operatorname{rad}(n)\le D\) has an effective consequence. If \(D\le Y\), every \(q\mid n\) is less than \(\sqrt Y/2\), and \(\operatorname{sf}(w_q)\mid D\,\operatorname{rad}(n)\) is at most \(Y^2\). In the [effective prime-power test](abc_full_quartic_inverse_kernel_sieve.md), strip \(B_q\) by primes through \(Y\), require a square remainder and \(\operatorname{sf}(w_q)\le Y^2\), then take the CRT modulus \(4q\operatorname{sf}(w_q)=O(Y^{5/2})\). Linnik's theorem gives the detecting prime \(h\ll Y^{C}\) with an absolute effective constant after enlarging \(C\). The periodic certificate gives \(v_q(n)\le h+2+\log(2Y)/\log q\). Thus
 \[
                n\le \exp(Y^{O(1)})

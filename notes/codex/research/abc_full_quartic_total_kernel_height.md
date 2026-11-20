@@ -8,7 +8,7 @@ The following bounds use \(h=\max_{q\mid n}v_q(n)\) for \(n>1\).
 
 * \(4^{\omega(n)}\operatorname{rad}(n)<\Delta_n\), with no exceptional indices. In particular \(\log C_n\le 2.08(\Delta_n/4^{\omega(n)})^{2h}+O(1)\), effectively. The exponent is two on squarefree indices.
 * \(\operatorname{rad}(n)^3\ll\Delta_n\) with a fixed, unevaluated constant. Thus \(\log C_n\ll_h\Delta_n^{2h/3}\) at bounded multiplicity, in particular \(\log C_n\ll\Delta_n^{2/3}\) on squarefree indices.
-* At unrestricted positive odd indices, \(\log C_n\le\exp(O(\Delta_n^{2L+1}))\) effectively, where \(L\) is any admissible effective absolute exponent in Linnik's least-prime theorem. In fact one may replace \(\Delta_n\) in this last statement by \(D_n=\operatorname{sf}(w_n)\).
+* At unrestricted positive odd indices, \(\log C_n\le\exp(O(\Delta_n^L\log(2\Delta_n)))\) effectively, where \(L\) is an admissible effective absolute exponent in Linnik's least-prime theorem. Using just \(D_n=\operatorname{sf}(w_n)\) gives \(\log C_n\le\exp(O(D_n^{2L+1}))\).
 
 ## A single plane quartic for the total squareclass
 
@@ -49,3 +49,21 @@ Apply (1) at \(j=1\) and write \(D_q=\operatorname{sf}(w_q)\). For every \(q\mid
      v_q(n)< t_q+1+\log(2D_n)/\log q\ll D_n^{2L}.
 \]
 Since \(\log\operatorname{rad}(n)\le\sum_{q\le D_n}\log q\ll D_n\), this proves the effective unrestricted estimate. In the [exact inverse census](abc_full_quartic_inverse_kernel_sieve.md) the test at prime indices can now discard \(q\) whenever \(D_q>Y\), immediately after stripping primes through \(Y\) and square-testing the remainder. Its deterministic running time improves to \(\exp(O(Y^{2L+1}))\) bit operations. The full total-kernel census can enumerate the same candidate indices using \(D_n\le\Delta_n\), compute all four coordinates, strip their product through \(Y\), and test its remaining square and resulting small-prime kernel.
+
+### An effective improvement using two of the four squareclasses
+
+In the total product one can improve the unconditional estimate to
+\[
+                 \log C_n\le\exp\!\big(O(\Delta_n^{L}\log(2\Delta_n))\big).
+\]
+For a fixed \(q\mid n\), choose the smaller kernel \(d\) of the two nonsquare coordinates guaranteed above at \(q\): \(w_q\) and a nonsquare among \(a_q,c_q\). The two underlying squarefree integers are coprime and their product is at most \(\Delta_n\) by the disjoint-path argument for (1). Each contains a good prime above \(2q\), so \(qd<d^2/2\le\Delta_n/2\). Write \(F\) for the coordinate chosen.
+
+Fix \(h_0=7\); none of the four odd-index coordinates is divisible by 7. Choose an auxiliary prime \(h\equiv7\bmod24\), \(h\equiv1\bmod q\), with \((d/h)=-(d/7)\). The first congruence already gives \(1\bmod3\) when \(q=3\), and every prime divisor of \(d\) is above \(2q\) and prime to 6. At any such prime the Legendre value of \(h\) can be freely chosen by CRT; quadratic reciprocity has a fixed sign because \(h\equiv3\bmod4\). Linnik gives \(h\ll (24qd)^L\ll\Delta_n^L\).
+
+At positive odd \(j\) the paired character
+\[
+                     J_F(j)=(F_j/7)(F_j/h)
+\]
+depends only on \(j\bmod U\), \(U=2\operatorname{lcm}(8,h+1)\). For \(w\) use the isogenous-curve character at both places. For \(a,c\) the [four-coordinate sign formula](abc_full_quartic_four_arm_inverse_sieve.md) writes \(F_j/w_j\) up to one rational sign as a fixed rational function of \([(j-1)/2]G\); its reduction then depends on that point. The rational sign cancels between the two primes because both are \(3\bmod4\). All the rational functions are units on the encountered residues at these primes, including 7. For precision, the squared function is \((x(G+2Q)-e)/(x(G)-e)\), with \(e=0,-6,6\) and \(x(G)-e\) a unit at every \(p\ge5\). At an encountered reduced point the numerator is finite and nonzero, since all four coordinates there are units. In the normal local ring of the good integral model, a rational square root of this unit and its inverse are integral, hence units themselves. Both primes are supersingular, giving the asserted periods for \(G\) and the isogenous seed.
+
+Now \((q,U)=1\), \(J_F(1)=1\), and \(J_F(q)=-1\). Set \(t_q=\operatorname{ord}_{U}(q)\le U\le16(h+1)\). At every \(k\equiv1\bmod t_q\) the paired character therefore changes from \(q^{k-1}\) to \(q^k\). Denominator divisibility for the integral seed \(G+T_F\) makes \(F_{q^k}/F_{q^{k-1}}\) integral for this selection \(F=w,a,c\), all of whose primes are good. No old prime changes its depth, since its reduction rank for this seed is a positive power of \(q\) and the prime is bigger than \(2q\). A new prime of odd depth must therefore have exact rank \(q^k\) for the seed and exceeds \(2q^k\). If \(q^k\mid n\), (1) bounds it by \(\Delta_n\). Taking the first such \(k\) with \(2q^k>\Delta_n\) proves \(v_q(n)\ll\Delta_n^L\). The effective two-child bound gives \(\log\operatorname{rad}(n)\le\log\Delta_n\), completing the proof. In particular a direct sequential scan of indices through the resulting cutoff, stripping primes through \(Y\) and testing the residual square, takes \(\exp(O(Y^L\log(2Y)))\) bit operations for the total-kernel census through \(Y\).
