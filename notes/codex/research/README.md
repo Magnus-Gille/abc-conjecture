@@ -10,6 +10,12 @@ For the familiar case of primitive Pythagorean triples, the estimate for $A+B=C$
 
 The two extra cubic factors can contribute a radical of order $z^2$ on a positive proportion of inputs of height $z$. Even on explicit abc hits with gain at least a constant times any prescribed power $(\log z)^\theta$, $0<\theta<2$, all six orderings can introduce more than every fixed power of $\log z$ in new primes. [Density and non-Wieferich primes](abc_cubic_radical_loss.md) · [Simultaneous construction](abc_cubic_ordering_hits.md)
 
+## Mersenne triples
+
+For $1+(2^n-1)=2^n$, the factor in the radical loss coming from ordinary lifting is exactly $\gcd(n,2^n-1)$. The remaining loss is from base-2 Wieferich primes. At the logarithmic scale this gives an explicit gap for a third Wieferich prime. At the scale of a fixed abc exponent, it suffices to track first occurrences at divisors $r\mid n$ with $n/r\le(\log n)^K$ for any fixed $K>0$, taking the limsup over all $n$. [Logarithmic gain](abc_mersenne_logarithmic_gain.md) · [Fixed-exponent criterion](abc_mersenne_short_rank_window.md)
+
+An infinite sequence of prime powers $n$ on which the largest prime divisor of $\Phi_n(2)$ stays below $\alpha\varphi(n)^2$ for one fixed $\alpha<(\log2)/2$ would disprove abc. Through $n=10000$, the smallest observed ratio to $\varphi(n)^2$ is $89/100$, certified at $n=11$. [Proof and finite census](abc_mersenne_quadratic_prime_threshold.md) · [Reproduce the census](abc_mersenne_quadratic_prime_scan.py)
+
 ## The primitive quartic family
 
 The family $a^4+3b^2=4w^4$ has a complete parametrization by the odd multiples of $(-3,9)$ on $y^2=x^3-36x$. The coordinates $a,c,d,w$, where $|b|=cd$, are pairwise coprime. Write $s(m)$ for the product of the primes occurring to odd exponent in $m$. [Parametrization](abc_full_quartic_signature.md)
