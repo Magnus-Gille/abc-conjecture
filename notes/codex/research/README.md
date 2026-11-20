@@ -42,6 +42,10 @@ At $n=7,9$, for every fixed $\varepsilon>0$ the actual exceptions $A^n>\operator
 
 A positive proportion of base pairs make \(AB(A^n-B^n)\) squarefree simultaneously for all 13 indices with \(\varphi(n)\le6\). For the mean at a fixed index, a bounded log-radical deficit is equivalent to an \(O(H^2/\log H)\) bound on the number of pairs admitting a repeated prime above \(H^2\). [Proof using the Stewart–Xiao distinct-value theorem](abc_squarefree_sextic_density.md)
 
+For any \(\delta>0\) and every sufficiently large \(Y\), there are positive primitive pairs with \(\log A\asymp Y\) for which the primes \(Y<p\le2Y,\ p\equiv1\bmod9\), contribute over \(A^{2-\delta}\) to the repeated part of \(\Phi_9(A,B)\). Every prime in that progression and interval occurs to a prescribed root branch. [Construction and exact product](abc_cyclotomic_moving_packet.md)
+
+A search through all 32-bit primes gives the exact maximum \(p/A^2=1549/8100\) for \(p^2\mid\Phi_9(A,B)\) with coprime \(A>B>0\). [Full-range proof and census](abc_cyclotomic_ninth_prime_roots.md) · [C++17 verifier](abc_cyclotomic_ninth_prime_roots.cpp)
+
 At a fixed prime of primitive order $n$, the sharp limsup of $(v_p(A^n-B^n)-1)\log p/\log A$ over positive primitive base pairs is 2. A lattice construction attains the threshold to bounded additive error in the logarithm. Searching for a single prime that guarantees quality above $21/20$ at $n=7,9$ found just two seeds in three ranges reaching $p=2{,}000{,}000$ or $e=300$. [Sharp fixed-prime bound and search ranges](abc_fixed_prime_power_approximation.md) · [Hensel verifier](abc_cyclotomic_hensel_search.py)
 
 For every coprime pair, every order of the form $2^i3^j$ with $j\ge2$ and $2^i7^j$ with $j\ge1$ has a prime occurring to odd exponent in the corresponding power difference. The underlying rational square classifications at orders 7, 9, 14 and 18 hold at all heights. [Pointwise theorem and product bounds](abc_cyclotomic_odd_primitive_grid.md) · [Seventh-order descent](abc_cyclotomic_seventh_square_points.md) · [Ninth-order descents](abc_cyclotomic_sextic_square_points.md)
