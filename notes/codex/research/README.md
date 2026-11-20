@@ -16,7 +16,9 @@ For $1+(2^n-1)=2^n$, the factor in the radical loss coming from ordinary lifting
 
 An infinite sequence of prime powers $n$ on which the largest prime divisor of $\Phi_n(2)$ stays below $\alpha\varphi(n)^2$ for one fixed $\alpha<(\log2)/2$ would disprove abc. Through $n=10000$, the smallest observed ratio to $\varphi(n)^2$ is $89/100$, certified at $n=11$. [Proof and finite census](abc_mersenne_quadratic_prime_threshold.md) · [Reproduce the census](abc_mersenne_quadratic_prime_scan.py)
 
-For fixed coprime integers $A>Bge1$, an infinite sequence with bounded $omega(n)$ and $P^+(A^n-B^n)=o(n^2)$ would give abc quality tending to infinity. The bound applies to every rate of decay and counts the divisor orders on both sides of $sqrt X$. [Pointwise estimate](abc_few_index_primes.md)
+For fixed coprime integers $A>B\ge1$, an infinite sequence with bounded $\omega(n)$ and $P^+(A^n-B^n)=o(n^2)$ would give abc quality tending to infinity. The bound applies to every rate of decay and counts the divisor orders on both sides of $\sqrt X$. [Pointwise estimate](abc_few_index_primes.md)
+
+For Mersenne triples, the prime divisors of the index determine a cutoff for the multiplicative order. Assuming abc, primes above this cutoff that occur just once in $2^n-1$ and have sufficiently high order contribute at least a fixed positive multiple of $n$ in log mass. [Order, prime size and multiplicity](abc_mersenne_coindex_prime_bound.md)
 
 ## The primitive quartic family
 
