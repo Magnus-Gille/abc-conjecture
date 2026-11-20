@@ -1,0 +1,51 @@
+# How much excess can finitely many primes supply?
+
+Use the dyadic elliptic sequence on \(E:y^2=x^3+16x^2+32x\) with \(R=(-8,16)\), \(n=2^k\ge8,\ j=k-1,\ M=2^j\). Put
+\[
+ X_n=u_n v_n w_n s_n t_n,\qquad
+ s_n=u_n^2+8v_n^2,\qquad t_n=u_n^2+16v_n^2.
+\]
+The primes dividing \(X_n\) give exactly the radical of the primitive triple
+\(1024v_n^8+u_n^2s_n^2t_n=w_n^4\). These five factors are pairwise coprime. For a fixed finite set of primes \(\mathcal P\), let \([x]_{\mathcal P}=\prod_{p\in\mathcal P}p^{v_p(x)}\), and set \(L_{\mathcal P}(n)=[X_n/\operatorname{rad}(X_n)]_{\mathcal P}\).
+
+For every \(\eta>0\) one has the unconditional bound
+\[
+ L_{\mathcal P}(n)\ll_{\mathcal P,\eta}
+     (n/8)^{\mathbf1_{2\in\mathcal P}}\,j^{1+\eta}.
+\]
+If \(2,3\in\mathcal P\), then \(L_{\mathcal P}(n)\ge (3/8)nj\) for every \(j=3^h,\ h\ge1\). Thus
+\[
+ \limsup_{k\to\infty}
+   \frac{\log(L_{\mathcal P}(2^k)/2^k)}{\log k}=1
+          \qquad(2,3\in\mathcal P).
+\]
+In particular no strategy based solely on multiplicities at a fixed set of primes can supply a positive fraction of \(\log X_n\), which has order \(n^2\). The exponent \(1+\eta\) uses the \(p\)-adic Subspace Theorem and is ineffective as stated. The elementary part of the proof already gives the exponent 2.
+
+## Reduction to two consecutive linear expressions
+
+At an odd prime \(p\), the curve has good reduction. Let \(r_p\) be the order of \(R\bmod p\) and \(e_p\) its first positive formal depth, i.e. the valuation of the formal parameter at \([r_p]R\). When \(r_p\mid d\), the depth of \(dR\) is \(e_p+v_p(d/r_p)\) by the formal logarithm. The depth can be read as the valuation of the positive square root of the abscissa denominator. All odd primes of \(u_nw_n\) have exact order \(n\) and occur there at their first depth. At odd \(p\mid v_n\) the order divides \(M\) and the depth is just \(e_p\), since \(M\) is a power of two. Consequently the contribution from \(u_nv_nw_n\) at any fixed odd prime is bounded independently of \(k\). The contribution to excess at 2 is \(2^{k-3}=n/8\), since \(v_2(v_n)=k-2\). [Reduction and duplication](abc_octic_dyadic_fermat_audit.md)
+
+At \(p\mid s_n\) the point \(MR\) is congruent to exactly one of \(R,-R\), at depth \(v_p(s_n)\), because the abscissa is a local coordinate at both points. It follows that \(v_p(s_n)\le e_p+v_p(2^j\pm1)\) with the appropriate sign.
+
+At \(p\mid t_n\), write \(\tau^2=-2,\ J=(0,0)\). The two points at \(x=-16\) are \(J\pm[\tau]R\), with ordinates \(\pm16\tau\). In particular \(p\) is split in \(\mathbb Q(\tau)\) and the abscissa is again a local coordinate. For one sign \(\epsilon\), the point \([M-\epsilon\tau]R-J\) has depth \(v_p(t_n)\). Apply the integral endomorphism \([M+\epsilon\tau]\), which preserves the formal group filtration. Since \(M\) is even and \([\tau]J=O\), its image is \([M^2+2]R\). We obtain \(v_p(t_n)\le e_p+v_p(2^{2j-1}+1)\). [CM coordinates](abc_dyadic_t_simple_cover.md)
+
+For odd \(p\), the lifting lemma gives \(v_p(2^a\pm1)\le v_p(2^{p-1}-1)+v_p(a)\). Indeed one may first bound by \(v_p(2^{2a}-1)\), and then use the order of 2 modulo \(p\). Absorbing the constants for the finitely many relevant primes proves
+\[
+ L_{\mathcal P}(n)\ll_{\mathcal P} (n/8)^{\mathbf1_{2\in\mathcal P}}
+                         [j(2j-1)]_{\mathcal P\setminus\{2\}} .
+\]
+
+To bound the last expression use the Subspace Theorem for finitely many places of \(\mathbb Q\), applied to primitive integer vectors \((j,1)\). At infinity take the independent forms \(X,Y\). At each finite place in \(\mathcal P\setminus\{2\}\) take \(X,2X-Y\). The product of their absolute values is exactly \(j/[j(2j-1)]_{\mathcal P\setminus\{2\}}\). If the denominator exceeds \(j^{1+\eta}\), this product is below the negative \(\eta\)-th power of the height. Such points lie on finitely many proper rational subspaces, each containing at most one \((j,1)\). This gives the claimed bound. Finally \(v_3(s_n)=2+v_3(j)\), yielding the lower bound for \(j=3^h\). [Exact 3-adic valuation](abc_dyadic_direct_triple.md)
+
+## A certified repeated prime after removing 3
+
+The fixed prime \(p=205883\) occurs to depth at least two in the 3-free part of \(s_{2^{j+1}}\) precisely when \(1700\mid j\). More explicitly its valuation is
+\[
+ v_p(s_{2^{j+1}})=
+ \begin{cases}
+ 0 &1700\nmid j,\\
+ 2 &1700\mid j,\quad 205882\nmid j,\\
+ 3+v_p(j)& 1700\mid j,\quad 205882\mid j .
+ \end{cases}
+\]
+On the displayed curve \(R\) has exact reduction order \(r=34387=137\cdot251\) at \(p\). The division polynomial at \(R\) satisfies \(\psi_r(R)\equiv69702p^2\bmod p^3\), and the powers of \(\psi_{137}(R),\psi_{251}(R)\) needed for the order test are units (the values themselves are already nonzero modulo \(p\)). Since the model is good and \(R\) integral, the valuation of \(\psi_r(R)\) is the first denominator depth. Modular exponentiation gives \(\operatorname{ord}_r(2)=1700\) and \(2^{850}\equiv3013\bmod r\). Hence \(-1\) is outside the subgroup generated by 2 modulo \(r\), so a contact can only be \(MR=R\bmod p\), and occurs exactly at multiples of 1700. Its depth is \(2+v_p(2^j-1)\). Finally \(\operatorname{ord}_p(2)=p-1\) and \((2^{p-1}-1)/p\equiv103791\bmod p\). The displayed cases follow by lifting. In particular there are infinitely many genuine repeated factors after removing 3, even though any finite collection has the preceding sharp global restriction. [Integer certificate](abc_dyadic_shifted_depth_example.py)

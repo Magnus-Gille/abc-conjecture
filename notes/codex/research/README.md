@@ -13,6 +13,12 @@ The family \(a^4+3b^2=4w^4\) has a complete parametrization by the odd multiples
 | Can \(w\) be a perfect power? | For every \(2\le k\le10^9\), the only primitive solutions with \(w=z^k\) are \((a,b,z)=(1,\pm1,1)\). [Descent and exponent census](abc_full_quartic_perfect_power_census.md) · [Independent verification](abc_congruent_six_exponent_trace_audit.txt) |
 | How close do these results come to a counterexample? | The ratio \(C/(\operatorname{rad}(ABC)\sqrt{\log C})\) is unbounded along a subsequence. A disproof requires \(C/\operatorname{rad}(ABC)^{1+\varepsilon}\) unbounded for one fixed \(\varepsilon>0\). [Subsequence proof](abc_full_quartic_smooth_index_radical.md) · [Mixed valuations and abc quality](abc_full_quartic_twin_and_mixed_valuations.md) |
 
+## Other investigations and manuscript readings
+
+The collection includes earlier attempts, conditional results and finite experiments. Their hypotheses and ranges are recorded in the individual notes. The literature review links to the two supplied manuscript versions. The readings examine Soulé's treatment of exceptional fibers and the size of the candidate set in Carella's Corollary 4.1. [Literature review](abc_literature_update.md) · [Soulé v1](soule_v1_reading.md) · [Carella v3](carella_v3_reading.md)
+
+For work beyond the quartic family, the fixed-gap notes study the squarefree parts of two integers at a fixed difference. Another route bounds the squarefree parts of triples of consecutive integers by estimating Pell regulators. [Fixed differences](abc_fixed_gap_variable_square_kernel.md) · [Consecutive integers](abc_consecutive_powerful_kernels.md)
+
 ## Reproducing the calculations
 
 Run the following in this directory. The first three programs use the Python standard library and check the two main descent calculations and the small-index kernel arithmetic. The C++17 program checks the complementary squarefree-part sieve through five billion. The linked proofs explain how the finite calculations apply to indices of unrestricted size.

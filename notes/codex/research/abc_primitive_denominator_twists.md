@@ -1,0 +1,46 @@
+# Prime multiplicities at first occurrence on fixed index support
+
+Let \(R=(-8,16)\) on \(E:y^2=x^3+16x^2+32x\), and let \(B_n^2\) be the reduced denominator of \(x([n]R)\). Fix an integer \(k\ge2\) and a finite set \(S\) of odd primes. For every sufficiently large integer \(n\) whose prime divisors belong to \(S\), there is a prime \(p\) at which \(R\) has exact scalar order \(n\) and exact CM annihilator \((n)\), with
+\[
+             k\nmid v_p(B_n),\qquad p\ge 2n^2+1 .
+\]
+Any prescribed finite set of primes can be excluded. The index threshold from this proof is ineffective. This concerns the exponent on first appearance and permits exponents greater than one.
+
+## A covering lemma
+
+Take a nonempty reduced rational effective divisor \(D\) on an elliptic curve over \(\mathbb Q\). Fix a nontorsion rational point \(P\). At all sufficiently large positive indices \(u\), there is a prime outside any chosen finite set where the intersection multiplicity of \([u]P\) with \(D\) is positive and is not divisible by \(k\). Here we work away from the bad reduction of the curve and divisor, using their smooth models. The exceptional indices can depend on \(D,P,k\) and the excluded primes.
+
+To see this, fix \(u\bmod k\), write \([u]P=[k]Q+T\) with fixed \(T\in E(\mathbb Q)\) and \(Q\) an integer multiple of \(P\). Let \(D_0=D-T\) be the translated divisor and \(d=\deg D\). The pullback \(D'=[k]^*D_0\) is reduced of degree \(k^2d\). Its group sum is \([k]s\) where \(s\in E(\mathbb Q)\) is the group sum of \(D_0\). Indeed the points above each \(U\) sum to \([k]U\), because the sum of all elements of \(E[k]\cong(\mathbb Z/k)^2\) is zero. The rational divisor \(H=(kd-1)(O)+(s)\) has degree \(kd\) and group sum \(s\). Therefore \(D'-kH=\operatorname{div} f\) for a rational function over \(\mathbb Q\), by the divisor-class criterion on an elliptic curve with rational origin.
+
+The normalized projective curve \(z^k=f(Q)\) is geometrically connected and has genus \(1+k^2d(k-1)/2>1\). Over an algebraic closure, each point of \(D'\) has valuation \(1\bmod k\), giving ramification index \(k\) and geometric degree \(k\); all other valuations are divisible by \(k\). Riemann–Hurwitz gives the stated genus. Each constant twist has the same genus.
+
+Enlarge the finite set of excluded primes to include those dividing \(k\) and those of bad reduction for the divisors and \(f\). Outside this set the vertical divisor of \(f\) vanishes, and its valuation at \(Q\), modulo \(k\), equals the local intersection multiplicity with \(D'\), hence that of \([u]P\) with \(D\). Ignore the finitely many \(Q\) meeting the geometric support on the generic fiber. If all the remaining valuations were divisible by \(k\), \(f(Q)\) would belong to one of finitely many classes in \(\mathbb Q^\times/\mathbb Q^{\times k}\), represented by a sign and products of excluded primes to exponents less than \(k\). Then \(Q\) lifts to a rational point of one of finitely many twists. Faltings' theorem and the injectivity of the multiples of \(P\) give finiteness. There are only \(k\) residue classes of \(u\).
+
+## Detecting the exact CM annihilator
+
+Write \(\mathcal O=\mathbb Z[\sqrt{-2}]\), the full CM ring, defined over \(K=\mathbb Q(\sqrt{-2})\). For a fixed odd integer \(m>1\), let \(D_m\) consist of the points of \(E[m]\) with exact \(\mathcal O\)-annihilator \((m)\). This is nonempty since analytically \(E[m]\) is a free rank-one module over \(\mathcal O/(m)\) in this principal ring. Conjugation preserves the ideal \((m)\), so the reduced divisor is defined over \(\mathbb Q\). At good primes away from \(2m\), the finite torsion scheme is étale and these points stay distinct. The endomorphisms extend, and the isomorphism on geometric \(m\)-torsion under reduction preserves the CM action at a chosen place of \(K\).
+
+Take \(m=\operatorname{rad}(n)\), and \(u=n/m\). The finite set \(S\) allows only finitely many \(m\). Applying the lemma to \([u]R,D_m\) produces a prime at which \([u]R\) has exact CM annihilator \((m)\). We can and do exclude every prime in \(S\). The map \([m]\) is étale there, so the intersection depth with \(D_m\) is exactly the formal depth of \([n]R\), namely \(v_p(B_n)\). Since \([n]R\) reduces to zero, the annihilator \(I\) of \(R\bmod p\) divides \((n)\). The annihilator of \([u]R\bmod p\) has exponent \(\max(v_\lambda(I)-v_\lambda((u)),0)\) at each prime ideal \(\lambda\). For each \(\lambda\mid(n)\), this is \(v_\lambda((m))>0\), proving \(I=(n)\). Every sufficiently large \(n\) in the asserted range has sufficiently large \(u\) for the finitely many possible \(m\).
+
+The exact annihilator gives scalar order \(n\). All primes of an odd scalar denominator split in \(K\), and their Frobenius \(\pi\) satisfies \(\pi-1\in I\). Thus here \(p=(1+na)^2+2n^2b^2\) with \(b\ne0\) and \(1+na\ne0\). [CM, Frobenius and local depths](abc_octic_mixed_cm_prime_mass.md)
+
+## Consequences for a single denominator
+
+For each sufficiently large divisor \(d\mid n\), make this choice at rank \(d\), excluding the primes of \(S\). The resulting \(p_d\) are distinct by their exact orders. The formal depth is unchanged on multiplying by \(n/d\) since \(p_d\nmid n\). Consequently at least \(\tau(n)-O_{S,k}(1)\) distinct primes of \(B_n\) have exponent not divisible by \(k\). Their product is at least \(c_{S,k}\,2^{\tau(n)}n^{\tau(n)}\), using \(\prod_{d\mid n}d^2=n^{\tau(n)}\); omitting a bounded set of small \(d\) costs at most a fixed multiplicative factor. For \(k=2\) this is a lower bound for the squarefree part of \(B_n\), the product of its primes of odd exponent.
+
+There are also several distinct witnesses at the *same* primitive rank if a split index prime has growing exponent. Fix \(q\in S\) split as \(\lambda\bar\lambda\), and \(j\ge1\). For \(q^{j+1}\mid n\), use \(m=q^j\operatorname{rad}(n)\), \(u=n/m\). Replace \(D_m\) by the union of the exact-annihilator sets for \((m)/\lambda^j\) and its conjugate. Both underlying ideals have positive exponent at every prime ideal dividing \((m)\), so the same calculation gives \(I=(n)/\lambda^j\) or its conjugate, still of exact scalar order \(n\). For each fixed \(t\), all sufficiently large such \(n\) divisible by \(q^{t+1}\) therefore have at least \(t+1\) different primes of exact scalar order \(n\) with exponent nonzero modulo \(k\), taking \(0\le j\le t\). Their annihilator norms \(n^2/q^j\) distinguish them even after conjugation. For \(j>0\) the lower bound on the prime size obtained from this argument is \((n/q^{j/2}-1)^2\).
+
+## A density estimate for each exponent modulus on the full odd-index orbit
+
+Let \(K_k(B)=\prod_{p\mid B,\ k\nmid v_p(B)}p\). For every fixed \(k\ge2\), both \(\log K_k(B_n)/\log n\) and \(\omega(K_k(B_n))/\log\log n\) tend to infinity in density on the positive odd indices. For each \(A>0\), this means the proportion failing the respective lower bound \(A\) tends to zero. The result for the product generalizes the [square-class estimate on the orbit based at index three](abc_octic_mixed_parity_kernel.md).
+
+Fix an odd \(D\ge1\). For each \(d\mid D\) and each sufficiently large prime \(\ell>D\), apply the covering lemma at \(u=\ell\) to the divisor of points of exact order \(d\), including \(O\) when \(d=1\). Exclude all bad primes, the divisors of \(2d\) and the divisors of \(B_d\). At the resulting prime \(p_{d,\ell}\), the reduction of \([\ell]R\) has order \(d\), so that of \(R\) has order \(d\) or \(d\ell\). The exclusion of \(B_d\) leaves only \(d\ell\). The local depth \(v_p(B_{d\ell})\) is not divisible by \(k\) because \([d]\) is étale. Since the reduced curve also has rational two-torsion, \(2d\ell\le(\sqrt p+1)^2\), so \(p>\ell\) for large enough \(\ell\). The ranks distinguish all the selected primes as \((d,\ell)\) varies, once \(\ell>D\).
+
+For \(D\mid n\), take every sufficiently large prime \(\ell\mid n\) and every \(d\mid D\). Each \(d\ell\) divides \(n\). Each selected \(p\) either divides \(n\), or keeps its valuation when passing from \(B_{d\ell}\) to \(B_n\). Thus the product of all the distinct selected primes divides \(\operatorname{rad}(n)K_k(B_n)\). It is at least a constant times \(\operatorname{rad}(n)^{\tau(D)}\), and the number of selected primes is \(\tau(D)\omega(n)-O_{D,k}(1)\). Hence
+\[
+ K_k(B_n)\gg_{D,k}\operatorname{rad}(n)^{\tau(D)-1},
+ \qquad \omega(K_k(B_n))\ge(\tau(D)-1)\omega(n)-O_{D,k}(1).
+\]
+The thresholds are uniform in \(n\) because \(D,k\) have been fixed.
+
+On a density-one set of odd \(n\), \(\operatorname{rad}(n)\ge\sqrt n\) and \(\omega(n)\ge\tfrac12\log\log n\). The first bound follows from the bounded mean of \(\log(n/\operatorname{rad}(n))\) by summing over prime powers, and the second from the normal order of \(\omega\). Given \(A\), choose \(t\) with \(2^t-1>2A\). For any specified error proportion, take a finite list of odd primes so large that all but that proportion of odd integers have at least \(t\) distinct divisors from the list. This follows from independence for a fixed list by CRT, variance bounded by the mean, and divergence of the reciprocal prime sum. Such \(n\) are divisible by some \(D\) composed of \(t\) primes from the list. There are finitely many such \(D\), with \(\tau(D)=2^t\). Apply the preceding two estimates, then let the error proportion tend to zero.

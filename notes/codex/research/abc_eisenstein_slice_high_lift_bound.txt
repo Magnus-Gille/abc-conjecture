@@ -1,0 +1,6 @@
+prefix bound, classes, represented primes 1000000000000000000 5862 2777
+prime counts by maximum valuation [(3, 2495), (4, 246), (5, 27), (6, 5), (7, 2), (8, 2)]
+maximum (p,depth,witness) [(167, 8, 54385699776296631), (191, 8, 48254830936505719)]
+bits of universal good-small-prime excess multiple 106657
+bits including the fixed dyadic excess 106665
+bits of full small-prime lcm including 2 157637
