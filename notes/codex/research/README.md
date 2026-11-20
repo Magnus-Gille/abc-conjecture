@@ -36,6 +36,10 @@ At $n=7,9$, for every fixed $\varepsilon>0$ the actual exceptions $A^n>\operator
 
 At a fixed prime of primitive order $n$, the sharp limsup of $(v_p(A^n-B^n)-1)\log p/\log A$ over positive primitive base pairs is 2. A lattice construction attains the threshold to bounded additive error in the logarithm. Searching for a single prime that guarantees quality above $21/20$ at $n=7,9$ found just two seeds in three ranges reaching $p=2{,}000{,}000$ or $e=300$. [Sharp fixed-prime bound and search ranges](abc_fixed_prime_power_approximation.md) · [Hensel verifier](abc_cyclotomic_hensel_search.py)
 
+For every coprime pair, every order of the form $2^i3^j$ with $j\ge2$ and $2^i7^j$ with $j\ge1$ has a prime occurring to odd exponent in the corresponding power difference. The underlying rational square classifications at orders 7, 9, 14 and 18 hold at all heights. [Pointwise theorem and product bounds](abc_cyclotomic_odd_primitive_grid.md) · [Seventh-order descent](abc_cyclotomic_seventh_square_points.md) · [Ninth-order descents](abc_cyclotomic_sextic_square_points.md)
+
+A separate mean bound controls the amount by which prime exponents exceed $\max(1,\varphi(r)/2-1)$ at each exact order $r\le H^{2-\nu}$ for coprime pairs of height at most $H$. [Mean multiplicity and radical bounds](abc_power_row_excess.md)
+
 ## The primitive quartic family
 
 The family $a^4+3b^2=4w^4$ has a complete parametrization by the odd multiples of $(-3,9)$ on $y^2=x^3-36x$. The coordinates $a,c,d,w$, where $|b|=cd$, are pairwise coprime. Write $s(m)$ for the product of the primes occurring to odd exponent in $m$. [Parametrization](abc_full_quartic_signature.md)
