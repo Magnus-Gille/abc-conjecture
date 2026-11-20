@@ -30,6 +30,8 @@ At the fixed index $n=H\to\infty$, all but an $O(1/\log H)$ fraction of coprime 
 
 At the cutoff $n^2$, a complete search over the 489 coprime pairs $1\le B<A\le40$ and all $2\le n\le300$ found 253 smooth cyclotomic factors and 88 smooth full differences. The highest abc quality among the latter was $4\log7/\log210$ at $1+2400=2401$. [Results and disproof criterion](abc_cyclotomic_smooth_seed_count.md) · [Verifier](abc_variable_base_smooth_scan.py)
 
+For the four sextic orders $7,9,14,18$, only two of 304,460 rows at $A\le500$ have a squared prime larger than $A^2$. The order-14 example at $(A,B)=(223,181)$ gives abc quality $1.080786\ldots$. At order 12 no prime above $A^2$ can occur twice, yet abc on all twelfth-power triples remains equivalent to the general conjecture. [Proof, examples and transfer](abc_cyclotomic_large_square_twists.md) · [Census](abc_cyclotomic_large_square_scan.py)
+
 ## The primitive quartic family
 
 The family $a^4+3b^2=4w^4$ has a complete parametrization by the odd multiples of $(-3,9)$ on $y^2=x^3-36x$. The coordinates $a,c,d,w$, where $|b|=cd$, are pairwise coprime. Write $s(m)$ for the product of the primes occurring to odd exponent in $m$. [Parametrization](abc_full_quartic_signature.md)
