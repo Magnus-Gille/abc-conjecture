@@ -22,6 +22,8 @@ For fixed coprime integers $A>B\ge1$, an infinite sequence with bounded $\omega(
 
 For Mersenne triples, the prime divisors of the index determine a cutoff for the multiplicative order. Assuming abc, primes above this cutoff that occur just once in $2^n-1$ and have sufficiently high order contribute at least a fixed positive multiple of $n$ in log mass. [Order, prime size and multiplicity](abc_mersenne_coindex_prime_bound.md)
 
+There is also an explicit construction in the opposite direction. At every $n=4m$ with $m$ odd, Aurifeuillian factorization gives $P^+(2^n-1)\le e^2\,2^{\varphi(m)}$. Taking $m$ to be an odd primorial produces a subexponential upper bound on an infinite sequence. [Integer factorization and size bound](abc_mersenne_constructed_smooth_indices.md)
+
 ## The primitive quartic family
 
 The family $a^4+3b^2=4w^4$ has a complete parametrization by the odd multiples of $(-3,9)$ on $y^2=x^3-36x$. The coordinates $a,c,d,w$, where $|b|=cd$, are pairwise coprime. Write $s(m)$ for the product of the primes occurring to odd exponent in $m$. [Parametrization](abc_full_quartic_signature.md)

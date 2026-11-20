@@ -70,3 +70,15 @@ Subtract this small-prime bound over the selected rows. The entire contribution 
 At \(t=1\), equation (4) isolates the single row of exact order \(n\), with \(nF_n(1)=\varphi(n)\). It gives positive simple-prime mass of order \(\varphi(n)\) along every sequence with \(D_n=o(\varphi(n))\). Mersenne abc gives this condition in particular when \(n/\varphi(n)\) stays bounded.
 
 The prime support in (2) contains information beyond \(n/\varphi(n)\). For any increasing function \(b\ge1\), choose integers \(k\to\infty\) and \(z_k>b(2k)\) large enough that the integer \(n_k=\prod_{z_k<p\le z_k^k}p\) satisfies \(n_k/\varphi(n_k)=(1+o(1))k\). Mertens' theorem permits this choice by first fixing \(k\) and then increasing \(z_k\). Every nontrivial divisor of \(n_k\) exceeds \(b(n_k/\varphi(n_k))\), so \(F_{n_k}(b(n_k/\varphi(n_k)))=\varphi(n_k)/n_k\to0\).
+
+## The factor of two from quadratic reciprocity
+
+The constant in (1) improves to $h/2$ along all indices $n$ with $v_2(n)\ne2$. Equivalently the liminf over these indices is at least $h/2$. To see this, keep only odd coindices $g\le t$. Their totients still sum to at least $nF_n(t)/2$. Indeed write $\gcd(U,n)=2^jG'$ with $G'$ odd. The two factors are independent, $\Pr(j=0)\ge1/2$, and $\Pr(G'\le t)\ge\Pr(2^jG'\le t)$. In the selected rows $d=n/g$ has $v_2(d)=v_2(n)$.
+
+For each of these rows, the order condition eliminates at least half the reduced classes that the congruence $p\equiv1\bmod d$ would permit.
+
+* For $d$ odd, $2$ is a square modulo $p$, so $p\equiv1,7\bmod8$.
+* For $d=2u$ with $u$ odd, $p\equiv1,3\bmod8$ is necessary. In the class $7\bmod8$ the order is odd since 2 is a square and $v_2(p-1)=1$. In the class $5\bmod8$ it is divisible by four since 2 is a nonsquare and $v_2(p-1)=2$.
+* For $8\mid d$, $p\equiv1\bmod8$ makes 2 a square, so its order divides $(p-1)/2$, giving $p\equiv1\bmod 2d$.
+
+The first two cases each use two reduced classes, with moduli $8d$ and $4d$, respectively. Both moduli have totient $4\varphi(d)$ in their corresponding case. In the last case $\varphi(2d)=2\varphi(d)$. Applying Brun–Titchmarsh to these classes bounds each row's small-prime sum by $(2\alpha+O_\alpha(\log\log n/\log n))\varphi(d)$. The factor of two saved is independent of $d$ and $t$. Subtracting $2D_n$ and the same row errors as in (4) proves (1) with every fixed $\alpha<h/2$ on this set of indices.
