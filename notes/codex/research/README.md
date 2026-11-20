@@ -18,11 +18,15 @@ An infinite sequence of prime powers $n$ on which the largest prime divisor of $
 
 For almost every exponent $n$, primes below $n^2(\log n)^a$ contribute $o(n)$ to $\log\operatorname{rad}(A^n-B^n)$, for fixed coprime $A>B\ge1$ and each $0\le a<0.0860713\ldots$. If abc holds, large primes of exact order $n$ occurring once carry asymptotically $\varphi(n)\log A$ in density. A complete census found exactly 20 indices $2\le n\le10{,}000$ with $P^+(2^n-1)\le n^2$, the last at 60. [Proof and counterexample conditions](abc_average_order_radical.md) · [Census](abc_mersenne_all_indices_scan.py) · [Exact average identity](abc_average_order_check.py)
 
-For fixed coprime integers $A>B\ge1$, an infinite sequence with bounded $\omega(n)$ and $P^+(A^n-B^n)=o(n^2)$ would give abc quality tending to infinity. The bound applies to every rate of decay and counts the divisor orders on both sides of $\sqrt X$. [Pointwise estimate](abc_few_index_primes.md)
-
 For Mersenne triples, the prime divisors of the index determine a cutoff for the multiplicative order. Assuming abc, primes above this cutoff that occur just once in $2^n-1$ and have sufficiently high order contribute at least a fixed positive multiple of $n$ in log mass. [Order, prime size and multiplicity](abc_mersenne_coindex_prime_bound.md)
 
 There is also an explicit construction in the opposite direction. At every $n=4m$ with $m$ odd, Aurifeuillian factorization gives $P^+(2^n-1)\le e^2\,2^{\varphi(m)}$. Taking $m$ to be an odd primorial produces a subexponential upper bound on an infinite sequence. [Integer factorization and size bound](abc_mersenne_constructed_smooth_indices.md)
+
+## Differences of powers with varying bases
+
+For indices with bounded $\omega(n)$, the condition $P^+(A^n-B^n)=o(n^2\log A)$ forces abc quality to tend to infinity, even when the coprime pair $A>B$ changes at every index. An average estimate allows a set of candidate pairs on each doubling interval and a cutoff beyond $n^2\log A$. [Pointwise estimate](abc_few_index_primes.md) · [Uniform average and search criterion](abc_average_order_varying_bases.md)
+
+At the fixed index $n=H\to\infty$, all but an $O(1/\log H)$ fraction of coprime pairs $B<A\le H$ have a prime factor of $A^n-B^n$ above $H^2$ of exact order $n$. Counting over all heights at a fixed $n\ge7$, at most $\exp(O_C(n^2/\varphi(n)))$ pairs have even their cyclotomic factor $\Phi_n(A,B)$ supported on primes up to $Cn^2$. [Prime powers averaged over the pairs](abc_variable_seed_prime_mass.md) · [All-heights count](abc_cyclotomic_smooth_seed_count.md)
 
 ## The primitive quartic family
 
