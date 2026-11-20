@@ -24,6 +24,8 @@ For \(2^m-1\), a prime of exact order \(m\) occurs to odd exponent at every odd 
 
 For every integer base \(A\ge2\) and every squarefull index \(m>1\), \(\Phi_m(A)\) is a nonsquare, with arbitrary primes allowed in \(m\). More generally, no prime divisor of \(\varphi(\operatorname{rad}(m))\) divides all prime multiplicities of the value. [Proof and the primitive-order criterion](abc_cyclotomic_squarefull_indices.md)
 
+For every squarefree \(Q>1\) with \(k\) prime factors and every integer \(A\ge2\), the squarefree part of \(A^{Q^2}-1\) is at least \(Q^{2^k-2}/\varphi(Q)\). Multiplying the square-index contributions loses at most one index per prime of \(Q\). [Product proof](abc_cyclotomic_squarefull_indices.md)
+
 There is also an explicit construction in the opposite direction. At every $n=4m$ with $m$ odd, Aurifeuillian factorization gives $P^+(2^n-1)\le e^2\,2^{\varphi(m)}$. Taking $m$ to be an odd primorial produces a subexponential upper bound on an infinite sequence. [Integer factorization and size bound](abc_mersenne_constructed_smooth_indices.md)
 
 ## Differences of powers with varying bases
@@ -38,6 +40,8 @@ For the four sextic orders $7,9,14,18$, only two of 304,460 rows at $A\le500$ ha
 
 At $n=7,9$, for every fixed $\varepsilon>0$ the actual exceptions $A^n>\operatorname{rad}(AB(A^n-B^n))^{1+\varepsilon}$ among $B<A\le H$ have count $O(H^{2-c})$ for some $c>0$. At $\varepsilon=1/20$ the exponents are $16/9+o(1)$ and $12/7+o(1)$, respectively. Through $H=500$ the exact exception counts are 21 and 49. [Counting proof and maximum-quality examples](abc_sextic_power_exception_count.md) · [Verifier](abc_sextic_power_quality_scan.py)
 
+A positive proportion of base pairs make \(AB(A^n-B^n)\) squarefree simultaneously for all 13 indices with \(\varphi(n)\le6\). For the mean at a fixed index, a bounded log-radical deficit is equivalent to an \(O(H^2/\log H)\) bound on the number of pairs admitting a repeated prime above \(H^2\). [Proof using the Stewart–Xiao distinct-value theorem](abc_squarefree_sextic_density.md)
+
 At a fixed prime of primitive order $n$, the sharp limsup of $(v_p(A^n-B^n)-1)\log p/\log A$ over positive primitive base pairs is 2. A lattice construction attains the threshold to bounded additive error in the logarithm. Searching for a single prime that guarantees quality above $21/20$ at $n=7,9$ found just two seeds in three ranges reaching $p=2{,}000{,}000$ or $e=300$. [Sharp fixed-prime bound and search ranges](abc_fixed_prime_power_approximation.md) · [Hensel verifier](abc_cyclotomic_hensel_search.py)
 
 For every coprime pair, every order of the form $2^i3^j$ with $j\ge2$ and $2^i7^j$ with $j\ge1$ has a prime occurring to odd exponent in the corresponding power difference. The underlying rational square classifications at orders 7, 9, 14 and 18 hold at all heights. [Pointwise theorem and product bounds](abc_cyclotomic_odd_primitive_grid.md) · [Seventh-order descent](abc_cyclotomic_seventh_square_points.md) · [Ninth-order descents](abc_cyclotomic_sextic_square_points.md)
@@ -48,7 +52,7 @@ For \(S=\{2,3\}\) the universal odd-valuation assertion holds at exactly the ord
 
 For any fixed \(e\ge3\), the all-heights count also holds for the product of primes whose valuations are nonzero modulo \(e\), at every \(S\)-smooth order with \(\varphi(m)\ge4\). The four-branch-point cover cancels the base denominator even when \(e\) does not divide the degree. [Proof and sharp degree threshold](abc_cyclotomic_smooth_order_higher_powers.md)
 
-The only projective cube slopes at order 9 are \(0,-1,\infty\); at order 18 they are \(0,1,\infty\). For \(A>B>0\), every prime \(p>A^2\) consequently occurs at most twice in \(\Phi_9(A,B)\). [Cube classification](abc_cyclotomic_ninth_cube_points.md) · [Arithmetic verifier](abc_cyclotomic_ninth_cube_points.py)
+The only projective cube slopes at order 9 are \(0,-1,\infty\); at order 18 they are \(0,1,\infty\). For \(A>B>0\), every prime \(p>A^2\) occurs at most twice in the full differences \(A^9-B^9\) and \(A^{18}-B^{18}\). Excluding three times a cube also forces a prime of multiplicity nonzero modulo three at every order \(2^i3^j,\ j\ge2\). [Cube classification](abc_cyclotomic_ninth_cube_points.md) · [Arithmetic verifier](abc_cyclotomic_ninth_cube_points.py)
 
 A separate mean bound controls the amount by which prime exponents exceed $\max(1,\varphi(r)/2-1)$ at each exact order $r\le H^{2-\nu}$ for coprime pairs of height at most $H$. [Mean multiplicity and radical bounds](abc_power_row_excess.md)
 

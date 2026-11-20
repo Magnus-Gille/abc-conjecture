@@ -56,3 +56,37 @@ This uses \(0\le 1-(1-t^p)^{1/\ell}\le t^p\), \(s-p\le-2\), and \(X\ge2^p\ge8\).
 ## What the nonsquare gives for multiplicative orders
 
 At a squarefull \(m>1\), at least one prime occurs to odd exponent in \(\Phi_m(A)\). If \(P\) is the largest prime of \(m\) and \(m/P^{v_P(m)}>P-1\), every such prime is primitive, for every \(A\ge2\). Indeed an imprimitive prime \(p\mid\Phi_m(A)\) must divide \(m\). Setting \(h=m/p^{v_p(m)}\), one has \(\Phi_m(T)=\Phi_h(T)^{\varphi(p^{v_p(m)})}\bmod p\) for \(p\nmid h\). Thus \(\operatorname{ord}_p(A)=h\mid p-1\). A prime factor of \(m\) larger than \(p\) would divide \(h\), which is impossible. Only \(p=P\) can cause this obstruction, and the stated inequality excludes it. The nonsquare result by itself does not determine whether a witnessing prime has valuation one.
+
+## A uniform squarefree-part bound with unrestricted index primes
+
+Let \(Q>1\) be any squarefree integer, \(k=\omega(Q)\), and \(A\ge2\) any integer. With \(\operatorname{sf}(M)=\prod_{v_p(M)\ {\rm odd}}p\), one obtains
+\[
+ \boxed{\displaystyle
+  \operatorname{sf}(A^{Q^2}-1)
+       \ \ge\ \frac{Q^{\,2^k-2}}{\varphi(Q)}
+       \ >\ Q^{\,2^k-3}.}
+\]
+At least \(2^k-1-k\) distinct odd primes in the full difference occur to odd exponent. This bound is uniform in the set of primes of \(Q\).
+
+For every \(b\mid Q,\ b>1\), the index \(d=b^2\) is squarefull. Choose a prime of odd valuation in \(\Phi_d(A)\). If it is imprimitive, the classification above gives
+\[
+                        d=p^2\operatorname{ord}_p(A)
+\]
+with \(p\mid Q,\ p\nmid A\), since the exponent of \(p\) in \(d\) is exactly two. Each \(p\mid Q\) therefore accounts for at most one possible bad index, and its index is at most \(p^2(p-1)\). This includes \(p=2\) with order one for odd \(A\). Delete all indices admitting such an imprimitive divisor. The product of the deleted indices is at most \(\prod_{p\mid Q}p^2(p-1)=Q^2\varphi(Q)\).
+
+Each remaining index \(d>1\) has an odd prime \(p_d\) of exact order \(d\) occurring to odd exponent. These primes are distinct, and \(p_d\ge d+1\). Even if \(p_d\mid Q\), its valuation in \(A^{Q^2}-1\) is still odd: lifting adds \(v_{p_d}(Q^2/d)=v_{p_d}(Q^2)\), an even number since \(p_d\nmid d\). Finally \(\prod_{b\mid Q}b^2=Q^{2^k}\). Multiplying the surviving \(d\)'s proves the bound and counting them gives the assertion about distinct primes.
+
+For \(A=2\), a proof of abc on this sequence would need \(\log\operatorname{rad}(2^{Q^2}-1)\ge(1-o(1))Q^2\log2\). The bound above supplies a log squarefree part of order at least \((2^{\omega(Q)}-3)\log Q\).
+
+For arbitrary \(N>1\) the same argument gives a product bound. Let \(\mathcal D(N)\) be the set containing \(1\) and all squarefull divisors of \(N\). If \(p^a\parallel N\), put \(b_a=\sum_{j=2}^a j=a(a+1)/2-1\). Then
+\[
+ \operatorname{sf}(A^N-1)\ \ge\
+ \frac{\displaystyle\prod_{d\in\mathcal D(N)}d}
+      {\displaystyle\prod_{p^a\parallel N}
+                 p^{b_a}(p-1)^{a-1+(a\bmod2)}}.
+\]
+To see this, first discard any order with an imprimitive divisor \(p\). For fixed \(p\) these orders are among \(p^j\operatorname{ord}_p(A)\), \(2\le j\le a\), with total product at most \(p^{b_a}(p-1)^{a-1}\). Next discard the order \(\operatorname{ord}_p(A)\) for each \(p^a\parallel N,\ p\nmid A\) with \(a\) odd, at an additional cost of at most \(p-1\). At every surviving order \(d>1\), a primitive odd-valuation prime exists and retains odd valuation at \(N\). The numerator can be evaluated by allowing independently the exponents \(0,2,\ldots,a\) at each prime. For \(N=Q^t\), \(Q\) squarefree with \(k\) prime factors, \(t\ge2\), this gives
+\[
+ \operatorname{sf}(A^{Q^t}-1)\ \ge\
+ \frac{Q^{(t^{k-1}-1)b_t}}{\varphi(Q)^{t-1+(t\bmod2)}} .
+\]

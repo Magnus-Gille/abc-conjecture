@@ -201,6 +201,18 @@ infinity on the monic genus-two model. For \(AB\ne0\), \(s=-1\) forces
 \(A^3+B^3=0\), so \(A=-B\). Finally \(AB=0\) and \(A=-B\) give the
 claimed cubes directly.
 
+## The cofactor three and all the lifted orders
+
+The only rational projective slope with \(\Phi_9(A,B)=3z^3\) is \([1:1]\). The corresponding slope at order 18 is \([-1:1]\). For \(B\ne0\), put \(t=(A/B)^3,\ w=z/B^2\). Then \(t^2+t+1=3w^3\), and
+\[
+        (t+2)^3+(1-t)^3=9(t^2+t+1)=(3w)^3 .
+\]
+Fermat's theorem for exponent three forces \(t=-2\) or \(1\). Since \(-2\) is not a rational cube, only \(A=B\) remains, and it works. At \(B=0\), the putative cube would have 3-adic valuation incongruent to that of \(A^6\). Replacing \(B\) by \(-B\) proves the order-18 assertion. Also \(v_3(\Phi_9(A,B))\) and \(v_3(\Phi_{18}(A,B))\) are each zero or one at coprime bases: if \(3\) divides the value, the two inputs \(A^3,\pm B^3\) are equal nonzero residues modulo three, and their sum of three quadratic monomials has valuation one by the odd-prime lifting formula (or reduction modulo nine).
+
+Thus for every \(m=2^i3^j\) with \(j\ge2\), every coprime \(A>B>0\) has a prime of exact order \(m\) whose multiplicity is **not divisible by three**. Indeed \(\Phi_m(A,B)=\Phi_d(A^u,B^u)\) with \(d=9\) or \(18\) and \(u=m/d\). The value is odd and its only possible factor at 3 has exponent one. If all other valuations were multiples of three, it would be a cube or three times a cube, both excluded here. The odd-multiplicity result supplies a possibly different prime at the same order. At any of these orders, \(p>A^{2u}\) also implies \(p^3\nmid\Phi_m(A,B)\), by applying the ninth-order cube exclusion or the strict size bound at order 18 to the powered inputs. [Order substitutions and parity theorem](abc_cyclotomic_odd_primitive_grid.md)
+
+For the entire differences \(A^9-B^9\) and \(A^{18}-B^{18}\), every prime \(p>A^2\) has valuation at most two. Such a prime divides neither index and can divide at most one cyclotomic factor. The factors at orders \(1,2,3,6\) are at most \(3A^2<A^6<p^3\); at orders \(9,18\) use the results above.
+
 ## The rational involution at the seventh index
 
 For \(C\colon z^3=\Phi_7(x)\), the involution
