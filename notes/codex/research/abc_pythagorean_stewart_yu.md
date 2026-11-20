@@ -29,6 +29,8 @@ Coprimality follows from that of $u,v$, the oddness of $m,h$, and $\gcd(m,h)=1$.
 
 At $(u,v)=(2,1)$, the triple is $9+16=25$ and $R=30$. The radical product is $2\cdot6^3\cdot10^3\cdot30^3=16\cdot30^6$.
 
+These incidences explain the exponent in this proof. The five factors correspond to the rational boundary points $0,\infty,1,-1$ of the parameter $u/v$ and the conjugate pair $i,-i$. For a nonconstant rational function over $\mathbb Q$ with its zero, one and pole fibers supported on this boundary, each of the three disjoint fibers must contain a full Galois orbit. Give each of the five orbits formal weight $1/5$. Every such support has weight at least $3/5$, and the table attains that proportion by averaging. An improvement using the same boundary would require more information than which factors contain each prime. This calculation of formal weights makes no assertion about how often any weight distribution occurs at integer inputs.
+
 ## Transfer to any primitive input
 
 Start with $x+(z-x)=z$, $0<x<z$, $\gcd(x,z)=1$, and $R_0=\operatorname{rad}(x(z-x)z)$. The Pythagorean triple $(2xz,z^2-x^2,z^2+x^2)$ has common gcd $g=1$ for opposite parities and $g=2$ if both $x,z$ are odd. Divide each coordinate by $g$ and square. The resulting primitive triple of squares has height $C'\ge z^4/4$ and radical
