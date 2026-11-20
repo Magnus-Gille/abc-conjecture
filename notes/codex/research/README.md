@@ -16,6 +16,8 @@ For $1+(2^n-1)=2^n$, the factor in the radical loss coming from ordinary lifting
 
 An infinite sequence of prime powers $n$ on which the largest prime divisor of $\Phi_n(2)$ stays below $\alpha\varphi(n)^2$ for one fixed $\alpha<(\log2)/2$ would disprove abc. Through $n=10000$, the smallest observed ratio to $\varphi(n)^2$ is $89/100$, certified at $n=11$. [Proof and finite census](abc_mersenne_quadratic_prime_threshold.md) · [Reproduce the census](abc_mersenne_quadratic_prime_scan.py)
 
+For almost every exponent $n$, primes below $n^2(\log n)^a$ contribute $o(n)$ to $\log\operatorname{rad}(A^n-B^n)$, for fixed coprime $A>B\ge1$ and each $0\le a<0.0860713\ldots$. If abc holds, large primes of exact order $n$ occurring once carry asymptotically $\varphi(n)\log A$ in density. A complete census found exactly 20 indices $2\le n\le10{,}000$ with $P^+(2^n-1)\le n^2$, the last at 60. [Proof and counterexample conditions](abc_average_order_radical.md) · [Census](abc_mersenne_all_indices_scan.py) · [Exact average identity](abc_average_order_check.py)
+
 For fixed coprime integers $A>B\ge1$, an infinite sequence with bounded $\omega(n)$ and $P^+(A^n-B^n)=o(n^2)$ would give abc quality tending to infinity. The bound applies to every rate of decay and counts the divisor orders on both sides of $\sqrt X$. [Pointwise estimate](abc_few_index_primes.md)
 
 For Mersenne triples, the prime divisors of the index determine a cutoff for the multiplicative order. Assuming abc, primes above this cutoff that occur just once in $2^n-1$ and have sufficiently high order contribute at least a fixed positive multiple of $n$ in log mass. [Order, prime size and multiplicity](abc_mersenne_coindex_prime_bound.md)
