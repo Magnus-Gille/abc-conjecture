@@ -32,6 +32,8 @@ At the cutoff $n^2$, a complete search over the 489 coprime pairs $1\le B<A\le40
 
 For the four sextic orders $7,9,14,18$, only two of 304,460 rows at $A\le500$ have a squared prime larger than $A^2$. The order-14 example at $(A,B)=(223,181)$ gives abc quality $1.080786\ldots$. At order 12 no prime above $A^2$ can occur twice, yet abc on all twelfth-power triples remains equivalent to the general conjecture. [Proof, examples and transfer](abc_cyclotomic_large_square_twists.md) · [Census](abc_cyclotomic_large_square_scan.py)
 
+At $n=7,9$, for every fixed $\varepsilon>0$ the actual exceptions $A^n>\operatorname{rad}(AB(A^n-B^n))^{1+\varepsilon}$ among $B<A\le H$ have count $O(H^{2-c})$ for some $c>0$. At $\varepsilon=1/20$ the exponents are $16/9+o(1)$ and $12/7+o(1)$, respectively. Through $H=500$ the exact exception counts are 21 and 49. [Counting proof and maximum-quality examples](abc_sextic_power_exception_count.md) · [Verifier](abc_sextic_power_quality_scan.py)
+
 ## The primitive quartic family
 
 The family $a^4+3b^2=4w^4$ has a complete parametrization by the odd multiples of $(-3,9)$ on $y^2=x^3-36x$. The coordinates $a,c,d,w$, where $|b|=cd$, are pairwise coprime. Write $s(m)$ for the product of the primes occurring to odd exponent in $m$. [Parametrization](abc_full_quartic_signature.md)
